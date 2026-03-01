@@ -1,4 +1,4 @@
-set -euo pipefail
+set -eu
 
 TAG="${1:?tag required}"
 mkdir -p releases
