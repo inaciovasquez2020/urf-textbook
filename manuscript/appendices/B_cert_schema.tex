@@ -1,2 +1,14 @@
 \chapter{Certificate Schema}
-This appendix defines the JSON certificate schema and signing requirements for releases.
+
+All claims admit transcript-capacity certificates.
+
+A minimal certificate contains:
+
+\begin{itemize}
+\item Stated invariant
+\item Capacity bound
+\item Dependency graph
+\item Status flag (Proven / Conditional / Structural)
+\end{itemize}
+
+Certificates enforce structural admissibility.

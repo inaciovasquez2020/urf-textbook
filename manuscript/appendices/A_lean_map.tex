@@ -1,2 +1,19 @@
+\appendix
 \chapter{Lean Formalization Map}
-This appendix records a module-to-chapter mapping for future formalization.
+
+This appendix records the correspondence between textbook results
+and formal modules in Lean.
+
+\begin{itemize}
+\item Definitions D1--D6 map to core invariants.
+\item Lemmas L1--L5 correspond to information-capacity proofs.
+\item Theorems T1--T5 correspond to global rigidity reductions.
+\end{itemize}
+
+Each formal file is structured as:
+
+\[
+\texttt{Invariant} \rightarrow \texttt{Capacity Bound} \rightarrow \texttt{Rigidity}
+\]
+
+This ensures proof-level reproducibility.
