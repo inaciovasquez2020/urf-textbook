@@ -21,6 +21,7 @@ jobs:
 
       - name: Build PDF
         run: |
+
       - uses: actions/checkout@v4
 
       - name: Install TeX + latexmk
@@ -41,6 +42,7 @@ jobs:
 
       - name: Build PDF
         run: |
+
           if [ -f Makefile ]; then
             make
           else
@@ -61,6 +63,7 @@ pdflatex main.tex
           name: urf-textbook-pdf
           path: |
             *.pdf
+
       - name: Install TeX Live + latexmk + pandoc
         run: |
           sudo apt-get update
