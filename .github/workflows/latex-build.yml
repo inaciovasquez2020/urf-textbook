@@ -28,6 +28,12 @@ jobs:
             bibtex main || true
             pdflatex main.tex
             pdflatex main.tex
+
+bibtex main || true
+makeindex main || true
+pdflatex main.tex
+pdflatex main.tex
+
           fi
 
       - name: Upload PDF artifact
@@ -36,3 +42,18 @@ jobs:
           name: urf-textbook-pdf
           path: |
             *.pdf
+
+      - name:       - name: Install pandoc
+        run: sudo apt-get install -y pandoc
+
+      - name: Build HTML
+        run: |
+          pandoc main.tex -s -o urf-textbook.html || true
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: urf-textbook-artifacts
+          path: |
+            *.pdf
+            *.html
