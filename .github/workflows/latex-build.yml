@@ -14,32 +14,24 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install TeX Live
+      - name: Install TeX Live + latexmk + pandoc
         run: |
           sudo apt-get update
-          sudo apt-get update
-sudo apt-get install -y texlive-full latexmk
+          sudo apt-get install -y texlive-full latexmk pandoc
 
       - name: Build PDF
         run: |
           if [ -f Makefile ]; then
             make
           else
-            pdflatex main.tex
-bibtex main || true
-makeindex main || true
-pdflatex main.tex
-pdflatex main.tex
+            latexmk -pdf -interaction=nonstopmode -halt-on-error manuscript/main.tex
           fi
-
-      - name:       - name: Install pandoc
-        run: sudo apt-get install -y pandoc
 
       - name: Build HTML
         run: |
-          pandoc main.tex -s -o urf-textbook.html || true
+          pandoc manuscript/main.tex -s -o urf-textbook.html || true
 
-      - name: Upload PDF artifact
+      - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: urf-textbook-artifacts
