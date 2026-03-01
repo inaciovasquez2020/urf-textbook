@@ -11,12 +11,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Install TeX Live
+      - name: Install TeX + latexmk
         run: |
           sudo apt-get update
+          sudo apt-get install -y texlive-full latexmk
+
+      - name: Build PDF
+        run: |
+          latexmk -pdf -interaction=nonstopmode -halt-on-error manuscript/main.tex
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: urf-textbook-pdf
+          path: manuscript/main.pdf
           sudo apt-get install -y texlive-full
 
       - name: Build PDF
@@ -90,4 +100,3 @@ pdflatex main.tex
           path: |
             manuscript/main.pdf
             urf-textbook.html
-
