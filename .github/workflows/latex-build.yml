@@ -25,10 +25,15 @@ jobs:
             make
           else
             pdflatex main.tex
+            bibtex main || true
+            pdflatex main.tex
+            pdflatex main.tex
+
 bibtex main || true
 makeindex main || true
 pdflatex main.tex
 pdflatex main.tex
+
           fi
 
       - name: Upload PDF artifact
