@@ -1,7 +1,14 @@
 \chapter{Refinement and Locality}
-\begin{definition}[Refinement System]
-A refinement system is a state space $\mathcal S$ with maps $R_t:\mathcal S\to\mathcal S$.
-\end{definition}
-\begin{definition}[$\mathrm{FO}^k$-Local Refinement]
-A refinement is $\mathrm{FO}^k$-local if its distinguishing power is bounded by $\mathrm{FO}^k$ types at fixed radius.
-\end{definition}
+
+This chapter formalizes refinement systems under bounded transcript capacity.
+
+We define admissible refinement operators, locality constraints,
+and the normalization principle that reduces polynomial-time
+algorithms to bounded-width refinement sequences.
+
+Core invariant:
+\[
+\text{Information Gain per Step} \le C.
+\]
+
+This chapter bridges definitions to structural lemmas.
