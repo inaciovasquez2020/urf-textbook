@@ -1,4 +1,12 @@
-\documentclass[11pt]{book}
+\documentclass
+\input{tex/draftflag}
+\usepackage{ifthen}
+\usepackage{draftwatermark}
+\ifdraft
+  \SetWatermarkText{DRAFT}
+  \SetWatermarkScale{1}
+\fi
+[11pt]{book}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage[hypertexnames=false]{hyperref}
 \usepackage{amsmath}
