@@ -1,6 +1,18 @@
 \begin{example}[SAT / Chronos]
-\par
-\Deps 
-\Status 
+\textbf{Dependencies: } T1, L2
+\textbf{Status: } Illustrative
 
+Consider random 3-SAT instances on $n$ variables near the satisfiability threshold.
+
+Such instances satisfy $H(X)=\Theta(n)$ in assignment entropy.
+
+Under bounded-width local refinement (e.g. resolution width $w=O(1)$),
+each refinement step reduces entropy by at most $O(1)$.
+
+By T1, total refinement depth satisfies
+\[
+T \ge \Omega(n).
+\]
+
+Thus linear sequential refinement depth is unavoidable under locality constraints.
 \end{example}
