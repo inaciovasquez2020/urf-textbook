@@ -1,8 +1,24 @@
 \chapter{Foundations}
-\section{Definitions}
-\input{manuscript/items/defs/def_D1.tex}
-\input{manuscript/items/defs/def_D2.tex}
-\input{manuscript/items/defs/def_D3.tex}
-\input{manuscript/items/defs/def_D4.tex}
-\input{manuscript/items/defs/def_D5.tex}
-\input{manuscript/items/defs/def_D6.tex}
+
+\section{Transcript-Limited Refinement}
+
+A refinement system is a tuple $(\mathcal S, R_t)$
+where each $R_t$ produces a transcript variable $T_t$.
+
+\section{Capacity Bound}
+
+Each refinement step satisfies:
+\[
+I(X;T_t \mid T_{<t}) \le C_t.
+\]
+
+\section{Non-Amplification Principle}
+
+Information gain cannot exceed cumulative transcript capacity.
+
+\section{Rigidity}
+
+If uncertainty generation exceeds capacity,
+stabilization fails.
+
+This invariant governs all subsequent domains.
