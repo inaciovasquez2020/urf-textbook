@@ -15,6 +15,9 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y texlive-full latexmk
+          sudo apt-get update
+sudo apt-get install -y texlive-full latexmk latexmk
+
 
       - name: Build PDF
         run: |
