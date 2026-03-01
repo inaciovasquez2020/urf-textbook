@@ -1,29 +1,16 @@
-\begin{lemma}[Capacity Ceiling]
-\textbf{Dependencies: } D4, L1
+\begin{lemma}[Additivity Under Conditioning]
+\textbf{Dependencies: } D1, L3
 \textbf{Status: } Proven
-Let a refinement process be transcript-limited with total capacity $C$.
-For any step $t$, the per-step mutual information satisfies
-I
-(
-X
-;
-T
-t
-\mid
-T
-<
-t
-)
-\leq
-C
-.
-I(X;T 
-t
-​	
- \midT 
-<t
-​	
- )\leqC.
-In particular, no refinement step can exceed the global transcript capacity bound.
-\end{lemma}
 
+Let $T_1,\dots,T_T$ be sequential transcript variables.
+Then
+\[
+I(X;T_1,\dots,T_T)
+= \sum_{t=1}^{T} I(X;T_t \mid T_1,\dots,T_{t-1}).
+\]
+
+Each conditional term is capacity-bounded,
+so global information accumulation remains limited.
+
+Thus refinement depth reflects cumulative bounded information work.
+\end{lemma}
