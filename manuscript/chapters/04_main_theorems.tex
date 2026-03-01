@@ -1,13 +1,40 @@
 \chapter{Main Theorems}
 
-We derive the global rigidity theorems:
+\section{Entropy Non-Amplification}
 
-\begin{itemize}
-\item Entropy Non-Amplification
-\item Depth Lower Bounds
-\item Operational Rigidity
-\item Spectral Floor Dichotomy
-\item Capacity-Dominated Stabilization
-\end{itemize}
+\begin{theorem}
+Let $(R_1,\dots,R_T)$ be refinement operators with capacity bounds $C_t$.
+Then
+\[
+I(X;T_1,\dots,T_T) \le \sum_{t=1}^T C_t.
+\]
+\end{theorem}
 
-Each theorem reduces global behavior to local bounded invariants.
+\begin{proof}
+Apply chain rule for mutual information and
+capacity bound per step.
+\end{proof}
+
+\section{Depth Lower Bound}
+
+\begin{theorem}
+If total entropy demand $H(X)=\Theta(n)$
+and per-step capacity is $O(1)$,
+then refinement depth is $\Omega(n)$.
+\end{theorem}
+
+\begin{proof}
+Total entropy reduction per step is bounded,
+so linear depth is required.
+\end{proof}
+
+\section{Operational Rigidity}
+
+\begin{theorem}
+If uncertainty generation rate exceeds admissible capacity,
+stabilization is impossible.
+\end{theorem}
+
+\begin{proof}
+Direct consequence of non-amplification.
+\end{proof}
