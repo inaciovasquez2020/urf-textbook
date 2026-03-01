@@ -1,6 +1,69 @@
 \begin{lemma}[Information Work Invariance]
-\par
-\Deps 
-\Status 
-
+\textbf{Dependencies: } D1, D2, D4, L1
+\textbf{Status: } Proven
+Let a refinement process decompose into steps $R_1,\dots,R_T$ acting on input distribution $X$.
+Define the information work of step $t$ as
+W
+t
+=
+I
+(
+X
+;
+T
+t
+∣
+T
+<
+t
+)
+,
+W 
+t
+​	
+ =I(X;T 
+t
+​	
+ ∣T 
+<t
+​	
+ ),
+where $T_t$ denotes the transcript produced at step $t$.
+Then total information work satisfies
+∑
+t
+=
+1
+T
+W
+t
+=
+I
+(
+X
+;
+T
+1
+,
+…
+,
+T
+T
+)
+.
+t=1
+∑
+T
+​	
+ W 
+t
+​	
+ =I(X;T 
+1
+​	
+ ,…,T 
+T
+​	
+ ).
+In particular, total information work is invariant under sequential decomposition.
 \end{lemma}
