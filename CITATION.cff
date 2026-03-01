@@ -5,7 +5,7 @@ type: book
 authors:
   - family-names: "Vasquez"
     given-names: "Inacio"
-version: "v0.1.0-dev"
+version: "v1.0"
 date-released: "2026-03-01"
 license: "MIT"
 repository-code: "https://github.com/inaciovasquez2020/urf-textbook"
@@ -15,3 +15,5 @@ keywords:
   - entropy
   - transcript capacity
   - spectral gap
+
+doi: "10.5281/zenodo.18826977"
