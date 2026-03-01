@@ -1,69 +1,17 @@
-\begin{lemma}[Information Work Invariance]
-\textbf{Dependencies: } D1, D2, D4, L1
+\begin{lemma}[Sequential Information Bound]
+\textbf{Dependencies: } D1, L1
 \textbf{Status: } Proven
-Let a refinement process decompose into steps $R_1,\dots,R_T$ acting on input distribution $X$.
-Define the information work of step $t$ as
-W
-t
-=
-I
-(
-X
-;
-T
-t
-\mid
-T
-<
-t
-)
-,
-W 
-t
-​	
- =I(X;T 
-t
-​	
- \midT 
-<t
-​	
- ),
-where $T_t$ denotes the transcript produced at step $t$.
-Then total information work satisfies
-∑
-t
-=
-1
-T
-W
-t
-=
-I
-(
-X
-;
-T
-1
-,
-…
-,
-T
-T
-)
-.
-t=1
-∑
-T
-​	
- W 
-t
-​	
- =I(X;T 
-1
-​	
- ,…,T 
-T
-​	
- ).
-In particular, total information work is invariant under sequential decomposition.
+
+Let $(R_1,\dots,R_T)$ be a refinement sequence with transcript variables
+$T_1,\dots,T_T$.
+
+Then total information satisfies
+\[
+I(X;T_1,\dots,T_T)
+= \sum_{t=1}^T I(X;T_t \mid T_1,\dots,T_{t-1})
+\leq \sum_{t=1}^T C_t,
+\]
+where $C_t$ denotes the capacity bound of step $t$.
+
+Thus information accumulation is additive and capacity-limited.
 \end{lemma}
