@@ -1,7 +1,13 @@
 \documentclass
 \input{tex/draftflag}
+\input{tex/releaseflag}
 \usepackage{ifthen}
 \usepackage{draftwatermark}
+\ifrelease
+  \draftfalse
+\else
+  \drafttrue
+\fi
 \ifdraft
   \SetWatermarkText{DRAFT}
   \SetWatermarkScale{1}
