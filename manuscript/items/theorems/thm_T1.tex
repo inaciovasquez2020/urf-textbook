@@ -1,29 +1,18 @@
 \begin{theorem}[EntropyDepth Lower Bound]
 \textbf{Dependencies: } D1, D5, L1, L3, L5
 \textbf{Status: } Proven
-Let $X$ be an input distribution with entropy $H(X)=\Theta(n)$.
-Let a refinement system be transcript-limited with capacity $C = O(1)$ per step.
-Then any refinement sequence computing a complete certificate of $X$ must satisfy
-T
-≥
-Ω
-(
-n
-)
-.
-T≥Ω(n).
-In particular, EntropyDepth satisfies
-E
-D
-(
-X
-)
-≥
-Ω
-(
-n
-)
-.
-ED(X)≥Ω(n).
-\end{theorem}
 
+Let $X$ be an input distribution with entropy $H(X)=\Theta(n)$.
+
+Let a refinement system be transcript-limited with capacity $C = O(1)$ per step.
+
+Then any refinement sequence computing a complete certificate of $X$ must satisfy
+\[
+T \ge \Omega(n).
+\]
+
+In particular,
+\[
+\mathrm{ED}(X) \ge \Omega(n).
+\]
+\end{theorem}
