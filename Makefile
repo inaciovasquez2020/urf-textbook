@@ -1,12 +1,14 @@
-TAG ?= dev
+ROOT=manuscript/main.tex
+PDF=urf-textbook.pdf
 
-pdf:
-	mkdir -p releases releases/chapters releases/appendices
-	pdflatex -interaction=nonstopmode -halt-on-error -output-directory=releases manuscript/main.tex
-	pdflatex -interaction=nonstopmode -halt-on-error -output-directory=releases manuscript/main.tex
+all:
+	latexmk -pdf -interaction=nonstopmode -halt-on-error $(ROOT)
+	mv manuscript/main.pdf $(PDF)
 
 clean:
-	rm -rf releases
+	latexmk -C
+	rm -f $(PDF)
 
 release:
-	./scripts/release_bundle.sh $(TAG)
+	latexmk -pdf -interaction=nonstopmode -halt-on-error $(ROOT)
+	mv manuscript/main.pdf urf-textbook-$(VERSION).pdf
