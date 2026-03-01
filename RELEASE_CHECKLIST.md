@@ -9,7 +9,8 @@
 
 ## Release
 - [ ] Merge to main
-- [ ] Tag version (git tag vX.Y.Z)
+- [ ] Tag version (example: git tag v1.1.0)
+- [ ] Push tags (git push origin v1.1.0)
 - [ ] Push tags (git push --tags)
 - [ ] Upload PDF to GitHub Release
 - [ ] Update DOI metadata if applicable
