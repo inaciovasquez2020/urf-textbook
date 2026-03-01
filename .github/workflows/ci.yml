@@ -1,0 +1,16 @@
+name: ci
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: xu-cheng/latex-action@v3
+        with:
+          root_file: manuscript/main.tex
+          working_directory: .
+      - run: make release TAG=ci
