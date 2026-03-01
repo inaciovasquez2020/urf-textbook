@@ -24,3 +24,4 @@ See:
 - `tex/chapters/structure_overview.tex`
 - `tex/appendices/dependency_graph.tex`
 - `ROADMAP.md` for planned extensions
+Add Zenodo DOI badge once minted.
