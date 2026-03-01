@@ -3,7 +3,7 @@
   "files": [
     {
       "path": "releases/URF_Textbook_urf-textbook-v1.0.pdf",
-      "sha256": "ac9fe3e0c8ac9e8a9ed535154927d9648e836abe8b46b75e54a5413d6e20c14d"
+      "sha256": "4b5c697024f482ad151edff15c467cd93fe0e9a4a5e583a852585c4be4a370ae"
     },
     {
       "path": "releases/main.aux",
@@ -11,7 +11,7 @@
     },
     {
       "path": "releases/main.log",
-      "sha256": "2afaf007e60dbad9116575bd20fea9a3ee0f0eb97dbea5b8d03e3e3c59fc6931"
+      "sha256": "1f7e2b983ab33ddb09a112a0b0d9009c0015a4049f0f3d02da6998940cfb9f91"
     },
     {
       "path": "releases/main.out",
