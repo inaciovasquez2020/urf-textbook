@@ -1,0 +1,12 @@
+name: scholarly
+on:
+  push:
+    branches: [ "scholarly-v1" ]
+  pull_request:
+    branches: [ "scholarly-v1" ]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/check_placeholders.py
