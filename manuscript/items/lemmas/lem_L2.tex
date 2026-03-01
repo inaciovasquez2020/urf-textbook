@@ -1,27 +1,17 @@
-\begin{lemma}[Width--Entropy Bridge]
-\textbf{Dependencies: } D1, D3, D5
+\begin{lemma}[Capacity Bound]
+\textbf{Dependencies: } D1, D2
 \textbf{Status: } Proven
-Let a refinement step reduce entropy by $\delta > 0$ under $\mathrm{FO}^k$-local reasoning of width $w$.
-Then there exists a constant $c_k > 0$ such that
-w
-\geq
-c
-k
-log
-⁡
- ⁣
-(
-1
-δ
-)
-.
-w\geqc 
-k
-​	
- log( 
-δ
-1
-​	
- ).
-In particular, bounded-width refinement cannot induce large entropy drops.
+
+Let a refinement step produce transcript $T$ with capacity bound $C$.
+Then the mutual information satisfies
+\[
+I(X;T) \leq C.
+\]
+
+Equivalently, any admissible refinement must satisfy
+\[
+\mathrm{EntropyReduction} \leq C.
+\]
+
+In particular, no single refinement step can exceed its transcript capacity.
 \end{lemma}
