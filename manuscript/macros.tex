@@ -4,3 +4,17 @@
 \newcommand{\URFex}[1]{\textbf{Example #1.}}
 \newcommand{\Deps}{\textbf{Dependencies: }}
 \newcommand{\Status}{\textbf{Status: }}
+
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
