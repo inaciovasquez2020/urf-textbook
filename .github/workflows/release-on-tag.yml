@@ -3,30 +3,25 @@ name: Release on Tag
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
-  build-release:
+  build-and-release:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install TeX + latexmk
+      - name: Install TeX Live + latexmk
         run: |
           sudo apt-get update
           sudo apt-get install -y texlive-full latexmk
-          sudo apt-get update
-sudo apt-get install -y texlive-full latexmk latexmk
-
 
       - name: Build PDF
         run: |
           latexmk -pdf -interaction=nonstopmode -halt-on-error manuscript/main.tex
-          mv manuscript/main.pdf urf-textbook-${GITHUB_REF_NAME}.pdf
 
-      - name: Create Release
-        uses: softprops/action-gh-release@v2
+      - name: Upload Release Asset
+        uses: softprops/action-gh-release@v1
         with:
-          files: urf-textbook-${{ github.ref_name }}.pdf
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          files: manuscript/main.pdf
