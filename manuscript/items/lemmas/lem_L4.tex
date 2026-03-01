@@ -1,49 +1,14 @@
-\begin{lemma}[Spectral Compression]
-\textbf{Dependencies: } D6
-\textbf{Status: } Proven
-Let $L$ be a self-adjoint operator on Hilbert space $\mathcal H$ and let $V \subset \mathcal H$ be a finite-dimensional defect subspace.
-If
-\lambda
-1
-(
-L
-\mid
-V
-⊥
-)
->
-0
-,
-\lambda 
-1
-​	
- (L\mid 
-V 
-⊥
- 
-​	
- )>0,
-then for all $\psi \in V^\perp$,
-⟨
-ψ
-,
-L
-ψ
-⟩
-\geq
-\lambda
-1
-∥
-ψ
-∥
-2
-.
-⟨ψ,Lψ⟩\geq\lambda 
-1
-​	
- ∥ψ∥ 
-2
- .
-In particular, all non-defect modes are uniformly coercive.
-\end{lemma}
+\begin{lemma}[Spectral Floor]
+\textbf{Dependencies: } D1
+\textbf{Status: } Structural
 
+Let $\lambda_1$ denote the first nonzero eigenvalue of an admissible operator $L$.
+If a coercive lower bound exists,
+\[
+\lambda_1 \ge 0,
+\]
+then no persistent non-decaying mode can survive.
+
+In particular, violation of this bound would imply a forbidden
+capacity-escaping fluctuation.
+\end{lemma}
