@@ -11,6 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install TeX Live
+        run: |
+          sudo apt-get update
       - uses: actions/checkout@v4
 
       - name: Install TeX + latexmk
@@ -35,6 +41,10 @@ jobs:
             make
           else
             pdflatex main.tex
+            bibtex main || true
+            pdflatex main.tex
+            pdflatex main.tex
+
 bibtex main || true
 makeindex main || true
 pdflatex main.tex
@@ -74,7 +84,6 @@ pdflatex main.tex
 
           fi
 
-
           fi
 
       - name: Upload PDF artifact
@@ -100,3 +109,4 @@ pdflatex main.tex
           path: |
             manuscript/main.pdf
             urf-textbook.html
+
