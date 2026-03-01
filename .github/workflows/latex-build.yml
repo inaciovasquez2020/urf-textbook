@@ -31,9 +31,17 @@ pdflatex main.tex
 pdflatex main.tex
           fi
 
+      - name:       - name: Install pandoc
+        run: sudo apt-get install -y pandoc
+
+      - name: Build HTML
+        run: |
+          pandoc main.tex -s -o urf-textbook.html || true
+
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
         with:
-          name: urf-textbook-pdf
+          name: urf-textbook-artifacts
           path: |
             *.pdf
+            *.html
