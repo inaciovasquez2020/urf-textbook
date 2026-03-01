@@ -1,0 +1,25 @@
+{
+  "root": "/Users/inaciof.vasquez/github-audit/urf-textbook",
+  "files": [
+    {
+      "path": "releases/URF_Textbook_urf-textbook-v1.0.pdf",
+      "sha256": "ac9fe3e0c8ac9e8a9ed535154927d9648e836abe8b46b75e54a5413d6e20c14d"
+    },
+    {
+      "path": "releases/main.aux",
+      "sha256": "b4c3f2ba88489f23b92eed91d9d95bb7dcdbf46e64fe808e322303a43205db60"
+    },
+    {
+      "path": "releases/main.log",
+      "sha256": "2afaf007e60dbad9116575bd20fea9a3ee0f0eb97dbea5b8d03e3e3c59fc6931"
+    },
+    {
+      "path": "releases/main.out",
+      "sha256": "c449a68b75a4b3eaf65bb7f06f4c4bf45346487a5580fdaf6173487f69cb947d"
+    },
+    {
+      "path": "releases/main.toc",
+      "sha256": "a3c072cc2b350730e4feb3a90d258633f2c21f040552e04a629782d641bb8a22"
+    }
+  ]
+}

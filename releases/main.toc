@@ -1,0 +1,13 @@
+\contentsline {chapter}{\numberline {1}Foundations}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Capacity--Entropy Geometry}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Refinement and Locality}{3}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Core Lemmas}{5}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Main Theorems}{7}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Example: SAT / Chronos}{9}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Example: Yang--Mills}{11}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Example: Riemann}{13}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Example: Navier--Stokes}{15}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Example: Exchange Force}{17}{chapter.9}%
+\contentsline {chapter}{\numberline {A}Lean Formalization Map}{19}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Certificate Schema}{21}{appendix.B}%
+\contentsline {chapter}{\numberline {C}Normalization Taxonomy}{23}{appendix.C}%
