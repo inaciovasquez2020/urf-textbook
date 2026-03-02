@@ -1,0 +1,126 @@
+\chapter{EntropyDepth and The Wall}
+
+\section{EntropyDepth}
+
+\begin{definition}[EntropyDepth]
+Let $(X,\mathcal{R})$ be a refinement system and let $x_0 \in X$.  
+The EntropyDepth of $x_0$ is
+\[
+\mathrm{ED}(x_0)
+=
+\inf \left\{
+t \ge 0 :
+\exists R_1,\dots,R_t \in \mathcal{R}
+\text{ such that }
+\Phi(x_t)=0
+\right\},
+\]
+where
+\[
+x_{i+1} = R_{i+1}(x_i).
+\]
+If no such finite $t$ exists, we set $\mathrm{ED}(x_0)=\infty$.
+\end{definition}
+
+\section{Basic Lower Bound}
+
+\begin{theorem}[Entropy–Capacity Depth Bound]
+Let $C$ be the capacity of the system.  
+Then for any initial state $x_0$,
+\[
+\mathrm{ED}(x_0)
+\;\ge\;
+\frac{H(x_0)}{C}.
+\]
+\end{theorem}
+
+\begin{proof}
+Each admissible refinement step extracts at most $C$ information.  
+Eliminating total entropy $H(x_0)$ therefore requires at least $H(x_0)/C$ steps.
+\end{proof}
+
+\section{Non-Amplification and Linear Scaling}
+
+\begin{theorem}[Linear EntropyDepth Scaling]
+Suppose the system is FO$^k$-admissible and has uniform bounded capacity $C$.  
+If $H(x_n) = \Theta(n)$ for a family of instances $(x_n)$, then
+\[
+\mathrm{ED}(x_n) = \Omega(n).
+\]
+\end{theorem}
+
+\begin{proof}
+By the entropy–capacity bound,
+\[
+\mathrm{ED}(x_n) \ge \frac{H(x_n)}{C}.
+\]
+If $H(x_n)$ grows linearly in $n$ and $C$ is constant, the lower bound is linear.
+\end{proof}
+
+\section{The Refinement Wall}
+
+\begin{definition}[FO$^k$ Refinement Wall]
+Let $(x_n)$ be a family of bounded-degree, FO$^k$-admissible instances with entropy $H(x_n)=\Theta(n)$.  
+The system exhibits a Refinement Wall if
+\[
+\mathrm{ED}(x_n) = \Theta(n).
+\]
+\end{definition}
+
+\begin{theorem}[Wall Theorem]
+In any FO$^k$-admissible system with bounded capacity and linear entropy growth,
+\[
+\mathrm{ED}(x_n) \ge c n
+\]
+for some constant $c>0$.
+\end{theorem}
+
+\begin{proof}
+This follows immediately from the linear entropy scaling and the capacity bound.
+\end{proof}
+
+\section{Non-Existence of Superlinear Amplification}
+
+\begin{theorem}[No Superlinear Collapse]
+Under FO$^k$-admissibility and bounded capacity,
+\[
+\mathrm{ED}(x_n) = o(n)
+\]
+is impossible if $H(x_n)=\Theta(n)$.
+\end{theorem}
+
+\begin{proof}
+If $\mathrm{ED}(x_n)=o(n)$, then total extracted information would be $o(n)\cdot C$, contradicting $H(x_n)=\Theta(n)$.
+\end{proof}
+
+\section{Infinite-Volume Limit}
+
+\begin{theorem}
+Let $(x_n)$ be an increasing sequence of instances with
+\[
+H(x_n) \to \infty
+\]
+and uniform capacity bound $C$.  
+Then
+\[
+\lim_{n\to\infty} \mathrm{ED}(x_n) = \infty.
+\]
+\end{theorem}
+
+\begin{proof}
+From the entropy–capacity bound,
+\[
+\mathrm{ED}(x_n) \ge \frac{H(x_n)}{C}.
+\]
+If $H(x_n)\to\infty$, the lower bound diverges.
+\end{proof}
+
+\section{Interpretation}
+
+The Refinement Wall states that bounded-local refinement systems cannot compress linear entropy in sublinear depth.  
+Escaping the wall requires violating at least one of:
+\begin{itemize}
+\item Locality (FO$^k$ bound),
+\item Bounded capacity,
+\item Admissible refinement structure.
+\end{itemize}
