@@ -11,4 +11,4 @@ clean:
 
 release:
 	latexmk -pdf -interaction=nonstopmode -halt-on-error $(ROOT)
-	mv manuscript/main.pdf urf-textbook-$(VERSION).pdf
+        mv manuscript/main.pdf urf-textbook-$(TAG).pdf
