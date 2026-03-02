@@ -1,0 +1,94 @@
+\chapter{Constants and Parameter Tracking}
+
+\section*{Global Parameters}
+
+Throughout the text we fix:
+
+\begin{itemize}
+\item $n$ — instance size.
+\item $C$ — per-step capacity bound.
+\item $c$ — entropy growth constant.
+\item $\lambda$ — spectral gap constant.
+\item $r$ — locality radius.
+\item $\Delta$ — bounded-degree constant.
+\end{itemize}
+
+\section{Entropy Scaling}
+
+If
+\[
+H(x_n) \ge c n,
+\]
+then the EntropyDepth satisfies
+\[
+\mathrm{ED}(x_n)
+\ge
+\frac{c}{C} n.
+\]
+
+\subsection*{Constant Dependence}
+
+Depth constant:
+\[
+K_{\mathrm{depth}} = \frac{c}{C}.
+\]
+
+\section{Spectral Coercivity}
+
+For self-adjoint $A$ with spectral gap $\lambda>0$,
+\[
+\langle Ax,x\rangle \ge \lambda \|x\|^2.
+\]
+
+Coercivity constant:
+\[
+K_{\mathrm{coercive}} = \lambda.
+\]
+
+\section{Degree-Constrained CNF}
+
+For bounded-degree $\Delta$:
+
+\[
+c = c(\Delta,k)
+\]
+
+depends only on degree and locality parameter $k$.
+
+\section{Capacity Escape Threshold}
+
+If capacity grows with $n$:
+
+\[
+C_n \sim n^\alpha,
+\]
+
+then linear wall breaks when
+
+\[
+\alpha \ge 1.
+\]
+
+\section{Locality Escape Threshold}
+
+If locality radius grows as
+
+\[
+r_n \sim \log n,
+\]
+
+entropy compression may become super-constant per step.
+
+\section{Summary Table}
+
+\[
+\begin{array}{c|c}
+\text{Quantity} & \text{Controls} \\
+\hline
+c & \text{Entropy growth rate} \\
+C & \text{Per-step extraction} \\
+\lambda & \text{Spectral rigidity} \\
+\Delta & \text{Combinatorial sparsity} \\
+r & \text{Local visibility radius}
+\end{array}
+\]
