@@ -1,28 +1,31 @@
 \chapter{Locality and Refinement}
 
-\section{Refinement Systems}
+\section*{Standing Assumptions}
 
-\begin{definition}[Refinement System]
-A refinement system is a pair $(X,\mathcal{R})$ where
+Throughout this chapter:
+
 \begin{itemize}
-\item $X$ is a state space,
-\item $\mathcal{R}$ is a class of admissible refinement maps $R : X \to X$.
+\item $X = \prod_{i\in I} X_i$ is a finite product space.
+\item $I$ is finite with $|I| = n$.
+\item $\mathcal{R}$ is a set of admissible refinements.
+\item Each refinement extracts at most $C>0$ bits of information.
+\item Locality radius is bounded by $k \in \mathbb{N}$.
 \end{itemize}
+
+\section{Local Refinement}
+
+\begin{definition}[k-Local Refinement]
+A refinement $R \in \mathcal{R}$ is $k$-local if for every $i \in I$,
+\[
+(Rx)_i = f_i\bigl(x|_{N_k(i)}\bigr),
+\]
+where $N_k(i) \subset I$ is a neighborhood of radius at most $k$.
 \end{definition}
 
-\begin{definition}[Admissible Refinement]
-A refinement $R \in \mathcal{R}$ is admissible if it preserves system constraints and respects bounded information capacity.
-\end{definition}
+\section{FO$^k$-Admissibility}
 
-\section{Locality}
-
-\begin{definition}[Local Operator]
-Let $X = \prod_{i\in I} X_i$.  
-A refinement $R$ is $k$-local if for every coordinate $i$, the updated value $(R x)_i$ depends only on $\{x_j : j \in N_k(i)\}$, where $N_k(i)$ is a neighborhood of radius $k$.
-\end{definition}
-
-\begin{definition}[FO$^k$-Admissibility]
-A refinement system is FO$^k$-admissible if every refinement is definable using formulas of quantifier depth at most $k$ over bounded neighborhoods.
+\begin{definition}[FO$^k$-Admissible System]
+A refinement system is FO$^k$-admissible if every refinement is definable by a first-order formula of quantifier depth at most $k$ over bounded neighborhoods.
 \end{definition}
 
 \section{Transcript Volume}
@@ -32,73 +35,61 @@ A transcript of length $t$ is a sequence
 \[
 x_0 \xrightarrow{R_1} x_1 \xrightarrow{R_2} \cdots \xrightarrow{R_t} x_t
 \]
-with $R_i \in \mathcal{R}$.
+with each $R_i \in \mathcal{R}$.
 \end{definition}
 
-\begin{definition}[Transcript Volume]
-The transcript volume up to time $t$ is the cumulative information extracted:
+\begin{definition}[Transcript Information]
+The total information extracted by a transcript of length $t$ is
 \[
-V(t) = \sum_{i=1}^t I_{R_i},
+V(t) = \sum_{i=1}^t I(R_i).
 \]
-where $I_{R_i}$ denotes information obtained at step $i$.
 \end{definition}
 
-\section{Non-Amplification Principle}
+\section{Capacity Bound}
 
-\begin{theorem}[Entropy Non-Amplification]
-For any admissible refinement sequence,
+\begin{lemma}
+If the system has per-step capacity bound $C$, then
 \[
-V(t) \le C,
+V(t) \le tC.
 \]
-where $C$ is the system capacity.
-\end{theorem}
+\end{lemma}
 
 \begin{proof}
-Each refinement step extracts information bounded by the admissible capacity. Summing over finitely many steps cannot exceed $C$.
+Immediate from $I(R_i) \le C$ for each $i$.
 \end{proof}
 
-\section{Sequential vs. Simultaneous Reconstruction}
-
-\begin{definition}[Sequential Reconstruction]
-A system admits sequential reconstruction if the target state can be recovered via a finite refinement sequence.
-\end{definition}
-
-\begin{definition}[Simultaneous Certificate]
-A certificate is simultaneous if correctness can be verified from a single global state without sequential accumulation.
-\end{definition}
-
-\begin{theorem}[No Sequential Reconstruction]
-If $\Phi(x) > 0$, then no finite admissible refinement sequence reconstructs a zero-defect state.
-\end{theorem}
-
-\begin{proof}
-From the monotonicity of $\Phi$ and the non-amplification bound, sequential accumulation cannot overcome the capacity constraint.
-\end{proof}
-
-\section{Locality Depth}
-
-\begin{definition}[Refinement Depth]
-The refinement depth of a state is the minimal $t$ such that a target property is certified after $t$ admissible refinements.
-\end{definition}
-
-\begin{theorem}[Depth Lower Bound]
-In an FO$^k$-admissible system with bounded capacity $C$,
-\[
-\text{depth} \ge \frac{H(x)}{C}.
-\]
-\end{theorem}
-
-\begin{proof}
-Each refinement contributes at most $C$ information. Recovering entropy $H(x)$ therefore requires at least $H(x)/C$ steps.
-\end{proof}
-
-\section{Infinite Systems}
+\section{Depth Lower Bound Under Locality}
 
 \begin{theorem}
-Let $(X_n,\mathcal{R}_n)$ be an increasing family of FO$^k$-admissible systems with uniform capacity bound $C$.  
-If $H(x_n) \to \infty$, then refinement depth diverges.
+Let $x_0 \in X$ with entropy $H(x_0)$.  
+If the system is FO$^k$-admissible and has capacity bound $C$, then
+\[
+\mathrm{ED}(x_0)
+\ge
+\left\lceil \frac{H(x_0)}{C} \right\rceil.
+\]
 \end{theorem}
 
 \begin{proof}
-The lower bound scales linearly with entropy. If entropy diverges and capacity remains bounded, depth diverges.
+By Chapter~1, entropy decreases by at most $C$ per refinement step.  
+Locality prevents global collapse in a single step.  
+Therefore at least $H(x_0)/C$ steps are required.
+\end{proof}
+
+\section{Linear Scaling Regime}
+
+\begin{theorem}
+Let $(x_n)$ be instances with $|I|=n$ and entropy
+\[
+H(x_n) \ge c n
+\]
+for some $c>0$.  
+If locality radius and capacity bound are independent of $n$, then
+\[
+\mathrm{ED}(x_n) \ge \frac{c}{C} n.
+\]
+\end{theorem}
+
+\begin{proof}
+Apply the depth lower bound with linear entropy growth.
 \end{proof}
