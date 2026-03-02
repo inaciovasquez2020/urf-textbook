@@ -1,16 +1,20 @@
-name: Release on Tag
+name: release-on-tag
 
 on:
   push:
     tags:
-      - '*'
+      - 'v*'
+
+permissions:
+  contents: write
 
 jobs:
-  release:
+  build-and-publish:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Install TeX Live
         run: |
@@ -18,15 +22,15 @@ jobs:
           sudo apt-get install -y \
             texlive-full \
             latexmk \
-            biber
+            makeindex
 
-      - name: Build PDFs
+      - name: Build PDF
         run: |
-          latexmk -pdf main.tex
-          latexmk -pdf journal/urf_core.tex
+          latexmk -pdf -interaction=nonstopmode main.tex
 
-      - name: Create Release
+      - name: Upload release artifact
         uses: softprops/action-gh-release@v2
         with:
-     files: |
-        urf-textbook-${{ github.ref_name }}.pdf
+          files: main.pdf
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
