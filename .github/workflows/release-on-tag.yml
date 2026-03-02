@@ -1,33 +1,26 @@
 name: release-on-tag
-
 on:
-  push:
-    tags:
-      - 'v*'
-
+push:
+tags:
+- 'v*'
 permissions:
-  contents: write
-
+contents: write
 jobs:
-  build-and-publish:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+release:
+runs-on: ubuntu-latest
+steps:
+  - uses: actions/checkout@v4
 
   - name: Install TeX Live
     run: |
       sudo apt-get update
       sudo apt-get install -y texlive-full latexmk
 
-      - name: Build PDF
-        run: |
-          latexmk -pdf -interaction=nonstopmode main.tex
+  - name: Build PDF
+    run: |
+      latexmk -pdf -interaction=nonstopmode main.tex
 
-      - name: Upload release artifact
-        uses: softprops/action-gh-release@v2
-        with:
-          files: main.pdf
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  - name: Create GitHub Release
+    uses: softprops/action-gh-release@v2
+    with:
+      files: main.pdf
