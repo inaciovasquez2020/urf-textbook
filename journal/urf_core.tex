@@ -7,9 +7,9 @@
 
 \hypersetup{
   colorlinks=true,
-  linkcolor=blue,
-  citecolor=blue,
-  urlcolor=blue
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=black
 }
 
 \newtheorem{theorem}{Theorem}
@@ -19,106 +19,75 @@
 
 \newcommand{\ED}{\mathrm{ED}}
 
-\title{The Unified Rigidity Framework: Capacity, Locality, and Linear Refinement Depth}
+\title{Linear Refinement Depth Under Bounded Information Extraction}
 \author{Inacio Vasquez}
-\date{\today}
+\date{}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-We isolate a structural mechanism forcing linear refinement depth under bounded information extraction and locality.
-The result is presented in a form usable across combinatorial refinement systems and spectral/coercive settings.
+We establish a structural lower bound on refinement depth in systems where per-step information extraction is uniformly bounded. The result applies to combinatorial refinement processes and spectral/coercive instantiations. When entropy scales linearly in instance size, refinement depth is necessarily linear.
 \end{abstract}
 
-\section{System Model}
+\section{Refinement Model}
 
 \begin{definition}[Refinement System]
-A refinement system is a pair $(X,\mathcal{R})$ where $X$ is a state space and $\mathcal{R}$ is a class of admissible refinements $R:X\to X$.
-A transcript of length $t$ is
+A refinement system is a pair $(X,\mathcal{R})$ where each refinement $R\in\mathcal{R}$ maps $X$ to $X$. A transcript of length $t$ is
 \[
-x_0 \xrightarrow{R_1} x_1 \xrightarrow{R_2} \cdots \xrightarrow{R_t} x_t
-\quad\text{with } x_{i+1}=R_{i+1}(x_i).
+x_0 \to x_1 \to \cdots \to x_t,
+\quad x_{i+1}=R_{i+1}(x_i).
 \]
 \end{definition}
 
-\begin{definition}[Entropy and Capacity Bound]
-Let $H:X\to\mathbb{R}_{\ge 0}$ be an entropy functional.
-Fix a per-step capacity bound $C>0$ such that for every admissible refinement step, the entropy drop satisfies
+\begin{definition}[Capacity Bound]
+Let $H:X\to\mathbb{R}_{\ge 0}$ be an entropy functional.  
+Assume there exists $C>0$ such that
 \[
 H(x_{i+1}) \ge H(x_i) - C.
 \]
 \end{definition}
 
 \begin{definition}[EntropyDepth]
-Define the EntropyDepth of $x$ by
 \[
-\ED(x)=\inf\{t\in\mathbb{N}: H(x_t)=0\},
+\ED(x) = \inf \{t \in \mathbb{N} : H(x_t)=0\}.
 \]
-with $(x_t)$ ranging over admissible transcripts starting at $x_0=x$.
 \end{definition}
 
-\section{Main Depth Bound}
+\section{Main Theorem}
 
-\begin{theorem}[EntropyDepth Bound]\label{thm:ed-bound}
+\begin{theorem}[EntropyDepth Bound]
 For any $x\in X$,
 \[
-\ED(x)\ge \left\lceil \frac{H(x)}{C}\right\rceil.
+\ED(x) \ge \left\lceil \frac{H(x)}{C} \right\rceil.
 \]
 \end{theorem}
 
 \begin{proof}
-Iterating the per-step bound yields
+Iterating the capacity bound yields
 \[
 H(x_t)\ge H(x)-tC.
 \]
-If $H(x_t)=0$, then $0\ge H(x)-tC$, hence $t\ge H(x)/C$.
+If $H(x_t)=0$, then $t\ge H(x)/C$.
 \end{proof}
 
-\begin{theorem}[Linear Refinement Wall]\label{thm:linear-wall}
-If $H(x_n)\ge c n$ for some $c>0$ and the capacity bound $C$ is independent of $n$, then
+\begin{theorem}[Linear Refinement Wall]
+If $H(x_n)\ge c n$ and $C$ is independent of $n$, then
 \[
-\ED(x_n)\ge \frac{c}{C}\,n.
+\ED(x_n)\ge \frac{c}{C}n.
 \]
 \end{theorem}
 
 \begin{proof}
-Apply Theorem~\ref{thm:ed-bound}.
+Immediate from the previous theorem.
 \end{proof}
 
-\section{Locality and Admissibility}
+\section{Spectral Instantiation}
 
-\begin{definition}[Local Admissibility (Schema)]
-A refinement family is \emph{local} if each update rule depends only on bounded-radius neighborhoods (or bounded logical depth FO$^k$ descriptions on bounded neighborhoods), with locality parameters independent of $n$.
-\end{definition}
-
-\begin{remark}
-Local admissibility is used to justify the per-step capacity model as a structural constraint on extractable information per refinement step.
-\end{remark}
-
-\section{Spectral/Coercive Instantiation}
-
-\begin{definition}[Spectral Coercivity]
-Let $\mathcal{H}$ be a Hilbert space and $A$ a nonnegative self-adjoint operator with spectral gap $\lambda>0$ on $(\ker A)^\perp$.
-Define $\mathcal{F}(x)=\langle Ax,x\rangle$.
-\end{definition}
-
-\begin{lemma}[Coercivity]
-For all $x\perp \ker A$,
+Let $A$ be self-adjoint with spectral gap $\lambda>0$. Then
 \[
 \langle Ax,x\rangle \ge \lambda \|x\|^2.
 \]
-\end{lemma}
+This provides a coercive rigidity functional compatible with the entropy-depth framework.
 
-\begin{proof}
-By the definition of the spectral gap (Rayleigh quotient infimum) on $(\ker A)^\perp$.
-\end{proof}
-
-\section{Consequences}
-
-Theorem~\ref{thm:linear-wall} yields a uniform linear lower bound on refinement depth whenever:
-(i) entropy is linear in system size, and
-(ii) per-step extractable information is uniformly bounded.
-
-\section*{Acknowledgements}
 \end{document}
