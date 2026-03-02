@@ -17,8 +17,7 @@ jobs:
           sudo apt-get install -y \
             texlive-full \
             latexmk \
-            biber \
-            makeindex
+            biber
 
       - name: Build textbook
         run: latexmk -pdf main.tex
@@ -26,10 +25,10 @@ jobs:
       - name: Build journal article
         run: latexmk -pdf journal/urf_core.tex
 
-      - name: Upload artifacts
+      - name: Upload PDFs
         uses: actions/upload-artifact@v4
         with:
-          name: pdfs
+          name: urf-pdfs
           path: |
             main.pdf
             journal/urf_core.pdf
