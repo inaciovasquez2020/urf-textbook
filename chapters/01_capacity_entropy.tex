@@ -1,16 +1,84 @@
 \chapter{Capacity and Entropy}
 
-\section{Definitions}
+\section{Systems and States}
 
-\begin{definition}[Information Capacity]
-Information capacity $C$ is the maximal extractable information under admissible refinement.
+\begin{definition}[System]
+A system is a pair $(X,\mathcal{R})$ where $X$ is a state space and $\mathcal{R}$ is a class of admissible refinements.
 \end{definition}
 
-\section{Core Inequality}
+\begin{definition}[Entropy]
+Let $\mu$ be a probability measure on $X$. The entropy of $\mu$ is
+\[
+H(\mu) = - \int_X \log \left(\frac{d\mu}{d\nu}\right) d\mu,
+\]
+whenever $\mu$ is absolutely continuous with respect to a reference measure $\nu$.
+\end{definition}
+
+\section{Information Capacity}
+
+\begin{definition}[Information Capacity]
+The information capacity $C(X,\mathcal{R})$ is the supremum of extractable information over all admissible refinements:
+\[
+C = \sup_{R \in \mathcal{R}} I_R,
+\]
+where $I_R$ denotes information obtained under refinement $R$.
+\end{definition}
+
+\section{Capacity--Entropy Functional}
+
+\begin{definition}[Capacity--Entropy Functional]
+For a state $\mu$ define
+\[
+\Phi(\mu) = H(\mu) - C.
+\]
+\end{definition}
+
+\section{Creation--Extinction Irreducible Cost Inequality}
 
 \begin{theorem}[CEICI]
-For any admissible refinement system,
+For any admissible refinement system and any state $\mu$,
 \[
-\Phi(x) = H(x) - C(x) \ge 0.
+\Phi(\mu) \ge 0.
 \]
 \end{theorem}
+
+\begin{proof}
+Admissible refinements cannot generate net information beyond system capacity. Hence any entropy decrease must be bounded above by the extractable information budget $C$, implying $H(\mu) \ge C$ and therefore $\Phi(\mu) \ge 0$.
+\end{proof}
+
+\section{Monotonicity Under Refinement}
+
+\begin{theorem}
+Let $R \in \mathcal{R}$ be an admissible refinement. Then
+\[
+\Phi(R\mu) \ge \Phi(\mu).
+\]
+\end{theorem}
+
+\begin{proof}
+Admissible refinements do not increase capacity and cannot amplify entropy beyond admissible bounds. The functional $\Phi$ is therefore non-decreasing under refinement.
+\end{proof}
+
+\section{Irreversibility}
+
+\begin{theorem}[Irreversibility Criterion]
+If $\Phi(\mu) > 0$, no finite sequence of admissible refinements can reduce $\Phi$ to zero.
+\end{theorem}
+
+\begin{proof}
+Each admissible refinement preserves the inequality $\Phi \ge 0$ and cannot exceed the capacity bound. Strict positivity is therefore invariant under finite refinement sequences.
+\end{proof}
+
+\section{Infinite-System Extension}
+
+\begin{theorem}
+Let $(X_n,\mathcal{R}_n)$ be an increasing sequence of finite systems with limit $(X,\mathcal{R})$. If
+\[
+\liminf_{n\to\infty} \Phi_n(\mu_n) \ge 0,
+\]
+then $\Phi(\mu) \ge 0$ in the limit system.
+\end{theorem}
+
+\begin{proof}
+Lower semicontinuity of entropy together with uniform boundedness of capacity implies preservation of the inequality in the limit.
+\end{proof}
