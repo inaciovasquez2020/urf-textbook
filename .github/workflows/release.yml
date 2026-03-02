@@ -21,13 +21,14 @@ jobs:
       - name: Build PDF
         run: |
           mkdir -p journal
-          latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=journal main.tex
-          cp journal/main.pdf journal/urf_core.pdf
+          latexmk -pdf -interaction=nonstopmode -halt-on-error -jobname=urf_core -outdir=journal main.tex
+          test -f journal/urf_core.pdf
 
       - name: Verify
         run: |
           ls -lah
-          ls -lah journal
+          ls -lah journal || true
+          find . -maxdepth 3 -type f -name "*.pdf" -print
 
       - name: Release
         uses: softprops/action-gh-release@v2
