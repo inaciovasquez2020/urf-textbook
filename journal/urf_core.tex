@@ -1,0 +1,93 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{mathtools}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=black
+}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\ED}{\mathrm{ED}}
+
+\title{Linear Refinement Depth Under Bounded Information Extraction}
+\author{Inacio Vasquez}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We establish a structural lower bound on refinement depth in systems where per-step information extraction is uniformly bounded. The result applies to combinatorial refinement processes and spectral/coercive instantiations. When entropy scales linearly in instance size, refinement depth is necessarily linear.
+\end{abstract}
+
+\section{Refinement Model}
+
+\begin{definition}[Refinement System]
+A refinement system is a pair $(X,\mathcal{R})$ where each refinement $R\in\mathcal{R}$ maps $X$ to $X$. A transcript of length $t$ is
+\[
+x_0 \to x_1 \to \cdots \to x_t,
+\quad x_{i+1}=R_{i+1}(x_i).
+\]
+\end{definition}
+
+\begin{definition}[Capacity Bound]
+Let $H:X\to\mathbb{R}_{\ge 0}$ be an entropy functional.  
+Assume there exists $C>0$ such that
+\[
+H(x_{i+1}) \ge H(x_i) - C.
+\]
+\end{definition}
+
+\begin{definition}[EntropyDepth]
+\[
+\ED(x) = \inf \{t \in \mathbb{N} : H(x_t)=0\}.
+\]
+\end{definition}
+
+\section{Main Theorem}
+
+\begin{theorem}[EntropyDepth Bound]
+For any $x\in X$,
+\[
+\ED(x) \ge \left\lceil \frac{H(x)}{C} \right\rceil.
+\]
+\end{theorem}
+
+\begin{proof}
+Iterating the capacity bound yields
+\[
+H(x_t)\ge H(x)-tC.
+\]
+If $H(x_t)=0$, then $t\ge H(x)/C$.
+\end{proof}
+
+\begin{theorem}[Linear Refinement Wall]
+If $H(x_n)\ge c n$ and $C$ is independent of $n$, then
+\[
+\ED(x_n)\ge \frac{c}{C}n.
+\]
+\end{theorem}
+
+\begin{proof}
+Immediate from the previous theorem.
+\end{proof}
+
+\section{Spectral Instantiation}
+
+Let $A$ be self-adjoint with spectral gap $\lambda>0$. Then
+\[
+\langle Ax,x\rangle \ge \lambda \|x\|^2.
+\]
+This provides a coercive rigidity functional compatible with the entropy-depth framework.
+
+\end{document}

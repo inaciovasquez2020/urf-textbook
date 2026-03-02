@@ -1,13 +1,11 @@
-name: ci
+name: CI
 
 on:
   push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
 
 jobs:
-  build:
+  latex:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,13 +14,13 @@ jobs:
       - name: Install TeX Live
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended
+          sudo apt-get install -y \
+            texlive-full \
+            latexmk \
+            biber
 
-- name: Install TeX Live + latexmk
-  run: |
-    sudo apt-get update
-    sudo apt-get install -y texlive-full latexmk
+      - name: Compile textbook
+        run: latexmk -pdf main.tex
 
-- name: Build PDF
-  run: |
-    latexmk -pdf -interaction=nonstopmode -halt-on-error manuscript/main.tex
+      - name: Compile journal article
+        run: latexmk -pdf journal/urf_core.tex
