@@ -1,0 +1,28 @@
+\section{Power Graph Formulation and $R$-Chromatic Number}
+
+\begin{definition}[$R$-Power Graph]
+For a graph $G_n=(V,E)$ and integer $R\ge1$, define
+\[
+G_n^{(2R)} := (V, E_{2R})
+\]
+where $(u,v)\in E_{2R}$ iff $\mathrm{dist}_{G_n}(u,v)\le 2R$.
+\end{definition}
+
+\begin{definition}[$R$-Independence, Packing, and Chromatic Parameters]
+\[
+\alpha_R(G_n) := \alpha(G_n^{(2R)}), \qquad
+\chi_R(G_n) := \chi(G_n^{(2R)}).
+\]
+\end{definition}
+
+\begin{theorem}[Parallel Refinement Depth]
+Let a refinement system be FO$^k$-admissible on $G_n$, with per-vertex capacity bound $c$ and active sets constrained to be $R$-independent. Then any process extracting all entropy satisfies
+\[
+T \ge \max\!\left\{
+\frac{H(X_n)}{c\,\alpha_R(G_n)},
+\;
+\chi_R(G_n)
+\right\}.
+\]
+\end{theorem}
+

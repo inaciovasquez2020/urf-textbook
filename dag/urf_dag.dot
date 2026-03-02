@@ -1,0 +1,13 @@
+digraph URF {
+  rankdir=LR;
+  node [shape=box];
+
+  Definitions -> EntropyDepthBound;
+  Definitions -> LocalityAssumptions;
+  EntropyDepthBound -> LinearRefinementWall;
+  LocalityAssumptions -> LinearRefinementWall;
+  SpectralCoercivity -> RigidityReduction;
+  LinearRefinementWall -> SATApplication;
+  LinearRefinementWall -> CapacityBoundAlgorithm;
+  LinearRefinementWall -> PhysicalSystem;
+}
