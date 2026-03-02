@@ -1,0 +1,102 @@
+\chapter{Applications}
+
+\section{SAT and Refinement Systems}
+
+\begin{definition}[Local SAT Refinement]
+Let $F$ be a CNF formula over variables $x_1,\dots,x_n$.  
+A local refinement step assigns or constrains variables using bounded-width clauses and bounded-radius dependency neighborhoods.
+\end{definition}
+
+\begin{theorem}[SAT Entropy Scaling]
+Let $F_n$ be a family of bounded-degree CNF instances with linear clause growth.  
+Then the entropy of the assignment space satisfies
+\[
+H(F_n) = \Theta(n).
+\]
+\end{theorem}
+
+\begin{proof}
+Each variable contributes constant entropy in the absence of full determination.  
+Linear variable growth implies linear entropy growth.
+\end{proof}
+
+\begin{theorem}[Linear EntropyDepth for Local SAT]
+If SAT solving is restricted to FO$^k$-admissible refinement steps with bounded capacity $C$, then
+\[
+\mathrm{ED}(F_n) = \Omega(n).
+\]
+\end{theorem}
+
+\begin{proof}
+Combine linear entropy scaling with the Entropy–Capacity depth bound.
+\end{proof}
+
+\section{Spectral Operators}
+
+\begin{definition}[Spectral Instance]
+Let $A_n$ be a family of self-adjoint operators with uniform spectral gap $\lambda>0$.
+\end{definition}
+
+\begin{theorem}[Spectral Rigidity Application]
+If each $A_n$ satisfies
+\[
+\langle A_n x,x\rangle \ge \lambda \|x\|^2,
+\]
+then the associated refinement system admits a uniform rigidity functional and linear EntropyDepth.
+\end{theorem}
+
+\begin{proof}
+The spectral gap induces coercivity, which satisfies the Unified Rigidity Lemma.
+\end{proof}
+
+\section{Physical Systems}
+
+\begin{definition}[Finite-Energy Field Configuration]
+Let $\phi$ be a configuration in a Hilbert space $\mathcal{H}$ with energy functional
+\[
+E(\phi) = \langle A\phi,\phi\rangle.
+\]
+\end{definition}
+
+\begin{theorem}[Energy Gap Implies Rigidity]
+If $A$ has spectral gap $\lambda>0$, then any admissible local perturbation cannot eliminate defect without energy cost at least $\lambda$.
+\end{theorem}
+
+\begin{proof}
+Immediate from the coercivity inequality.
+\end{proof}
+
+\section{Capacity-Bounded Computation}
+
+\begin{definition}[Capacity-Bounded Algorithm]
+An algorithm is capacity-bounded if each step extracts at most $C$ bits of information.
+\end{definition}
+
+\begin{theorem}[Depth Lower Bound for Capacity-Bounded Computation]
+Let an input family $(x_n)$ satisfy $H(x_n)=\Theta(n)$.  
+If the algorithm is capacity-bounded and locally admissible, then runtime satisfies
+\[
+T(n) = \Omega(n).
+\]
+\end{theorem}
+
+\begin{proof}
+Each computational step corresponds to a refinement extracting at most $C$ information.  
+Eliminating linear entropy requires linear steps.
+\end{proof}
+
+\section{General Template Instantiation}
+
+All applications above share the same structure:
+
+\[
+\text{Entropy Growth}
++
+\text{Capacity Bound}
++
+\text{Coercivity or Structural Constraint}
+\;\Longrightarrow\;
+\text{Linear Depth}.
+\]
+
+The Unified Rigidity Reduction applies uniformly across combinatorial, spectral, physical, and computational regimes.
