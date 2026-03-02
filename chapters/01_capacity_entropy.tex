@@ -1,84 +1,112 @@
 \chapter{Capacity and Entropy}
 
-\section{Systems and States}
+\section*{Standing Assumptions}
 
-\begin{definition}[System]
-A system is a pair $(X,\mathcal{R})$ where $X$ is a state space and $\mathcal{R}$ is a class of admissible refinements.
-\end{definition}
+Throughout this chapter:
 
-\begin{definition}[Entropy]
-Let $\mu$ be a probability measure on $X$. The entropy of $\mu$ is
+\begin{itemize}
+\item $(X,\mathcal{F},\nu)$ is a $\sigma$-finite measure space.
+\item $\mu$ is a probability measure absolutely continuous with respect to $\nu$.
+\item $(X,\mathcal{R})$ is a refinement system.
+\item Each admissible refinement extracts at most $C>0$ bits of information.
+\end{itemize}
+
+\section{Entropy}
+
+\begin{definition}[Relative Entropy]
+Assume $\mu \ll \nu$ with density $f = \frac{d\mu}{d\nu}$.  
+The entropy of $\mu$ relative to $\nu$ is
 \[
-H(\mu) = - \int_X \log \left(\frac{d\mu}{d\nu}\right) d\mu,
+H(\mu) = - \int_X f \log f \, d\nu,
 \]
-whenever $\mu$ is absolutely continuous with respect to a reference measure $\nu$.
+provided the integral is finite.
 \end{definition}
+
+\begin{lemma}[Nonnegativity]
+If $\nu$ is a probability measure, then $H(\mu) \ge 0$.
+\end{lemma}
+
+\begin{proof}
+Since $x\log x \ge -e^{-1}$ for $x>0$, the integral is bounded below and finite.
+\end{proof}
 
 \section{Information Capacity}
 
-\begin{definition}[Information Capacity]
-The information capacity $C(X,\mathcal{R})$ is the supremum of extractable information over all admissible refinements:
+\begin{definition}[Capacity Bound]
+A refinement system has capacity $C>0$ if for every admissible refinement $R$,
 \[
-C = \sup_{R \in \mathcal{R}} I_R,
+I(R) \le C,
 \]
-where $I_R$ denotes information obtained under refinement $R$.
+where $I(R)$ denotes the mutual information extracted by $R$.
 \end{definition}
 
-\section{Capacity--Entropy Functional}
+\section{Capacity–Entropy Functional}
 
-\begin{definition}[Capacity--Entropy Functional]
-For a state $\mu$ define
+\begin{definition}
+Define
 \[
 \Phi(\mu) = H(\mu) - C.
 \]
 \end{definition}
 
-\section{Creation--Extinction Irreducible Cost Inequality}
+\section{Capacity–Entropy Inequality}
 
-\begin{theorem}[CEICI]
-For any admissible refinement system and any state $\mu$,
+\begin{theorem}\label{thm:CEI}
+Let $(X,\mathcal{R})$ have capacity bound $C$.  
+Then for any refinement sequence of length $t$,
 \[
-\Phi(\mu) \ge 0.
+H(\mu_t) \ge H(\mu_0) - tC.
 \]
 \end{theorem}
 
 \begin{proof}
-Admissible refinements cannot generate net information beyond system capacity. Hence any entropy decrease must be bounded above by the extractable information budget $C$, implying $H(\mu) \ge C$ and therefore $\Phi(\mu) \ge 0$.
+Each admissible refinement reduces entropy by at most $C$.  
+Summing over $t$ steps yields the bound.
 \end{proof}
 
-\section{Monotonicity Under Refinement}
+\section{Depth Lower Bound}
+
+\begin{definition}[EntropyDepth]
+The EntropyDepth of $\mu_0$ is
+\[
+\mathrm{ED}(\mu_0)
+=
+\inf \{ t \in \mathbb{N} : H(\mu_t)=0 \}.
+\]
+\end{definition}
+
+\begin{theorem}\label{thm:depth-lower-bound}
+If $H(\mu_0)>0$, then
+\[
+\mathrm{ED}(\mu_0)
+\ge
+\left\lceil \frac{H(\mu_0)}{C} \right\rceil.
+\]
+\end{theorem}
+
+\begin{proof}
+By Theorem~\ref{thm:CEI},
+\[
+0 \ge H(\mu_0) - tC
+\quad \Rightarrow \quad
+t \ge \frac{H(\mu_0)}{C}.
+\]
+\end{proof}
+
+\section{Infinite System Extension}
 
 \begin{theorem}
-Let $R \in \mathcal{R}$ be an admissible refinement. Then
+Let $(\mu_n)$ be a sequence with $H(\mu_n)=\Theta(n)$ and uniform capacity bound $C$.  
+Then
 \[
-\Phi(R\mu) \ge \Phi(\mu).
+\mathrm{ED}(\mu_n)
+\ge
+\frac{c}{C} n
 \]
+for some constant $c>0$ independent of $n$.
 \end{theorem}
 
 \begin{proof}
-Admissible refinements do not increase capacity and cannot amplify entropy beyond admissible bounds. The functional $\Phi$ is therefore non-decreasing under refinement.
-\end{proof}
-
-\section{Irreversibility}
-
-\begin{theorem}[Irreversibility Criterion]
-If $\Phi(\mu) > 0$, no finite sequence of admissible refinements can reduce $\Phi$ to zero.
-\end{theorem}
-
-\begin{proof}
-Each admissible refinement preserves the inequality $\Phi \ge 0$ and cannot exceed the capacity bound. Strict positivity is therefore invariant under finite refinement sequences.
-\end{proof}
-
-\section{Infinite-System Extension}
-
-\begin{theorem}
-Let $(X_n,\mathcal{R}_n)$ be an increasing sequence of finite systems with limit $(X,\mathcal{R})$. If
-\[
-\liminf_{n\to\infty} \Phi_n(\mu_n) \ge 0,
-\]
-then $\Phi(\mu) \ge 0$ in the limit system.
-\end{theorem}
-
-\begin{proof}
-Lower semicontinuity of entropy together with uniform boundedness of capacity implies preservation of the inequality in the limit.
+By hypothesis $H(\mu_n) \ge c n$ for sufficiently large $n$.  
+Apply Theorem~\ref{thm:depth-lower-bound}.
 \end{proof}
