@@ -1,0 +1,27 @@
+\chapter{Structural Dependency Graph}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+  node distance=2.5cm,
+  box/.style={rectangle, draw, thick, align=center, minimum width=3cm},
+  arrow/.style={-Latex, thick}
+]
+
+\node[box] (defs) {Entropy \& Capacity Definitions};
+\node[box, below=of defs] (ed) {EntropyDepth Bound};
+\node[box, below=of ed] (wall) {Linear Refinement Wall};
+\node[box, right=3cm of ed] (locality) {Local Admissibility};
+\node[box, right=3cm of wall] (apps) {Applications};
+\node[box, right=3cm of defs] (spectral) {Spectral Coercivity};
+
+\draw[arrow] (defs) -- (ed);
+\draw[arrow] (ed) -- (wall);
+\draw[arrow] (locality) -- (wall);
+\draw[arrow] (wall) -- (apps);
+\draw[arrow] (spectral) -- (apps);
+
+\end{tikzpicture}
+\caption{Core logical flow of the Unified Rigidity Framework.}
+\label{fig:urf-dag}
+\end{figure}
