@@ -1,0 +1,66 @@
+\chapter{Examples and Counterexamples}
+
+\section{Linear Entropy Example}
+
+\begin{example}
+Let $x_n$ encode $n$ independent unbiased bits.
+Then
+\[
+H(x_n)=n.
+\]
+If per-step capacity is bounded by $C$, then
+\[
+\mathrm{ED}(x_n)\ge \frac{n}{C}.
+\]
+\end{example}
+
+\section{Sublinear Entropy Example}
+
+\begin{example}
+Let $x_n$ encode a fully determined structure with
+\[
+H(x_n)=O(1).
+\]
+Then refinement depth is $O(1)$.
+\end{example}
+
+\section{Capacity Escape Counterexample}
+
+\begin{counterexample}
+Suppose capacity scales as
+\[
+C_n = n.
+\]
+Then entire entropy can be removed in one step,
+so
+\[
+\mathrm{ED}(x_n)=1.
+\]
+Thus bounded capacity is essential.
+\end{counterexample}
+
+\section{Locality Escape Counterexample}
+
+\begin{counterexample}
+If locality radius $r_n=n$, global structure is visible in one step.
+Then sublinear depth is possible.
+\end{counterexample}
+
+\section{Spectral Rigidity Example}
+
+\begin{example}
+Let $A$ be Laplacian on a finite graph with spectral gap $\lambda>0$.
+Then
+\[
+\langle Ax,x\rangle \ge \lambda \|x\|^2.
+\]
+Coercivity prevents arbitrarily small-energy nontrivial states.
+\end{example}
+
+\section{Non-Coercive Counterexample}
+
+\begin{counterexample}
+If spectral gap $\lambda=0$, coercivity fails.
+Small-energy nontrivial states exist,
+so rigidity collapses.
+\end{counterexample}
