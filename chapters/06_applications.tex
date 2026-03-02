@@ -1,110 +1,45 @@
 \chapter{Applications}
 
-\section*{Standing Assumptions}
+\section{SAT-Type Systems}
 
-Throughout this chapter:
-
-\begin{itemize}
-\item $(X_n,\mathcal{R}_n)$ are refinement systems indexed by size $n$.
-\item Per-step capacity is uniformly bounded by $C>0$.
-\item Locality radius and admissibility parameters are independent of $n$.
-\end{itemize}
-
-\section{Application to SAT-Type Systems}
-
-\begin{definition}[Bounded-Degree CNF Family]
-A CNF family $(F_n)$ is bounded-degree if each variable appears in at most $\Delta$ clauses for fixed $\Delta$ independent of $n$.
-\end{definition}
-
-\begin{lemma}
-For bounded-degree CNF with $n$ variables,
+\begin{theorem}\thmlabel{sat-linear}
+For bounded-degree CNF with
 \[
-H(F_n) \ge c n
+H(F_n) \ge c n,
 \]
-for some constant $c>0$ unless the instance is fully determined.
-\end{lemma}
-
-\begin{proof}
-Each variable contributes at least constant entropy unless globally fixed.
-\end{proof}
-
-\begin{theorem}
-Under FO$^k$-admissible refinement with capacity bound $C$,
+we have
 \[
-\mathrm{ED}(F_n)
-\ge
-\frac{c}{C} n.
+\ED(F_n) \ge \frac{c}{C} n.
 \]
 \end{theorem}
 
 \begin{proof}
-Apply the EntropyDepth bound from Chapter 4.
+Immediate from Theorem~\ref{thm:linear-wall}.
+\end{proof}
+
+\section{Capacity-Bounded Computation}
+
+\begin{theorem}\thmlabel{capacity-linear}
+Any capacity-bounded refinement algorithm requires
+\[
+\Omega(n)
+\]
+steps when entropy is linear.
+\end{theorem}
+
+\begin{proof}
+Immediate from Theorem~\ref{thm:linear-wall}.
 \end{proof}
 
 \section{Spectral Systems}
 
 \begin{theorem}
-Let $A_n$ be self-adjoint operators with uniform spectral gap $\lambda>0$.  
-Define
+Under spectral gap $\lambda>0$,
 \[
-\mathcal{F}(x)=\langle A_n x,x\rangle.
-\]
-Then for all $x\perp \ker A_n$,
-\[
-\mathcal{F}(x)\ge \lambda \|x\|^2.
+\langle Ax,x\rangle \ge \lambda \|x\|^2.
 \]
 \end{theorem}
 
 \begin{proof}
-From the spectral gap inequality in Chapter 3.
+By Theorem~\ref{thm:coercivity}.
 \end{proof}
-
-\section{Capacity-Bounded Computation}
-
-\begin{definition}[Capacity-Bounded Algorithm]
-An algorithm is capacity-bounded if each step extracts at most $C$ bits of information from the input state.
-\end{definition}
-
-\begin{theorem}
-Let input instances satisfy $H(x_n)\ge cn$.  
-Any capacity-bounded admissible algorithm requires at least
-\[
-\frac{c}{C} n
-\]
-steps in the worst case.
-\end{theorem}
-
-\begin{proof}
-Each step reduces entropy by at most $C$.  
-Linear entropy requires linear steps.
-\end{proof}
-
-\section{Energy-Gap Physical Systems}
-
-\begin{theorem}
-Let $\mathcal{H}$ be a Hilbert space and $A$ nonnegative with spectral gap $\lambda>0$.  
-For finite-energy states,
-\[
-E(x)=\langle Ax,x\rangle
-\ge
-\lambda \|x\|^2.
-\]
-\end{theorem}
-
-\begin{proof}
-Direct from coercivity.
-\end{proof}
-
-\section{Uniform Template}
-
-In all applications:
-
-\[
-\text{Linear Entropy Growth}
-+
-\text{Bounded Capacity}
-+
-\text{Coercivity or Structural Constraint}
-\Longrightarrow
-\text{Linear Refinement Depth}.
-\]

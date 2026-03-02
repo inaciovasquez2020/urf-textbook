@@ -1,109 +1,48 @@
 \chapter{EntropyDepth and the Refinement Wall}
 
-\section*{Standing Assumptions}
-
-Throughout this chapter:
-
-\begin{itemize}
-\item $(X,\mathcal{R})$ is an FO$^k$-admissible refinement system.
-\item Per-step capacity is bounded by $C>0$.
-\item Instances are indexed by $n$ with entropy $H(x_n)$.
-\item Locality radius and $C$ are independent of $n$.
-\end{itemize}
-
 \section{EntropyDepth}
 
-\begin{definition}[EntropyDepth]
-For $x_0 \in X$ define
+\begin{definition}[EntropyDepth]\deflabel{entropy-depth}
+For $x$ define
 \[
-\mathrm{ED}(x_0)
+\ED(x)
 =
 \inf
-\left\{
-t \in \mathbb{N}
-:
-H(x_t)=0
-\right\},
+\{ t \in \mathbb{N} : H(x_t)=0 \},
 \]
-where $x_{i+1}=R_{i+1}(x_i)$ with $R_i\in\mathcal{R}$.
+where $x_{i+1}=R_{i+1}(x_i)$.
 \end{definition}
 
-\section{Exact Depth Bound}
-
-\begin{theorem}
-For any $x_0$ with $H(x_0)>0$,
+\begin{theorem}[EntropyDepth Bound]\thmlabel{entropy-depth-bound}
+For any $x$,
 \[
-\mathrm{ED}(x_0)
+\ED(x)
 \ge
-\left\lceil \frac{H(x_0)}{C} \right\rceil.
+\left\lceil
+\frac{H(x)}{C}
+\right\rceil.
 \]
 \end{theorem}
 
 \begin{proof}
-From Chapter 1,
+Each refinement step reduces entropy by at most $C$.
+After $t$ steps:
 \[
-H(x_t) \ge H(x_0) - tC.
+H(x_t) \ge H(x) - tC.
 \]
 If $H(x_t)=0$, then
 \[
-t \ge \frac{H(x_0)}{C}.
+t \ge \frac{H(x)}{C}.
 \]
 \end{proof}
 
-\section{Linear Scaling Theorem}
-
-\begin{theorem}[Linear Refinement Wall]
-Suppose $H(x_n) \ge c n$ for some $c>0$.  
-Then
+\begin{theorem}[Linear Refinement Wall]\thmlabel{linear-wall}
+If $H(x_n) \ge c n$ with fixed $C$, then
 \[
-\mathrm{ED}(x_n)
-\ge
-\frac{c}{C} n.
+\ED(x_n) \ge \frac{c}{C} n.
 \]
 \end{theorem}
 
 \begin{proof}
-Apply the exact depth bound.
+Immediate from Theorem~\ref{thm:entropy-depth-bound}.
 \end{proof}
-
-\section{No Sublinear Collapse}
-
-\begin{theorem}
-Under the standing assumptions,
-\[
-\mathrm{ED}(x_n)=o(n)
-\]
-is impossible if $H(x_n)=\Theta(n)$.
-\end{theorem}
-
-\begin{proof}
-If $\mathrm{ED}(x_n)=o(n)$, then total extractable information is
-$o(n)C$, contradicting linear entropy.
-\end{proof}
-
-\section{Uniform Divergence}
-
-\begin{theorem}
-If $H(x_n)\to\infty$ and capacity bound $C$ is uniform,
-then
-\[
-\mathrm{ED}(x_n)\to\infty.
-\]
-\end{theorem}
-
-\begin{proof}
-Immediate from the exact depth bound.
-\end{proof}
-
-\section{Structural Escape Conditions}
-
-Linear depth may fail only if at least one of:
-
-\begin{itemize}
-\item Capacity bound grows with $n$,
-\item Locality radius grows with $n$,
-\item Refinement is non-admissible,
-\item Entropy does not scale linearly.
-\end{itemize}
-
-Under fixed locality and bounded capacity, the refinement wall is structural.

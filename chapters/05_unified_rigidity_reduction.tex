@@ -1,81 +1,39 @@
 \chapter{Unified Rigidity Reduction}
 
-\section*{Standing Assumptions}
+\section{Rigidity Functional}
 
-Throughout this chapter:
-
-\begin{itemize}
-\item $(X,\mathcal{R})$ is a refinement system with per-step capacity bound $C>0$.
-\item $H:X\to\mathbb{R}_{\ge 0}$ is an entropy functional.
-\item $\mathrm{ED}(x)$ denotes EntropyDepth as in Chapter 4.
-\end{itemize}
-
-\section{Rigidity Functionals}
-
-\begin{definition}[Rigidity Functional]
-A rigidity functional is a map $\mathcal{F}:X\to\mathbb{R}_{\ge 0}$ satisfying:
-\begin{enumerate}
-\item (Zero set) $\mathcal{F}(x)=0$ characterizes defect-free states.
-\item (Monotonicity) $\mathcal{F}(Rx)\le \mathcal{F}(x)$ for all $R\in\mathcal{R}$.
-\item (Entropy control) There exists $\alpha>0$ such that
+\begin{definition}[Rigidity Functional]\deflabel{rigidity-functional}
+A functional $\mathcal{F}$ such that
 \[
-\mathcal{F}(x) \ge \alpha H(x)
-\quad
-\text{for all } x\in X.
+\mathcal{F}(x)=0
 \]
-\end{enumerate}
+characterizes solved instances.
 \end{definition}
 
-\section{Unified Rigidity Lemma}
-
-\begin{theorem}[Unified Rigidity Lemma]
-Let $\mathcal{F}$ be a rigidity functional with entropy control constant $\alpha>0$.  
-Then for any $x\in X$ with $H(x)>0$,
+\begin{theorem}[Rigidity Reduction]\thmlabel{rigidity-reduction}
+If a problem reduces to a refinement system with
 \[
-\mathrm{ED}(x)
-\ge
-\left\lceil \frac{H(x)}{C} \right\rceil.
+H(x_n) \ge c n,
 \]
-Moreover if $H(x_n)\ge c n$, then
+then any admissible refinement requires
 \[
-\mathrm{ED}(x_n)\ge \frac{c}{C} n.
+\ED(x_n) \ge \frac{c}{C} n.
 \]
 \end{theorem}
 
 \begin{proof}
-The capacity bound yields entropy decrease at most $C$ per step, hence the depth bound follows.  
-The linear bound follows from $H(x_n)\ge cn$.
-\end{proof}
-
-\section{Reduction Schema}
-
-\begin{definition}[Rigidity Reduction]
-A decision problem $\mathcal{P}$ reduces to rigidity if there exists a refinement encoding of instances $I\mapsto x(I)\in X$ and a rigidity functional $\mathcal{F}$ such that $I$ is a YES instance iff $\mathcal{F}(x(I))=0$.
-\end{definition}
-
-\begin{theorem}[Reduction Consequence]
-If $\mathcal{P}$ reduces to rigidity and instances satisfy $H(x(I_n))\ge cn$ with fixed $C$, then any admissible refinement procedure requires $\Omega(n)$ steps in the worst case.
-\end{theorem}
-
-\begin{proof}
-Apply the Unified Rigidity Lemma to the encoded instances.
+Immediate from Theorem~\ref{thm:linear-wall}.
 \end{proof}
 
 \section{Spectral Instantiation}
 
-\begin{theorem}
-Let $X=\mathcal{H}$ be a Hilbert space and define
+\begin{theorem}[Spectral Coercivity]\thmlabel{coercivity}
+Let $A$ be self-adjoint with gap $\lambda>0$. Then
 \[
-\mathcal{F}(x) := \langle Ax,x\rangle
-\]
-for a nonnegative self-adjoint operator $A$ with gap $\lambda_1>0$ on $(\ker A)^\perp$.
-Then
-\[
-\mathcal{F}(x)\ge \lambda_1 \|x\|^2
-\quad \text{for all } x\perp \ker A.
+\langle Ax,x\rangle \ge \lambda \|x\|^2.
 \]
 \end{theorem}
 
 \begin{proof}
-This is the coercivity inequality from Chapter 3.
+Standard spectral decomposition argument.
 \end{proof}
