@@ -1,22 +1,22 @@
 \chapter{Spectral Rigidity}
 
-\section{Hilbert Space Framework}
+\section*{Standing Assumptions}
 
-\begin{definition}[Hilbert Space System]
-A spectral system is a triple $(\mathcal{H},A,\mathcal{D}(A))$ where
+Throughout this chapter:
+
 \begin{itemize}
-\item $\mathcal{H}$ is a Hilbert space,
-\item $A : \mathcal{D}(A) \subset \mathcal{H} \to \mathcal{H}$ is a densely defined self-adjoint operator,
-\item $\mathcal{D}(A)$ is the domain of $A$.
+\item $\mathcal{H}$ is a separable Hilbert space.
+\item $A : \mathcal{D}(A) \subset \mathcal{H} \to \mathcal{H}$ is densely defined, self-adjoint.
+\item $A$ is nonnegative: $\langle Ax,x\rangle \ge 0$ for all $x\in\mathcal{D}(A)$.
+\item $\ker A$ is finite-dimensional.
 \end{itemize}
-\end{definition}
 
 \section{Rayleigh Quotient}
 
 \begin{definition}[Rayleigh Quotient]
 For $x \in \mathcal{D}(A)\setminus\{0\}$,
 \[
-R_A(x) = \frac{\langle Ax,x\rangle}{\langle x,x\rangle}.
+R_A(x) := \frac{\langle Ax,x\rangle}{\|x\|^2}.
 \]
 \end{definition}
 
@@ -25,113 +25,117 @@ R_A(x) = \frac{\langle Ax,x\rangle}{\langle x,x\rangle}.
 \begin{definition}[Spectral Gap]
 The spectral gap of $A$ is
 \[
-\lambda_1 = \inf_{\substack{x \perp \ker A \\ x\neq 0}} R_A(x).
+\lambda_1(A)
+:=
+\inf_{\substack{x \in \mathcal{D}(A)\\ x \perp \ker A \\ \|x\|=1}}
+\langle Ax,x\rangle.
 \]
 \end{definition}
 
-\begin{theorem}[Variational Characterization]
-If $A$ is nonnegative and $\ker A$ is finite-dimensional, then
+\begin{lemma}
+If $\lambda_1(A)>0$, then
 \[
-\lambda_1 = \inf_{\substack{x \perp \ker A \\ \|x\|=1}} \langle Ax,x\rangle.
+\langle Ax,x\rangle \ge \lambda_1(A)\|x\|^2
+\quad
+\text{for all } x \perp \ker A.
 \]
-\end{theorem}
+\end{lemma}
 
 \begin{proof}
-This follows from the min–max principle for self-adjoint operators.
+Immediate from the definition of $\lambda_1(A)$.
 \end{proof}
 
-\section{Coercivity}
+\section{Min--Max Principle}
 
-\begin{definition}[Coercivity Constant]
-The coercivity constant of $A$ is
+\begin{theorem}[Variational Characterization]
+Under the standing assumptions,
 \[
-c_A = \inf_{\substack{x \perp \ker A \\ x\neq 0}}
-\frac{\langle Ax,x\rangle}{\|x\|^2}.
-\]
-\end{definition}
-
-\begin{theorem}[Spectral Gap Implies Coercivity]
-If $\lambda_1 > 0$, then
-\[
-\langle Ax,x\rangle \ge \lambda_1 \|x\|^2
-\quad \text{for all } x \perp \ker A.
+\lambda_1(A)
+=
+\inf_{\substack{x \perp \ker A \\ \|x\|=1}}
+\langle Ax,x\rangle.
 \]
 \end{theorem}
 
 \begin{proof}
-Immediate from the definition of $\lambda_1$.
+Follows from the standard min--max principle for self-adjoint operators.
 \end{proof}
 
 \section{Operator Domination}
 
-\begin{definition}[Operator Domination]
-Let $A$ and $B$ be self-adjoint operators on $\mathcal{H}$.  
-We say $A$ dominates $B$ if
+\begin{definition}[Domination]
+Let $A,B$ be self-adjoint on $\mathcal{H}$.  
+We say $A \succeq B$ if
 \[
 \langle Ax,x\rangle \ge \langle Bx,x\rangle
-\quad \text{for all } x \in \mathcal{D}(A)\cap\mathcal{D}(B).
+\quad
+\forall x \in \mathcal{D}(A)\cap\mathcal{D}(B).
 \]
 \end{definition}
 
-\begin{theorem}[Domination Preserves Gap Lower Bounds]
-If $A$ dominates $B$ and $B$ has spectral gap $\mu>0$, then
+\begin{theorem}[Gap Preservation Under Domination]
+If $A \succeq B$ and $\lambda_1(B)\ge \mu>0$, then
 \[
-\lambda_1(A) \ge \mu.
+\lambda_1(A)\ge \mu.
 \]
 \end{theorem}
 
 \begin{proof}
-For all $x \perp \ker B$,
+For $x \perp \ker B$,
 \[
 \langle Ax,x\rangle \ge \langle Bx,x\rangle
 \ge \mu \|x\|^2.
 \]
-Taking the infimum over admissible $x$ yields the result.
+Taking the infimum yields the claim.
 \end{proof}
 
-\section{Local-to-Global Rigidity}
+\section{Local-to-Global Coercivity}
 
-\begin{theorem}[Local Coercivity Implies Global Rigidity]
-Suppose $\mathcal{H}$ decomposes as an orthogonal sum
+\begin{theorem}[Finite Orthogonal Decomposition]
+Assume
 \[
-\mathcal{H} = \bigoplus_{i=1}^n \mathcal{H}_i,
+\mathcal{H} = \bigoplus_{i=1}^m \mathcal{H}_i
 \]
-and $A = \sum_{i=1}^n A_i$ with each $A_i$ nonnegative and coercive on $\mathcal{H}_i$ with constant $c_i>0$.  
+orthogonally and
+\[
+A = \sum_{i=1}^m A_i
+\]
+with each $A_i$ nonnegative and coercive:
+\[
+\langle A_i x_i,x_i\rangle \ge c_i \|x_i\|^2.
+\]
 Then
 \[
-\langle Ax,x\rangle \ge \left(\min_i c_i\right)\|x\|^2
+\langle Ax,x\rangle
+\ge
+\left(\min_i c_i\right)\|x\|^2.
 \]
-for all $x$ orthogonal to the joint kernel.
 \end{theorem}
 
 \begin{proof}
-Write $x = \sum_i x_i$ with $x_i \in \mathcal{H}_i$. Then
+Write $x=\sum_i x_i$. Then
 \[
-\langle Ax,x\rangle = \sum_i \langle A_i x_i,x_i\rangle
-\ge \sum_i c_i \|x_i\|^2
-\ge \left(\min_i c_i\right)\sum_i \|x_i\|^2.
+\langle Ax,x\rangle
+=
+\sum_i \langle A_i x_i,x_i\rangle
+\ge
+\sum_i c_i \|x_i\|^2
+\ge
+\left(\min_i c_i\right)\sum_i \|x_i\|^2.
 \]
 \end{proof}
 
-\section{Spectral Rigidity Principle}
-
-\begin{theorem}[Spectral Rigidity]
-If $A$ possesses a uniform spectral gap $\lambda_1>0$, then no admissible perturbation $A \mapsto A + \Delta$ preserving domination and self-adjointness can close the gap without violating coercivity.
-\end{theorem}
-
-\begin{proof}
-Any admissible perturbation preserving domination satisfies
-\[
-\langle (A+\Delta)x,x\rangle \ge \lambda_1\|x\|^2.
-\]
-Thus the gap remains bounded below by $\lambda_1$.
-\end{proof}
-
-\section{Infinite-Dimensional Extension}
+\section{Strong Resolvent Stability}
 
 \begin{theorem}
-Let $(A_n)$ be an increasing sequence of self-adjoint operators converging in strong resolvent sense to $A$.  
-If $\inf_n \lambda_1(A_n) \ge \lambda_*>0$, then $A$ has spectral gap at least $\lambda_*$.
+Let $A_n \to A$ in strong resolvent sense and assume
+\[
+\inf_n \lambda_1(A_n) \ge \lambda_* > 0.
+\]
+Then
+\[
+\lambda_1(A) \ge \lambda_*.
+\]
 \end{theorem}
 
 \begin{proof}
