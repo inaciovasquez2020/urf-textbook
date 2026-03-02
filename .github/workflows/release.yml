@@ -7,30 +7,3 @@ on:
 
 permissions:
   contents: write
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install TeX
-        run: sudo apt-get update && sudo apt-get install -y texlive-latex-extra latexmk
-
-      - name: Build PDF
-        run: |
-          mkdir -p journal
-          latexmk -pdf -interaction=nonstopmode -halt-on-error -jobname=urf_core -outdir=journal main.tex
-          test -f journal/urf_core.pdf
-
-      - name: Verify
-        run: |
-          ls -lah
-          ls -lah journal || true
-          find . -maxdepth 3 -type f -name "*.pdf" -print
-
-      - name: Release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: journal/urf_core.pdf
