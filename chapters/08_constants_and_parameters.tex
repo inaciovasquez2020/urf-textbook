@@ -1,94 +1,118 @@
-\chapter{Constants and Parameter Tracking}
+\chapter{Constants and Structural Parameters}
 
-\section*{Global Parameters}
+\section{Degree Growth and Ball Size}
 
-Throughout the text we fix:
+Let $G_n=(V,E)$ be a graph with maximum degree $\Delta$. For fixed radius $R\ge1$, define
+\[
+B_\Delta(2R)
+=
+1+\Delta\sum_{i=0}^{2R-1}(\Delta-1)^i.
+\]
+
+This bounds the size of any ball of radius $2R$ in $G_n$.
+
+\section{$R$-Packing Parameter}
+
+\begin{definition}[$R$-Packing Number]
+\[
+\alpha_R(G_n) := \alpha(G_n^{(2R)}).
+\]
+\end{definition}
+
+\begin{lemma}[Greedy Packing Bound]
+\[
+\alpha_R(G_n)
+\;\ge\;
+\frac{n}{B_\Delta(2R)}.
+\]
+\end{lemma}
+
+\begin{proof}
+Each selected vertex eliminates at most $B_\Delta(2R)$ vertices from further selection.
+\end{proof}
+
+\section{$R$-Chromatic Number}
+
+\begin{definition}[$R$-Chromatic Number]
+\[
+\chi_R(G_n) := \chi(G_n^{(2R)}).
+\]
+\end{definition}
+
+\section{Structural Regimes}
+
+\begin{center}
+\begin{tabular}{cc}
+\toprule
+Regime & Dominant Constraint \\
+\midrule
+Information-dominated & $\dfrac{H(X_n)}{c\,\alpha_R(G_n)}$ \\
+Covering-dominated & $\chi_R(G_n)$ \\
+Balanced & Comparable bounds \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Explicit Family Calculations}
+
+\subsection*{Path $P_n$}
+\[
+\chi_R(P_n)=2R+1,
+\qquad
+\alpha_R(P_n)=\Theta(n).
+\]
+
+\subsection*{Star $K_{1,n-1}$}
+\[
+\chi_R(K_{1,n-1})=n,
+\qquad
+\alpha_R(K_{1,n-1})=n-1.
+\]
+
+\subsection*{$d$-Dimensional Grid}
+\[
+\chi_R = O(R^d),
+\qquad
+\alpha_R=\Theta(n).
+\]
+
+\section{Unified Depth Lower Bound}
+
+\begin{theorem}[Depth Bound]
+For FO$^k$-admissible refinement with per-vertex capacity $c$,
+\[
+T
+\ge
+\max\!\left\{
+\frac{H(X_n)}{c\,\alpha_R(G_n)},
+\;
+\chi_R(G_n)
+\right\}.
+\]
+\end{theorem}
+
+\section{Asymptotic Growth Classes}
 
 \begin{itemize}
-\item $n$ — instance size.
-\item $C$ — per-step capacity bound.
-\item $c$ — entropy growth constant.
-\item $\lambda$ — spectral gap constant.
-\item $r$ — locality radius.
-\item $\Delta$ — bounded-degree constant.
+\item $\chi_R(G_n)=O(1)$: constant depth achievable.
+\item $\chi_R(G_n)=\omega(1)\cap o(n)$: superconstant depth required.
+\item $\chi_R(G_n)=\Theta(n)$: linear depth forced.
 \end{itemize}
 
-\section{Entropy Scaling}
+\section{Spectral Heuristic Connection}
 
-If
+For expander families with spectral gap $\lambda>0$, it is conjectured that
 \[
-H(x_n) \ge c n,
+\chi_R(G_n)
+=
+\Omega\!\bigl(n\,f(R,\lambda)\bigr)
 \]
-then the EntropyDepth satisfies
-\[
-\mathrm{ED}(x_n)
-\ge
-\frac{c}{C} n.
-\]
+for some increasing function $f$.
 
-\subsection*{Constant Dependence}
+\section{Open Structural Questions}
 
-Depth constant:
-\[
-K_{\mathrm{depth}} = \frac{c}{C}.
-\]
-
-\section{Spectral Coercivity}
-
-For self-adjoint $A$ with spectral gap $\lambda>0$,
-\[
-\langle Ax,x\rangle \ge \lambda \|x\|^2.
-\]
-
-Coercivity constant:
-\[
-K_{\mathrm{coercive}} = \lambda.
-\]
-
-\section{Degree-Constrained CNF}
-
-For bounded-degree $\Delta$:
-
-\[
-c = c(\Delta,k)
-\]
-
-depends only on degree and locality parameter $k$.
-
-\section{Capacity Escape Threshold}
-
-If capacity grows with $n$:
-
-\[
-C_n \sim n^\alpha,
-\]
-
-then linear wall breaks when
-
-\[
-\alpha \ge 1.
-\]
-
-\section{Locality Escape Threshold}
-
-If locality radius grows as
-
-\[
-r_n \sim \log n,
-\]
-
-entropy compression may become super-constant per step.
-
-\section{Summary Table}
-
-\[
-\begin{array}{c|c}
-\text{Quantity} & \text{Controls} \\
-\hline
-c & \text{Entropy growth rate} \\
-C & \text{Per-step extraction} \\
-\lambda & \text{Spectral rigidity} \\
-\Delta & \text{Combinatorial sparsity} \\
-r & \text{Local visibility radius}
-\end{array}
-\]
+\begin{enumerate}
+\item Characterize bounded-degree families with $\chi_R(G_n)=\omega(1)$.
+\item Determine optimal entropy-extraction scheduling under fixed $c$.
+\item Analyze randomized activation covering times.
+\end{enumerate}
