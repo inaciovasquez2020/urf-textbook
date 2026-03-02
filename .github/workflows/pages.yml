@@ -1,50 +1,52 @@
 name: pages
+
 on:
   push:
-    branches: [ "main" ]
-  workflow_dispatch:
+    branches:
+      - main
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - name: Install TeX Live (minimal) + deps
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install TeX Live (with make4ht)
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends \
-            texlive-latex-base texlive-latex-recommended texlive-latex-extra \
-            texlive-fonts-recommended texlive-fonts-extra \
-            latexmk make ghostscript python3
+          sudo apt-get install -y \
+            texlive-latex-base \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-plain-generic \
+            texlive-lang-english \
+            latexmk
 
-      - name: Build PDF
+      - name: Build HTML
         run: |
-          latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error main.tex
-
-      - name: Build HTML (tex4ht)
-        run: |
+          cd manuscript
           make4ht -u -f html5+unicode main.tex
 
-      - name: Stage site
+      - name: Prepare site directory
         run: |
-          mkdir -p _site
-          cp -f main.pdf _site/
-          cp -f main.html _site/index.html || true
-          cp -rf docs/* _site/ 2>/dev/null || true
+          mkdir -p site
+          cp manuscript/main.html site/index.html
+          if [ -d manuscript/main ]; then
+            cp -r manuscript/main site/
+          fi
 
-      - uses: actions/upload-pages-artifact@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: site
 
   deploy:
     needs: build
@@ -52,6 +54,8 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
-      - id: deployment
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
