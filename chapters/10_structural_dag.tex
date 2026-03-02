@@ -1,27 +1,89 @@
-\chapter{Structural Dependency Graph}
+\chapter{The Structural DAG of the URF Framework}
+
+\section{Overview}
+
+The Unified Rigidity Framework (URF) can be organized as a directed acyclic graph (DAG) of structural dependencies.  
+Each node represents a theorem, lemma, invariant, or structural principle.  
+An edge $A \to B$ indicates that result $B$ depends logically on $A$.
+
+\section{Nodes}
+
+We organize the core nodes as follows:
+
+\begin{itemize}
+\item \textbf{Locality Axiom} — Refinement operators are $R$-local.
+\item \textbf{Capacity Bound} — Each activation extracts at most $c$ bits per vertex.
+\item \textbf{$R$-Power Graph} — $G_n^{(2R)}$ encoding locality constraints.
+\item \textbf{$R$-Packing Number} — $\alpha_R(G_n)$.
+\item \textbf{$R$-Chromatic Number} — $\chi_R(G_n)$.
+\item \textbf{Packing Bound} — $\alpha_R(G_n) \ge n/B_\Delta(2R)$.
+\item \textbf{Covering Bound} — $T \ge \chi_R(G_n)$.
+\item \textbf{Information Bound} — $T \ge H(X_n)/(c\,\alpha_R(G_n))$.
+\item \textbf{Unified Depth Theorem} — 
+\[
+T \ge \max\!\left\{
+\frac{H(X_n)}{c\,\alpha_R(G_n)},
+\;
+\chi_R(G_n)
+\right\}.
+\]
+\end{itemize}
+
+\section{Dependency Structure}
+
+The logical flow is:
+
+\begin{enumerate}
+\item Locality Axiom $\Rightarrow$ $R$-Power Graph.
+\item $R$-Power Graph $\Rightarrow$ definitions of $\alpha_R$ and $\chi_R$.
+\item $\alpha_R$ $\Rightarrow$ Information Bound.
+\item $\chi_R$ $\Rightarrow$ Covering Bound.
+\item Information Bound + Covering Bound $\Rightarrow$ Unified Depth Theorem.
+\end{enumerate}
+
+\section{DAG Representation}
 
 \begin{figure}[h]
 \centering
-\begin{tikzpicture}[
-  node distance=2.5cm,
-  box/.style={rectangle, draw, thick, align=center, minimum width=3cm},
-  arrow/.style={-Latex, thick}
-]
-
-\node[box] (defs) {Entropy \& Capacity Definitions};
-\node[box, below=of defs] (ed) {EntropyDepth Bound};
-\node[box, below=of ed] (wall) {Linear Refinement Wall};
-\node[box, right=3cm of ed] (locality) {Local Admissibility};
-\node[box, right=3cm of wall] (apps) {Applications};
-\node[box, right=3cm of defs] (spectral) {Spectral Coercivity};
-
-\draw[arrow] (defs) -- (ed);
-\draw[arrow] (ed) -- (wall);
-\draw[arrow] (locality) -- (wall);
-\draw[arrow] (wall) -- (apps);
-\draw[arrow] (spectral) -- (apps);
-
-\end{tikzpicture}
-\caption{Core logical flow of the Unified Rigidity Framework.}
+\begin{tabular}{cc}
+Locality Axiom & Capacity Bound \\
+$\downarrow$ & $\downarrow$ \\
+$R$-Power Graph & Information Bound \\
+$\downarrow$ & \\
+$\alpha_R,\chi_R$ & \\
+$\downarrow$ & \\
+Covering Bound & \\
+$\downarrow$ & \\
+Unified Depth Theorem & \\
+\end{tabular}
+\caption{Structural dependency DAG for refinement depth lower bounds.}
 \label{fig:urf-dag}
 \end{figure}
+
+\section{Structural Interpretation}
+
+The DAG shows that depth lower bounds arise from two independent mechanisms:
+
+\begin{itemize}
+\item \emph{Packing (information) constraint} — limits parallel entropy extraction.
+\item \emph{Covering (chromatic) constraint} — limits simultaneous vertex activation.
+\end{itemize}
+
+The Unified Depth Theorem is the minimal upper envelope of these two constraints.
+
+\section{Acyclicity}
+
+No result in the diagram depends on the Unified Depth Theorem itself.  
+All arrows point strictly forward from axioms to consequences, ensuring the structure is acyclic.
+
+\section{Implication}
+
+Any improvement to depth bounds must refine either:
+
+\begin{itemize}
+\item the packing parameter $\alpha_R(G_n)$,
+\item the chromatic parameter $\chi_R(G_n)$, or
+\item the capacity constant $c$.
+\end{itemize}
+
+Thus the DAG isolates the exact structural levers controlling refinement depth.
