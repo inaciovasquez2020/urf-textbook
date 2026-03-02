@@ -1,123 +1,81 @@
 \chapter{Unified Rigidity Reduction}
 
-\section{Abstract Rigidity Template}
+\section*{Standing Assumptions}
+
+Throughout this chapter:
+
+\begin{itemize}
+\item $(X,\mathcal{R})$ is a refinement system with per-step capacity bound $C>0$.
+\item $H:X\to\mathbb{R}_{\ge 0}$ is an entropy functional.
+\item $\mathrm{ED}(x)$ denotes EntropyDepth as in Chapter 4.
+\end{itemize}
+
+\section{Rigidity Functionals}
 
 \begin{definition}[Rigidity Functional]
-Let $(X,\mathcal{R})$ be a refinement system.  
-A rigidity functional is a map
-\[
-\mathcal{F} : X \to \mathbb{R}_{\ge 0}
-\]
-such that
+A rigidity functional is a map $\mathcal{F}:X\to\mathbb{R}_{\ge 0}$ satisfying:
 \begin{enumerate}
-\item $\mathcal{F}(x)=0$ characterizes defect-free states,
-\item $\mathcal{F}$ is monotone under admissible refinement,
-\item $\mathcal{F}$ satisfies a coercive lower bound in terms of entropy or energy.
+\item (Zero set) $\mathcal{F}(x)=0$ characterizes defect-free states.
+\item (Monotonicity) $\mathcal{F}(Rx)\le \mathcal{F}(x)$ for all $R\in\mathcal{R}$.
+\item (Entropy control) There exists $\alpha>0$ such that
+\[
+\mathcal{F}(x) \ge \alpha H(x)
+\quad
+\text{for all } x\in X.
+\]
 \end{enumerate}
 \end{definition}
 
 \section{Unified Rigidity Lemma}
 
 \begin{theorem}[Unified Rigidity Lemma]
-Let $(X,\mathcal{R})$ be an admissible refinement system with bounded capacity $C$ and rigidity functional $\mathcal{F}$.  
-If there exists a constant $\alpha>0$ such that
+Let $\mathcal{F}$ be a rigidity functional with entropy control constant $\alpha>0$.  
+Then for any $x\in X$ with $H(x)>0$,
 \[
-\mathcal{F}(x) \ge \alpha H(x)
+\mathrm{ED}(x)
+\ge
+\left\lceil \frac{H(x)}{C} \right\rceil.
 \]
-for all admissible states, then refinement depth satisfies
+Moreover if $H(x_n)\ge c n$, then
 \[
-\mathrm{ED}(x) \ge \frac{\alpha}{C} H(x).
-\]
-\end{theorem}
-
-\begin{proof}
-Each refinement step reduces entropy by at most $C$.  
-Since $\mathcal{F}$ controls entropy from below, eliminating defect requires at least $H(x)/C$ steps up to the multiplicative constant $\alpha$.
-\end{proof}
-
-\section{Deterministic Regime}
-
-\begin{theorem}[Deterministic Coercivity Regime]
-If $\mathcal{F}$ satisfies a uniform coercive inequality
-\[
-\mathcal{F}(x) \ge \beta \|x\|^2,
-\]
-then defect elimination implies a uniform spectral lower bound.
-\end{theorem}
-
-\begin{proof}
-Coercivity implies stability under perturbation.  
-Refinement cannot collapse the defect functional without violating the lower bound.
-\end{proof}
-
-\section{Probabilistic Regime}
-
-\begin{theorem}[Averaged Rigidity]
-Let $(X_n)$ be random instances with
-\[
-\mathbb{E}[H(X_n)] = \Theta(n).
-\]
-If the rigidity functional satisfies
-\[
-\mathbb{E}[\mathcal{F}(X_n)] \ge \gamma n
-\]
-for some $\gamma>0$, then
-\[
-\mathbb{E}[\mathrm{ED}(X_n)] = \Omega(n).
+\mathrm{ED}(x_n)\ge \frac{c}{C} n.
 \]
 \end{theorem}
 
 \begin{proof}
-Apply the entropy–capacity bound in expectation and use linear scaling of entropy.
+The capacity bound yields entropy decrease at most $C$ per step, hence the depth bound follows.  
+The linear bound follows from $H(x_n)\ge cn$.
 \end{proof}
 
 \section{Reduction Schema}
 
-\begin{definition}[Reduction]
-A problem $\mathcal{P}$ reduces to rigidity if its correctness condition can be expressed as $\mathcal{F}(x)=0$ for a rigidity functional satisfying the Unified Rigidity Lemma.
+\begin{definition}[Rigidity Reduction]
+A decision problem $\mathcal{P}$ reduces to rigidity if there exists a refinement encoding of instances $I\mapsto x(I)\in X$ and a rigidity functional $\mathcal{F}$ such that $I$ is a YES instance iff $\mathcal{F}(x(I))=0$.
 \end{definition}
 
-\begin{theorem}[Rigidity Reduction Principle]
-If $\mathcal{P}$ reduces to rigidity and satisfies bounded-capacity admissibility, then sublinear refinement depth is impossible.
+\begin{theorem}[Reduction Consequence]
+If $\mathcal{P}$ reduces to rigidity and instances satisfy $H(x(I_n))\ge cn$ with fixed $C$, then any admissible refinement procedure requires $\Omega(n)$ steps in the worst case.
 \end{theorem}
 
 \begin{proof}
-Immediate from the Unified Rigidity Lemma.
+Apply the Unified Rigidity Lemma to the encoded instances.
 \end{proof}
 
-\section{Discrete and Continuous Bridge}
+\section{Spectral Instantiation}
 
-\begin{theorem}[Discrete–Continuous Correspondence]
-Let $(X_n)$ be discrete refinement systems with spectral operators $(A_n)$ in Hilbert spaces.  
-If
+\begin{theorem}
+Let $X=\mathcal{H}$ be a Hilbert space and define
 \[
-\langle A_n x, x \rangle \ge \lambda \|x\|^2
+\mathcal{F}(x) := \langle Ax,x\rangle
 \]
-uniformly, then the induced rigidity functional satisfies the coercivity condition of the Unified Rigidity Lemma.
+for a nonnegative self-adjoint operator $A$ with gap $\lambda_1>0$ on $(\ker A)^\perp$.
+Then
+\[
+\mathcal{F}(x)\ge \lambda_1 \|x\|^2
+\quad \text{for all } x\perp \ker A.
+\]
 \end{theorem}
 
 \begin{proof}
-The Rayleigh quotient lower bound induces a uniform defect lower bound, which translates to entropy control via capacity constraints.
+This is the coercivity inequality from Chapter 3.
 \end{proof}
-
-\section{Escape Conditions}
-
-Escaping rigidity requires violation of at least one of:
-\begin{itemize}
-\item Bounded capacity,
-\item Local admissibility (FO$^k$),
-\item Coercivity of the rigidity functional,
-\item Monotonicity under refinement.
-\end{itemize}
-
-\section{Summary}
-
-The Unified Rigidity Reduction identifies a single structural mechanism:
-
-\[
-\text{Entropy Growth} + \text{Capacity Bound} + \text{Coercivity}
-\;\Longrightarrow\;
-\text{Linear Depth}.
-\]
-
-All applications in later chapters instantiate this template.
