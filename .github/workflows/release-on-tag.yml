@@ -28,6 +28,5 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          files: |
-            main.pdf
-            journal/urf_core.pdf
+     files: |
+        urf-textbook-${{ github.ref_name }}.pdf
