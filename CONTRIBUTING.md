@@ -22,6 +22,11 @@
 - No overfull hboxes in theorem environments
 - ROADMAP.md updated if structural change
 
+## Versioning Discipline
+- Minor structural additions: bump vX.Y+1.Z
+- Major theorem or invariant addition: bump vX+1.0.0
+- Draft state must include -draft suffix
+
 ## Release Discipline
 - Increment version number
 - Update CHANGELOG.md
