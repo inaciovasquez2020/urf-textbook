@@ -1,11 +1,19 @@
 \documentclass[11pt]{book}
 
+% -------------------------------------------------
+% Packages
+% -------------------------------------------------
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{geometry}
 \usepackage{hyperref}
+\usepackage{makeidx}
 
 \geometry{margin=1in}
+\makeindex
 
+% -------------------------------------------------
+% Theorem Environments (Unified Numbering)
+% -------------------------------------------------
 \newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{definition}[theorem]{Definition}
@@ -14,27 +22,43 @@
 \newtheorem{example}[theorem]{Example}
 \newtheorem{counterexample}[theorem]{Counterexample}
 
-\title{Unified Rigidity Framework}
-\author{Inacio F  Vasquez}
+% Theorem index helper
+\newcommand{\thmindex}[1]{\index{Theorems!#1}}
+
+% -------------------------------------------------
+% Title
+% -------------------------------------------------
+\title{The Unified Rigidity Framework}
+\author{Inacio Vasquez}
 \date{\today}
 
+% -------------------------------------------------
+% Document
+% -------------------------------------------------
 \begin{document}
 
+\frontmatter
 \maketitle
 \tableofcontents
 
-\include{chapters/00_orientation}
-\include{chapters/01_capacity_entropy}
-\include{chapters/02_locality_refinement}
-\include{chapters/03_spectral_rigidity}
-\include{chapters/04_entropydepth_wall}
-\include{chapters/05_unified_rigidity_reduction}
-\include{chapters/06_applications}
-\include{chapters/07_open_frontiers}
+\mainmatter
+
+\input{chapters/00_orientation}
+\input{chapters/01_capacity_entropy}
+\input{chapters/02_locality_refinement}
+\input{chapters/03_spectral_rigidity}
+\input{chapters/04_entropydepth_wall}
+\input{chapters/05_unified_rigidity_reduction}
+\input{chapters/06_applications}
+\input{chapters/07_open_frontiers}
 \input{chapters/08_constants_and_parameters}
 \input{chapters/09_examples_and_counterexamples}
 
+\backmatter
+
 \bibliographystyle{plain}
 \bibliography{references}
+
+\printindex
 
 \end{document}
