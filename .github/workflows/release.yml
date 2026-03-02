@@ -5,22 +5,31 @@ on:
     tags:
       - "v*"
 
+permissions:
+  contents: write
+
 jobs:
-  release:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install TeX Live
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            texlive-latex-base \
-            texlive-latex-recommended \
-            texlive-latex-extra \
-            texlive-fonts-recommended \
-            latexmk
+      - name: Install TeX
+        run: sudo apt-get update && sudo apt-get install -y texlive-latex-extra latexmk
 
-      - name: Build release bundle
-        run: make release TAG=${GITHUB_REF_NAME}
+      - name: Build PDF
+        run: |
+          mkdir -p journal
+          latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=journal main.tex
+          cp journal/main.pdf journal/urf_core.pdf
+
+      - name: Verify
+        run: |
+          ls -lah
+          ls -lah journal
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: journal/urf_core.pdf
