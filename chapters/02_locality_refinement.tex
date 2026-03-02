@@ -1,0 +1,104 @@
+\chapter{Locality and Refinement}
+
+\section{Refinement Systems}
+
+\begin{definition}[Refinement System]
+A refinement system is a pair $(X,\mathcal{R})$ where
+\begin{itemize}
+\item $X$ is a state space,
+\item $\mathcal{R}$ is a class of admissible refinement maps $R : X \to X$.
+\end{itemize}
+\end{definition}
+
+\begin{definition}[Admissible Refinement]
+A refinement $R \in \mathcal{R}$ is admissible if it preserves system constraints and respects bounded information capacity.
+\end{definition}
+
+\section{Locality}
+
+\begin{definition}[Local Operator]
+Let $X = \prod_{i\in I} X_i$.  
+A refinement $R$ is $k$-local if for every coordinate $i$, the updated value $(R x)_i$ depends only on $\{x_j : j \in N_k(i)\}$, where $N_k(i)$ is a neighborhood of radius $k$.
+\end{definition}
+
+\begin{definition}[FO$^k$-Admissibility]
+A refinement system is FO$^k$-admissible if every refinement is definable using formulas of quantifier depth at most $k$ over bounded neighborhoods.
+\end{definition}
+
+\section{Transcript Volume}
+
+\begin{definition}[Transcript]
+A transcript of length $t$ is a sequence
+\[
+x_0 \xrightarrow{R_1} x_1 \xrightarrow{R_2} \cdots \xrightarrow{R_t} x_t
+\]
+with $R_i \in \mathcal{R}$.
+\end{definition}
+
+\begin{definition}[Transcript Volume]
+The transcript volume up to time $t$ is the cumulative information extracted:
+\[
+V(t) = \sum_{i=1}^t I_{R_i},
+\]
+where $I_{R_i}$ denotes information obtained at step $i$.
+\end{definition}
+
+\section{Non-Amplification Principle}
+
+\begin{theorem}[Entropy Non-Amplification]
+For any admissible refinement sequence,
+\[
+V(t) \le C,
+\]
+where $C$ is the system capacity.
+\end{theorem}
+
+\begin{proof}
+Each refinement step extracts information bounded by the admissible capacity. Summing over finitely many steps cannot exceed $C$.
+\end{proof}
+
+\section{Sequential vs. Simultaneous Reconstruction}
+
+\begin{definition}[Sequential Reconstruction]
+A system admits sequential reconstruction if the target state can be recovered via a finite refinement sequence.
+\end{definition}
+
+\begin{definition}[Simultaneous Certificate]
+A certificate is simultaneous if correctness can be verified from a single global state without sequential accumulation.
+\end{definition}
+
+\begin{theorem}[No Sequential Reconstruction]
+If $\Phi(x) > 0$, then no finite admissible refinement sequence reconstructs a zero-defect state.
+\end{theorem}
+
+\begin{proof}
+From the monotonicity of $\Phi$ and the non-amplification bound, sequential accumulation cannot overcome the capacity constraint.
+\end{proof}
+
+\section{Locality Depth}
+
+\begin{definition}[Refinement Depth]
+The refinement depth of a state is the minimal $t$ such that a target property is certified after $t$ admissible refinements.
+\end{definition}
+
+\begin{theorem}[Depth Lower Bound]
+In an FO$^k$-admissible system with bounded capacity $C$,
+\[
+\text{depth} \ge \frac{H(x)}{C}.
+\]
+\end{theorem}
+
+\begin{proof}
+Each refinement contributes at most $C$ information. Recovering entropy $H(x)$ therefore requires at least $H(x)/C$ steps.
+\end{proof}
+
+\section{Infinite Systems}
+
+\begin{theorem}
+Let $(X_n,\mathcal{R}_n)$ be an increasing family of FO$^k$-admissible systems with uniform capacity bound $C$.  
+If $H(x_n) \to \infty$, then refinement depth diverges.
+\end{theorem}
+
+\begin{proof}
+The lower bound scales linearly with entropy. If entropy diverges and capacity remains bounded, depth diverges.
+\end{proof}
