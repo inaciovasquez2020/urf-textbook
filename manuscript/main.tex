@@ -1,30 +1,46 @@
-\documentclass{book}
+\documentclass[11pt]{book}
 
+% -------------------------------------------------
+% Draft / Release Flags
+% -------------------------------------------------
 \input{tex/draftflag}
 \input{tex/releaseflag}
+
 \usepackage{ifthen}
 \usepackage{draftwatermark}
+
 \ifrelease
   \draftfalse
 \else
   \drafttrue
 \fi
+
 \ifdraft
   \SetWatermarkText{DRAFT}
   \SetWatermarkScale{1}
 \fi
-[11pt]{book}
+
+% -------------------------------------------------
+% Core Packages
+% -------------------------------------------------
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage[hypertexnames=false]{hyperref}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amssymb}
 \usepackage{natbib}
 \usepackage{graphicx}
 \usepackage{geometry}
-\input{manuscript/macros.tex}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+
 \geometry{margin=1in}
 
+% -------------------------------------------------
+% Macros
+% -------------------------------------------------
+\input{manuscript/macros.tex}
+
+% -------------------------------------------------
+% Theorem Environments
+% -------------------------------------------------
 \newtheorem{definition}{Definition}[chapter]
 \newtheorem{lemma}{Lemma}[chapter]
 \newtheorem{theorem}{Theorem}[chapter]
@@ -32,33 +48,35 @@
 \newtheorem{example}{Example}[chapter]
 \newtheorem{remark}{Remark}[chapter]
 
-\title{Unified Rigidity Framework Textbook\\Capacity, Locality, and Terminal Obstructions}
+% -------------------------------------------------
+% Metadata
+% -------------------------------------------------
+\title{Unified Rigidity Framework Textbook\\
+Capacity, Locality, and Terminal Obstructions}
 \author{Inacio Vasquez}
 \date{\today}
 
+% -------------------------------------------------
+% Document Start
+% -------------------------------------------------
 \begin{document}
-\input{manuscript/chapters/00_preface.tex}
+
 \frontmatter
 \maketitle
 \tableofcontents
 
 \mainmatter
 
-\input{manuscript/chapters/01_foundations}
-\input{manuscript/chapters/02_refinement_locality}
-\input{manuscript/chapters/03_core_lemmas}
-\input{manuscript/chapters/04_main_theorems}
-\input{manuscript/chapters/05_examples_sat}
-\input{manuscript/chapters/06_examples_ym}
-\input{manuscript/chapters/07_examples_rh}
-\input{manuscript/chapters/08_examples_ns}
-\input{manuscript/chapters/09_examples_exchange}
+\input{manuscript/chapters/00_preface.tex}
 
-\appendix
-\input{manuscript/appendices/A_lean_map}
-\input{manuscript/appendices/B_cert_schema}
-\input{manuscript/appendices/C_normalization_taxonomy}
+% -------------------------------------------------
+% Additional chapters (add below as needed)
+% \input{manuscript/chapters/01_foundations.tex}
+% \input{manuscript/chapters/02_locality.tex}
+% -------------------------------------------------
 
+\backmatter
 \bibliographystyle{plainnat}
-\bibliography{manuscript/bib/refs}
+\bibliography{manuscript/references}
+
 \end{document}
