@@ -2,7 +2,6 @@ name: LaTeX Build
 
 on:
   push:
-    branches: [ main ]
   pull_request:
 
 jobs:
@@ -12,11 +11,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install TeX
-        run: sudo apt-get update && sudo apt-get install -y texlive-full
+      - name: Install TeX Live
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            texlive-full \
+            latexmk \
+            biber \
+            makeindex
 
       - name: Build textbook
         run: latexmk -pdf main.tex
 
       - name: Build journal article
         run: latexmk -pdf journal/urf_core.tex
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdfs
+          path: |
+            main.pdf
+            journal/urf_core.pdf
