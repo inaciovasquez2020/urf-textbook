@@ -1,14 +1,23 @@
 \documentclass[11pt]{book}
 
 % -------------------------------------------------
-% Packages
+% Core Packages
 % -------------------------------------------------
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{geometry}
 \usepackage{hyperref}
 \usepackage{makeidx}
+\usepackage{enumitem}
+\usepackage{mathtools}
 
 \geometry{margin=1in}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+}
+
 \makeindex
 
 % -------------------------------------------------
@@ -22,13 +31,34 @@
 \newtheorem{example}[theorem]{Example}
 \newtheorem{counterexample}[theorem]{Counterexample}
 
-% Theorem index helper
+% -------------------------------------------------
+% Cross-Reference Discipline
+% -------------------------------------------------
+\newcommand{\thmlabel}[1]{\label{thm:#1}}
+\newcommand{\lemlabel}[1]{\label{lem:#1}}
+\newcommand{\deflabel}[1]{\label{def:#1}}
+\newcommand{\remlabel}[1]{\label{rem:#1}}
+\newcommand{\problabel}[1]{\label{prob:#1}}
+\newcommand{\exlabel}[1]{\label{ex:#1}}
+\newcommand{\cexlabel}[1]{\label{cex:#1}}
+
+% -------------------------------------------------
+% Theorem Index
+% -------------------------------------------------
 \newcommand{\thmindex}[1]{\index{Theorems!#1}}
 
 % -------------------------------------------------
-% Title
+% Common Macros
 % -------------------------------------------------
-\title{The Unified Rigidity Framework}
+\newcommand{\ED}{\mathrm{ED}}
+\newcommand{\Entropy}{\mathrm{H}}
+\newcommand{\Capacity}{\mathrm{C}}
+
+% -------------------------------------------------
+% Title Information
+% -------------------------------------------------
+\title{The Unified Rigidity Framework\\
+\large Capacity, Locality, Spectral Gaps, and Structural Depth}
 \author{Inacio Vasquez}
 \date{\today}
 
@@ -38,10 +68,15 @@
 \begin{document}
 
 \frontmatter
+
 \maketitle
 \tableofcontents
 
 \mainmatter
+
+% -------------------------------------------------
+% Core Structure
+% -------------------------------------------------
 
 \input{chapters/00_orientation}
 \input{chapters/01_capacity_entropy}
@@ -53,6 +88,10 @@
 \input{chapters/07_open_frontiers}
 \input{chapters/08_constants_and_parameters}
 \input{chapters/09_examples_and_counterexamples}
+
+% -------------------------------------------------
+% Back Matter
+% -------------------------------------------------
 
 \backmatter
 
