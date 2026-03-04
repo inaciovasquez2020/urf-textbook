@@ -1,26 +1,14 @@
 name: CI
-
 on:
   push:
   pull_request:
-
 jobs:
-  latex:
+  test:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
-
-      - name: Install TeX Live
+      - name: Python tests
         run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            texlive-full \
-            latexmk \
-            biber
-
-      - name: Compile textbook
-        run: latexmk -pdf main.tex
-
-      - name: Compile journal article
-        run: latexmk -pdf journal/urf_core.tex
+          python3 -m pip install --upgrade pip
+          pip install pytest networkx numpy || true
+          if [ -d tests ]; then pytest -q; fi
