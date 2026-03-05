@@ -1,0 +1,53 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Global Amplification Barrier}
+\label{sec:global_amplification_barrier}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+We formalize a structural limitation of locality-bounded refinement systems:
+local refinement cannot synthesize global invariants without paying linear
+EntropyDepth cost.
+
+\subsection{Global Invariants}
+
+\begin{definition}[Global Invariant]
+Let $\mathcal{G}_n$ be a family of graphs with $|V|=n$.
+A function
+\[
+\Phi : \mathcal{G}_n \to \{0,1\}
+\]
+is called \emph{global} if for every fixed radius $r$
+there exist graphs $G,H \in \mathcal{G}_n$ such that:
+
+\begin{enumerate}
+\item For every vertex $x\in G$ there exists $y\in H$ with
+\[
+\Ball_r^G(x) \cong \Ball_r^H(y),
+\]
+and vice versa (local indistinguishability),
+
+\item $\Phi(G) \ne \Phi(H)$.
+\end{enumerate}
+\end{definition}
+
+Thus $\Phi$ is not determined by bounded-radius neighborhoods.
+
+Examples include connectivity, bipartiteness of large girth expanders,
+parity of certain cycle counts, and global expansion properties.
+
+\subsection{Chronos Refinement Setting}
+
+Assume the refinement–coarsening process satisfies
+FLC$(\Delta,r,k)$ with $\Delta,r$ fixed independently of $n$.
+
+Let $H_t = \log |D_t|$ denote transcript entropy.
+
+Define EntropyDepth:
+\[
+\ED(G) := \min \{ t : |D_t| = 1 \}.
+\]
+
+\subsection{Amplification Principle}
+
+Intuitively, extracting $\Phi$ requires collapsing
+all graphs in the same $\Phi$-class to a single transcript value,
+while separating distinct $\Phi$-classes
