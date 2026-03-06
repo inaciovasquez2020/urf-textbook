@@ -25,3 +25,17 @@ See:
 - `tex/appendices/dependency_graph.tex`
 - `ROADMAP.md` for planned extensions
 Add Zenodo DOI badge once minted.
+
+---
+
+## Citation and Archival
+
+This repository is part of the **Unified Rigidity Framework (URF)** research program.
+
+For citation information see:
+
+docs/citations/CITATION.md
+
+A DOI archival record may be generated via Zenodo for reproducible citation
+of repository releases.
+
