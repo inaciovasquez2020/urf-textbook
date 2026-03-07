@@ -1,12 +1,26 @@
-name: scholarly
+name: Scholarly Build
+
 on:
   push:
-    branches: [ "scholarly-v1" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "scholarly-v1" ]
+    branches: [ main ]
+  workflow_dispatch:
+
 jobs:
-  check:
+  build-paper:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: python3 scripts/check_placeholders.py
+
+steps:
+  - uses: actions/checkout@v4
+
+  - name: Create Python environment
+    run: |
+      python3 -m venv venv
+      source venv/bin/activate
+      pip install -r requirements.txt
+
+  - name: Run placeholder check
+    run: |
+      source venv/bin/activate
+      python scripts/check_placeholders.py
