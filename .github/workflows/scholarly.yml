@@ -2,15 +2,15 @@ name: Scholarly Check
 
 on:
   push:
-    branches: [ "scholarly-v1", "main" ]
+    branches: ["main", "scholarly-v1"]
 
 jobs:
   check:
     runs-on: ubuntu-latest
 
-steps:
-  - name: Checkout repository
-    uses: actions/checkout@v4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-  - name: Run placeholder check
-    run: python3 scripts/check_placeholders.py
+      - name: Run placeholder check
+        run: python3 scripts/check_placeholders.py
