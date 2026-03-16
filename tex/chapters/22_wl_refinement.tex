@@ -1,0 +1,17 @@
+\chapter{Weisfeiler--Lehman Refinement}
+
+\section{WL Update}
+
+For graph \(G=(V,E)\),
+
+\[
+c_{t+1}(v) = hash(c_t(v), multiset\{c_t(u): u \in N(v)\})
+\]
+
+\section{Stabilization}
+
+The refinement stabilizes after at most \(n\) iterations.
+
+\section{Relation to EntropyDepth}
+
+WL refinement performs bounded entropy reduction per iteration.

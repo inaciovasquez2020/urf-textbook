@@ -1,0 +1,29 @@
+\chapter{Refinement Algorithms}
+
+\section{Partition Refinement}
+
+Let \(P_t\) be a partition of the configuration space.
+
+\[
+P_{t+1} = R(P_t)
+\]
+
+where \(R\) refines blocks according to local invariants.
+
+\section{Local Refinement Rule}
+
+For vertex \(v\),
+
+\[
+label_{t+1}(v) = f(label_t(N_R(v)))
+\]
+
+where \(N_R(v)\) denotes the radius-\(R\) neighborhood.
+
+\section{Termination}
+
+The process terminates when
+
+\[
+P_{t+1} = P_t.
+\]
