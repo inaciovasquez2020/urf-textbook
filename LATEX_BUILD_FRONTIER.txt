@@ -1,0 +1,3 @@
+Diagnosis:
+- unresolved theorem references: thm:CEI, thm:depth-lower-bound, thm:entropy-depth-bound, thm:linear-wall, thm:coercivity
+- duplicate page anchors from mixing ./tex/chapters/* and ./chapters/* in the same book build
