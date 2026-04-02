@@ -68,3 +68,5 @@ This includes:
 - [Finite Local-Pattern Compression Lemma Sketch](docs/navier_stokes/ENTROPYDEPTH_local_pattern_sketch.md)
 - [Hard Family Specification](docs/navier_stokes/HARDFAMILY_spec.md)
 - [Dependency Graph](docs/navier_stokes/DEPENDENCY_graph.md)
+
+- [Chronos Core](docs/navier_stokes/CHRONOS_core.md)
