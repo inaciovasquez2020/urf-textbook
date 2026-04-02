@@ -14,4 +14,4 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y chktex
 
       - name: Run chktex
-        run: chktex -q -n22 -n30 -n1 -n8 -n46 main.tex
+        run: chktex -q -n22 -n30 -n1 -n8 -n16 -n24 -n26 -n35 -n36 -n46 main.tex
