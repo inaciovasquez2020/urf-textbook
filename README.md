@@ -58,3 +58,6 @@ This includes:
 - worked examples
 - referee guide
 
+
+- [IECP Test Protocol](docs/navier_stokes/IECP_test_protocol.md)
+- [IECP Frontier](docs/navier_stokes/IECP_frontier.md)
