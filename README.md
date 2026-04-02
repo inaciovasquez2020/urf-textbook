@@ -61,3 +61,5 @@ This includes:
 
 - [IECP Test Protocol](docs/navier_stokes/IECP_test_protocol.md)
 - [IECP Frontier](docs/navier_stokes/IECP_frontier.md)
+
+- [Complexity / Chronos / EntropyDepth Frontier](docs/navier_stokes/ENTROPYDEPTH_frontier.md)
