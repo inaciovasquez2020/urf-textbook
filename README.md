@@ -63,3 +63,8 @@ This includes:
 - [IECP Frontier](docs/navier_stokes/IECP_frontier.md)
 
 - [Complexity / Chronos / EntropyDepth Frontier](docs/navier_stokes/ENTROPYDEPTH_frontier.md)
+
+- [IECP Local Branching Lemma Sketch](docs/navier_stokes/IECP_local_branching_sketch.md)
+- [Finite Local-Pattern Compression Lemma Sketch](docs/navier_stokes/ENTROPYDEPTH_local_pattern_sketch.md)
+- [Hard Family Specification](docs/navier_stokes/HARDFAMILY_spec.md)
+- [Dependency Graph](docs/navier_stokes/DEPENDENCY_graph.md)
