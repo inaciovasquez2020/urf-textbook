@@ -1,0 +1,200 @@
+\chapter{Orientation}
+
+\section{Purpose of the Framework}
+
+The Unified Rigidity Framework (URF) formalizes a structural principle:
+
+\[
+\textbf{Entropy Growth}
++
+\textbf{Bounded Information Capacity}
++
+\textbf{Coercive Structural Constraint}
+\;\Longrightarrow\;
+\textbf{Linear Refinement Depth}.
+\]
+
+The framework applies uniformly across combinatorial systems, spectral operators,
+physical energy functionals, and capacity-bounded computational processes.
+
+URF does not introduce new axioms.  
+It isolates invariant relationships between entropy, capacity, locality, and coercivity.
+
+\section{Core Structural Objects}
+
+Throughout the book, we work with the following primitives.
+
+\subsection*{State Space}
+
+A state space $X$ is a measurable or algebraic object representing admissible configurations.
+
+\subsection*{Refinement System}
+
+A refinement system $(X,\mathcal{R})$ consists of a state space $X$ and a class
+$\mathcal{R}$ of admissible refinement maps $R : X \to X$.
+
+Refinement is structural update under bounded information extraction.
+
+\subsection*{Entropy}
+
+Entropy $H(x)$ measures the residual uncertainty or defect of a state.
+
+In discrete systems:
+\[
+H = \log |\text{admissible states}|.
+\]
+
+In measure-theoretic systems:
+\[
+H(\mu) = -\int \log\left(\frac{d\mu}{d\nu}\right) d\mu.
+\]
+
+\subsection*{Capacity}
+
+Capacity $C$ is the maximal extractable information per admissible refinement step.
+
+\subsection*{Rigidity Functional}
+
+A rigidity functional $\mathcal{F}:X\to\mathbb{R}_{\ge0}$ satisfies:
+
+\begin{itemize}
+\item $\mathcal{F}(x)=0$ characterizes defect-free states.
+\item $\mathcal{F}$ is monotone under admissible refinement.
+\item $\mathcal{F}$ bounds entropy from below:
+\[
+\mathcal{F}(x) \ge \alpha H(x)
+\]
+for some $\alpha>0$.
+\end{itemize}
+
+\section{Capacity--Entropy Inequality}
+
+The central invariant of the framework is the Capacity--Entropy inequality:
+
+\[
+\Phi(x) = H(x) - C \ge 0.
+\]
+
+This states that admissible refinement cannot eliminate entropy faster than capacity allows.
+
+This inequality is structural, not algorithmic.
+
+\section{Locality Constraint}
+
+Refinements are assumed local:
+
+\begin{itemize}
+\item Each update depends only on bounded neighborhoods.
+\item Logical description is FO$^k$-bounded.
+\item Information extraction per step is bounded.
+\end{itemize}
+
+Locality prevents global entropy collapse in a single step.
+
+\section{Spectral Coercivity}
+
+In Hilbert-space systems, coercivity is expressed as:
+
+\[
+\langle Ax,x\rangle \ge \lambda \|x\|^2
+\]
+
+for some $\lambda>0$.
+
+Spectral gap implies rigidity.
+
+Coercivity ensures defect cannot vanish without positive cost.
+
+\section{EntropyDepth}
+
+EntropyDepth measures minimal refinement length required to eliminate defect:
+
+\[
+\mathrm{ED}(x)
+=
+\inf\{t : \Phi(x_t)=0\}.
+\]
+
+Under bounded capacity:
+
+\[
+\mathrm{ED}(x)
+\ge
+\frac{H(x)}{C}.
+\]
+
+Linear entropy implies linear depth.
+
+\section{The Refinement Wall}
+
+The Refinement Wall asserts:
+
+In bounded-degree, FO$^k$-admissible systems with linear entropy growth,
+
+\[
+\mathrm{ED}(x_n) = \Theta(n).
+\]
+
+Sublinear depth requires violation of locality, capacity bounds, or coercivity.
+
+\section{Reduction Principle}
+
+Many problems reduce to verifying a rigidity functional:
+
+\[
+\mathcal{F}(x)=0.
+\]
+
+If $\mathcal{F}$ satisfies coercivity and capacity constraints, linear depth follows.
+
+This unifies combinatorial, spectral, and physical settings.
+
+\section{Scope and Limits}
+
+URF establishes structural lower bounds under:
+
+\begin{itemize}
+\item Bounded information extraction,
+\item Local refinement,
+\item Coercive defect control.
+\end{itemize}
+
+The framework does not claim:
+
+\begin{itemize}
+\item That all algorithms are local,
+\item That all systems obey bounded capacity,
+\item That coercivity always holds.
+\end{itemize}
+
+Escaping rigidity requires violating one of these constraints.
+
+\section{Organization of the Book}
+
+\begin{itemize}
+\item Chapter 1: Capacity and Entropy
+\item Chapter 2: Locality and Refinement
+\item Chapter 3: Spectral Rigidity
+\item Chapter 4: EntropyDepth and the Wall
+\item Chapter 5: Unified Rigidity Reduction
+\item Chapter 6: Applications
+\item Chapter 7: Open Frontiers
+\end{itemize}
+
+The development proceeds from invariant definitions to reduction principles to cross-domain instantiation.
+
+\section{Structural Thesis}
+
+All subsequent results instantiate the same invariant mechanism:
+
+\[
+\textbf{Entropy Growth}
++
+\textbf{Bounded Capacity}
++
+\textbf{Coercivity}
+\;\Longrightarrow\;
+\textbf{Linear Refinement Depth}.
+\]
+
+This is the organizing law of the Unified Rigidity Framework.
