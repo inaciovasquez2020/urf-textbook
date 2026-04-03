@@ -1,8 +1,5 @@
 \documentclass[11pt]{book}
 
-% -------------------------------------------------
-% Core Packages
-% -------------------------------------------------
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{geometry}
 \usepackage{hyperref}
@@ -15,17 +12,13 @@
 
 \geometry{margin=1in}
 \hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    citecolor=blue,
-    urlcolor=blue
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
 }
-
 \makeindex
 
-% -------------------------------------------------
-% Theorem Environments (Unified Numbering)
-% -------------------------------------------------
 \newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{definition}[theorem]{Definition}
@@ -34,9 +27,6 @@
 \newtheorem{example}[theorem]{Example}
 \newtheorem{counterexample}[theorem]{Counterexample}
 
-% -------------------------------------------------
-% Cross-Reference Discipline
-% -------------------------------------------------
 \newcommand{\thmlabel}[1]{\label{thm:#1}}
 \newcommand{\lemlabel}[1]{\label{lem:#1}}
 \newcommand{\deflabel}[1]{\label{def:#1}}
@@ -45,30 +35,24 @@
 \newcommand{\exlabel}[1]{\label{ex:#1}}
 \newcommand{\cexlabel}[1]{\label{cex:#1}}
 
-% -------------------------------------------------
-% Theorem Index
-% -------------------------------------------------
 \newcommand{\thmindex}[1]{\index{Theorems!#1}}
 
-% -------------------------------------------------
-% Common Macros
-% -------------------------------------------------
 \newcommand{\ED}{\mathrm{ED}}
 \newcommand{\Entropy}{\mathrm{H}}
 \newcommand{\Capacity}{\mathrm{C}}
 
-% -------------------------------------------------
-% Title Information
-% -------------------------------------------------
-\title{The Unified Rigidity Framework\\
-\large Capacity, Locality, Spectral Gaps, and Structural Depth}
+\title{The Unified Rigidity Framework\\ \large Capacity, Locality, Spectral Gaps, and Structural Depth}
 \author{Inacio Vasquez}
 \date{\today}
 
-% -------------------------------------------------
-% Document
-% -------------------------------------------------
 \begin{document}
+
+\frontmatter
+\maketitle
+\tableofcontents
+
+\mainmatter
+\include{tex/chapters/00_orientation_legacy}
 \include{tex/chapters/01_core_invariants}
 \include{tex/chapters/02_operational_rigidity}
 \include{tex/chapters/03_capacity_bounds}
@@ -115,7 +99,6 @@
 \bibliographystyle{plain}
 \nocite{*}
 \bibliography{references}
-
 \printindex
 
 \appendix
@@ -125,6 +108,5 @@
 \include{tex/appendices/D_theorem_index}
 \include{tex/appendices/E_symbol_index}
 \include{tex/appendices/F_framework_summary}
-\
-\
+
 \end{document}

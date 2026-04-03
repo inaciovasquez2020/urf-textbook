@@ -1,0 +1,39 @@
+\chapter{Unified Rigidity Reduction}
+
+\section{Rigidity Functional}
+
+\begin{definition}[Rigidity Functional]\deflabel{rigidity-functional}
+A functional $\mathcal{F}$ such that
+\[
+\mathcal{F}(x)=0
+\]
+characterizes solved instances.
+\end{definition}
+
+\begin{theorem}[Rigidity Reduction]\thmlabel{rigidity-reduction}
+If a problem reduces to a refinement system with
+\[
+H(x_n) \ge c n,
+\]
+then any admissible refinement requires
+\[
+\ED(x_n) \ge \frac{c}{C} n.
+\]
+\end{theorem}
+
+\begin{proof}
+Immediate from Theorem~\ref{thm:linear-wall}.
+\end{proof}
+
+\section{Spectral Instantiation}
+
+\begin{theorem}[Spectral Coercivity]\thmlabel{coercivity}
+Let $A$ be self-adjoint with gap $\lambda>0$. Then
+\[
+\langle Ax,x\rangle \ge \lambda \|x\|^2.
+\]
+\end{theorem}
+
+\begin{proof}
+Standard spectral decomposition argument.
+\end{proof}

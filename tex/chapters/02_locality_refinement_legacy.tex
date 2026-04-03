@@ -1,0 +1,95 @@
+\chapter{Locality and Refinement}
+
+\section*{Standing Assumptions}
+
+Throughout this chapter:
+
+\begin{itemize}
+\item $X = \prod_{i\in I} X_i$ is a finite product space.
+\item $I$ is finite with $|I| = n$.
+\item $\mathcal{R}$ is a set of admissible refinements.
+\item Each refinement extracts at most $C>0$ bits of information.
+\item Locality radius is bounded by $k \in \mathbb{N}$.
+\end{itemize}
+
+\section{Local Refinement}
+
+\begin{definition}[k-Local Refinement]
+A refinement $R \in \mathcal{R}$ is $k$-local if for every $i \in I$,
+\[
+{(Rx)}_i = f_i\bigl(x|_{N_k(i)}\bigr),
+\]
+where $N_k(i) \subset I$ is a neighborhood of radius at most $k$.
+\end{definition}
+
+\section{FO$^k$-Admissibility}
+
+\begin{definition}[FO$^k$-Admissible System]
+A refinement system is FO$^k$-admissible if every refinement is definable by a first-order formula of quantifier depth at most $k$ over bounded neighborhoods.
+\end{definition}
+
+\section{Transcript Volume}
+
+\begin{definition}[Transcript]
+A transcript of length $t$ is a sequence
+\[
+x_0 \xrightarrow{R_1} x_1 \xrightarrow{R_2} \cdots \xrightarrow{R_t} x_t
+\]
+with each $R_i \in \mathcal{R}$.
+\end{definition}
+
+\begin{definition}[Transcript Information]
+The total information extracted by a transcript of length $t$ is
+\[
+V(t) = \sum_{i=1}^t I(R_i).
+\]
+\end{definition}
+
+\section{Capacity Bound}
+
+\begin{lemma}
+If the system has per-step capacity bound $C$, then
+\[
+V(t) \le tC.
+\]
+\end{lemma}
+
+\begin{proof}
+Immediate from $I(R_i) \le C$ for each $i$.
+\end{proof}
+
+\section{Depth Lower Bound Under Locality}
+
+\begin{theorem}
+Let $x_0 \in X$ with entropy $H(x_0)$.  
+If the system is FO$^k$-admissible and has capacity bound $C$, then
+\[
+\mathrm{ED}(x_0)
+\ge
+\left\lceil \frac{H(x_0)}{C} \right\rceil.
+\]
+\end{theorem}
+
+\begin{proof}
+By Chapter~1, entropy decreases by at most $C$ per refinement step.  
+Locality prevents global collapse in a single step.  
+Therefore at least $H(x_0)/C$ steps are required.
+\end{proof}
+
+\section{Linear Scaling Regime}
+
+\begin{theorem}
+Let $(x_n)$ be instances with $|I|=n$ and entropy
+\[
+H(x_n) \ge c n
+\]
+for some $c>0$.  
+If locality radius and capacity bound are independent of $n$, then
+\[
+\mathrm{ED}(x_n) \ge \frac{c}{C} n.
+\]
+\end{theorem}
+
+\begin{proof}
+Apply the depth lower bound with linear entropy growth.
+\end{proof}

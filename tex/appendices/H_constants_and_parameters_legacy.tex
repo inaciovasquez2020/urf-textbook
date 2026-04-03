@@ -1,0 +1,119 @@
+\chapter{Constants and Structural Parameters}
+
+\section{Degree Growth and Ball Size}
+
+Let $G_n=(V,E)$ be a graph with maximum degree $\Delta$.
+For fixed radius $R\ge 1$, define
+\[
+B_\Delta(2R)
+=
+1+\Delta\sum_{i=0}^{2R-1}(\Delta-1)^i .
+\]
+
+This bounds the size of any ball of radius $2R$ in $G_n$.
+
+\section{$R$-Packing Parameter}
+
+\begin{definition}[$R$-Packing Number]
+\[
+\alpha_R(G_n) := \alpha(G_n^{(2R)}).
+\]
+\end{definition}
+
+\begin{lemma}[Greedy Packing Bound]
+\[
+\alpha_R(G_n)
+\;\ge\;
+\frac{n}{B_\Delta(2R)}.
+\]
+\end{lemma}
+
+\begin{proof}
+Each selected vertex eliminates at most $B_\Delta(2R)$ vertices from further selection.
+\end{proof}
+
+\section{$R$-Chromatic Number}
+
+\begin{definition}[$R$-Chromatic Number]
+\[
+\chi_R(G_n) := \chi(G_n^{(2R)}).
+\]
+\end{definition}
+
+\section{Structural Regimes}
+
+\begin{center}
+\begin{tabular}{cc}
+\textbf{Regime} & \textbf{Dominant Constraint} \\
+Information-dominated 
+& $\dfrac{H(X_n)}{c\,\alpha_R(G_n)}$ \\
+Covering-dominated 
+& $\chi_R(G_n)$ \\
+Balanced 
+& Comparable bounds \\
+\end{tabular}
+\end{center}
+
+\section{Explicit Family Calculations}
+
+\subsection*{Path $P_n$}
+\[
+\chi_R(P_n)=2R+1,
+\qquad
+\alpha_R(P_n)=\Theta(n).
+\]
+
+\subsection*{Star $K_{1,n-1}$}
+\[
+\chi_R(K_{1,n-1})=n,
+\qquad
+\alpha_R(K_{1,n-1})=n-1.
+\]
+
+\subsection*{$d$-Dimensional Grid}
+\[
+\chi_R = O(R^d),
+\qquad
+\alpha_R=\Theta(n).
+\]
+
+\section{Unified Depth Lower Bound}
+
+\begin{theorem}[Depth Bound]
+For FO$^k$-admissible refinement with per-vertex capacity $c$,
+\[
+T
+\ge
+\max\!\left\{
+\frac{H(X_n)}{c\,\alpha_R(G_n)},
+\;
+\chi_R(G_n)
+\right\}.
+\]
+\end{theorem}
+
+\section{Asymptotic Growth Classes}
+
+\begin{itemize}
+\item $\chi_R(G_n)=O(1)$: constant depth achievable.
+\item $\chi_R(G_n)=\omega(1)\cap o(n)$: superconstant depth required.
+\item $\chi_R(G_n)=\Theta(n)$: linear depth forced.
+\end{itemize}
+
+\section{Spectral Heuristic Connection}
+
+For expander families with spectral gap $\lambda>0$, it is conjectured that
+\[
+\chi_R(G_n)
+=
+\Omega\!\bigl(n\,f(R,\lambda)\bigr)
+\]
+for some increasing function $f$.
+
+\section{Open Structural Questions}
+
+\begin{enumerate}
+\item Characterize bounded-degree families with $\chi_R(G_n)=\omega(1)$.
+\item Determine optimal entropy-extraction scheduling under fixed $c$.
+\item Analyze randomized activation covering times.
+\end{enumerate}

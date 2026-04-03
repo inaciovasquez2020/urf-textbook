@@ -6,10 +6,12 @@ on:
 
 jobs:
   build:
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Install TeX Live
         run: |
@@ -26,7 +28,7 @@ jobs:
         run: latexmk -pdf journal/urf_core.tex
 
       - name: Upload PDFs
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: urf-pdfs
           path: |

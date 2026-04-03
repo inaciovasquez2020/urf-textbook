@@ -1,0 +1,45 @@
+\chapter{Applications}
+
+\section{SAT-Type Systems}
+
+\begin{theorem}\thmlabel{sat-linear}
+For bounded-degree CNF with
+\[
+H(F_n) \ge c n,
+\]
+we have
+\[
+\ED(F_n) \ge \frac{c}{C} n.
+\]
+\end{theorem}
+
+\begin{proof}
+Immediate from Theorem~\ref{thm:linear-wall}.
+\end{proof}
+
+\section{Capacity-Bounded Computation}
+
+\begin{theorem}\thmlabel{capacity-linear}
+Any capacity-bounded refinement algorithm requires
+\[
+\Omega(n)
+\]
+steps when entropy is linear.
+\end{theorem}
+
+\begin{proof}
+Immediate from Theorem~\ref{thm:linear-wall}.
+\end{proof}
+
+\section{Spectral Systems}
+
+\begin{theorem}
+Under spectral gap $\lambda>0$,
+\[
+\langle Ax,x\rangle \ge \lambda \|x\|^2.
+\]
+\end{theorem}
+
+\begin{proof}
+By Theorem~\ref{thm:coercivity}.
+\end{proof}
