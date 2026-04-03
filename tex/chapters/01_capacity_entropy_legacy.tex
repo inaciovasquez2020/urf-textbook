@@ -1,0 +1,112 @@
+\chapter{Capacity and Entropy}
+
+\section*{Standing Assumptions}
+
+Throughout this chapter:
+
+\begin{itemize}
+\item $(X,\mathcal{F},\nu)$ is a $\sigma$-finite measure space.
+\item $\mu$ is a probability measure absolutely continuous with respect to $\nu$.
+\item $(X,\mathcal{R})$ is a refinement system.
+\item Each admissible refinement extracts at most $C>0$ bits of information.
+\end{itemize}
+
+\section{Entropy}
+
+\begin{definition}[Relative Entropy]
+Assume $\mu \ll \nu$ with density $f = \frac{d\mu}{d\nu}$.  
+The entropy of $\mu$ relative to $\nu$ is
+\[
+H(\mu) = - \int_X f \log f \, d\nu,
+\]
+provided the integral is finite.
+\end{definition}
+
+\begin{lemma}[Nonnegativity]
+If $\nu$ is a probability measure, then $H(\mu) \ge 0$.
+\end{lemma}
+
+\begin{proof}
+Since $x\log x \ge -e^{-1}$ for $x>0$, the integral is bounded below and finite.
+\end{proof}
+
+\section{Information Capacity}
+
+\begin{definition}[Capacity Bound]
+A refinement system has capacity $C>0$ if for every admissible refinement $R$,
+\[
+I(R) \le C,
+\]
+where $I(R)$ denotes the mutual information extracted by $R$.
+\end{definition}
+
+\section{Capacity–Entropy Functional}
+
+\begin{definition}
+Define
+\[
+\Phi(\mu) = H(\mu) - C.
+\]
+\end{definition}
+
+\section{Capacity–Entropy Inequality}
+
+\begin{theorem}\label{thm:CEI}
+Let $(X,\mathcal{R})$ have capacity bound $C$.  
+Then for any refinement sequence of length $t$,
+\[
+H(\mu_t) \ge H(\mu_0) - tC.
+\]
+\end{theorem}
+
+\begin{proof}
+Each admissible refinement reduces entropy by at most $C$.  
+Summing over $t$ steps yields the bound.
+\end{proof}
+
+\section{Depth Lower Bound}
+
+\begin{definition}[EntropyDepth]
+The EntropyDepth of $\mu_0$ is
+\[
+\mathrm{ED}(\mu_0)
+=
+\inf \{ t \in \mathbb{N} : H(\mu_t)=0 \}.
+\]
+\end{definition}
+
+\begin{theorem}\label{thm:depth-lower-bound}
+If $H(\mu_0)>0$, then
+\[
+\mathrm{ED}(\mu_0)
+\ge
+\left\lceil \frac{H(\mu_0)}{C} \right\rceil.
+\]
+\end{theorem}
+
+\begin{proof}
+By Theorem~\ref{thm:CEI},
+\[
+0 \ge H(\mu_0) - tC
+\quad \Rightarrow \quad
+t \ge \frac{H(\mu_0)}{C}.
+\]
+\end{proof}
+
+\section{Infinite System Extension}
+
+\begin{theorem}
+Let $(\mu_n)$ be a sequence with $H(\mu_n)=\Theta(n)$ and uniform capacity bound $C$.  
+Then
+\[
+\mathrm{ED}(\mu_n)
+\ge
+\frac{c}{C} n
+\]
+for some constant $c>0$ independent of $n$.
+\end{theorem}
+
+\begin{proof}
+By hypothesis $H(\mu_n) \ge c n$ for sufficiently large $n$.  
+Apply Theorem~\ref{thm:depth-lower-bound}.
+\end{proof}

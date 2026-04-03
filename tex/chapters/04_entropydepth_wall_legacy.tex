@@ -1,0 +1,48 @@
+\chapter{EntropyDepth and the Refinement Wall}
+
+\section{EntropyDepth}
+
+\begin{definition}[EntropyDepth]\deflabel{entropy-depth}
+For $x$ define
+\[
+\ED(x)
+=
+\inf
+\{ t \in \mathbb{N} : H(x_t)=0 \},
+\]
+where $x_{i+1}=R_{i+1}(x_i)$.
+\end{definition}
+
+\begin{theorem}[EntropyDepth Bound]\thmlabel{entropy-depth-bound}
+For any $x$,
+\[
+\ED(x)
+\ge
+\left\lceil
+\frac{H(x)}{C}
+\right\rceil.
+\]
+\end{theorem}
+
+\begin{proof}
+Each refinement step reduces entropy by at most $C$.
+After $t$ steps:
+\[
+H(x_t) \ge H(x) - tC.
+\]
+If $H(x_t)=0$, then
+\[
+t \ge \frac{H(x)}{C}.
+\]
+\end{proof}
+
+\begin{theorem}[Linear Refinement Wall]\thmlabel{linear-wall}
+If $H(x_n) \ge c n$ with fixed $C$, then
+\[
+\ED(x_n) \ge \frac{c}{C} n.
+\]
+\end{theorem}
+
+\begin{proof}
+Immediate from Theorem~\ref{thm:entropy-depth-bound}.
+\end{proof}

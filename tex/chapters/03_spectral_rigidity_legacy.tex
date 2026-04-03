@@ -1,0 +1,143 @@
+\chapter{Spectral Rigidity}
+
+\section*{Standing Assumptions}
+
+Throughout this chapter:
+
+\begin{itemize}
+\item $\mathcal{H}$ is a separable Hilbert space.
+\item $A : \mathcal{D}(A) \subset \mathcal{H} \to \mathcal{H}$ is densely defined, self-adjoint.
+\item $A$ is nonnegative: $\langle Ax,x\rangle \ge 0$ for all $x\in\mathcal{D}(A)$.
+\item $\ker A$ is finite-dimensional.
+\end{itemize}
+
+\section{Rayleigh Quotient}
+
+\begin{definition}[Rayleigh Quotient]
+For $x \in \mathcal{D}(A)\setminus\{0\}$,
+\[
+R_A(x) := \frac{\langle Ax,x\rangle}{\|x\|^2}.
+\]
+\end{definition}
+
+\section{Spectral Gap}
+
+\begin{definition}[Spectral Gap]
+The spectral gap of $A$ is
+\[
+\lambda_1(A)
+:=
+\inf_{\substack{x \in \mathcal{D}(A)\\ x \perp \ker A \\ \|x\|=1}}
+\langle Ax,x\rangle.
+\]
+\end{definition}
+
+\begin{lemma}
+If $\lambda_1(A)>0$, then
+\[
+\langle Ax,x\rangle \ge \lambda_1(A)\|x\|^2
+\quad
+\text{for all } x \perp \ker A.
+\]
+\end{lemma}
+
+\begin{proof}
+Immediate from the definition of $\lambda_1(A)$.
+\end{proof}
+
+\section{Min--Max Principle}
+
+\begin{theorem}[Variational Characterization]
+Under the standing assumptions,
+\[
+\lambda_1(A)
+=
+\inf_{\substack{x \perp \ker A \\ \|x\|=1}}
+\langle Ax,x\rangle.
+\]
+\end{theorem}
+
+\begin{proof}
+Follows from the standard min--max principle for self-adjoint operators.
+\end{proof}
+
+\section{Operator Domination}
+
+\begin{definition}[Domination]
+Let $A,B$ be self-adjoint on $\mathcal{H}$.  
+We say $A \succeq B$ if
+\[
+\langle Ax,x\rangle \ge \langle Bx,x\rangle
+\quad
+\forall x \in \mathcal{D}(A)\cap\mathcal{D}(B).
+\]
+\end{definition}
+
+\begin{theorem}[Gap Preservation Under Domination]
+If $A \succeq B$ and $\lambda_1(B)\ge \mu>0$, then
+\[
+\lambda_1(A)\ge \mu.
+\]
+\end{theorem}
+
+\begin{proof}
+For $x \perp \ker B$,
+\[
+\langle Ax,x\rangle \ge \langle Bx,x\rangle
+\ge \mu \|x\|^2.
+\]
+Taking the infimum yields the claim.
+\end{proof}
+
+\section{Local-to-Global Coercivity}
+
+\begin{theorem}[Finite Orthogonal Decomposition]
+Assume
+\[
+\mathcal{H} = \bigoplus_{i=1}^m \mathcal{H}_i
+\]
+orthogonally and
+\[
+A = \sum_{i=1}^m A_i
+\]
+with each $A_i$ nonnegative and coercive:
+\[
+\langle A_i x_i,x_i\rangle \ge c_i \|x_i\|^2.
+\]
+Then
+\[
+\langle Ax,x\rangle
+\ge
+\left(\min_i c_i\right)\|x\|^2.
+\]
+\end{theorem}
+
+\begin{proof}
+Write $x=\sum_i x_i$. Then
+\[
+\langle Ax,x\rangle
+=
+\sum_i \langle A_i x_i,x_i\rangle
+\ge
+\sum_i c_i \|x_i\|^2
+\ge
+\left(\min_i c_i\right)\sum_i \|x_i\|^2.
+\]
+\end{proof}
+
+\section{Strong Resolvent Stability}
+
+\begin{theorem}
+Let $A_n \to A$ in strong resolvent sense and assume
+\[
+\inf_n \lambda_1(A_n) \ge \lambda_* > 0.
+\]
+Then
+\[
+\lambda_1(A) \ge \lambda_*.
+\]
+\end{theorem}
+
+\begin{proof}
+Lower semicontinuity of the spectrum under strong resolvent convergence preserves the lower bound.
+\end{proof}

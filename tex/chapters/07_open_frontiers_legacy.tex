@@ -1,0 +1,77 @@
+\chapter{Open Frontiers}
+
+\section*{Purpose of This Chapter}
+
+The previous chapters established structural lower bounds under fixed locality and bounded capacity.  
+This chapter isolates precise open directions required for strengthening or extending the framework.
+
+\section{Superlinear EntropyDepth}
+
+\begin{problem}[Superlinear Depth]
+Determine whether there exists a refinement system with bounded per-step capacity $C$ and locality independent of $n$ such that
+\[
+\mathrm{ED}(x_n) \ge \Omega(n^{1+\varepsilon})
+\]
+for some $\varepsilon>0$ while $H(x_n)=\Theta(n)$.
+\end{problem}
+
+\section{Adaptive Capacity Growth}
+
+\begin{problem}[Capacity Scaling]
+Characterize necessary and sufficient growth conditions on per-step capacity $C_n$ such that
+\[
+\mathrm{ED}(x_n) = o(n)
+\]
+is possible when $H(x_n)=\Theta(n)$.
+\end{problem}
+
+\section{Locality Escape}
+
+\begin{problem}[Locality Expansion]
+Determine the minimal growth rate of locality radius $r_n$ required to bypass the linear refinement wall.
+\end{problem}
+
+\section{Spectral Generalization}
+
+\begin{problem}[Non-Self-Adjoint Rigidity]
+Extend spectral coercivity bounds to non-self-adjoint operators with pseudospectral gaps.
+\end{problem}
+
+\section{Probabilistic Refinement Models}
+
+\begin{problem}[Randomized Refinement]
+Let refinement steps be randomized but satisfy expected capacity bound $C$.  
+Establish concentration bounds for EntropyDepth under stochastic refinement.
+\end{problem}
+
+\section{Quantitative Constants}
+
+\begin{problem}[Constant Optimization]
+Given explicit entropy constant $c$ and capacity bound $C$, determine sharp constants in
+\[
+\mathrm{ED}(x_n) \ge \frac{c}{C} n.
+\]
+\end{problem}
+
+\section{Structural Dichotomy}
+
+A central frontier question:
+
+\[
+\text{Is every sublinear refinement achievable only by violating either locality or bounded capacity?}
+\]
+
+Formal resolution of this dichotomy would complete the structural classification of refinement systems.
+
+\section{Research Program Structure}
+
+Open directions fall into four categories:
+
+\begin{enumerate}
+\item Capacity amplification mechanisms.
+\item Locality-breaking constructions.
+\item Nonlinear entropy growth models.
+\item Spectral-to-combinatorial transfer principles.
+\end{enumerate}
+
+Each requires new structural tools beyond the current framework.
