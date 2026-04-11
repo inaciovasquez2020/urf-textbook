@@ -1,0 +1,35 @@
+Shadow Reuse Cases
+
+Operational Collapse | Strong | observer/discrimination capacity ceiling
+ceiling_symbol=L_OC
+quantity_symbol=q_OC
+
+Viotropic Wall | Strong | terminal admissible operational-complexity threshold
+ceiling_symbol=L_VW
+quantity_symbol=q_VW
+
+Exchange Force Phase I | Strong | ECC_crit
+ceiling_symbol=L_EF
+quantity_symbol=q_EF
+
+Radiative Rigidity | Strong | terminal admissible radiative/stiffness threshold
+ceiling_symbol=L_RR
+quantity_symbol=q_RR
+
+Chronos / EntropyDepth | Weak | transcript/capacity saturation ceiling
+ceiling_symbol=L_CH
+quantity_symbol=q_CH
+
+The Wall | Weak | admissibility/capacity ceiling
+ceiling_symbol=L_W
+quantity_symbol=q_W
+
+Cayley C^k Rigidity | NonNative | definability/rigidity
+dual_object=native_rigidity_object
+
+Structural Zero | NonNative | zero-limit / floor law
+dual_object=ShadowOfZero(ε)
+
+OS mass-gap frontier | NonNative | positive spectral floor m > 0
+dual_object=GapFloor(m)
+

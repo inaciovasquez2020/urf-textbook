@@ -1,0 +1,83 @@
+[
+  {
+    "module": "Operational Collapse",
+    "status": "Strong",
+    "native_object": "observer/discrimination capacity ceiling",
+    "ceiling_symbol": "L_OC",
+    "quantity_symbol": "q_OC",
+    "dual_object": "",
+    "first_use_definition_required": true
+  },
+  {
+    "module": "Viotropic Wall",
+    "status": "Strong",
+    "native_object": "terminal admissible operational-complexity threshold",
+    "ceiling_symbol": "L_VW",
+    "quantity_symbol": "q_VW",
+    "dual_object": "",
+    "first_use_definition_required": true
+  },
+  {
+    "module": "Exchange Force Phase I",
+    "status": "Strong",
+    "native_object": "ECC_crit",
+    "ceiling_symbol": "L_EF",
+    "quantity_symbol": "q_EF",
+    "dual_object": "",
+    "first_use_definition_required": true
+  },
+  {
+    "module": "Radiative Rigidity",
+    "status": "Strong",
+    "native_object": "terminal admissible radiative/stiffness threshold",
+    "ceiling_symbol": "L_RR",
+    "quantity_symbol": "q_RR",
+    "dual_object": "",
+    "first_use_definition_required": true
+  },
+  {
+    "module": "Chronos / EntropyDepth",
+    "status": "Weak",
+    "native_object": "transcript/capacity saturation ceiling",
+    "ceiling_symbol": "L_CH",
+    "quantity_symbol": "q_CH",
+    "dual_object": "",
+    "first_use_definition_required": true
+  },
+  {
+    "module": "The Wall",
+    "status": "Weak",
+    "native_object": "admissibility/capacity ceiling",
+    "ceiling_symbol": "L_W",
+    "quantity_symbol": "q_W",
+    "dual_object": "",
+    "first_use_definition_required": true
+  },
+  {
+    "module": "Cayley C^k Rigidity",
+    "status": "NonNative",
+    "native_object": "definability/rigidity",
+    "ceiling_symbol": "",
+    "quantity_symbol": "",
+    "dual_object": "native_rigidity_object",
+    "first_use_definition_required": true
+  },
+  {
+    "module": "Structural Zero",
+    "status": "NonNative",
+    "native_object": "zero-limit / floor law",
+    "ceiling_symbol": "",
+    "quantity_symbol": "",
+    "dual_object": "ShadowOfZero(ε)",
+    "first_use_definition_required": true
+  },
+  {
+    "module": "OS mass-gap frontier",
+    "status": "NonNative",
+    "native_object": "positive spectral floor m > 0",
+    "ceiling_symbol": "",
+    "quantity_symbol": "",
+    "dual_object": "GapFloor(m)",
+    "first_use_definition_required": true
+  }
+]

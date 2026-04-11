@@ -1,0 +1,24 @@
+name = "ShadowReuseTest"
+version = "1.0"
+predicate = "ShadowCompatible"
+statuses = ["Strong", "Weak", "NonNative"]
+
+[rules]
+Strong = [
+  "finite_ceiling",
+  "quantity_below_ceiling",
+  "sup_equals_ceiling",
+  "theorem_invariant_under_shadow_language",
+]
+Weak = [
+  "finite_ceiling",
+  "quantity_below_ceiling",
+  "secondary_language_only",
+]
+NonNative = [
+  "native_dual_object_required",
+]
+
+[global_requirements]
+first_use_definition_required = true
+standard_term_claim_forbidden = true
