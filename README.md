@@ -70,3 +70,11 @@ This includes:
 - [Dependency Graph](docs/navier_stokes/DEPENDENCY_graph.md)
 
 - [Chronos Core](docs/navier_stokes/CHRONOS_core.md)
+
+## Canonical routing
+
+This repository is the exposition and release-facing documentation layer for URF.
+
+Canonical authority for URF definitions, theorem statements, dependency ledgers, and closure claims remains in `urf-core`.
+
+Community-additive examples, tests, implementations, and non-canonical extensions belong in `urf-core-community`.
