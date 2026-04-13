@@ -1,0 +1,28 @@
+{
+  "clay_missing": 0,
+  "clay_presence": {
+    "Birch and Swinnerton-Dyer conjecture": true,
+    "Hodge conjecture": true,
+    "Navier-Stokes existence and smoothness": true,
+    "P versus NP": true,
+    "Riemann hypothesis": true,
+    "Yang-Mills existence and mass gap": true
+  },
+  "clay_present": 6,
+  "clay_total": 6,
+  "registry_complete": true,
+  "shadow_formulation_present": true,
+  "toolkit_missing": 0,
+  "toolkit_presence": {
+    "DraG0n": true,
+    "EV0V3": true,
+    "EXNILIO": true,
+    "FGL": true,
+    "GQu": true,
+    "Kairos": true,
+    "Newstein Chain": true,
+    "RiGUp": true
+  },
+  "toolkit_present": 8,
+  "toolkit_total": 8
+}
