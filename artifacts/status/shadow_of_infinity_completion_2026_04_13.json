@@ -1,0 +1,17 @@
+{
+  "components": {
+    "artifact_emission_layer": 1,
+    "canonical_placement": 1,
+    "clay_registry_lock": 1,
+    "definition_lock": 1,
+    "repo_cleanliness_after_run": 0,
+    "toolkit_registry_lock": 1,
+    "value_returning_test_layer": 1
+  },
+  "module_completion_percent": 85.71,
+  "registry_complete": true,
+  "registry_score": "14/14",
+  "status_lock_present": true,
+  "verified_clay_count": 6,
+  "verified_toolkit_count": 8
+}
