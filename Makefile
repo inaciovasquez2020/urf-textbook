@@ -1,14 +1,7 @@
-ROOT=manuscript/main.tex
-PDF=urf-textbook.pdf
+.PHONY: verify test
 
-all:
-	latexmk -pdf -interaction=nonstopmode -halt-on-error $(ROOT)
-	mv manuscript/main.pdf $(PDF)
+verify:
+	python3 -m pytest -q
 
-clean:
-	latexmk -C
-	rm -f $(PDF)
-
-release:
-	latexmk -pdf -interaction=nonstopmode -halt-on-error $(ROOT)
-        mv manuscript/main.pdf urf-textbook-$(TAG).pdf
+test:
+	python3 -m pytest -q
