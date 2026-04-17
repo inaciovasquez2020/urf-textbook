@@ -1,14 +1,7 @@
-ROOT=manuscript/main.tex
-PDF=urf-textbook.pdf
+.PHONY: verify test
 
-all:
-	latexmk -pdf -interaction=nonstopmode -halt-on-error $(ROOT)
-	mv manuscript/main.pdf $(PDF)
+verify:
+	python3 -m pytest -q tests/test_shadow_of_infinity_scope_lock.py tests/test_shadow_of_infinity_completion_2026_04_13.py tests/test_shadow_of_infinity_registry_returns_values.py tests/test_shadow_of_infinity_against_toolkit_and_clay_registry.py
 
-clean:
-	latexmk -C
-	rm -f $(PDF)
-
-release:
-	latexmk -pdf -interaction=nonstopmode -halt-on-error $(ROOT)
-        mv manuscript/main.pdf urf-textbook-$(TAG).pdf
+test:
+	python3 -m pytest -q tests/test_shadow_of_infinity_scope_lock.py tests/test_shadow_of_infinity_completion_2026_04_13.py tests/test_shadow_of_infinity_registry_returns_values.py tests/test_shadow_of_infinity_against_toolkit_and_clay_registry.py
