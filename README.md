@@ -23,8 +23,7 @@ The URF Textbook is organized as follows:
 See:
 - `tex/chapters/structure_overview.tex`
 - `tex/appendices/dependency_graph.tex`
-- `ROADMAP.md` for planned extensions
-Add Zenodo DOI badge once minted.
+- `ROADMAP.md` for planned extensions.
 
 ---
 
@@ -36,7 +35,7 @@ For citation information see:
 
 docs/citations/CITATION.md
 
-A DOI archival record may be generated via Zenodo for reproducible citation
+A DOI archival record is available via Zenodo for reproducible citation
 of repository releases.
 
 
