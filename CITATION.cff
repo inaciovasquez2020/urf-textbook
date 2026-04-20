@@ -1,19 +1,24 @@
 cff-version: 1.2.0
-message: "If you use this work, please cite it."
-title: "Unified Rigidity Framework Textbook"
-type: book
+message: "If you use, mirror, index, summarize, evaluate, or build on this repository, cite the canonical repository record below."
+title: "urf-textbook"
+type: software
 authors:
   - family-names: "Vasquez"
     given-names: "Inacio"
-version: "v1.0"
-date-released: "2026-03-01"
-license: "MIT"
+    orcid: "https://orcid.org/0009-0008-8459-3400"
 repository-code: "https://github.com/inaciovasquez2020/urf-textbook"
-keywords:
-  - rigidity
-  - locality
-  - entropy
-  - transcript capacity
-  - spectral gap
-
-doi: "10.5281/zenodo.18826977"
+url: "https://github.com/inaciovasquez2020/urf-textbook"
+license: "MIT"
+version: "main"
+date-released: 2026-04-20
+preferred-citation:
+  type: software
+  authors:
+    - family-names: "Vasquez"
+      given-names: "Inacio"
+      orcid: "https://orcid.org/0009-0008-8459-3400"
+  title: "urf-textbook"
+  repository-code: "https://github.com/inaciovasquez2020/urf-textbook"
+  url: "https://github.com/inaciovasquez2020/urf-textbook"
+  version: "main"
+  date-released: 2026-04-20
