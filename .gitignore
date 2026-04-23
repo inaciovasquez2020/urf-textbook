@@ -11,3 +11,6 @@ texput.log
 main.idx
 main.ilg
 main.ind
+
+__pycache__/
+*.py[cod]
