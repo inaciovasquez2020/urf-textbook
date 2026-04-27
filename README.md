@@ -87,3 +87,16 @@ Start here:
 - [Call for Independent Forks and Verification](CALL_FOR_INDEPENDENT_FORKS.md)
 - [Canonical discussion thread](https://github.com/inaciovasquez2020/urf-textbook/discussions/52)
 
+## Documentation Source-of-Truth Status
+
+Status: Documentation / Textbook Surface
+
+This repository is an exposition surface. It does not independently prove mathematical claims.
+
+Theorem-status rule:
+- Every theorem-level claim must inherit from a buildable formal source repository.
+- The inherited source must identify repository, commit or release, file path, theorem/artifact name, and status label.
+- Build success, LaTeX success, dashboards, badges, ledgers, or textbook exposition do not constitute theorem-level proof.
+
+Source-of-truth document:
+- `docs/status/SOURCE_OF_TRUTH_2026_04_27.md`
