@@ -87,6 +87,9 @@ Start here:
 - [Call for Independent Forks and Verification](CALL_FOR_INDEPENDENT_FORKS.md)
 - [Canonical discussion thread](https://github.com/inaciovasquez2020/urf-textbook/discussions/52)
 
+## External status
+
+This repository is governed by [`docs/status/EXTERNAL_STATUS_LOCK.md`](docs/status/EXTERNAL_STATUS_LOCK.md). Build success, CI success, dashboards, ledgers, axioms, admits, `sorry`, or placeholder witnesses do not constitute theorem-level closure.
 ## Documentation Source-of-Truth Status
 
 Status: Documentation / Textbook Surface
