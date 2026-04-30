@@ -8,7 +8,7 @@ Let
 D=\{(t_i,z_i)\}_{i=1}^{N},\qquad t_1<\cdots<t_N,
 \]
 
-be a vacuum vertical trajectory in SI units. Let \(m>0\), \(g>0\), \(\varepsilon_{\mathrm{meas}}\ge 0\), and \(\varepsilon_F\ge 0\).
+be a vacuum vertical trajectory in SI units. Let \(m>0\), \(g_{\mathrm{cert}}>0\), \(\varepsilon_g\ge 0\), \(\varepsilon_{\mathrm{meas}}\ge 0\), and \(\varepsilon_F\ge 0\).
 
 A VTD certificate consists of
 
@@ -16,11 +16,15 @@ A VTD certificate consists of
 \mathrm{VTD}
 =
 \left(
-D,m,g,\widehat a(t^\star),\varepsilon_{\mathrm{meas}},\varepsilon_F
+D,m,g_{\mathrm{cert}},\varepsilon_g,\widehat a(t^\star),\varepsilon_{\mathrm{meas}},\varepsilon_F
 \right),
 \]
 
 where
+
+\[
+|g_{\mathrm{cert}}-g_{\mathrm{true}}|\le \varepsilon_g,
+\]
 
 \[
 |\widehat a(t^\star)-z''(t^\star)|\le \varepsilon_{\mathrm{meas}}
@@ -39,7 +43,7 @@ and
 H_0:\qquad
 z''(t^\star)
 =
--g+\frac{F_{\mathrm{non\text{-}gravity}}(t^\star)}{m}.
+-g_{\mathrm{true}}+\frac{F_{\mathrm{non\text{-}gravity}}(t^\star)}{m}.
 \]
 
 ## Anomaly model
@@ -52,7 +56,7 @@ z''(t^\star)
 +
 \frac{F_{\mathrm{non\text{-}gravity}}(t^\star)}{m},
 \qquad
-g_{\mathrm{eff}}\ne g .
+g_{\mathrm{eff}}\ne g_{\mathrm{true}} .
 \]
 
 ## Conditional theorem
@@ -60,21 +64,23 @@ g_{\mathrm{eff}}\ne g .
 If the two certificate bounds above are valid and
 
 \[
-|\widehat a(t^\star)+g|
+|\widehat a(t^\star)+g_{\mathrm{cert}}|
 >
-\varepsilon_{\mathrm{meas}}+\varepsilon_F,
+\varepsilon_{\mathrm{meas}}+\varepsilon_F+\varepsilon_g,
 \]
 
 then \(H_0\) is falsified at \(t^\star\), and
 
 \[
-|g_{\mathrm{eff}}-g|
+|g_{\mathrm{eff}}-g_{\mathrm{true}}|
 \ge
-|\widehat a(t^\star)+g|
+|\widehat a(t^\star)+g_{\mathrm{cert}}|
 -
 \varepsilon_{\mathrm{meas}}
 -
 \varepsilon_F
+-
+\varepsilon_g
 >
 0.
 \]
@@ -84,7 +90,7 @@ then \(H_0\) is falsified at \(t^\star\), and
 Under \(H_0\),
 
 \[
-z''(t^\star)+g
+z''(t^\star)+g_{\mathrm{true}}
 =
 \frac{F_{\mathrm{non\text{-}gravity}}(t^\star)}{m}.
 \]
@@ -92,9 +98,9 @@ z''(t^\star)+g
 Therefore
 
 \[
-|z''(t^\star)+g|
+|z''(t^\star)+g_{\mathrm{cert}}|
 \le
-\varepsilon_F.
+\varepsilon_F+\varepsilon_g.
 \]
 
 Since
@@ -108,17 +114,17 @@ Since
 the triangle inequality gives
 
 \[
-|\widehat a(t^\star)+g|
+|\widehat a(t^\star)+g_{\mathrm{cert}}|
 \le
-\varepsilon_{\mathrm{meas}}+\varepsilon_F.
+\varepsilon_{\mathrm{meas}}+\varepsilon_F+\varepsilon_g.
 \]
 
 Thus
 
 \[
-|\widehat a(t^\star)+g|
+|\widehat a(t^\star)+g_{\mathrm{cert}}|
 >
-\varepsilon_{\mathrm{meas}}+\varepsilon_F
+\varepsilon_{\mathrm{meas}}+\varepsilon_F+\varepsilon_g
 \]
 
 contradicts \(H_0\).
@@ -126,9 +132,9 @@ contradicts \(H_0\).
 Under \(H_1\),
 
 \[
-\widehat a(t^\star)+g
+\widehat a(t^\star)+g_{\mathrm{cert}}
 =
--(g_{\mathrm{eff}}-g)
+-(g_{\mathrm{eff}}-g_{\mathrm{true}})+(g_{\mathrm{cert}}-g_{\mathrm{true}})
 +
 \frac{F_{\mathrm{non\text{-}gravity}}(t^\star)}{m}
 +
@@ -144,21 +150,23 @@ where
 Hence
 
 \[
-|g_{\mathrm{eff}}-g|
+|g_{\mathrm{eff}}-g_{\mathrm{true}}|
 \ge
-|\widehat a(t^\star)+g|
+|\widehat a(t^\star)+g_{\mathrm{cert}}|
 -
 \varepsilon_{\mathrm{meas}}
 -
-\varepsilon_F.
+\varepsilon_F
+-
+\varepsilon_g.
 \]
 
 ## Weakest sufficient threshold
 
-Using only the bounds \(\varepsilon_{\mathrm{meas}}\) and \(\varepsilon_F\), the sharp rejection threshold is
+Using only the bounds \(\varepsilon_{\mathrm{meas}}\), \(\varepsilon_F\), and \(\varepsilon_g\), the sharp rejection threshold is
 
 \[
-\varepsilon_{\mathrm{meas}}+\varepsilon_F.
+\varepsilon_{\mathrm{meas}}+\varepsilon_F+\varepsilon_g.
 \]
 
 Any smaller threshold can falsely reject an \(H_0\)-consistent trajectory.

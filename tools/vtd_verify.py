@@ -3,14 +3,14 @@
 VTD Anti-Gravity Certificate Verifier.
 
 Certificate tested:
-    |a_hat(t*) + g| > eps_meas + eps_F
+    |a_hat(t*) + g_cert| > eps_meas + eps_F + eps_g
 
 If the supplied certificates are valid, this falsifies
     H0: z''(t*) = -g + F_non_gravity(t*)/m,
         |F_non_gravity(t*)|/m <= eps_F,
 
 and certifies the lower bound
-    |g_eff - g| >= |a_hat(t*) + g| - eps_meas - eps_F > 0.
+    |g_eff - g_true| >= |a_hat(t*) + g_cert| - eps_meas - eps_F - eps_g > 0.
 
 Boundary:
     This verifier certifies a trajectory anomaly relative to ordinary force
@@ -162,6 +162,7 @@ def parse_args() -> argparse.Namespace:
     ap.add_argument("csv", help="CSV with columns t,z in SI units")
     ap.add_argument("--m", type=float, required=True, help="mass in kg")
     ap.add_argument("--g", type=float, required=True, help="certified local gravitational acceleration in m/s^2")
+    ap.add_argument("--eps-g", type=float, default=0.0, help="certified |g_cert-g_true| bound in m/s^2")
     ap.add_argument("--eps-meas", type=float, required=True, help="certified |a_hat-a_true| bound in m/s^2")
     ap.add_argument("--eps-F", type=float, required=True, help="certified |F_non_gravity|/m bound in m/s^2")
     ap.add_argument("--window", type=int, default=21, help="odd number of samples in each local fit")
@@ -177,6 +178,7 @@ def main() -> int:
 
     require_finite_positive("m", args.m)
     require_finite_positive("g", args.g)
+    require_finite_nonnegative("eps_g", args.eps_g)
     require_finite_nonnegative("eps_meas", args.eps_meas)
     require_finite_nonnegative("eps_F", args.eps_F)
 
@@ -193,7 +195,7 @@ def main() -> int:
         die("not enough samples for the chosen window")
 
     indices = evaluation_indices(t, args.window, args.index, args.time)
-    threshold = args.eps_meas + args.eps_F
+    threshold = args.eps_meas + args.eps_F + args.eps_g
     rows: list[EvalRow] = []
 
     for idx in indices:
@@ -208,7 +210,7 @@ def main() -> int:
     if not args.quiet:
         print(f"# VTD verifier: {Path(args.csv).name}")
         print(f"# evaluated_points = {len(rows)}")
-        print(f"# threshold = eps_meas + eps_F = {threshold:.12g} m/s^2")
+        print(f"# threshold = eps_meas + eps_F + eps_g = {threshold:.12g} m/s^2")
         if len(rows) > 1:
             print("# scan mode: eps_meas and eps_F must be valid uniformly over all evaluated points")
         print("idx,t*,a_hat,abs(a_hat+g),margin,certified,cond")
@@ -230,7 +232,7 @@ def main() -> int:
     if any_cert:
         print("decision = H0_REJECTED")
         print(f"certified_lower_bound_abs_g_eff_minus_g_m_s2 = {best.margin:.12g}")
-        print("claim_boundary = trajectory anomaly certified under supplied bounds; physical anti-gravity mechanism not identified")
+        print("claim_boundary = trajectory anomaly certified under supplied measurement, force, and gravity-reference bounds; physical anti-gravity mechanism not identified")
     else:
         print("decision = H0_NOT_REJECTED")
         print("certified_lower_bound_abs_g_eff_minus_g_m_s2 = 0")
