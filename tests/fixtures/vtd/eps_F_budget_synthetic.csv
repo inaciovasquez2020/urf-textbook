@@ -1,0 +1,5 @@
+force_channel,acceleration_bound_m_s2,evidence,status
+residual_gas_drag,1.2e-9,synthetic bound,demonstration-only
+magnetic_gradient,0.8e-9,synthetic bound,demonstration-only
+laser_verticality,0.5e-9,synthetic bound,demonstration-only
+total,2.5e-9,triangle-sum synthetic bound,demonstration-only
