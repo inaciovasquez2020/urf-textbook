@@ -1,0 +1,26 @@
+source_class: "IBGE BDG / Rede Gravimetrica"
+station_type: "Estacao Gravimetrica - EG"
+station_or_site: null
+location_name: "Belo Horizonte, MG"
+latitude_deg: null
+longitude_deg: null
+altitude_m: null
+gravity_mgal: null
+g_cert_m_s2: null
+eps_g_m_s2: null
+conversion:
+  input_unit: "mGal"
+  rule: "g_cert_m_s2 = gravity_mgal * 1.0e-5"
+traceability:
+  station_report_url: null
+  station_report_local_file: null
+  measurement_date: null
+  instrument: null
+  source_agency: "IBGE - Banco de Dados Geodesicos"
+boundary:
+  claim: "gravity-reference certificate only"
+  not_claimed:
+    - "trajectory anomaly certified"
+    - "anti-gravity mechanism proven"
+    - "physical anti-gravity mechanism identified"
+    - "theorem-level URF closure"
