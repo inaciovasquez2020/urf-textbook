@@ -1,0 +1,4 @@
+# STUB_ONLY: contains no real empirical VTD control data.
+# Replace this file with measured control schedule samples.
+# Required columns after replacement:
+t,u

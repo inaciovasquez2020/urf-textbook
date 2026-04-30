@@ -1,0 +1,10 @@
+channel,bound_m_s2,method,evidence,status
+residual_drag,null,null,null,STUB_ONLY
+vibration,null,null,null,STUB_ONLY
+acoustic,null,null,null,STUB_ONLY
+electrostatic,null,null,null,STUB_ONLY
+magnetic,null,null,null,STUB_ONLY
+thermal,null,null,null,STUB_ONLY
+cable_or_contact,null,null,null,STUB_ONLY
+recoil_or_actuator_coupling,null,null,null,STUB_ONLY
+optical_or_radiation_pressure,null,null,null,STUB_ONLY
