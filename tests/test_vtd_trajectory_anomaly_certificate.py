@@ -18,7 +18,7 @@ def test_vtd_doc_boundary_is_conditional():
 
 def test_vtd_doc_has_sharp_threshold():
     text = DOC.read_text()
-    assert r"\varepsilon_{\mathrm{meas}}+\varepsilon_F" in text
+    assert r"\varepsilon_{\mathrm{meas}}+\varepsilon_F+\varepsilon_g" in text
     assert "sharp rejection threshold" in text
 
 def test_vtd_tool_preserves_claim_boundary():
@@ -27,3 +27,4 @@ def test_vtd_tool_preserves_claim_boundary():
     assert "physical anti-gravity mechanism not identified" in text
     assert "H0_REJECTED" in text
     assert "H0_NOT_REJECTED" in text
+    assert "eps_g" in text
