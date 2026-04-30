@@ -1,0 +1,4 @@
+# STUB_ONLY: contains no real empirical VTD data.
+# Replace this file with measured ON trajectory samples.
+# Required columns after replacement:
+t,z
