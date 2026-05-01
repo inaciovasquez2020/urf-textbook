@@ -1,0 +1,36 @@
+{
+  "candidate": "C2 smoothstep from local alpha-beta certificate to flat exterior",
+  "interpretation": "Default smoothstep matching fails at least one sampled WEC/DEC margin; global matching remains open and requires a different transition ansatz or interval-certified construction.",
+  "min_margins": {
+    "rho": {
+      "r": 142.05,
+      "value": -3.9038149881246555e-07
+    },
+    "rho_minus_pr": {
+      "r": 142.05,
+      "value": -7.807629976249311e-07
+    },
+    "rho_minus_pt": {
+      "r": 117.008,
+      "value": -1.3130158123650692e-06
+    },
+    "rho_plus_pr": {
+      "r": 10.0,
+      "value": 0.0
+    },
+    "rho_plus_pt": {
+      "r": 175.908,
+      "value": -8.960060770880812e-07
+    }
+  },
+  "minimum_value": -1.3130158123650692e-06,
+  "parameters": {
+    "R_out": 200.0,
+    "a": 0.001,
+    "exterior": "flat",
+    "r0": 10.0,
+    "r1": 20.0,
+    "samples": 5001
+  },
+  "status": "FRONTIER_FAIL"
+}
