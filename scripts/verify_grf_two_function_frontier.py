@@ -15,7 +15,8 @@ required = [
     "8\\pi p_t",
     "\\Phi'(r)<0",
     "\\rho+p_r\\ge0",
-    "\\frac{\\beta'}{\\beta}\n+\n2\\beta\\Phi'\n\\ge0",
+    "\\frac{\\beta'}{\\beta}\n+\n2\\Phi'\n\\ge0",
+    "\\frac{\\beta'}{\\beta}\n\\ge\n-2\\Phi'.",
     "Two-Function Finite-Capacity Realization Lemma",
     "The next missing object is an explicit bounded pair",
 ]
