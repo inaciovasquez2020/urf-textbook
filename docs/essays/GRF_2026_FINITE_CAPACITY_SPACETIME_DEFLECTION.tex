@@ -1,0 +1,310 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+
+\title{Admissible Spacetime Deflection under Finite Capacity:\\
+Lessons from Optical Metrics}
+\author{Inacio F. Vasquez\\
+Independent Researcher\\
+Beeville, Texas, USA\\
+\texttt{inacio@vasquezresearch.com}}
+\date{January 19, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+Essay written for the Gravity Research Foundation 2026 Essay Competition
+\end{center}
+
+\begin{abstract}
+Repulsive-looking gravitational deflection is often associated with exotic matter, negative energy density, or violations of classical energy conditions.  This essay proposes a different diagnostic: physical realizability should require finite operational capacity.  A realizable geometry should not demand unbounded information transport, unbounded gradient amplification, or infinite observational resolution.  Using optical metrics as exact analogue geometries, we show that outward geodesic deflection can occur in smooth bounded geometries with finite gradients and finite bandwidth.  The resulting selection rule is not that outward deflection is forbidden, but that deflection mechanisms requiring infinite amplification are inadmissible.  A simple finite-capacity inequality separates bounded repulsive deflection from singular or unstable constructions and provides a practical criterion for semiclassical model building.
+\end{abstract}
+
+\section{The physical problem}
+
+General relativity permits many mathematically consistent geometries whose behavior appears repulsive: geodesics may defocus, rays may bend outward from a central region, and effective potentials may push trajectories away rather than pull them inward.  Such behavior is often interpreted as evidence for exotic stress--energy, negative energy density, or violations of familiar energy conditions.
+
+That inference is too quick.  The sign of a deflection effect is not by itself a complete physical diagnosis.  A geometry may look repulsive because it depends on a singular source, an infinite blueshift, or an arbitrarily sharp metric gradient.  But it may also look repulsive because the effective geometry is smooth, bounded, and arranged so that geodesics bend away from a region of lower optical index or weaker time-warping.  The physical distinction is not merely ``attractive'' versus ``repulsive.''  The sharper distinction is between finite-capacity and infinite-capacity mechanisms.
+
+The thesis of this essay is therefore:
+
+\[
+\textit{Repulsive-looking deflection is admissible when it is produced by bounded geometry rather than infinite operational gain.}
+\]
+
+This gives a conservative selection rule.  It does not add exotic matter.  It does not modify general relativity.  It asks whether the metric geometry being used can be resolved, perturbed, and transported through with finite operational resources.
+
+\section{Finite capacity}
+
+\begin{definition}[Finite-capacity geometry]
+Let $\Omega$ be a bounded region in which a static effective geometry is described by a positive lapse factor $\alpha(r)$ or, equivalently for null rays, by an optical index
+\[
+        n(r)=\alpha(r)^{-1/2}.
+\]
+The geometry is finite-capacity on $\Omega$ if there is a finite constant $C_{\mathrm{cap}}$ such that
+\[
+        0<n_{\min}\le n(r)\le n_{\max}<\infty,
+\]
+and
+\[
+        \sup_{\Omega}\left(
+        |\nabla\log n|+|\nabla^2\log n|
+        \right)
+        \le C_{\mathrm{cap}}.
+\]
+Equivalently, in terms of $\alpha$,
+\[
+        0<\alpha_{\min}\le \alpha(r)\le \alpha_{\max}<\infty,
+\]
+and
+\[
+        \sup_{\Omega}\left(
+        |\nabla\log \alpha|+|\nabla^2\log \alpha|
+        \right)
+        \le 2C_{\mathrm{cap}}.
+\]
+\end{definition}
+
+This condition is deliberately operational.  It forbids a geometry from acting as an unbounded amplifier of gradients, frequencies, or resolution.  It excludes deflection produced by singular dependence on arbitrarily small scales.  It does not exclude outward deflection itself.
+
+The analogy with energy conditions is useful but limited.  Energy conditions constrain matter.  Finite capacity constrains operational geometry.  A model may satisfy reasonable material assumptions and still be physically suspect if it requires infinite blueshift or arbitrarily fine metric structure.  Conversely, a geometry may produce outward bending while remaining smooth, bounded, and stable.
+
+\section{Optical metrics as exact analogue geometries}
+
+Optical media with spatially varying refractive index provide exact analogue geometries for light rays.  Fermat's principle says that rays extremize optical path length.  Gordon-type optical metrics express this as null geodesic motion in an effective spacetime.  In such systems, geodesic bending is real, measurable, and constrained by ordinary laboratory limitations: finite bandwidth, finite dispersion, finite loss, finite fabrication precision, and finite stability margins.
+
+These systems therefore provide a useful filter.  If an effect can occur in a passive bounded optical profile, then the effect is not inherently tied to exotic stress--energy.  It may instead be a structural consequence of geometry.
+
+The optical lesson is simple: rays bend toward higher refractive index.  If the effective refractive index is lower near the center and increases outward, rays bend away from the center.  The resulting trajectories look repulsive, even though the underlying medium is passive and bounded.
+
+\section{A geodesic anchor}
+
+Consider the static spherically symmetric ansatz on a region $\Omega$:
+\[
+        ds^2=-\alpha(r)\,dt^2+dr^2+r^2d\Omega^2,
+        \qquad \alpha(r)>0.
+\]
+For null geodesics in the equatorial plane, the Killing quantities are
+\[
+        E=\alpha(r)\dot t,
+        \qquad
+        L=r^2\dot\phi.
+\]
+The radial equation is
+\[
+        \dot r^2
+        =
+        \frac{E^2}{\alpha(r)}
+        -
+        \frac{L^2}{r^2}
+        =
+        E^2\left(
+        \frac{1}{\alpha(r)}
+        -
+        \frac{b^2}{r^2}
+        \right),
+        \qquad b=\frac{L}{E}.
+\]
+Define the optical index
+\[
+        n(r)=\alpha(r)^{-1/2}.
+\]
+Then the optical impact parameter has the Snell--Fermat form
+\[
+        b=n(r)r\sin\theta.
+\]
+Since rays bend toward larger $n$, outward bending away from the center occurs when $n$ is lower toward the center and increases outward:
+\[
+        \partial_r n(r)>0.
+\]
+Using $n=\alpha^{-1/2}$, this is equivalent to
+\[
+        \partial_r \alpha(r)<0.
+\]
+Thus outward deflection is obtained from a monotonicity condition on the time-warp factor.  No singularity or exotic source is required by the sign condition alone.
+
+\section{Finite-capacity outward deflection}
+
+\begin{lemma}[Finite-capacity outward deflection]
+Let $\Omega=\{r_0\le r\le r_1\}$ with $0<r_0<r_1<\infty$.  Suppose $n\in C^2(\Omega)$ satisfies
+\[
+        0<n_{\min}\le n(r)\le n_{\max}<\infty,
+\]
+\[
+        0<\partial_r n(r)\le M_1,
+        \qquad
+        |\partial_r^2 n(r)|\le M_2,
+\]
+for finite constants $M_1,M_2$.  Then the corresponding optical metric produces outward bending on $\Omega$ while satisfying a finite-capacity bound
+\[
+        \sup_{\Omega}
+        \left(
+        |\nabla\log n|+|\nabla^2\log n|
+        \right)
+        \le
+        \frac{M_1}{n_{\min}}
+        +
+        \frac{M_2}{n_{\min}}
+        +
+        \frac{M_1^2}{n_{\min}^2}.
+\]
+\end{lemma}
+
+\begin{proof}
+The condition $\partial_r n>0$ gives outward optical bending because rays bend toward increasing refractive index.  Since $n$ is bounded below by $n_{\min}>0$,
+\[
+        |\partial_r\log n|
+        =
+        \left|\frac{\partial_r n}{n}\right|
+        \le
+        \frac{M_1}{n_{\min}}.
+\]
+Also,
+\[
+        \partial_r^2\log n
+        =
+        \frac{\partial_r^2 n}{n}
+        -
+        \frac{(\partial_r n)^2}{n^2},
+\]
+so
+\[
+        |\partial_r^2\log n|
+        \le
+        \frac{M_2}{n_{\min}}
+        +
+        \frac{M_1^2}{n_{\min}^2}.
+\]
+Combining the two estimates gives the stated finite-capacity bound.
+\end{proof}
+
+The lemma isolates the main point.  Outward deflection is compatible with bounded geometry.  What finite capacity rejects is not the sign of the bending, but the use of unbounded gradients or singular metric dependence to obtain it.
+
+\section{A bounded example}
+
+A simple passive profile with outward bending is
+\[
+        n(r)=1-\varepsilon e^{-r/R},
+        \qquad
+        0<\varepsilon<1,
+        \qquad R>0.
+\]
+The center has lower index, and
+\[
+        \partial_r n(r)
+        =
+        \frac{\varepsilon}{R}e^{-r/R}>0.
+\]
+The associated time-warp factor is
+\[
+        \alpha(r)=n(r)^{-2}.
+\]
+Since $n(r)\ge 1-\varepsilon>0$, the capacity bound is finite.  Explicitly,
+\[
+        |\partial_r\log n|
+        \le
+        \frac{\varepsilon}{R(1-\varepsilon)},
+\]
+and
+\[
+        |\partial_r^2\log n|
+        \le
+        \frac{\varepsilon}{R^2(1-\varepsilon)}
+        +
+        \frac{\varepsilon^2}{R^2(1-\varepsilon)^2}.
+\]
+Thus this profile gives outward deflection while remaining smooth, bounded, and finite-capacity.
+
+The example also shows why capacity is the correct filter.  Letting $\varepsilon\to 1$ or $R\to 0$ drives the operational cost upward.  The geometry approaches an infinite-amplification regime not because outward bending is forbidden, but because the profile becomes too sharp or too close to degeneracy.
+
+\section{Distinction from energy conditions}
+
+Classical energy conditions ask whether stress--energy has reasonable positivity properties.  Finite capacity asks a different question: whether the geometry requires unbounded operational gain.  These filters are complementary.
+
+A repulsive-looking geometry may fail because it violates an energy condition.  It may also fail because it requires infinite blueshift, unbounded sensitivity, or arbitrarily fine control even before a stress--energy interpretation is assigned.  Conversely, bounded outward deflection in an optical metric shows that the sign of bending alone is not enough to diagnose exotic matter.
+
+The correct diagnostic is therefore not:
+\[
+        \text{outward bending} \Rightarrow \text{exotic source}.
+\]
+The corrected diagnostic is:
+\[
+        \text{inadmissible geometry} \Rightarrow
+        \text{infinite operational amplification or unstable source structure}.
+\]
+Finite capacity supplies the missing operational test.
+
+\section{A falsifiable selection rule}
+
+The finite-capacity principle becomes useful only if it can fail.  A proposed spacetime model with outward deflection should be rejected as physically inadmissible if, in the relevant region $\Omega$, any of the following quantities must diverge to maintain the claimed effect:
+\[
+        \sup_{\Omega}|\nabla\log\alpha|,
+        \qquad
+        \sup_{\Omega}|\nabla^2\log\alpha|,
+        \qquad
+        \frac{\alpha_{\max}}{\alpha_{\min}},
+        \qquad
+        \text{or the perturbative spectral response}.
+\]
+In observational terms, the principle predicts that stable outward-deflection phenomena should come with bounded sensitivity: small perturbations of the environment or source should produce only bounded perturbations of the deflection.  If the effect survives only under infinite tuning, infinite blueshift, or singular resolution, it is not finite-capacity.
+
+This is the practical rule:
+
+\[
+        \boxed{
+        \text{Outward deflection is admissible only when its metric gradients, bandwidth demands, and perturbative response remain bounded.}
+        }
+\]
+
+\section{Relation to semiclassical gravity}
+
+Modern semiclassical gravity increasingly treats information and entropy constraints as central.  Entanglement wedges, quantum focusing inequalities, replica-wormhole saddles, and Page-curve calculations all suggest that not every formally allowed geometry should be treated as physically realizable.  Some saddle points or effective geometries are excluded not by algebraic inconsistency, but by the operational or informational cost of realizing them.
+
+Finite capacity fits this direction at a pre-quantization level.  Before asking which semiclassical saddle dominates, one first asks whether the candidate geometry requires unbounded amplification.  This does not replace semiclassical dynamics.  It supplies a conservative admissibility screen for models whose apparent repulsion otherwise invites premature exotic-matter interpretations.
+
+\section{Conclusion}
+
+Repulsive-looking deflection need not signal exotic matter.  Optical metrics show that outward bending can arise from smooth bounded geometry: rays bend away from a lower-index central region while all gradients and bandwidths remain finite.  The finite-capacity principle captures this distinction.  It excludes geometries that rely on infinite operational gain, but it preserves bounded outward deflection as a legitimate geometric phenomenon.
+
+The resulting lesson is modest but useful.  The sign of geodesic deflection is not the fundamental physical test.  The fundamental test is whether the geometry can be realized with finite information transport, finite gradient amplification, and finite perturbative response.  Under that test, repulsion is not forbidden.  Infinite-capacity repulsion is.
+
+\section*{Acknowledgment}
+
+This essay is self-contained and does not rely on external manuscripts.
+
+\begin{thebibliography}{9}
+
+\bibitem{Unruh1981}
+W.~G. Unruh,
+``Experimental Black-Hole Evaporation?''
+\emph{Physical Review Letters} \textbf{46}, 1351--1353 (1981).
+
+\bibitem{LiberatiVisser2011}
+S.~Liberati and M.~Visser,
+``Analogue Gravity,''
+\emph{Living Reviews in Relativity} \textbf{14}, 3 (2011).
+
+\bibitem{Gordon1923}
+W.~Gordon,
+``Zur Lichtfortpflanzung nach der Relativit\"atstheorie,''
+\emph{Annalen der Physik} \textbf{72}, 421--456 (1923).
+
+\bibitem{BoussoQFC}
+R.~Bousso, Z.~Fisher, S.~Leichenauer, and A.~C. Wall,
+``Quantum focusing conjecture,''
+\emph{Physical Review D} \textbf{93}, 064044 (2016).
+
+\bibitem{Susskind2016}
+L.~Susskind,
+``Entanglement and Spacetime Geometry,''
+\emph{Fortschritte der Physik} \textbf{64}, 49--71 (2016).
+
+\end{thebibliography}
+
+\end{document}
