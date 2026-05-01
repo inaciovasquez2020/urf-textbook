@@ -202,7 +202,7 @@ Hence the radial NEC is equivalent to
 \[
 \frac{\beta'}{\beta}
 +
-2\beta\Phi'
+2\Phi'
 \ge0.
 \]
 
@@ -211,7 +211,7 @@ Since outward deflection gives \(\Phi'<0\), radial NEC requires
 \[
 \frac{\beta'}{\beta}
 \ge
--2\beta\Phi'.
+-2\Phi'.
 \]
 
 ## Weakest replacement lemma
@@ -250,7 +250,7 @@ and
 \[
 \frac{\beta'}{\beta}
 +
-2\beta\Phi'
+2\Phi'
 \ge0.
 \]
 
