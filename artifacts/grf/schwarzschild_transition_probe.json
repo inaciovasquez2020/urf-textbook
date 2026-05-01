@@ -1,0 +1,49 @@
+{
+  "base": {
+    "a": 0.001,
+    "r0": 10.0,
+    "r1": 20.0,
+    "samples": 4001
+  },
+  "best_candidate": {
+    "min_margins": {
+      "rho": {
+        "r": 729.235,
+        "value": -5.343955079561831e-08
+      },
+      "rho_minus_pr": {
+        "r": 729.235,
+        "value": -1.0687910159123662e-07
+      },
+      "rho_minus_pt": {
+        "r": 615.385,
+        "value": -1.7347198197940492e-07
+      },
+      "rho_plus_pr": {
+        "r": 10.0,
+        "value": 0.0
+      },
+      "rho_plus_pt": {
+        "r": 886.3975,
+        "value": -1.3457517909823786e-07
+      }
+    },
+    "minimum_value": -1.7347198197940492e-07,
+    "parameters": {
+      "M": 5.097372910197987,
+      "R_out": 1000.0,
+      "a": 0.001,
+      "exterior": "positive-mass Schwarzschild",
+      "local_mass_at_r1": 0.39210560847676823,
+      "mass_factor": 13.0,
+      "r0": 10.0,
+      "r1": 20.0,
+      "samples": 4001
+    },
+    "status": "FRONTIER_FAIL"
+  },
+  "candidate_count": 70,
+  "interpretation": "Grid search over positive-mass Schwarzschild smoothstep transitions. A PASS_NUMERICAL_SAMPLE is only sampled numerical evidence, not interval proof. A FRONTIER_FAIL means this finite grid found no sampled nonnegative shell.",
+  "next_missing_object": "interval-certified positive-mass Schwarzschild transition ansatz",
+  "status": "FRONTIER_FAIL"
+}
