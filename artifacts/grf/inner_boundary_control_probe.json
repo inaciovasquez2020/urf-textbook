@@ -1,0 +1,85 @@
+{
+  "best_candidate": {
+    "certified_margin_lower_bounds": {
+      "m_prime": {
+        "cell": 599,
+        "hi": 0.023483891067411118,
+        "lo": -0.023483891067411118,
+        "r": [
+          29.983333333333334,
+          30.0
+        ]
+      },
+      "rho": {
+        "cell": 599,
+        "hi": 2.6122228933522152e-05,
+        "lo": -2.6122228933522152e-05,
+        "r": [
+          29.983333333333334,
+          30.0
+        ]
+      },
+      "rho_minus_pr": {
+        "cell": 599,
+        "hi": 5.2244457867044304e-05,
+        "lo": -5.2244457867044304e-05,
+        "r": [
+          29.983333333333334,
+          30.0
+        ]
+      },
+      "rho_minus_pt": {
+        "cell": 599,
+        "hi": 4.917187351650497e-05,
+        "lo": -7.856591726551805e-05,
+        "r": [
+          29.983333333333334,
+          30.0
+        ]
+      },
+      "rho_plus_pr": {
+        "cell": 599,
+        "hi": 5.2244457867044304e-05,
+        "lo": -5.2244457867044304e-05,
+        "r": [
+          29.983333333333334,
+          30.0
+        ]
+      },
+      "rho_plus_pt": {
+        "cell": 599,
+        "hi": 7.856591726551805e-05,
+        "lo": -4.917187351650497e-05,
+        "r": [
+          29.983333333333334,
+          30.0
+        ]
+      }
+    },
+    "minimum_certified_lower_bound": -0.023483891067411118,
+    "parameters": {
+      "R_out": 30.0,
+      "a": 0.001,
+      "ansatz": "small-amplitude quintic Hermite mass transition with inner-boundary control",
+      "cells": 600,
+      "d0_scale": 0.0,
+      "dd0_scale": -1.0,
+      "mass_factor": 1.0,
+      "r1": 20.0
+    },
+    "status": "FRONTIER_OPEN"
+  },
+  "boundary": [
+    "This is an interval arithmetic frontier probe.",
+    "It is not a theorem of global existence.",
+    "It is not an impossibility theorem.",
+    "It does not promote sampled numerical evidence to proof.",
+    "It only certifies the encoded finite interval partition and ansatz family."
+  ],
+  "candidate_count": 1600,
+  "interpretation": "Small-scale inner-boundary Hermite interval search. CERTIFIED_PASS would certify the encoded finite interval partition and ansatz family only. FRONTIER_OPEN is not an impossibility theorem.",
+  "next_missing_object": "inner-boundary tangential-pressure control with certified nonnegative rho_minus_pt and all WEC/DEC margins",
+  "status": "FRONTIER_OPEN",
+  "targeted_cell": "inner boundary cell",
+  "targeted_margin": "rho_minus_pt"
+}
