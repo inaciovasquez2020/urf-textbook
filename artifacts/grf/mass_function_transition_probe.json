@@ -1,0 +1,53 @@
+{
+  "base": {
+    "a": 0.001,
+    "r0": 10.0,
+    "r1": 20.0,
+    "samples": 4001
+  },
+  "best_candidate": {
+    "min_margins": {
+      "m_prime": {
+        "r": 883.4275,
+        "value": -0.0019604976769426463
+      },
+      "rho": {
+        "r": 877.9825,
+        "value": -2.0117541831888482e-10
+      },
+      "rho_minus_pr": {
+        "r": 877.9825,
+        "value": -4.0235083663776965e-10
+      },
+      "rho_minus_pt": {
+        "r": 594.3475,
+        "value": -1.663468790758638e-08
+      },
+      "rho_plus_pr": {
+        "r": 10.0,
+        "value": 0.0
+      },
+      "rho_plus_pt": {
+        "r": 938.3725,
+        "value": -1.1594432479115907e-09
+      }
+    },
+    "minimum_value": -1.663468790758638e-08,
+    "parameters": {
+      "M": 91.36060677508699,
+      "R_out": 1000.0,
+      "a": 0.001,
+      "ansatz": "C2 quintic mass-function transition with radial NEC saturation",
+      "local_mass_at_r1": 0.39210560847676823,
+      "mass_factor": 233.0,
+      "r0": 10.0,
+      "r1": 20.0,
+      "samples": 4001
+    },
+    "status": "FRONTIER_FAIL"
+  },
+  "candidate_count": 150,
+  "interpretation": "Mass-function transition search. This uses the Misner-Sharp variable as the transition coordinate and chooses Phi prime by radial NEC saturation. A sampled pass is not a theorem. A sampled failure is not an impossibility theorem.",
+  "next_missing_object": "interval-certified mass-function transition ansatz",
+  "status": "FRONTIER_FAIL"
+}
