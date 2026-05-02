@@ -1,0 +1,81 @@
+{
+  "best_candidate": {
+    "certified_margin_lower_bounds": {
+      "m_prime": {
+        "cell": 0,
+        "hi": 1.0211083554082476e-07,
+        "lo": 0.0,
+        "r": [
+          20.0,
+          20.45
+        ]
+      },
+      "rho": {
+        "cell": 0,
+        "hi": 2.552770888520619e-10,
+        "lo": 0.0,
+        "r": [
+          20.0,
+          20.45
+        ]
+      },
+      "rho_minus_pr": {
+        "cell": 0,
+        "hi": 5.105541777041238e-10,
+        "lo": 0.0,
+        "r": [
+          20.0,
+          20.45
+        ]
+      },
+      "rho_minus_pt": {
+        "cell": 0,
+        "hi": -4.580662051893714e-05,
+        "lo": -4.905836732235204e-05,
+        "r": [
+          20.0,
+          20.45
+        ]
+      },
+      "rho_plus_pr": {
+        "cell": 43,
+        "hi": 7.285064688197444e-09,
+        "lo": -7.285064688197444e-09,
+        "r": [
+          39.35,
+          39.8
+        ]
+      },
+      "rho_plus_pt": {
+        "cell": 399,
+        "hi": 6.35474582739367e-08,
+        "lo": 5.940322878287967e-08,
+        "r": [
+          199.55,
+          200.0
+        ]
+      }
+    },
+    "minimum_certified_lower_bound": -4.905836732235204e-05,
+    "parameters": {
+      "R_out": 200.0,
+      "a": 0.001,
+      "ansatz": "interval C2 quintic positive-mass Misner-Sharp transition with radial NEC saturation",
+      "cells": 400,
+      "mass_factor": 1.25,
+      "r1": 20.0
+    },
+    "status": "FRONTIER_OPEN"
+  },
+  "boundary": [
+    "This is an interval arithmetic frontier probe.",
+    "It is not a theorem of global existence.",
+    "It is not an impossibility theorem.",
+    "It does not promote sampled numerical evidence to proof.",
+    "It only certifies the encoded finite interval partition and ansatz family."
+  ],
+  "candidate_count": 65,
+  "interpretation": "Interval mass-function transition search using outward-rounded conservative interval enclosures. CERTIFIED_PASS would certify nonnegative sampled-cell lower bounds for the encoded ansatz only. FRONTIER_OPEN is not an impossibility theorem.",
+  "next_missing_object": "certified positive lower bound or replacement ansatz with interval certificate",
+  "status": "FRONTIER_OPEN"
+}
