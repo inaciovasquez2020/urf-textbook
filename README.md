@@ -70,13 +70,13 @@ This includes:
 
 - [Chronos Core](docs/navier_stokes/CHRONOS_core.md)
 
-## Canonical routing
+## Current reference routing
 
 This repository is the exposition and release-facing documentation layer for URF.
 
-Canonical authority for URF definitions, theorem statements, dependency ledgers, and closure claims remains in `urf-core`.
+Current reference authority for URF definitions, theorem statements, dependency ledgers, and closure claims remains in `urf-core`.
 
-Community-additive examples, tests, implementations, and non-canonical extensions belong in `urf-core-community`.
+Community-additive examples, tests, implementations, and non-current reference extensions belong in `urf-core-community`.
 
 ## Independent Forks and Verification
 
@@ -85,7 +85,7 @@ Independent forks, reproducibility checks, adversarial review, issues, and pull 
 Start here:
 
 - [Call for Independent Forks and Verification](CALL_FOR_INDEPENDENT_FORKS.md)
-- [Canonical discussion thread](https://github.com/inaciovasquez2020/urf-textbook/discussions/52)
+- [Current reference discussion thread](https://github.com/inaciovasquez2020/urf-textbook/discussions/52)
 
 ## External status
 
