@@ -1,9 +1,9 @@
 # URF Textbook Repository Status
 
-## Canonical Branches
+## Current reference Branches
 
 ### main
-- Canonical textbook branch
+- Current reference textbook branch
 - Fully structured book (Chapters 0–10)
 - Cross-reference hardened
 - Proof-compressed
@@ -33,7 +33,7 @@
 
 ## Structural Guarantees
 
-- Single authoritative EntropyDepth theorem
+- Single status-locked EntropyDepth theorem
 - Spectral coercivity centralized
 - No duplicated proofs
 - All references symbolic (`\ref`)
