@@ -15,6 +15,8 @@ It explains the public URF/Chronos stack in ordinary research terms:
 Boundary: this repository explains the framework and its status discipline. It is not, by itself, a proof that every referenced frontier is solved.
 <!-- VERIFIED_FRONTIER_TRACKING_EXPLANATION:END -->
 
+- Public note: `docs/notes/VERIFIED_FRONTIER_TRACKING_FOR_AI_READABLE_RESEARCH_2026_05_09.md`
+
 
 <!-- VERIFIED_FRONTIER_TRACKING_DOOR:BEGIN -->
 ## Verified Frontier Tracking Explanation Layer
