@@ -1,3 +1,21 @@
+<!-- VERIFIED_FRONTIER_TRACKING_EXPLANATION:BEGIN -->
+## Verified Frontier Tracking Explanation Layer
+
+This repository is the human-readable explanation layer for **Verified Frontier Tracking**.
+
+It explains the public URF/Chronos stack in ordinary research terms:
+
+| Question | Answer supplied here |
+|---|---|
+| What is the system? | A verification-first research framework for tracking hard claims without overclaiming |
+| Why does it matter? | It separates proved results from conditional bridges, interface objects, and open frontiers |
+| How should it be read? | Start with definitions, then status labels, then examples, then technical repositories |
+| What should not be inferred? | No theorem-level closure is claimed unless explicitly named and proved |
+
+Boundary: this repository explains the framework and its status discipline. It is not, by itself, a proof that every referenced frontier is solved.
+<!-- VERIFIED_FRONTIER_TRACKING_EXPLANATION:END -->
+
+
 <!-- VERIFIED_FRONTIER_TRACKING_DOOR:BEGIN -->
 ## Verified Frontier Tracking Explanation Layer
 
