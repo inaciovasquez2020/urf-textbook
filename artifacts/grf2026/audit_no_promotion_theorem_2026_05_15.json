@@ -1,0 +1,42 @@
+{
+  "status": "VERIFIED_STATUS_GUARD_ONLY",
+  "date": "2026-05-15",
+  "scope": "GRF2026 conditional falsification audit",
+  "theorem": "GRF2026_Audit_NoPromotion",
+  "allowed_classifications": [
+    "CONDITIONALLY_REFUTABLE_PREMISE_LEVEL_ONLY",
+    "ATTACKABLE_NOT_REFUTED",
+    "ALIGNED_WITH_USER_FRAMEWORK",
+    "BLOCKED_PENDING_FULL_TEXT"
+  ],
+  "targets": {
+    "Apocalypse When?": "CONDITIONALLY_REFUTABLE_PREMISE_LEVEL_ONLY",
+    "The Gravitational Spectral Radio Forest": "ATTACKABLE_NOT_REFUTED",
+    "How Much Can Gravitons Be Squeezed?": "ATTACKABLE_NOT_REFUTED",
+    "Monogamous Entanglement Cheats at the Price of Complexity": "ALIGNED_WITH_USER_FRAMEWORK",
+    "Approaching the Surface of an Exotic Compact Object": "BLOCKED_PENDING_FULL_TEXT"
+  },
+  "proved_guard": {
+    "no_unconditional_disproof_promotion": true,
+    "no_theorem_level_refutation_promotion": true,
+    "no_solved_status_promotion": true,
+    "no_empirical_to_theorem_promotion": true
+  },
+  "nonclaims": [
+    "This is a repository status-guard theorem only.",
+    "No physical statement is proved.",
+    "No empirical falsification is proved.",
+    "No mathematical disproof of any GRF 2026 essay is proved.",
+    "No Chronos-RR closure is proved.",
+    "No H4.1/FGL closure is proved.",
+    "No P vs NP result is proved.",
+    "No Clay-problem closure is proved."
+  ],
+  "missing_objects_preserved": [
+    "No_Phantom_Admissibility_Proof",
+    "HII_3D_RadiativeTransfer_UpperBound",
+    "AxionBH_AllowedParameterSpace_Closure",
+    "SqueezedGraviton_SNR_Scan",
+    "ExoticCompactObject_FullText"
+  ]
+}

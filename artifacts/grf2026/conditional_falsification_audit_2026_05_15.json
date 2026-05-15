@@ -1,0 +1,32 @@
+{
+  "status": "CONDITIONAL_FRAMEWORK_AUDIT_ONLY",
+  "date": "2026-05-15",
+  "scope": "Gravity Research Foundation 2026 winning essays",
+  "source_inputs": [
+    "uploaded Big Rip conditional audit",
+    "uploaded framework meta-audit",
+    "uploaded squeezed-graviton parameter-scan contract"
+  ],
+  "classifications": {
+    "Apocalypse When?": "CONDITIONALLY_REFUTABLE_PREMISE_LEVEL_ONLY",
+    "The Gravitational Spectral Radio Forest": "ATTACKABLE_NOT_REFUTED",
+    "How Much Can Gravitons Be Squeezed?": "ATTACKABLE_NOT_REFUTED",
+    "Monogamous Entanglement Cheats at the Price of Complexity": "ALIGNED_WITH_USER_FRAMEWORK",
+    "Approaching the Surface of an Exotic Compact Object": "BLOCKED_PENDING_FULL_TEXT"
+  },
+  "nonclaims": [
+    "No unconditional disproof of any GRF 2026 winning essay is claimed.",
+    "No empirical/model-dependent claim is promoted to theorem-level closure.",
+    "No_Phantom_Admissibility is an axiom-boundary, not a proved theorem.",
+    "HII_LineSurvival_Failure requires numerical radiative-transfer or observational upper-bound input.",
+    "No_Viable_SqueezedGraviton_Window requires external parameter-space closure plus SNR scan.",
+    "A finite grid scan does not imply universal theorem closure without interval-cover or analytic domination."
+  ],
+  "missing_objects": [
+    "No_Phantom_Admissibility_Proof",
+    "HII_3D_RadiativeTransfer_UpperBound",
+    "AxionBH_AllowedParameterSpace_Closure",
+    "SqueezedGraviton_SNR_Scan",
+    "ExoticCompactObject_FullText"
+  ]
+}
