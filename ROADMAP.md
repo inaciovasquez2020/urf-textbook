@@ -1,6 +1,7 @@
 # URF Textbook Roadmap
 
 ## Near-term (v1.1)
+- Add Dreams Math as a conditional exposition/frontier-isolation layer.
 - Add "How to read this textbook" section (conventions, dependency graph).
 - Add notation table and glossary.
 - Add theorem/definition indexing policy (labels + crossrefs).

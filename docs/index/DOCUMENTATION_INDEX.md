@@ -17,6 +17,7 @@ Unified Rigidity Framework ecosystem.
 - docs/diagrams/urf_dependency_map.md  
 
 ## Mathematical Content
+- docs/dreams/DREAMS_MATH.md
 
 - docs/invariants/URF_INVARIANTS.md  
 - docs/open_problems/OPEN_PROBLEMS.md  
