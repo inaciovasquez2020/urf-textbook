@@ -140,3 +140,7 @@ Theorem-status rule:
 
 Source-of-truth document:
 - `docs/status/SOURCE_OF_TRUTH_2026_04_27.md`
+
+## Temporal Relaxation Wave
+
+- [Temporal Relaxation Wave Intuition Box](docs/notes/TEMPORAL_RELAXATION_WAVE_INTUITION_BOX_2026_05_18.md)
