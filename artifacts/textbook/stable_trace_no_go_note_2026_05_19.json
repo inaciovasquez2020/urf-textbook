@@ -1,0 +1,33 @@
+{
+"name": "stable_trace_no_go_note",
+"date": "2026-05-19",
+"status": "EXTERNAL_READABLE_NOTE / REFUTED_UNCONDITIONAL_TARGET",
+"source_repo": "urf-core",
+"source_pr": 341,
+"source_commit": "f1f28fa",
+"result": "Unconditional stable trace targets are refuted for arbitrary CapacityInterface.",
+"surviving_statement": "[Inhabited X.Trace] -> StableGenAdmissibleTrace X iff StableTraceCertificateExists X",
+"countermodels": [
+{
+"Generator": "Unit",
+"Trace": "Empty",
+"StableGen": "fun _ => False",
+"refutes": "StableGenAdmissibleTrace -> StableTraceCertificateExists"
+},
+{
+"Generator": "Unit",
+"Trace": "Empty",
+"StableGen": "fun _ => True",
+"refutes": "forall X, StableGenAdmissibleTrace X"
+}
+],
+"does_not_prove": [
+"unconditional StableTraceCertificateExists",
+"unconditional StableGenAdmissibleTrace",
+"unrestricted UniversalFiberEntropyGap",
+"unrestricted Chronos-RR",
+"unrestricted H4.1/FGL",
+"P vs NP",
+"any Clay problem"
+]
+}
