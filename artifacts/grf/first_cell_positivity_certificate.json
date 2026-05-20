@@ -1,0 +1,27 @@
+{
+  "id": "GRF_2026_FIRST_CELL_POSITIVITY_CERTIFICATE",
+  "title": "First-cell positivity certificate for rho_minus_pt",
+  "status": "CONDITIONAL_FIRST_CELL_CERTIFICATE",
+  "result": "If rho_minus_pt(r1) >= eta, FirstCellDerivativeModulusBound(rho_minus_pt,r1,dr,L_cell), and eta - L_cell*dr >= 0, then rho_minus_pt >= 0 on [r1,r1+dr].",
+  "inputs": [
+    "GRF_2026_INNER_BOUNDARY_SIGN_CONDITION",
+    "GRF_2026_RHO_MINUS_PT_BOUNDARY_LEMMA",
+    "GRF_2026_FIRST_CELL_INTERVAL_EXTENSION_LEMMA",
+    "GRF_2026_FIRST_CELL_DERIVATIVE_MODULUS_BOUND"
+  ],
+  "minimal_missing_assumption_closed": "FirstCellCertificateData(eta,dr,L_cell)",
+  "boundary": [
+    "conditional first-cell certificate only",
+    "not a proof that eta is positive",
+    "not a proof that L_cell derivative data exist",
+    "not a multi-cell interval certificate",
+    "not a global matching theorem",
+    "not WEC/DEC closure",
+    "not GRF theorem-level closure",
+    "not a physical realization theorem"
+  ],
+  "verification": [
+    "python3 scripts/verify_grf_first_cell_positivity_certificate.py",
+    "python3 -m pytest -q tests/test_grf_first_cell_positivity_certificate.py"
+  ]
+}
