@@ -1,0 +1,55 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+
+\title{GRF Theorem-Level Certificate Closure}
+\author{Inacio F. Vasquez}
+\date{May 20, 2026}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This note records the repository-level GRF certificate closure obtained from three verified layers: the explicit transition-shell certificate, the algebraic jet matching theorem, and the physical realization certificate. The result is stated as an encoded certificate-chain closure, not as a claim of external physical completeness.
+\end{abstract}
+
+\section{Certificate objects}
+
+\begin{definition}[GRF certificate chain]
+The GRF certificate chain consists of:
+\begin{enumerate}
+\item an explicit transition-shell certificate;
+\item an algebraic jet matching theorem;
+\item a physical realization certificate;
+\item a final closure certificate binding the preceding objects.
+\end{enumerate}
+\end{definition}
+
+\section{Closure statement}
+
+\begin{theorem}[GRF theorem-level certificate closure]
+Assume the repository-encoded certificate objects
+\[
+\texttt{explicit\_transition\_shell\_certificate},
+\quad
+\texttt{algebraic\_jet\_matching\_theorem},
+\quad
+\texttt{physical\_realization\_theorem}.
+\]
+Then the GRF certificate target encoded by the repository is closed at the theorem-certificate layer.
+\end{theorem}
+
+\begin{proof}
+The explicit transition-shell certificate supplies the finite shell data and verified energy/matching interface. The algebraic jet matching theorem closes the matching implication at the certificate layer. The physical realization theorem closes the remaining realization gate. The final GRF closure certificate records the composition of these verified layers. Therefore the encoded GRF theorem-level certificate target is closed.
+\end{proof}
+
+\section{Boundary}
+
+This result is a repository-verified certificate-chain closure. It does not prove a complete theory of gravity, cosmic censorship, the hoop conjecture, dark matter, dark energy, any Clay problem, or external acceptance by the mathematics or physics community.
+
+\end{document}
