@@ -1,0 +1,20 @@
+{
+  "status": "ANALYTIC_SIGN_LEMMA",
+  "targeted_margin": "rho_minus_pt",
+  "targeted_cell": "inner boundary cell",
+  "metric": "ds^2=-exp(2 Phi(r))dt^2+beta(r)dr^2+r^2 dOmega^2",
+  "misner_sharp_relation": "beta(r)=1/(1-2m(r)/r)",
+  "beta_log_derivative": "beta'/beta=(2m'/r-2m/r^2)/(1-2m/r)",
+  "rho_minus_pt_formula": "rho-p_t = m'/r^2 - beta^{-1}(Phi''+(Phi')^2-(beta'/(2 beta))Phi'+Phi'/r-beta'/(2 beta r))",
+  "inner_boundary_inequality": "m1p/r1^2 >= (1-2m1/r1)(Phi1pp+Phi1p^2+Phi1p/r1) - (m1p/r1-m1/r1^2)(Phi1p+1/r1)",
+  "radial_nec_saturation_substitution": "Phi1p=beta1*m1p/r1^2",
+  "frontier_use": "Any next interval ansatz must satisfy the inner-boundary inequality before searching the first cell.",
+  "does_not_prove": [
+    "global matching theorem",
+    "positive interval certificate",
+    "WEC/DEC closure",
+    "GRF theorem-level closure",
+    "physical realization theorem"
+  ],
+  "next_missing_object": "first-cell interval extension lemma for rho_minus_pt"
+}
