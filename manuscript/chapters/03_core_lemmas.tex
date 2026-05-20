@@ -1,9 +1,38 @@
 \chapter{Core Lemmas}
 
-We prove non-amplification, capacity additivity,
-sequential decomposition, and spectral floor principles.
+\section{Chain Rule Lemma}
 
-These lemmas establish that refinement depth
-corresponds to cumulative bounded information work.
+The chain rule is the elementary engine behind the capacity calculus.
 
-They form the backbone of all later rigidity theorems.
+\begin{lemma}[Transcript chain rule]
+For transcript variables \(T_1,\ldots,T_T\),
+\[
+I(X;T_1,\ldots,T_T)
+=
+\sum_{t=1}^{T} I(X;T_t \mid T_1,\ldots,T_{t-1}) .
+\]
+\end{lemma}
+
+\begin{proof}
+This is the standard chain rule for mutual information.
+\end{proof}
+
+\section{Non-Amplification Lemma}
+
+\begin{lemma}[Entropy non-amplification]
+If each refinement step has conditional information gain at most \(C_t\), then the transcript cannot expose more than \(\sum_t C_t\) total information about \(X\).
+\end{lemma}
+
+\begin{proof}
+Apply the transcript chain rule and the per-step bounds.
+\end{proof}
+
+\section{Terminal Obstruction Lemma}
+
+\begin{lemma}[Terminal obstruction]
+If a target requires entropy demand \(D\) and a normalized refinement sequence has total capacity less than \(D\), then the target cannot be fully resolved by that sequence.
+\end{lemma}
+
+\begin{proof}
+Full resolution would require transcript information at least \(D\), contradicting non-amplification.
+\end{proof}

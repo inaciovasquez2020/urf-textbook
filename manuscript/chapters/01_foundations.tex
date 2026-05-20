@@ -2,23 +2,35 @@
 
 \section{Transcript-Limited Refinement}
 
-A refinement system is a tuple $(\mathcal S, R_t)$
-where each $R_t$ produces a transcript variable $T_t$.
+A refinement system is a sequence of state updates together with a sequence of observable transcript variables.  The state space records what the process may know, while the transcript records what has actually been exposed.
+
+\begin{definition}[Refinement system]
+A refinement system is a tuple
+\[
+(\mathcal S, X, (R_t)_{t=1}^T, (T_t)_{t=1}^T)
+\]
+where \(\mathcal S\) is a state space, \(X\) is the target variable, \(R_t\) is the \(t\)-th refinement rule, and \(T_t\) is the transcript emitted at step \(t\).
+\end{definition}
 
 \section{Capacity Bound}
 
-Each refinement step satisfies:
+The basic capacity assumption is that each refinement step has bounded conditional information gain:
 \[
-I(X;T_t \mid T_{<t}) \le C_t.
+I(X;T_t \mid T_{t-1}) \le C_t .
 \]
+For \(t=1\), the expression is interpreted with \(T_0\) equal to the empty transcript.
 
-\section{Non-Amplification Principle }
+\begin{lemma}[Finite transcript budget]
+If \(I(X;T_t \mid T_{t-1}) \le C_t\) for all \(t\), then the total transcript gain is bounded by
+\[
+I(X;T_1,\ldots,T_T) \le \sum_{t=1}^T C_t .
+\]
+\end{lemma}
 
-Information gain cannot exceed cumulative transcript capacity.
+\begin{proof}
+Apply the chain rule for mutual information and then apply the per-step capacity bound.
+\end{proof}
 
-\section{Rigidity}
+\section{Status}
 
-If uncertainty generation exceeds capacity,
-stabilization fails.
-
-This invariant governs all subsequent domains.
+This chapter fixes the language of bounded refinement.  It does not by itself prove any domain-specific lower bound, physical theorem, or Clay-problem result.

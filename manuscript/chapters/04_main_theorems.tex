@@ -2,39 +2,37 @@
 
 \section{Entropy Non-Amplification}
 
-\begin{theorem}
-Let $(R_1,\dots,R_T)$ be refinement operators with capacity bounds $C_t$.
-Then
+\begin{theorem}[Capacity accumulation]
+Let \((R_1,\ldots,R_T)\) be refinement operators with transcript capacity bounds \(C_1,\ldots,C_T\).  Then
 \[
-I(X;T_1,\dots,T_T) \le \sum_{t=1}^T C_t.
+I(X;T_1,\ldots,T_T) \le \sum_{t=1}^{T} C_t .
 \]
 \end{theorem}
 
 \begin{proof}
-Apply chain rule for mutual information and
-capacity bound per step.
+Apply the transcript chain rule and bound each conditional term by \(C_t\).
 \end{proof}
 
 \section{Depth Lower Bound}
 
-\begin{theorem}
-If total entropy demand $H(X)=\Theta(n)$
-and per-step capacity is $O(1)$,
-then refinement depth is $\Omega(n)$.
+\begin{theorem}[Capacity-forced depth]
+If a target has entropy demand \(D=\Theta(n)\) and every admissible refinement step exposes at most \(O(1)\) information, then any complete refinement sequence has depth \(\Omega(n)\).
 \end{theorem}
 
 \begin{proof}
-Total entropy reduction per step is bounded,
-so linear depth is required.
+A sequence of \(T\) steps exposes at most \(O(T)\) information.  Complete resolution requires \(\Theta(n)\) information, so \(T=\Omega(n)\).
 \end{proof}
 
 \section{Operational Rigidity}
 
-\begin{theorem}
-If uncertainty generation rate exceeds admissible capacity,
-stabilization is impossible.
+\begin{theorem}[Capacity obstruction]
+If the required uncertainty reduction exceeds the admissible transcript capacity of every allowed refinement sequence, then stabilization is impossible inside that admissible class.
 \end{theorem}
 
 \begin{proof}
-Direct consequence of non-amplification.
+Stabilization would require a resolving transcript.  The capacity bound prevents such a transcript from carrying the required information.
 \end{proof}
+
+\section{Boundary}
+
+These are framework theorems.  Domain-specific conclusions require verified reductions into the hypotheses of the stated theorems.

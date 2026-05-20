@@ -1,14 +1,25 @@
 \chapter{Refinement and Locality}
 
-This chapter formalizes refinement systems under bounded transcript capacity.
+\section{Local Refinement Operators}
 
-We define admissible refinement operators, locality constraints,
-and the normalization principle that reduces polynomial-time
-algorithms to bounded-width refinement sequences.
+Locality restricts a refinement rule to a bounded neighborhood, bounded dependency set, or bounded observation window.
 
-Core invariant:
-\[
-\text{Information Gain per Step} \le C.
-\]
+\begin{definition}[Local refinement]
+A refinement rule \(R_t\) is local at radius \(r\) if the emitted transcript \(T_t\) depends only on data contained in the radius-\(r\) neighborhood selected by the rule.
+\end{definition}
 
-This chapter bridges definitions to structural lemmas.
+\section{Normalization Principle}
+
+A normalization principle converts a broad process into a controlled sequence of local refinements.  The normalized form is useful only when the conversion preserves the obstruction being studied.
+
+\begin{lemma}[Locality-preserving normalization]
+If a process admits a locality-preserving normalization and each normalized step has capacity at most \(C\), then a \(T\)-step normalized computation exposes at most \(TC\) units of transcript information.
+\end{lemma}
+
+\begin{proof}
+Combine the normalization hypothesis with the finite transcript budget from the foundations chapter.
+\end{proof}
+
+\section{Boundary}
+
+This chapter supplies a reusable interface.  It does not prove that every algorithm, physical process, or geometric evolution admits such a normalization.

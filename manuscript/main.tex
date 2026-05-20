@@ -25,12 +25,11 @@
 % -------------------------------------------------
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage[hypertexnames=false]{hyperref}
-\usepackage{natbib}
+\usepackage[numbers]{natbib}
 \usepackage{graphicx}
 \usepackage{geometry}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning}
-
 \geometry{margin=1in}
 
 % -------------------------------------------------
@@ -51,8 +50,7 @@
 % -------------------------------------------------
 % Metadata
 % -------------------------------------------------
-\title{Unified Rigidity Framework Textbook\\
-Capacity, Locality, and Terminal Obstructions}
+\title{Unified Rigidity Framework Textbook\\ Capacity, Locality, and Terminal Obstructions}
 \author{Inacio Vasquez}
 \date{\today}
 
@@ -64,16 +62,18 @@ Capacity, Locality, and Terminal Obstructions}
 \frontmatter
 \maketitle
 \tableofcontents
-
-\mainmatter
-
 \input{manuscript/chapters/00_preface.tex}
 
-% -------------------------------------------------
-% Additional chapters (add below as needed)
-% \input{manuscript/chapters/01_foundations.tex}
-% \input{manuscript/chapters/02_locality.tex}
-% -------------------------------------------------
+\mainmatter
+\input{manuscript/chapters/01_foundations.tex}
+\input{manuscript/chapters/02_refinement_locality.tex}
+\input{manuscript/chapters/03_core_lemmas.tex}
+\input{manuscript/chapters/04_main_theorems.tex}
+\input{manuscript/chapters/05_examples_sat.tex}
+\input{manuscript/chapters/06_examples_ym.tex}
+\input{manuscript/chapters/07_examples_rh.tex}
+\input{manuscript/chapters/08_examples_ns.tex}
+\input{manuscript/chapters/09_examples_exchange.tex}
 
 \backmatter
 \bibliographystyle{plainnat}
