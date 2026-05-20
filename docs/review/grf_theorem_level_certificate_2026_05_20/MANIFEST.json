@@ -1,0 +1,33 @@
+{
+"status": "GRF_THEOREM_LEVEL_CERTIFICATE_CLOSED",
+"date": "2026-05-20",
+"repository": "urf-textbook",
+"primary_files": [
+"artifacts/grf/physical_realization_theorem.json",
+"artifacts/grf/grf_theorem_level_closure_certificate.json",
+"docs/essays/GRF_2026_PHYSICAL_REALIZATION_AND_FINAL_CLOSURE.md",
+"docs/essays/GRF_2026_ALGEBRAIC_JET_MATCHING_THEOREM.md",
+"docs/essays/GRF_2026_EXPLICIT_TRANSITION_SHELL_CERTIFICATE.md",
+"docs/essays/GRF_2026_THEOREM_LEVEL_CERTIFICATE_STANDALONE_NOTE.tex",
+"docs/public/GRF_THEOREM_LEVEL_CERTIFICATE_CLOSED_LAYMAN_SUMMARY.md"
+],
+"verification": [
+"python3 scripts/verify_grf_physical_realization_and_final_closure.py",
+"python3 -m pytest -q tests/test_grf_physical_realization_and_final_closure.py",
+"python3 scripts/verify_grf_algebraic_jet_matching_theorem.py",
+"python3 -m pytest -q tests/test_grf_algebraic_jet_matching_theorem.py",
+"python3 scripts/verify_grf_explicit_transition_shell_certificate.py",
+"python3 -m pytest -q tests/test_grf_explicit_transition_shell_certificate.py",
+"python3 scripts/audit_grf_theorem_level_closure_overclaims.py"
+],
+"boundary": [
+"repository-level certificate closure only",
+"no complete theory of gravity claim",
+"no cosmic censorship claim",
+"no hoop conjecture claim",
+"no dark matter claim",
+"no dark energy claim",
+"no Clay problem claim",
+"no external acceptance claim"
+]
+}
