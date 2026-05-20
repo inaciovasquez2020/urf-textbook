@@ -1,8 +1,25 @@
 \chapter{Example: Navier--Stokes}
 
-Operational rigidity is interpreted via complexity production.
+\section{Evolution and Dissipation}
 
-If uncertainty growth exceeds admissible capacity,
-stabilization fails.
+Fluid evolution combines local transport, pressure coupling, and dissipation.  A URF-style treatment separates energy control from regularity transfer.
 
-This connects IECP-style hypotheses to refinement limits.
+\begin{definition}[Regularity certificate]
+A regularity certificate is a finite collection of estimates sufficient to propagate smoothness or exclude blow-up in the encoded evolution class.
+\end{definition}
+
+\section{Energy Barrier}
+
+Energy inequalities alone do not automatically imply smoothness.  A complete argument requires a bridge from controlled energy or dissipation into pointwise or higher-regularity bounds.
+
+\begin{lemma}[Conditional regularity transfer]
+If a regularity certificate supplies uniform higher-norm control on the relevant interval, then blow-up is excluded on that interval.
+\end{lemma}
+
+\begin{proof}
+Uniform higher-norm control is incompatible with the assumed blow-up criterion.
+\end{proof}
+
+\section{Boundary}
+
+This chapter is a structural template.  It does not prove global Navier--Stokes regularity or any Clay-problem closure.

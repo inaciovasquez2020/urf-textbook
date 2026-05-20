@@ -1,0 +1,33 @@
+{
+  "id": "MANUSCRIPT_CHAPTER_COMPLETENESS_AUDIT",
+  "date": "2026-05-20",
+  "repository": "urf-textbook",
+  "status": "TEXTBOOK_MANUSCRIPT_INCOMPLETE",
+  "chapter_directory": "manuscript/chapters",
+  "required_chapters": [
+    "00_preface.tex",
+    "01_foundations.tex",
+    "02_refinement_locality.tex",
+    "03_core_lemmas.tex",
+    "04_main_theorems.tex",
+    "05_examples_sat.tex",
+    "06_examples_ym.tex",
+    "07_examples_rh.tex",
+    "08_examples_ns.tex",
+    "09_examples_exchange.tex"
+  ],
+  "closed_actions": [
+    "fixed truncated 01_foundations.tex capacity expression",
+    "expanded one-line chapter placeholders into minimum theorem/exposition skeletons",
+    "wired manuscript/main.tex to include all chapter files",
+    "added verifier rejecting one-line placeholder chapters"
+  ],
+  "remaining_boundary": [
+    "minimum skeleton only",
+    "not a complete textbook",
+    "not externally reviewed",
+    "not theorem-level closure",
+    "no P vs NP closure",
+    "no Clay-problem closure"
+  ]
+}
