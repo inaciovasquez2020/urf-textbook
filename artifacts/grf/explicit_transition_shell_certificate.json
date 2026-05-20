@@ -1,0 +1,80 @@
+{
+  "id": "GRF_EXPLICIT_TRANSITION_SHELL_CERTIFICATE_2026_05_20",
+  "status": "CONDITIONAL_EXPLICIT_CERTIFICATE_PHYSICAL_REALIZATION_IMPORT_OPEN",
+  "shell_data_D": {
+    "model": "constant_anisotropic_exact_rational_shell",
+    "r1": "1",
+    "r2": "2",
+    "rho": "1",
+    "p_r": "0",
+    "p_t": "1/2",
+    "rho_minus_pt": "1/2"
+  },
+  "eta_certificate": {
+    "eta": "1/4",
+    "rho_minus_pt_r1": "1/2",
+    "verified": true
+  },
+  "certified_intervals": [
+    {
+      "name": "first_cell",
+      "a": "1",
+      "b": "5/4",
+      "rho_minus_pt_lower_bound": "1/2",
+      "rho_lower_bound": "1",
+      "rho_plus_pr_lower_bound": "1",
+      "rho_plus_pt_lower_bound": "3/2",
+      "rho_minus_abs_pr_lower_bound": "1",
+      "rho_minus_abs_pt_lower_bound": "1/2"
+    },
+    {
+      "name": "middle_cell",
+      "a": "5/4",
+      "b": "7/4",
+      "rho_minus_pt_lower_bound": "1/2",
+      "rho_lower_bound": "1",
+      "rho_plus_pr_lower_bound": "1",
+      "rho_plus_pt_lower_bound": "3/2",
+      "rho_minus_abs_pr_lower_bound": "1",
+      "rho_minus_abs_pt_lower_bound": "1/2"
+    },
+    {
+      "name": "outer_cell",
+      "a": "7/4",
+      "b": "2",
+      "rho_minus_pt_lower_bound": "1/2",
+      "rho_lower_bound": "1",
+      "rho_plus_pr_lower_bound": "1",
+      "rho_plus_pt_lower_bound": "3/2",
+      "rho_minus_abs_pr_lower_bound": "1",
+      "rho_minus_abs_pt_lower_bound": "1/2"
+    }
+  ],
+  "matching_gate": {
+    "status": "ALGEBRAIC_JET_EQUALITY_VERIFIED",
+    "left_boundary": {
+      "interior_metric_value": "1",
+      "shell_metric_value": "1",
+      "interior_first_derivative": "0",
+      "shell_first_derivative": "0"
+    },
+    "right_boundary": {
+      "shell_metric_value": "1",
+      "exterior_metric_value": "1",
+      "shell_first_derivative": "0",
+      "exterior_first_derivative": "0"
+    }
+  },
+  "conditional_import_lemmas": [
+    "AlgebraicJetMatchingImpliesGRFMatching",
+    "ExplicitStressEnergyShellHasGRFPhysicalRealization"
+  ],
+  "conditional_conclusion": "GRF theorem-level closure follows from this explicit certificate plus both conditional import lemmas.",
+  "does_not_prove": [
+    "AlgebraicJetMatchingImpliesGRFMatching",
+    "ExplicitStressEnergyShellHasGRFPhysicalRealization",
+    "unconditional matching theorem",
+    "unconditional physical realization theorem",
+    "unconditional GRF theorem-level closure"
+  ]
+}
