@@ -1,0 +1,23 @@
+{
+  "id": "GRF_2026_FIRST_CELL_DERIVATIVE_MODULUS_BOUND",
+  "title": "First-cell derivative modulus bound for rho_minus_pt",
+  "status": "CONDITIONAL_DERIVATIVE_MODULUS_BOUND",
+  "result": "If the first-cell compactness data give r >= r0 > 0, A = 1 - 2m/r >= a > 0, and uniform bounds on |m|, |m'|, |m''|, |Phi'|, |Phi''|, |Phi'''|, then |d(rho_minus_pt)/dr| <= L_cell on the first cell.",
+  "minimal_missing_assumption_closed": "FirstCellDerivativeData(r0,a,M0,M1,M2,P1,P2,P3)",
+  "feeds": [
+    "GRF_2026_FIRST_CELL_INTERVAL_EXTENSION_LEMMA"
+  ],
+  "boundary": [
+    "conditional derivative modulus only",
+    "not a proof that the derivative data exist",
+    "not a positive interval certificate",
+    "not a global matching theorem",
+    "not WEC/DEC closure",
+    "not GRF theorem-level closure",
+    "not a physical realization theorem"
+  ],
+  "verification": [
+    "python3 scripts/verify_grf_first_cell_derivative_modulus_bound.py",
+    "python3 -m pytest -q tests/test_grf_first_cell_derivative_modulus_bound.py"
+  ]
+}
