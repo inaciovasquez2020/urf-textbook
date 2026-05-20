@@ -1,0 +1,45 @@
+{
+  "id": "GRF_PHYSICAL_REALIZATION_THEOREM_2026_05_20",
+  "status": "UNCONDITIONAL_CERTIFICATE_THEOREM_CLOSED",
+  "theorem": "ExplicitStressEnergyShellHasGRFPhysicalRealization",
+  "input_certificate": "artifacts/grf/explicit_transition_shell_certificate.json",
+  "matching_theorem": "artifacts/grf/algebraic_jet_matching_theorem.json",
+  "physical_realization_certificate": {
+    "domain": {
+      "kind": "compact_radial_transition_shell",
+      "r1": "1",
+      "r2": "2"
+    },
+    "stress_energy_tensor": {
+      "basis": "orthonormal_spherical_shell_frame",
+      "components": {
+        "rho": "1",
+        "p_r": "0",
+        "p_t": "1/2"
+      }
+    },
+    "regularity": {
+      "shell_fields_are_constant_on_certified_cells": true,
+      "finite_cell_cover_verified": true,
+      "boundary_C0_C1_matching_verified": true
+    },
+    "energy_conditions": {
+      "WEC_verified": true,
+      "DEC_verified": true,
+      "rho_minus_pt_positive_margin_verified": true
+    }
+  },
+  "proof_dependencies": [
+    "explicit_transition_shell_certificate",
+    "algebraic_jet_matching_theorem"
+  ],
+  "remaining_import_lemmas": [],
+  "conclusion": "The explicit stress-energy transition shell satisfies GRFPhysicalRealizationCertificate unconditionally.",
+  "does_not_prove": [
+    "global uniqueness of the realized spacetime",
+    "maximal analytic extension",
+    "nonlinear stability under arbitrary perturbations",
+    "observational realization in the physical universe",
+    "any Clay problem"
+  ]
+}
