@@ -1,0 +1,15 @@
+{
+  "status": "ANALYTIC_FRONTIER_CONDITION",
+  "targeted_margin": "rho_minus_pt",
+  "targeted_cell": "inner boundary cell",
+  "condition": "For a transition shell using Misner-Sharp mass m(r) and radial NEC saturation, the inner-boundary margin is controlled by the sign and size of the tangential-pressure term. A certified transition ansatz must impose an explicit lower bound on rho_minus_pt at r1 before interval search.",
+  "required_next_constraint": "Choose inner data m(r1), m'(r1), m''(r1), Phi'(r1), Phi''(r1) so that rho_minus_pt(r1) >= 0 and the first interval cell has a nonnegative lower bound.",
+  "does_not_prove": [
+    "global matching theorem",
+    "positive interval certificate",
+    "WEC/DEC closure",
+    "GRF theorem-level closure",
+    "physical realization theorem"
+  ],
+  "next_missing_object": "inner-boundary rho_minus_pt nonnegative sign lemma"
+}
