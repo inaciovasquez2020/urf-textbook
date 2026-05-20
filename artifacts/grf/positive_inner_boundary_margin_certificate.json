@@ -1,0 +1,28 @@
+{
+  "id": "GRF_2026_POSITIVE_INNER_BOUNDARY_MARGIN_CERTIFICATE",
+  "title": "Positive inner-boundary margin certificate for rho_minus_pt",
+  "status": "FRONTIER_OPEN_MARGIN_CERTIFICATE_INTERFACE",
+  "obligation": "O1_POSITIVE_INNER_BOUNDARY_MARGIN",
+  "required_object": "rho_minus_pt(r1) >= eta > 0",
+  "certificate_input_path": "artifacts/grf/positive_inner_boundary_margin_input.json",
+  "verification_rule": "Given numeric rho_minus_pt_r1 and eta, O1 is verified only if eta > 0 and rho_minus_pt_r1 >= eta.",
+  "feeds": [
+    "GRF_2026_FIRST_CELL_POSITIVITY_CERTIFICATE",
+    "GRF_2026_FULL_SOLVE_CERTIFICATE_GATE"
+  ],
+  "boundary": [
+    "certificate interface only",
+    "not a proof that eta exists",
+    "not a computation of rho_minus_pt(r1)",
+    "not a first-cell positivity certificate",
+    "not a multi-cell interval certificate",
+    "not WEC/DEC closure",
+    "not a matching theorem",
+    "not a physical realization theorem",
+    "not GRF theorem-level closure"
+  ],
+  "verification": [
+    "python3 scripts/verify_grf_positive_inner_boundary_margin_certificate.py",
+    "python3 -m pytest -q tests/test_grf_positive_inner_boundary_margin_certificate.py"
+  ]
+}
