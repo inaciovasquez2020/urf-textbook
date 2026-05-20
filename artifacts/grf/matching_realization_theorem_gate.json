@@ -1,0 +1,25 @@
+{
+  "id": "GRF_2026_MATCHING_REALIZATION_THEOREM_GATE",
+  "title": "Matching and physical-realization theorem gate",
+  "status": "FRONTIER_OPEN_MATCHING_REALIZATION_GATE",
+  "obligations": [
+    "O6_MATCHING_THEOREM",
+    "O7_PHYSICAL_REALIZATION_THEOREM"
+  ],
+  "required_objects": [
+    "inner-shell-outer matching with required regularity",
+    "admissible geometry/matter realization for chosen m(r), Phi(r), shell width, and parameters"
+  ],
+  "certificate_input_path": "artifacts/grf/matching_realization_theorem_input.json",
+  "verification_rule": "O6/O7 are verified only if matching regularity and physical admissibility certificates are both present and marked VERIFIED.",
+  "feeds": [
+    "GRF_2026_COMPLETE_TRANSITION_SHELL_CERTIFICATE_SCHEMA"
+  ],
+  "boundary": [
+    "gate only",
+    "not a matching theorem",
+    "not a physical realization theorem",
+    "not WEC/DEC closure",
+    "not GRF theorem-level closure"
+  ]
+}

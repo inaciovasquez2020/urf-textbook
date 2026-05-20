@@ -1,0 +1,34 @@
+{
+  "id": "GRF_2026_O2_DERIVATIVE_DATA_CERTIFICATE_INTERFACE",
+  "title": "O2 derivative-data certificate interface",
+  "status": "FRONTIER_OPEN_DERIVATIVE_DATA_INTERFACE",
+  "obligation": "O2_ACTUAL_DERIVATIVE_DATA",
+  "required_object": "bounds on m, m', m'', Phi', Phi'', Phi''' producing concrete L_cell",
+  "certificate_input_path": "artifacts/grf/o2_derivative_data_input.json",
+  "required_fields": [
+    "r0",
+    "a",
+    "M0",
+    "M1",
+    "M2",
+    "P1",
+    "P2",
+    "P3",
+    "L_cell"
+  ],
+  "verification_rule": "O2 is verified only if all bounds are numeric, r0 > 0, a > 0, all absolute-value bounds are nonnegative, L_cell >= 0, and the recomputed L_cell upper bound is <= supplied L_cell.",
+  "feeds": [
+    "GRF_2026_FIRST_CELL_DERIVATIVE_MODULUS_BOUND",
+    "GRF_2026_COMPLETE_TRANSITION_SHELL_CERTIFICATE_SCHEMA"
+  ],
+  "boundary": [
+    "certificate interface only",
+    "not derivative data construction",
+    "not proof the chosen functions satisfy the bounds",
+    "not a first-cell numeric certificate",
+    "not WEC/DEC closure",
+    "not a matching theorem",
+    "not a physical realization theorem",
+    "not GRF theorem-level closure"
+  ]
+}

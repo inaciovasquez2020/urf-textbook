@@ -1,0 +1,29 @@
+{
+  "id": "GRF_2026_COMPLETE_TRANSITION_SHELL_CERTIFICATE_SCHEMA",
+  "title": "Complete GRF transition-shell certificate schema",
+  "status": "FRONTIER_OPEN_SCHEMA_ONLY",
+  "schema_name": "CompleteGRFTransitionShellCertificate",
+  "required_gates": [
+    "O1_POSITIVE_INNER_BOUNDARY_MARGIN",
+    "O2_ACTUAL_DERIVATIVE_DATA",
+    "O3_FIRST_CELL_NUMERIC_CERTIFICATE",
+    "O4_MULTI_CELL_INTERVAL_PROPAGATION",
+    "O5_WEC_DEC_COMPONENT_INVENTORY",
+    "O6_MATCHING_THEOREM",
+    "O7_PHYSICAL_REALIZATION_THEOREM",
+    "O8_FINAL_EXECUTABLE_VERIFICATION"
+  ],
+  "closure_rule": "GRF theorem-level closure is forbidden unless every required gate is VERIFIED by executable certificate data.",
+  "boundary": [
+    "schema only",
+    "not eta existence",
+    "not rho_minus_pt(r1) computation",
+    "not derivative data construction",
+    "not a first-cell numeric certificate",
+    "not a multi-cell interval certificate",
+    "not WEC/DEC closure",
+    "not a matching theorem",
+    "not a physical realization theorem",
+    "not GRF theorem-level closure"
+  ]
+}

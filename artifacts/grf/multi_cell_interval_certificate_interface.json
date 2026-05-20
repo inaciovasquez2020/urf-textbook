@@ -1,0 +1,31 @@
+{
+  "id": "GRF_2026_MULTI_CELL_INTERVAL_CERTIFICATE_INTERFACE",
+  "title": "Multi-cell interval propagation certificate interface",
+  "status": "FRONTIER_OPEN_MULTI_CELL_INTERFACE",
+  "obligation": "O4_MULTI_CELL_INTERVAL_PROPAGATION",
+  "required_object": "finite interval cover of the full shell with per-cell eta_j - L_j*dr_j >= 0",
+  "certificate_input_path": "artifacts/grf/multi_cell_interval_certificate_input.json",
+  "required_fields": [
+    "shell_left",
+    "shell_right",
+    "cells",
+    "cell.left",
+    "cell.right",
+    "cell.eta",
+    "cell.L"
+  ],
+  "verification_rule": "O4 is verified only if cells form a contiguous cover of [shell_left,shell_right], every cell has positive width, eta_j >= 0, L_j >= 0, and eta_j - L_j*(right-left) >= 0.",
+  "feeds": [
+    "GRF_2026_COMPLETE_TRANSITION_SHELL_CERTIFICATE_SCHEMA"
+  ],
+  "boundary": [
+    "certificate interface only",
+    "not construction of the interval cover",
+    "not proof of per-cell derivative data",
+    "not all WEC/DEC component closure",
+    "not WEC/DEC closure",
+    "not a matching theorem",
+    "not a physical realization theorem",
+    "not GRF theorem-level closure"
+  ]
+}
