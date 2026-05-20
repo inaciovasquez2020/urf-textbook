@@ -1,0 +1,98 @@
+{
+  "id": "MANUSCRIPT_FULL_CHAPTER_EXPANSION_TARGET",
+  "date": "2026-05-20",
+  "repository": "urf-textbook",
+  "status": "TEXTBOOK_MANUSCRIPT_INCOMPLETE_FULL_EXPANSION_TARGET_DEFINED",
+  "depends_on": [
+    "MANUSCRIPT_CHAPTER_COMPLETENESS_AUDIT"
+  ],
+  "chapter_directory": "manuscript/chapters",
+  "required_expansion_units_per_chapter": [
+    "chapter purpose",
+    "core definitions",
+    "main statements",
+    "proof/explanation layer",
+    "dependency notes",
+    "boundary statement",
+    "exercises or review prompts"
+  ],
+  "chapter_targets": {
+    "00_preface.tex": [
+      "scope of URF textbook",
+      "reader prerequisites",
+      "claim-boundary discipline",
+      "map of verified versus expository layers"
+    ],
+    "01_foundations.tex": [
+      "refinement systems",
+      "transcripts",
+      "capacity bounds",
+      "entropy bookkeeping",
+      "worked toy example"
+    ],
+    "02_refinement_locality.tex": [
+      "locality models",
+      "normalization principles",
+      "local-to-global obstruction shape",
+      "examples and non-examples"
+    ],
+    "03_core_lemmas.tex": [
+      "chain rule",
+      "non-amplification",
+      "terminal obstruction",
+      "dependency graph"
+    ],
+    "04_main_theorems.tex": [
+      "capacity accumulation theorem",
+      "depth lower bound",
+      "operational rigidity theorem",
+      "hypothesis checklist"
+    ],
+    "05_examples_sat.tex": [
+      "search as refinement",
+      "SAT witness-space example",
+      "limits of the exposition",
+      "P-vs-NP no-claim boundary"
+    ],
+    "06_examples_ym.tex": [
+      "gauge-compatible refinement",
+      "coercivity dependency",
+      "mass-gap missing objects",
+      "Clay no-claim boundary"
+    ],
+    "07_examples_rh.tex": [
+      "spectral certificate interface",
+      "zero-detection map",
+      "arithmetic soundness bridge",
+      "RH no-claim boundary"
+    ],
+    "08_examples_ns.tex": [
+      "energy and dissipation",
+      "regularity certificate",
+      "blow-up exclusion interface",
+      "Navier-Stokes no-claim boundary"
+    ],
+    "09_examples_exchange.tex": [
+      "exchange constraints",
+      "finite transition gates",
+      "rigidity interpretation",
+      "physical overclaim boundary"
+    ]
+  },
+  "completion_gate": {
+    "minimum_nonempty_lines_per_chapter": 80,
+    "minimum_sections_per_chapter": 4,
+    "minimum_theorem_style_blocks_per_chapter": 2,
+    "requires_boundary_statement": true,
+    "requires_exercises_or_review_prompts": true
+  },
+  "boundary": [
+    "target definition only",
+    "does not complete the textbook",
+    "does not prove a new theorem",
+    "does not close Chronos-RR",
+    "does not close H4.1/FGL",
+    "does not prove P vs NP",
+    "does not prove any Clay problem"
+  ]
+}
