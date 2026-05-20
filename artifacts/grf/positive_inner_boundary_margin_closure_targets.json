@@ -1,0 +1,66 @@
+{
+  "artifact": "GRF_POSITIVE_INNER_BOUNDARY_MARGIN_CLOSURE_TARGETS",
+  "status": "FRONTIER_OPEN",
+  "source_interface": "positive_inner_boundary_margin_certificate.json",
+  "targets": [
+    {
+      "name": "EtaExistence",
+      "statement": "There exists eta > 0 such that rho_minus_pt(r1) >= eta.",
+      "status": "OPEN",
+      "minimal_missing_object": "analytic_eta_existence_proof"
+    },
+    {
+      "name": "RhoMinusPtBoundaryComputation",
+      "statement": "The expression rho_minus_pt(r1) is computed from the GRF transition-shell data.",
+      "status": "OPEN",
+      "minimal_missing_object": "symbolic_or_numeric_rho_minus_pt_r1_computation"
+    },
+    {
+      "name": "FirstCellPositivityCertificate",
+      "statement": "rho_minus_pt is positive on the first radial cell adjacent to r1.",
+      "status": "OPEN",
+      "minimal_missing_object": "first_cell_interval_lower_bound"
+    },
+    {
+      "name": "MultiCellIntervalCertificate",
+      "statement": "rho_minus_pt satisfies the required lower-bound inequality on all declared transition-shell cells.",
+      "status": "OPEN",
+      "minimal_missing_object": "multi_cell_interval_certificate"
+    },
+    {
+      "name": "WECDECClosure",
+      "statement": "The declared GRF matter profile satisfies the required WEC/DEC inequalities on the certified domain.",
+      "status": "OPEN",
+      "minimal_missing_object": "wec_dec_interval_certificate"
+    },
+    {
+      "name": "MatchingTheorem",
+      "statement": "The inner-boundary margin certificate is compatible with the matching conditions.",
+      "status": "OPEN",
+      "minimal_missing_object": "matching_condition_certificate"
+    },
+    {
+      "name": "PhysicalRealizationTheorem",
+      "statement": "The certified profile is physically realized by admissible GRF data.",
+      "status": "OPEN",
+      "minimal_missing_object": "physical_realization_certificate"
+    },
+    {
+      "name": "GRFTheoremLevelClosure",
+      "statement": "Eta existence, boundary computation, interval positivity, energy-condition closure, matching, and physical realization jointly imply GRF theorem-level closure for this margin target.",
+      "status": "CONDITIONAL",
+      "minimal_missing_object": "all_prior_targets_closed"
+    }
+  ],
+  "conditional_closure_rule": "GRFTheoremLevelClosure follows only after all seven predecessor targets are closed.",
+  "does_not_prove": [
+    "eta exists",
+    "rho_minus_pt(r1) has been computed",
+    "first-cell positivity",
+    "multi-cell interval positivity",
+    "WEC/DEC closure",
+    "matching theorem",
+    "physical realization theorem",
+    "GRF theorem-level closure"
+  ]
+}
