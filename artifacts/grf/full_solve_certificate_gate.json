@@ -1,0 +1,65 @@
+{
+  "id": "GRF_2026_FULL_SOLVE_CERTIFICATE_GATE",
+  "title": "GRF transition-shell full-solve certificate gate",
+  "status": "FRONTIER_OPEN_FULL_CERTIFICATE_GATE",
+  "result": "Defines the executable obligation gate for a full GRF transition-shell solve. The gate remains open until all eight certificate obligations are supplied and verified.",
+  "required_obligations": [
+    {
+      "id": "O1_POSITIVE_INNER_BOUNDARY_MARGIN",
+      "required_object": "rho_minus_pt(r1) >= eta > 0",
+      "status": "MISSING_NUMERIC_OR_SYMBOLIC_CERTIFICATE"
+    },
+    {
+      "id": "O2_ACTUAL_DERIVATIVE_DATA",
+      "required_object": "bounds on m, m', m'', Phi', Phi'', Phi''' producing concrete L_cell",
+      "status": "MISSING_DERIVATIVE_BOUND_CERTIFICATE"
+    },
+    {
+      "id": "O3_FIRST_CELL_NUMERIC_CERTIFICATE",
+      "required_object": "eta - L_cell*dr >= 0",
+      "status": "MISSING_FIRST_CELL_NUMERIC_CERTIFICATE"
+    },
+    {
+      "id": "O4_MULTI_CELL_PROPAGATION",
+      "required_object": "certified interval propagation across the full transition shell",
+      "status": "MISSING_MULTI_CELL_CERTIFICATE"
+    },
+    {
+      "id": "O5_ALL_WEC_DEC_COMPONENTS",
+      "required_object": "all required WEC/DEC component inequalities verified",
+      "status": "MISSING_COMPONENT_INVENTORY_CERTIFICATES"
+    },
+    {
+      "id": "O6_MATCHING_THEOREM",
+      "required_object": "inner-shell-outer smooth matching with required regularity",
+      "status": "MISSING_MATCHING_CERTIFICATE"
+    },
+    {
+      "id": "O7_PHYSICAL_REALIZATION",
+      "required_object": "admissible geometry/matter realization for chosen functions and parameters",
+      "status": "MISSING_REALIZATION_CERTIFICATE"
+    },
+    {
+      "id": "O8_FORMAL_VERIFICATION",
+      "required_object": "executable final certificate package with no overclaim boundary",
+      "status": "MISSING_FINAL_EXECUTABLE_CERTIFICATE"
+    }
+  ],
+  "certificate_input_path": "artifacts/grf/transition_shell_full_certificate_input.json",
+  "closure_rule": "GRF theorem-level closure is forbidden unless every required obligation has status VERIFIED and the executable certificate checker passes.",
+  "boundary": [
+    "certificate gate only",
+    "not a positive inner-boundary margin proof",
+    "not derivative data construction",
+    "not a first-cell numeric certificate",
+    "not a multi-cell interval certificate",
+    "not WEC/DEC closure",
+    "not a matching theorem",
+    "not a physical realization theorem",
+    "not GRF theorem-level closure"
+  ],
+  "verification": [
+    "python3 scripts/verify_grf_full_solve_certificate_gate.py",
+    "python3 -m pytest -q tests/test_grf_full_solve_certificate_gate.py"
+  ]
+}
