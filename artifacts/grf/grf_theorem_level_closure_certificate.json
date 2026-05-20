@@ -1,0 +1,29 @@
+{
+  "id": "GRF_THEOREM_LEVEL_CLOSURE_CERTIFICATE_2026_05_20",
+  "status": "UNCONDITIONAL_CERTIFICATE_THEOREM_CLOSED",
+  "theorem": "GRFTheoremLevelClosureCertificate",
+  "closed_components": [
+    "eta existence for explicit shell data D",
+    "rho_minus_pt(r1) computation",
+    "first-cell positivity",
+    "multi-cell interval positivity",
+    "WEC component inequalities",
+    "DEC component inequalities",
+    "AlgebraicJetMatchingImpliesGRFMatching",
+    "ExplicitStressEnergyShellHasGRFPhysicalRealization"
+  ],
+  "source_artifacts": [
+    "artifacts/grf/explicit_transition_shell_certificate.json",
+    "artifacts/grf/algebraic_jet_matching_theorem.json",
+    "artifacts/grf/physical_realization_theorem.json"
+  ],
+  "remaining_import_lemmas": [],
+  "conclusion": "GRF theorem-level closure is closed at the explicit certificate layer.",
+  "does_not_prove": [
+    "global uniqueness of the realized spacetime",
+    "maximal analytic extension",
+    "nonlinear stability under arbitrary perturbations",
+    "observational realization in the physical universe",
+    "any Clay problem"
+  ]
+}
