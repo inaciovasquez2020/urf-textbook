@@ -1,0 +1,19 @@
+{
+  "status": "CONDITIONAL_INTERVAL_EXTENSION_LEMMA",
+  "targeted_margin": "rho_minus_pt",
+  "targeted_cell": "first interval cell",
+  "input_lemma": "rho_minus_pt(r1) >= 0",
+  "required_modulus": "There exists L >= 0 such that |d/dr(rho_minus_pt)(r)| <= L on [r1,r1+dr].",
+  "extension_condition": "rho_minus_pt(r1) - L*dr >= 0",
+  "conclusion": "inf_{r in [r1,r1+dr]} rho_minus_pt(r) >= 0",
+  "frontier_use": "A future interval certificate may close the first cell by proving an explicit lower endpoint margin and a derivative modulus bound.",
+  "does_not_prove": [
+    "existence of L for the GRF transition ansatz",
+    "positive interval certificate",
+    "global matching theorem",
+    "WEC/DEC closure",
+    "GRF theorem-level closure",
+    "physical realization theorem"
+  ],
+  "next_missing_object": "explicit derivative-modulus bound for rho_minus_pt on the first cell"
+}
