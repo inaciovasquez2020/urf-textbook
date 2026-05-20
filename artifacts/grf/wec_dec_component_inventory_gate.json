@@ -1,0 +1,27 @@
+{
+  "id": "GRF_2026_WEC_DEC_COMPONENT_INVENTORY_GATE",
+  "title": "WEC/DEC component inventory gate",
+  "status": "FRONTIER_OPEN_COMPONENT_GATE",
+  "obligation": "O5_WEC_DEC_COMPONENT_INVENTORY",
+  "required_components": [
+    "rho >= 0",
+    "rho + p_r >= 0",
+    "rho + p_t >= 0",
+    "rho - |p_r| >= 0",
+    "rho - |p_t| >= 0",
+    "rho - p_t >= 0"
+  ],
+  "certificate_input_path": "artifacts/grf/wec_dec_component_inventory_input.json",
+  "verification_rule": "O5 is verified only if every listed component has a verified interval certificate on the whole shell.",
+  "feeds": [
+    "GRF_2026_COMPLETE_TRANSITION_SHELL_CERTIFICATE_SCHEMA"
+  ],
+  "boundary": [
+    "component inventory gate only",
+    "not WEC/DEC closure",
+    "not proof of any component inequality",
+    "not a matching theorem",
+    "not a physical realization theorem",
+    "not GRF theorem-level closure"
+  ]
+}
