@@ -1,0 +1,26 @@
+{
+  "artifact": "clr_full_diversity_obstruction_2026_05_25",
+  "registry_layer": "URF-11",
+  "status": "CLR_FULL_DIVERSITY_OPEN_COUNTEREXAMPLE_OBSTRUCTION_PRESENT",
+  "cor_definition": "COR_R(G) is the F_2-rank of the span of edge-incidence vectors of simple cycles of length at most R.",
+  "thresholds": {
+    "T_full(k,Delta,r,R)": "infinity",
+    "T_guarded(k,Delta,r,R)": 0
+  },
+  "required_obstruction_family": "C_m square C_m",
+  "obstruction_conditions": {
+    "m": "> 2r + 2",
+    "degree": 4,
+    "local_type_count": 1,
+    "COR_4_lower_bound": "m^2 - 1"
+  },
+  "corrected_statement": "COR_R(G) >= T_guarded(k,Delta,r,R) and SymBreak_{k,r}(G) imply full FO^k local type diversity.",
+  "boundary": [
+    "does_not_prove_unguarded_cycle_local_rigidity",
+    "does_not_prove_high_COR_forces_full_FOk_type_diversity",
+    "does_not_prove_Chronos_RR",
+    "does_not_prove_H4_1_FGL",
+    "does_not_prove_P_vs_NP",
+    "does_not_prove_any_Clay_problem"
+  ]
+}
