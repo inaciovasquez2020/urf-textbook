@@ -1,0 +1,822 @@
+{
+  "artifact": "clr_deep_line_audit_2026_05_25",
+  "boundary": [
+    "audit_only",
+    "does_not_rewrite_files",
+    "does_not_prove_unguarded_cycle_local_rigidity",
+    "does_not_prove_high_COR_forces_full_FOk_type_diversity",
+    "does_not_prove_Chronos_RR",
+    "does_not_prove_H4_1_FGL",
+    "does_not_prove_P_vs_NP",
+    "does_not_prove_any_Clay_problem"
+  ],
+  "danger_findings_count": 0,
+  "findings": [
+    {
+      "danger_token_present": false,
+      "file": "README.md",
+      "line": 56,
+      "matched_patterns": [
+        "Entropy Depth.*lower bound"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "- Entropy Depth Lower Bound"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/essays/GRF_2026_EXPLICIT_ALPHA_BETA_PAIR.md",
+      "line": 213,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "Equivalently, the corrected radial NEC condition is"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/essays/GRF_2026_FINITE_CAPACITY_SOURCE_AUDIT.md",
+      "line": 114,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "### 7. Two-function metric freedom is the correct realization frontier"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/essays/GRF_2026_FINITE_CAPACITY_SOURCE_AUDIT.md",
+      "line": 148,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "| Two-function ansatz is the correct next frontier | High | Supported |"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/essays/GRF_2026_FINITE_CAPACITY_SOURCE_AUDIT_DEEPENING.md",
+      "line": 132,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "Supports the corrected two-function frontier and explains why the one-function ansatz was too rigid."
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/essays/GRF_2026_FINITE_CAPACITY_SPACETIME_DEFLECTION.tex",
+      "line": 144,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "for finite constants $M_1,M_2$.  Then the corresponding optical metric produces outward bending on $\\Omega$ while satisfying a finite-capacity bound"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/essays/GRF_2026_FINITE_CAPACITY_SPACETIME_DEFLECTION.tex",
+      "line": 224,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "The example also shows why capacity is the correct filter.  Letting $\\varepsilon\\to 1$ or $R\\to 0$ drives the operational cost upward.  The geometry approaches an infinite-amplification regime not because outward bending is forbidden, but because the profile becomes too sharp or too close to degeneracy."
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/essays/GRF_2026_FINITE_CAPACITY_SPACETIME_DEFLECTION.tex",
+      "line": 232,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "The correct diagnostic is therefore not:"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/essays/GRF_2026_FINITE_CAPACITY_SPACETIME_DEFLECTION.tex",
+      "line": 236,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "The corrected diagnostic is:"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/essays/GRF_2026_FLAT_EXTERIOR_OBSTRUCTION.md",
+      "line": 11,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "It identifies the correct replacement exterior."
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/essays/GRF_2026_FLAT_EXTERIOR_OBSTRUCTION.md",
+      "line": 139,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "## Correct replacement exterior"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/essays/GRF_2026_FLAT_EXTERIOR_OBSTRUCTION.md",
+      "line": 168,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "## Corrected next frontier"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/essays/GRF_2026_SCHWARZSCHILD_TRANSITION_PROBE.md",
+      "line": 15,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "The corrected exterior target is positive-mass Schwarzschild with"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/examples/urf_minimal_worked_example.md",
+      "line": 14,
+      "matched_patterns": [
+        "FO\\^?k.*type"
+      ],
+      "requires_review": false,
+      "safe_by_file": true,
+      "safe_by_token": false,
+      "text": "Compute the FO^k local type of each vertex:"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/examples/urf_minimal_worked_example.md",
+      "line": 25,
+      "matched_patterns": [
+        "Rigidity Trigger"
+      ],
+      "requires_review": false,
+      "safe_by_file": true,
+      "safe_by_token": false,
+      "text": "### Step 3 \u2014 Rigidity Trigger"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/examples/urf_minimal_worked_example.md",
+      "line": 26,
+      "matched_patterns": [
+        "Cycle[- ]Overlap Rank"
+      ],
+      "requires_review": false,
+      "safe_by_file": true,
+      "safe_by_token": false,
+      "text": "Large cycle-overlap rank forces divergence of local types:"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/examples/urf_minimal_worked_example.md",
+      "line": 28,
+      "matched_patterns": [
+        "\\bCOR_R\\b",
+        "COR_?R",
+        "type diversity",
+        "FO\\^?k.*type"
+      ],
+      "requires_review": false,
+      "safe_by_file": true,
+      "safe_by_token": false,
+      "text": "COR_R(G) \u2265 T(k,\u0394) \u21d2 FO^k type diversity."
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/examples/urf_minimal_worked_example.md",
+      "line": 37,
+      "matched_patterns": [
+        "high.*cycle.*complexity"
+      ],
+      "requires_review": false,
+      "safe_by_file": true,
+      "safe_by_token": false,
+      "text": "local indistinguishability cannot persist under high cycle complexity."
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/faq/URF_FAQ.md",
+      "line": 15,
+      "matched_patterns": [
+        "FO\\^?k.*type"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "- FO^k local types"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/faq/URF_FAQ.md",
+      "line": 16,
+      "matched_patterns": [
+        "Cycle[- ]Overlap Rank"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "- cycle-overlap rank"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/figures/URF_FLOW_DIAGRAM.md",
+      "line": 30,
+      "matched_patterns": [
+        "FO\\^?k.*type"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "- FO^k local types"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/foundations/SHADOW_COMPATIBILITY_MAP.md",
+      "line": 76,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "If P is NonNative, replace Shadow(L_P) by the correct dual object."
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/frontier/VTD_REAL_PACKET_TEMPLATE.md",
+      "line": 128,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "tide_correction_m_s2: ..."
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/frontier/VTD_REAL_PACKET_TEMPLATE.md",
+      "line": 130,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "nearby_mass_correction_m_s2: ..."
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/frontier/VTD_REAL_PACKET_TEMPLATE.md",
+      "line": 131,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "polar_motion_correction_m_s2: ..."
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/glossary/URF_GLOSSARY.md",
+      "line": 20,
+      "matched_patterns": [
+        "FO\\^?k.*type"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "### FO^k Local Type"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/glossary/URF_GLOSSARY.md",
+      "line": 24,
+      "matched_patterns": [
+        "Cycle[- ]Overlap Rank"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "### Cycle-Overlap Rank (COR)"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/invariants/URF_INVARIANTS.md",
+      "line": 21,
+      "matched_patterns": [
+        "\\bCOR_R\\b",
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "### Cycle\u2013Overlap Rank (COR_R)"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/invariants/URF_INVARIANTS.md",
+      "line": 26,
+      "matched_patterns": [
+        "Cycle[- ]Overlap Rank"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "High cycle-overlap rank forces diversification of local logical types."
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/open_problems/OPEN_PROBLEMS.md",
+      "line": 13,
+      "matched_patterns": [
+        "T\\(k,\\s*\\\\?Delta"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "Find constants \\(R(k,\\Delta)\\) and \\(T(k,\\Delta)\\) such that every finite graph \\(G\\) with maximum degree \\(\\le \\Delta\\) satisfies"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/open_problems/OPEN_PROBLEMS.md",
+      "line": 16,
+      "matched_patterns": [
+        "T\\(k,\\s*\\\\?Delta"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "\\operatorname{COR}_{R}(G) \\ge T(k,\\Delta)"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/open_problems/OPEN_PROBLEMS.md",
+      "line": 40,
+      "matched_patterns": [
+        "FO\\^?k.*type"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "4. an \\(FO^k_R\\)-type semantics map;"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/open_problems/OPEN_PROBLEMS.md",
+      "line": 41,
+      "matched_patterns": [
+        "type diversity"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "5. a proof that these obligations force type diversity."
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/open_problems/OPEN_PROBLEMS.md",
+      "line": 64,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "\\pi(D^{\\mathrm{corr}}_{k,R,B}(P))"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/open_problems/OPEN_PROBLEMS.md",
+      "line": 71,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "## CorrRank Status"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/open_problems/OPEN_PROBLEMS.md",
+      "line": 73,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "CorrRank original-regime closure is reduced to non-tautological admissibility."
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/open_problems/OPEN_PROBLEMS.md",
+      "line": 84,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "D^{\\mathrm{corr}}_{k,R,B}(P)"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/open_problems/OPEN_PROBLEMS.md",
+      "line": 98,
+      "matched_patterns": [
+        "FO\\^?k.*type"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "- intended \\(FO^k_R\\)-type semantics data;"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/open_problems/OPEN_PROBLEMS.md",
+      "line": 120,
+      "matched_patterns": [
+        "type diversity",
+        "FO\\^?k.*type"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "- Interaction between expansion and \\(FO^k\\)-type diversity."
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/open_problems/OPEN_PROBLEMS.md",
+      "line": 135,
+      "matched_patterns": [
+        "Cycle[- ]Overlap Rank"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "- Algorithmic detection of cycle-overlap rank."
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/open_problems/OPEN_PROBLEMS.md",
+      "line": 137,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "- Exhaustive search for minimal non-tautological CorrRank / SiMSLV instances."
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/open_problems/OPEN_PROBLEMS.md",
+      "line": 155,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "- unconditional CorrRank closure;"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/overview/URF_ONE_PAGE.md",
+      "line": 23,
+      "matched_patterns": [
+        "FO\\^?k.*type"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "- FO^k local types"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/page_audits/v0.1.2/page_11.txt",
+      "line": 5,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "These lemmas establish that refinement depth corresponds to cumulative bounded information"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/page_audits/v0.1.2/page_17.txt",
+      "line": 4,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "The coercive spectral floor acts as a capacity barrier. Violations correspond to forbidden per-"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/page_audits/v0.1.2/page_23.txt",
+      "line": 3,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "Exchange Correlation Capacity (ECC) defines a threshold for macroscopic coherence."
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/page_audits/v0.1.2/page_25.txt",
+      "line": 3,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "This appendix records the correspondence between textbook results and formal modules in Lean."
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/page_audits/v0.1.2/page_25.txt",
+      "line": 5,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "\u2022Lemmas L1\u2013L5 correspond to information-capacity proofs."
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/page_audits/v0.1.2/page_25.txt",
+      "line": 6,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "\u2022Theorems T1\u2013T5 correspond to global rigidity reductions."
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/page_audits/v0.1.2/reviews/page_5_review.md",
+      "line": 13,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "The page is navigational only. It does not contain theorem statements, proofs, source-of-truth claims, or mathematical assertions requiring page-local correction."
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/referee/REFEREE_GUIDE.md",
+      "line": 30,
+      "matched_patterns": [
+        "Cycle[- ]Overlap Rank"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "- Cycle overlap rank / structural complexity"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/review/grf_theorem_level_certificate_2026_05_20/EXTERNAL_REVIEW_LETTER.md",
+      "line": 5,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "Does the repository certificate chain correctly compose the explicit transition-shell certificate, algebraic jet matching theorem, and physical realization certificate into the stated GRF theorem-level certificate closure?"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/roadmap/URF_ROADMAP.md",
+      "line": 23,
+      "matched_patterns": [
+        "Cycle[- ]Overlap Rank"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "- cycle-overlap rank instrumentation"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/status/AI_VERIFICATION_DISCIPLINE_2026_04_25.md",
+      "line": 23,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "## Correct AI role"
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/status/VTD_EMPIRICAL_GAP_LOCK_2026_04_30.md",
+      "line": 27,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "This is correct because the packet contains STUB_ONLY and null fields."
+    },
+    {
+      "danger_token_present": false,
+      "file": "docs/theorems/STABLE_TRACE_NO_GO.md",
+      "line": 38,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "The correct dependency is:"
+    },
+    {
+      "danger_token_present": false,
+      "file": "manuscript/appendices/A_lean_map.tex",
+      "line": 4,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "This appendix records the correspondence between textbook results"
+    },
+    {
+      "danger_token_present": false,
+      "file": "manuscript/appendices/A_lean_map.tex",
+      "line": 9,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "\\item Lemmas L1--L5 correspond to information-capacity proofs."
+    },
+    {
+      "danger_token_present": false,
+      "file": "manuscript/appendices/A_lean_map.tex",
+      "line": 10,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "\\item Theorems T1--T5 correspond to global rigidity reductions."
+    },
+    {
+      "danger_token_present": false,
+      "file": "manuscript/items/theorems/thm_T4.tex",
+      "line": 12,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "In particular, no refinement process can create new independent information without corresponding capacity expenditure."
+    },
+    {
+      "danger_token_present": false,
+      "file": "scripts/verify_grf_source_audit.py",
+      "line": 15,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "    \"Two-function metric freedom is the correct realization frontier\","
+    },
+    {
+      "danger_token_present": false,
+      "file": "tex/chapters/04_entropy_depth.tex",
+      "line": 1,
+      "matched_patterns": [
+        "Entropy Depth.*lower bound"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "\\chapter{Entropy Depth Lower Bound}"
+    },
+    {
+      "danger_token_present": false,
+      "file": "tex/chapters/12_cycle_overlap_rigidity.tex",
+      "line": 13,
+      "matched_patterns": [
+        "COR_?R"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "Define \\(A\\) where rows correspond to cycles."
+    },
+    {
+      "danger_token_present": false,
+      "file": "tex/chapters/12_cycle_overlap_rigidity.tex",
+      "line": 18,
+      "matched_patterns": [
+        "Cycle[- ]Overlap Rank"
+      ],
+      "requires_review": true,
+      "safe_by_file": false,
+      "safe_by_token": false,
+      "text": "If cycle overlap rank grows with graph size, $FO^k$-local homogeneity cannot persist."
+    }
+  ],
+  "patterns": [
+    "\\bCLR\\b",
+    "Cycle-Local Rigidity",
+    "cycle-local rigidity",
+    "Cycle[- ]Overlap Rank",
+    "\\bCOR_R\\b",
+    "\\\\operatorname\\{COR\\}_R",
+    "COR_?R",
+    "type diversity",
+    "FO\\^?k.*type",
+    "FO\\^?4.*type",
+    "full.*type diversity",
+    "complete.*type diversity",
+    "cycle complexity.*forces",
+    "high.*cycle.*complexity",
+    "local logical indistinguishability.*persist",
+    "shatters.*local symmetry",
+    "asymmetric witnessing paths",
+    "Rigidity Trigger",
+    "T\\(k,\\s*\\\\?Delta",
+    "T\\(4,\\s*4\\)",
+    "Entropy Depth.*lower bound"
+  ],
+  "review_required_count": 59,
+  "safe_files": [
+    "artifacts/urf11/clr_full_diversity_obstruction_2026_05_25.json",
+    "docs/examples/urf_minimal_worked_example.md",
+    "tests/test_urf11_clr_obstruction.py",
+    "tools/verify_urf11_clr_obstruction.py"
+  ],
+  "scope": "all git-tracked UTF-8 text files in urf-textbook",
+  "status": "CLR_DEEP_LINE_AUDIT_REVIEW_REQUIRED",
+  "total_findings": 64
+}
