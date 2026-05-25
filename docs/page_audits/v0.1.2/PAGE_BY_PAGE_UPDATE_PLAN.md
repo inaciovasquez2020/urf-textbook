@@ -25,7 +25,7 @@ Does not prove:
 | 3 | `docs/page_audits/v0.1.2/page_3.txt` | SOURCE_OR_RELEASE_METADATA_NEEDED | Title page lacks explicit `v0.1.2` release identifier; see `docs/page_audits/v0.1.2/reviews/page_3_review.md`. |
 | 4 | `docs/page_audits/v0.1.2/page_4.txt` | NO_CHANGE | Roman-page-number-only extract; see `docs/page_audits/v0.1.2/reviews/page_4_review.md`. |
 | 5 | `docs/page_audits/v0.1.2/page_5.txt` | NO_CHANGE | Table-of-contents navigation only; see `docs/page_audits/v0.1.2/reviews/page_5_review.md`. |
-| 6 | `docs/page_audits/v0.1.2/page_6.txt` | OPEN | Pending page review. |
+| 6 | `docs/page_audits/v0.1.2/page_6.txt` | NO_CHANGE | Contents-continuation marker only; see `docs/page_audits/v0.1.2/reviews/page_6_review.md`. |
 | 7 | `docs/page_audits/v0.1.2/page_7.txt` | OPEN | Pending page review. |
 | 8 | `docs/page_audits/v0.1.2/page_8.txt` | OPEN | Pending page review. |
 | 9 | `docs/page_audits/v0.1.2/page_9.txt` | OPEN | Pending page review. |
