@@ -1,0 +1,5 @@
+Chapter 9
+Example: Exchange Forces
+Exchange Correlation Capacity (ECC) defines a threshold for macroscopic coherence.
+Phase rigidity persists when entropy remains below ECC.
+17

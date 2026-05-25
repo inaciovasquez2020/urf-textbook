@@ -1,0 +1,4 @@
+Unified Rigidity Framework Textbook
+Capacity, Locality, and Terminal Obstructions
+Inacio Vasquez
+March 1, 2026

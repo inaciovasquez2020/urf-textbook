@@ -1,0 +1,5 @@
+Chapter 7
+Example: Riemann Hypothesis
+The Euler–Gram operator is analyzed under rigidity principles.
+Spectral coercivity prevents drift. Failure would imply a capacity-escaping mode.
+13

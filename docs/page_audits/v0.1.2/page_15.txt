@@ -1,0 +1,7 @@
+Chapter 5
+Example: SAT
+We apply the framework to refinement-based SAT solvers.
+Local clause reasoning induces bounded-width refinement. Entropy depth grows linearly under
+expansion.
+Thus polynomial-time SAT requires escaping locality constraints.
+9

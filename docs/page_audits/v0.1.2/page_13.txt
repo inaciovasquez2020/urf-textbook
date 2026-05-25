@@ -1,0 +1,17 @@
+Chapter 4
+Main Theorems
+4.1 Entropy Non-Amplification
+Theorem4.1.Let (R 1, . . . , RT ) be refinement operators with capacity boundsC t. Then
+I(X;T 1, . . . , TT )≤
+TX
+t=1
+Ct.
+Proof.Apply chain rule for mutual information and capacity bound per step.
+4.2 Depth Lower Bound
+Theorem4.2.If total entropy demandH(X) = Θ(n) and per-step capacity isO(1), then refinement
+depth is Ω(n).
+Proof.Total entropy reduction per step is bounded, so linear depth is required.
+4.3 Operational Rigidity
+Theorem4.3.If uncertainty generation rate exceeds admissible capacity, stabilization is impossible.
+Proof.Direct consequence of non-amplification.
+7
