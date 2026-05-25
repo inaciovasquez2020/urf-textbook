@@ -20,7 +20,7 @@ Does not prove:
 
 | Page | Extract | Status | Needed update |
 |---:|---|---|---|
-| 1 | `docs/page_audits/v0.1.2/page_1.txt` | OPEN | Pending page review. |
+| 1 | `docs/page_audits/v0.1.2/page_1.txt` | SOURCE_OR_RELEASE_METADATA_NEEDED | Source file for Preface page not yet located; see `docs/page_audits/v0.1.2/reviews/page_1_review.md`. |
 | 2 | `docs/page_audits/v0.1.2/page_2.txt` | OPEN | Pending page review. |
 | 3 | `docs/page_audits/v0.1.2/page_3.txt` | OPEN | Pending page review. |
 | 4 | `docs/page_audits/v0.1.2/page_4.txt` | OPEN | Pending page review. |
