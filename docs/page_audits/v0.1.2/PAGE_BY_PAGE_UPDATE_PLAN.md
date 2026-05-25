@@ -29,7 +29,7 @@ Does not prove:
 | 7 | `docs/page_audits/v0.1.2/page_7.txt` | BOUNDARY_CLARIFICATION | Source location and LaTeX-safe source-context note recorded; see `docs/page_audits/v0.1.2/reviews/page_7_source_context.md`. |
 | 8 | `docs/page_audits/v0.1.2/page_8.txt` | NO_CHANGE | Chapter-continuation marker only; see `docs/page_audits/v0.1.2/reviews/page_8_review.md`. |
 | 9 | `docs/page_audits/v0.1.2/page_9.txt` | BOUNDARY_CLARIFICATION | Chapter 2 introduces refinement/locality normalization and capacity invariant; see `docs/page_audits/v0.1.2/reviews/page_9_review.md`. |
-| 10 | `docs/page_audits/v0.1.2/page_10.txt` | OPEN | Pending page review. |
+| 10 | `docs/page_audits/v0.1.2/page_10.txt` | NO_CHANGE | Chapter-opening page reviewed; see `docs/page_audits/v0.1.2/reviews/page_10_review.md`. |
 | 11 | `docs/page_audits/v0.1.2/page_11.txt` | OPEN | Pending page review. |
 | 12 | `docs/page_audits/v0.1.2/page_12.txt` | OPEN | Pending page review. |
 | 13 | `docs/page_audits/v0.1.2/page_13.txt` | OPEN | Pending page review. |
