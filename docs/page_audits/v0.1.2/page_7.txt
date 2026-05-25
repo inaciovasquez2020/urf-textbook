@@ -1,0 +1,13 @@
+Chapter 1
+Foundations
+1.1 Transcript-Limited Refinement
+A refinement system is a tuple (S, R t) where eachR t produces a transcript variableT t.
+1.2 Capacity Bound
+Each refinement step satisfies:
+I(X;T t |T <t)≤C t.
+1.3 Non-Amplification Principle
+Information gain cannot exceed cumulative transcript capacity.
+1.4 Rigidity
+If uncertainty generation exceeds capacity, stabilization fails.
+This invariant governs all subsequent domains.
+1

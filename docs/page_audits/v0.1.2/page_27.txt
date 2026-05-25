@@ -1,0 +1,10 @@
+Appendix B
+Certificate Schema
+All claims admit transcript-capacity certificates.
+A minimal certificate contains:
+•Stated invariant
+•Capacity bound
+•Dependency graph
+•Status flag (Proven / Conditional / Structural)
+Certificates enforce structural admissibility.
+21

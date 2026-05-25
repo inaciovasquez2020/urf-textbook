@@ -1,0 +1,6 @@
+Chapter 8
+Example: Navier–Stokes
+Operational rigidity is interpreted via complexity production.
+If uncertainty growth exceeds admissible capacity, stabilization fails.
+This connects IECP-style hypotheses to refinement limits.
+15

@@ -1,0 +1,6 @@
+Chapter 6
+Example: Yang–Mills
+We interpret spectral gap and mass-gap questions through transcript capacity and rigidity.
+The coercive spectral floor acts as a capacity barrier. Violations correspond to forbidden per-
+sistent modes.
+11

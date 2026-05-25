@@ -1,0 +1,8 @@
+Chapter 3
+Core Lemmas
+We prove non-amplification, capacity additivity, sequential decomposition, and spectral floor prin-
+ciples.
+These lemmas establish that refinement depth corresponds to cumulative bounded information
+work.
+They form the backbone of all later rigidity theorems.
+5

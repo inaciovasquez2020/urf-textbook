@@ -1,0 +1,10 @@
+Appendix A
+Lean Formalization Map
+This appendix records the correspondence between textbook results and formal modules in Lean.
+•Definitions D1–D6 map to core invariants.
+•Lemmas L1–L5 correspond to information-capacity proofs.
+•Theorems T1–T5 correspond to global rigidity reductions.
+Each formal file is structured as:
+Invariant→Capacity Bound→Rigidity
+This ensures proof-level reproducibility.
+19

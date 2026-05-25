@@ -1,0 +1,10 @@
+Appendix C
+Normalization Taxonomy
+Refinement systems admit normalization into bounded-width form.
+Classification:
+•Local refinement (FO ˆk)
+•Width-bounded clause systems
+•Transcript-limited operators
+•Global-invariant escapes
+Normalization isolates the boundary between admissible computation and capacity violation.
+23

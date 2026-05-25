@@ -1,0 +1,9 @@
+Chapter 2
+Refinement and Locality
+This chapter formalizes refinement systems under bounded transcript capacity.
+We define admissible refinement operators, locality constraints, and the normalization principle
+that reduces polynomial-time algorithms to bounded-width refinement sequences.
+Core invariant:
+Information Gain per Step≤C.
+This chapter bridges definitions to structural lemmas.
+3
