@@ -28,7 +28,7 @@ Does not prove:
 | 6 | `docs/page_audits/v0.1.2/page_6.txt` | NO_CHANGE | Contents-continuation marker only; see `docs/page_audits/v0.1.2/reviews/page_6_review.md`. |
 | 7 | `docs/page_audits/v0.1.2/page_7.txt` | SOURCE_OR_RELEASE_METADATA_NEEDED | Source location identified but source patch reverted after LaTeX Build failure; see `docs/page_audits/v0.1.2/reviews/page_7_source_patch.md`. |
 | 8 | `docs/page_audits/v0.1.2/page_8.txt` | NO_CHANGE | Chapter-continuation marker only; see `docs/page_audits/v0.1.2/reviews/page_8_review.md`. |
-| 9 | `docs/page_audits/v0.1.2/page_9.txt` | OPEN | Pending page review. |
+| 9 | `docs/page_audits/v0.1.2/page_9.txt` | BOUNDARY_CLARIFICATION | Chapter 2 introduces refinement/locality normalization and capacity invariant; see `docs/page_audits/v0.1.2/reviews/page_9_review.md`. |
 | 10 | `docs/page_audits/v0.1.2/page_10.txt` | OPEN | Pending page review. |
 | 11 | `docs/page_audits/v0.1.2/page_11.txt` | OPEN | Pending page review. |
 | 12 | `docs/page_audits/v0.1.2/page_12.txt` | OPEN | Pending page review. |
