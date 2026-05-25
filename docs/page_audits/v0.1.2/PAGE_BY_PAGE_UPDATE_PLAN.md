@@ -27,7 +27,7 @@ Does not prove:
 | 5 | `docs/page_audits/v0.1.2/page_5.txt` | NO_CHANGE | Table-of-contents navigation only; see `docs/page_audits/v0.1.2/reviews/page_5_review.md`. |
 | 6 | `docs/page_audits/v0.1.2/page_6.txt` | NO_CHANGE | Contents-continuation marker only; see `docs/page_audits/v0.1.2/reviews/page_6_review.md`. |
 | 7 | `docs/page_audits/v0.1.2/page_7.txt` | MISSING_CONTEXT | First substantive foundations page; extracted capacity-bound formula appears incomplete; see `docs/page_audits/v0.1.2/reviews/page_7_review.md`. |
-| 8 | `docs/page_audits/v0.1.2/page_8.txt` | OPEN | Pending page review. |
+| 8 | `docs/page_audits/v0.1.2/page_8.txt` | NO_CHANGE | Chapter-continuation marker only; see `docs/page_audits/v0.1.2/reviews/page_8_review.md`. |
 | 9 | `docs/page_audits/v0.1.2/page_9.txt` | OPEN | Pending page review. |
 | 10 | `docs/page_audits/v0.1.2/page_10.txt` | OPEN | Pending page review. |
 | 11 | `docs/page_audits/v0.1.2/page_11.txt` | OPEN | Pending page review. |
