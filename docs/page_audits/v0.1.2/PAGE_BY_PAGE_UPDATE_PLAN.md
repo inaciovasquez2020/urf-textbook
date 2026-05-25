@@ -22,7 +22,7 @@ Does not prove:
 |---:|---|---|---|
 | 1 | `docs/page_audits/v0.1.2/page_1.txt` | BOUNDARY_CLARIFICATION | Source location and LaTeX-safe source-context note recorded; see `docs/page_audits/v0.1.2/reviews/page_1_source_context.md`. |
 | 2 | `docs/page_audits/v0.1.2/page_2.txt` | NO_CHANGE | Page-number-only extract; see `docs/page_audits/v0.1.2/reviews/page_2_review.md`. |
-| 3 | `docs/page_audits/v0.1.2/page_3.txt` | SOURCE_OR_RELEASE_METADATA_NEEDED | Title page lacks explicit `v0.1.2` release identifier; see `docs/page_audits/v0.1.2/reviews/page_3_review.md`. |
+| 3 | `docs/page_audits/v0.1.2/page_3.txt` | BOUNDARY_CLARIFICATION | Title-page release identifier added; see `docs/page_audits/v0.1.2/reviews/page_3_release_identifier.md`. |
 | 4 | `docs/page_audits/v0.1.2/page_4.txt` | NO_CHANGE | Roman-page-number-only extract; see `docs/page_audits/v0.1.2/reviews/page_4_review.md`. |
 | 5 | `docs/page_audits/v0.1.2/page_5.txt` | NO_CHANGE | Table-of-contents navigation only; see `docs/page_audits/v0.1.2/reviews/page_5_review.md`. |
 | 6 | `docs/page_audits/v0.1.2/page_6.txt` | NO_CHANGE | Contents-continuation marker only; see `docs/page_audits/v0.1.2/reviews/page_6_review.md`. |

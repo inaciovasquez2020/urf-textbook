@@ -33,7 +33,14 @@ def test_page_03_review_records_release_metadata_gap():
     for token in required:
         assert token in text, token
 
-def test_page_03_plan_row_records_release_metadata_gap():
+def test_page_03_plan_row_records_release_metadata_gap_or_closure():
     text = PLAN.read_text()
-    assert "| 3 | `docs/page_audits/v0.1.2/page_3.txt` | SOURCE_OR_RELEASE_METADATA_NEEDED |" in text
-    assert "page_3_review.md" in text
+    assert "| 3 | `docs/page_audits/v0.1.2/page_3.txt` |" in text
+    assert (
+        "| 3 | `docs/page_audits/v0.1.2/page_3.txt` | SOURCE_OR_RELEASE_METADATA_NEEDED |" in text
+        or "| 3 | `docs/page_audits/v0.1.2/page_3.txt` | BOUNDARY_CLARIFICATION |" in text
+    )
+    assert (
+        "page_3_review.md" in text
+        or "page_3_release_identifier.md" in text
+    )
