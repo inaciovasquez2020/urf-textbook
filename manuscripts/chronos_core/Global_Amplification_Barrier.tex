@@ -50,4 +50,51 @@ Define EntropyDepth:
 
 Intuitively, extracting $\Phi$ requires collapsing
 all graphs in the same $\Phi$-class to a single transcript value,
-while separating distinct $\Phi$-classes
+while separating distinct $\Phi$-classes. Because local refinement operations
+can only propagate information across a distance proportional to the refinement
+depth, a global invariant can be resolved only after the execution trace has
+reached the scale at which the separating information becomes locally visible.
+
+\subsection{The Barrier Theorem}
+
+We isolate the exact hypothesis needed for a linear lower bound.
+
+\begin{definition}[Linear Local-Indistinguishability Witness]
+A global invariant $\Phi$ admits a \emph{linear local-indistinguishability
+witness} if there exists a constant $c>0$ and infinitely many $n$ such that
+for each such $n$ there are graphs $G_n,H_n\in\mathcal{G}_n$ satisfying
+\[
+\Phi(G_n)\neq \Phi(H_n),
+\]
+and for every $t<c n$, the graphs $G_n$ and $H_n$ are indistinguishable by
+the refinement transcript up to depth $t$.
+\end{definition}
+
+\begin{theorem}[Conditional Global Amplification Barrier]
+Assume the refinement process satisfies $\mathrm{FLC}(\Delta,r,k)$ with
+constant locality parameters. If $\Phi$ admits a linear
+local-indistinguishability witness, then there exists a constant $c>0$ such
+that every refinement sequence correctly computing $\Phi$ satisfies
+\[
+\ED(G_n)\ge c n
+\]
+for infinitely many $n$.
+\end{theorem}
+
+\begin{proof}
+Let $G_n,H_n$ be a linear local-indistinguishability witness for $\Phi$.
+Suppose that a correct refinement sequence has $\ED(G_n)<c n$.
+
+By $\mathrm{FLC}(\Delta,r,k)$, the transcript at depth $t$ depends only on
+bounded-radius data propagated through depth $t$. Hence, for every $t<c n$,
+the refinement transcripts of $G_n$ and $H_n$ agree.
+
+Taking $t=\ED(G_n)$, the transcript has already collapsed to a single value
+on $G_n$. Since the transcript of $H_n$ is identical at the same depth, the
+same collapsed value is assigned to $H_n$. Therefore the refinement sequence
+cannot distinguish $G_n$ from $H_n$, contradicting
+\[
+\Phi(G_n)\neq \Phi(H_n).
+\]
+Thus $\ED(G_n)\ge c n$ for infinitely many $n$.
+\end{proof}
