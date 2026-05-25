@@ -20,7 +20,7 @@ Does not prove:
 
 | Page | Extract | Status | Needed update |
 |---:|---|---|---|
-| 1 | `docs/page_audits/v0.1.2/page_1.txt` | SOURCE_OR_RELEASE_METADATA_NEEDED | Source file for Preface page not yet located; see `docs/page_audits/v0.1.2/reviews/page_1_review.md`. |
+| 1 | `docs/page_audits/v0.1.2/page_1.txt` | BOUNDARY_CLARIFICATION | Source location and LaTeX-safe source-context note recorded; see `docs/page_audits/v0.1.2/reviews/page_1_source_context.md`. |
 | 2 | `docs/page_audits/v0.1.2/page_2.txt` | NO_CHANGE | Page-number-only extract; see `docs/page_audits/v0.1.2/reviews/page_2_review.md`. |
 | 3 | `docs/page_audits/v0.1.2/page_3.txt` | SOURCE_OR_RELEASE_METADATA_NEEDED | Title page lacks explicit `v0.1.2` release identifier; see `docs/page_audits/v0.1.2/reviews/page_3_review.md`. |
 | 4 | `docs/page_audits/v0.1.2/page_4.txt` | NO_CHANGE | Roman-page-number-only extract; see `docs/page_audits/v0.1.2/reviews/page_4_review.md`. |
