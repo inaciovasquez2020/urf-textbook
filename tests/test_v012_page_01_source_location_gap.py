@@ -22,10 +22,17 @@ def test_page_01_review_records_source_location_gap():
     for token in required:
         assert token in text, token
 
-def test_page_01_plan_row_records_source_location_gap():
+def test_page_01_plan_row_records_source_location_gap_or_context_closure():
     text = PLAN.read_text()
-    assert "| 1 | `docs/page_audits/v0.1.2/page_1.txt` | SOURCE_OR_RELEASE_METADATA_NEEDED |" in text
-    assert "page_1_review.md" in text
+    assert "| 1 | `docs/page_audits/v0.1.2/page_1.txt` |" in text
+    assert (
+        "| 1 | `docs/page_audits/v0.1.2/page_1.txt` | SOURCE_OR_RELEASE_METADATA_NEEDED |" in text
+        or "| 1 | `docs/page_audits/v0.1.2/page_1.txt` | BOUNDARY_CLARIFICATION |" in text
+    )
+    assert (
+        "page_1_review.md" in text
+        or "page_1_source_context.md" in text
+    )
 
 def test_page_01_extract_contains_preface_thesis():
     text = EXTRACT.read_text(errors="ignore")
