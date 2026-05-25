@@ -23,7 +23,14 @@ def test_page_07_source_patch_attempt_records_latex_blocker():
     for token in required:
         assert token in text, token
 
-def test_page_07_plan_row_records_latex_blocker():
+def test_page_07_plan_row_records_blocker_or_promoted_context():
     text = PLAN.read_text()
-    assert "| 7 | `docs/page_audits/v0.1.2/page_7.txt` | SOURCE_OR_RELEASE_METADATA_NEEDED |" in text
-    assert "page_7_source_patch.md" in text
+    assert "| 7 | `docs/page_audits/v0.1.2/page_7.txt` |" in text
+    assert (
+        "page_7_source_patch.md" in text
+        or "page_7_source_context.md" in text
+    )
+    assert (
+        "| 7 | `docs/page_audits/v0.1.2/page_7.txt` | SOURCE_OR_RELEASE_METADATA_NEEDED |" in text
+        or "| 7 | `docs/page_audits/v0.1.2/page_7.txt` | BOUNDARY_CLARIFICATION |" in text
+    )
