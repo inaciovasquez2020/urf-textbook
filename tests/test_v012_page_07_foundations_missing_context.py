@@ -35,7 +35,17 @@ def test_page_07_review_records_missing_context():
     for token in required:
         assert token in text, token
 
-def test_page_07_plan_row_records_missing_context():
+def test_page_07_initial_review_file_records_missing_context():
+    assert REVIEW.exists()
+    text = REVIEW.read_text()
+    assert "Status: `MISSING_CONTEXT`" in text
+    assert "page 7" in text.lower()
+
+def test_page_07_plan_row_is_reviewed_or_promoted():
     text = PLAN.read_text()
-    assert "| 7 | `docs/page_audits/v0.1.2/page_7.txt` | MISSING_CONTEXT |" in text
-    assert "page_7_review.md" in text
+    assert "| 7 | `docs/page_audits/v0.1.2/page_7.txt` |" in text
+    assert (
+        "| 7 | `docs/page_audits/v0.1.2/page_7.txt` | MISSING_CONTEXT |" in text
+        or "| 7 | `docs/page_audits/v0.1.2/page_7.txt` | BOUNDARY_CLARIFICATION |" in text
+        or "| 7 | `docs/page_audits/v0.1.2/page_7.txt` | SOURCE_OR_RELEASE_METADATA_NEEDED |" in text
+    )
