@@ -6,8 +6,8 @@ REVIEW = Path("docs/page_audits/v0.1.2/reviews/page_21_review.md")
 REQUIRED_REVIEW = [
     "v0.1.2 Page 21 Review",
     "docs/page_audits/v0.1.2/page_21.txt",
-    "Riemann Hypothesis",
-    "Euler-Gram coercivity",
+    "Navier-Stokes",
+    "IECP-style stabilization",
     "unrestricted Chronos-RR",
     "H4.1/FGL",
     "P vs NP",
@@ -16,8 +16,8 @@ REQUIRED_REVIEW = [
 ]
 
 FORBIDDEN_REVIEW = [
-    "proves the Riemann Hypothesis",
-    "proves Euler-Gram coercivity",
+    "proves Navier-Stokes regularity",
+    "proves IECP-style stabilization",
     "theorem closure achieved",
     "unrestricted Chronos-RR proved",
     "H4.1/FGL proved",
@@ -31,13 +31,13 @@ def test_page_21_review_exists():
     assert REVIEW.exists()
 
 
-def test_page_21_review_tokens():
+def test_page_21_navier_stokes_review_tokens():
     text = REVIEW.read_text()
     for token in REQUIRED_REVIEW:
         assert token in text, token
 
 
-def test_page_21_review_no_forbidden_promotions():
+def test_page_21_navier_stokes_review_no_forbidden_promotions():
     text = REVIEW.read_text()
     for token in FORBIDDEN_REVIEW:
         assert token not in text, token
