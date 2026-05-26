@@ -50,7 +50,7 @@ Does not prove:
 | 28 | `docs/page_audits/v0.1.2/page_28.txt` | NO_CHANGE | Reviewed in `docs/page_audits/v0.1.2/reviews/page_28_review.md`. |
 | 29 | `docs/page_audits/v0.1.2/page_29.txt` | NO_CHANGE | Reviewed in `docs/page_audits/v0.1.2/reviews/page_29_review.md`. |
 | 30 | `docs/page_audits/v0.1.2/page_30.txt` | NO_CHANGE | Reviewed in `docs/page_audits/v0.1.2/reviews/page_30_review.md`. |
-| 31 | `docs/page_audits/v0.1.2/page_31.txt` | OPEN | Pending page review. |
+| 31 | `docs/page_audits/v0.1.2/page_31.txt` | NO_CHANGE | Reviewed in `docs/page_audits/v0.1.2/reviews/page_31_review.md`. |
 
 ## Review Rule
 
