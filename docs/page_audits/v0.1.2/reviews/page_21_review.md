@@ -12,14 +12,14 @@ NO_CHANGE
 
 Page 21 was checked as part of the v0.1.2 page-by-page audit.
 
-The page remains within the Riemann Hypothesis chapter audit boundary. It is treated as exposition or framework-level language only unless the page text explicitly supplies a separately verified theorem, proof, or coercivity closure.
+The page remains within the Navier-Stokes chapter audit boundary. It is treated as exposition or framework-level language only unless the page text explicitly supplies a separately verified theorem, proof, or coercivity closure.
 
 ## Boundary
 
 This review does not prove:
 
-- Riemann Hypothesis
-- Euler-Gram coercivity
+- Navier-Stokes
+- IECP-style stabilization
 - theorem closure
 - unrestricted Chronos-RR
 - H4.1/FGL
