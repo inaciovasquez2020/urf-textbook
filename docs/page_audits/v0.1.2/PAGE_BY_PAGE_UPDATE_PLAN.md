@@ -34,7 +34,7 @@ Does not prove:
 | 12 | `docs/page_audits/v0.1.2/page_12.txt` | NO_CHANGE | Continuing Chapter 3 page mark reviewed; see `docs/page_audits/v0.1.2/reviews/page_12_review.md`. |
 | 13 | `docs/page_audits/v0.1.2/page_13.txt` | NO_CHANGE | Continuing Chapter 3 core-lemmas page reviewed; see `docs/page_audits/v0.1.2/reviews/page_13_review.md`. |
 | 14 | `docs/page_audits/v0.1.2/page_14.txt` | NO_CHANGE | Continuing v0.1.2 audit page reviewed; see `docs/page_audits/v0.1.2/reviews/page_14_review.md`. |
-| 15 | `docs/page_audits/v0.1.2/page_15.txt` | OPEN | Pending page review. |
+| 15 | `docs/page_audits/v0.1.2/page_15.txt` | NO_CHANGE | Continuing v0.1.2 audit page reviewed; see `docs/page_audits/v0.1.2/reviews/page_15_review.md`. |
 | 16 | `docs/page_audits/v0.1.2/page_16.txt` | OPEN | Pending page review. |
 | 17 | `docs/page_audits/v0.1.2/page_17.txt` | OPEN | Pending page review. |
 | 18 | `docs/page_audits/v0.1.2/page_18.txt` | OPEN | Pending page review. |
