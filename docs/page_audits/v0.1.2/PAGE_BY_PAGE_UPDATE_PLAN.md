@@ -48,7 +48,7 @@ Does not prove:
 | 26 | `docs/page_audits/v0.1.2/page_26.txt` | NO_CHANGE | Reviewed in `docs/page_audits/v0.1.2/reviews/page_26_review.md`. |
 | 27 | `docs/page_audits/v0.1.2/page_27.txt` | NO_CHANGE | Reviewed in `docs/page_audits/v0.1.2/reviews/page_27_review.md`. |
 | 28 | `docs/page_audits/v0.1.2/page_28.txt` | NO_CHANGE | Reviewed in `docs/page_audits/v0.1.2/reviews/page_28_review.md`. |
-| 29 | `docs/page_audits/v0.1.2/page_29.txt` | OPEN | Pending page review. |
+| 29 | `docs/page_audits/v0.1.2/page_29.txt` | NO_CHANGE | Reviewed in `docs/page_audits/v0.1.2/reviews/page_29_review.md`. |
 | 30 | `docs/page_audits/v0.1.2/page_30.txt` | OPEN | Pending page review. |
 | 31 | `docs/page_audits/v0.1.2/page_31.txt` | OPEN | Pending page review. |
 
