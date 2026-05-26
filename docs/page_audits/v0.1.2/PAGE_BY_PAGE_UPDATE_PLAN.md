@@ -39,7 +39,7 @@ Does not prove:
 | 17 | `docs/page_audits/v0.1.2/page_17.txt` | BOUNDARY_CLARIFICATION | Yang-Mills capacity-barrier example reviewed as interpretive framework language only; see `docs/page_audits/v0.1.2/reviews/page_17_review.md`. |
 | 18 | `docs/page_audits/v0.1.2/page_18.txt` | NO_CHANGE | Continuing v0.1.2 audit page reviewed; see `docs/page_audits/v0.1.2/reviews/page_18_review.md`. |
 | 19 | `docs/page_audits/v0.1.2/page_19.txt` | BOUNDARY_CLARIFICATION | Riemann Hypothesis capacity-escape example reviewed as interpretive framework language only; see `docs/page_audits/v0.1.2/reviews/page_19_review.md`. |
-| 20 | `docs/page_audits/v0.1.2/page_20.txt` | OPEN | Pending page review. |
+| 20 | `docs/page_audits/v0.1.2/page_20.txt` | NO_CHANGE | Riemann Hypothesis chapter-header continuation page reviewed; see `docs/page_audits/v0.1.2/reviews/page_20_review.md`. |
 | 21 | `docs/page_audits/v0.1.2/page_21.txt` | OPEN | Pending page review. |
 | 22 | `docs/page_audits/v0.1.2/page_22.txt` | OPEN | Pending page review. |
 | 23 | `docs/page_audits/v0.1.2/page_23.txt` | OPEN | Pending page review. |
