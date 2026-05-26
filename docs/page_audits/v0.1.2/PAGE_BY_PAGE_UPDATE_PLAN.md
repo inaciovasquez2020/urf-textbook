@@ -32,7 +32,7 @@ Does not prove:
 | 10 | `docs/page_audits/v0.1.2/page_10.txt` | NO_CHANGE | Chapter-opening page reviewed; see `docs/page_audits/v0.1.2/reviews/page_10_review.md`. |
 | 11 | `docs/page_audits/v0.1.2/page_11.txt` | NO_CHANGE | Chapter-opening page reviewed; see `docs/page_audits/v0.1.2/reviews/page_11_review.md`. |
 | 12 | `docs/page_audits/v0.1.2/page_12.txt` | NO_CHANGE | Continuing Chapter 3 page mark reviewed; see `docs/page_audits/v0.1.2/reviews/page_12_review.md`. |
-| 13 | `docs/page_audits/v0.1.2/page_13.txt` | OPEN | Pending page review. |
+| 13 | `docs/page_audits/v0.1.2/page_13.txt` | NO_CHANGE | Continuing Chapter 3 core-lemmas page reviewed; see `docs/page_audits/v0.1.2/reviews/page_13_review.md`. |
 | 14 | `docs/page_audits/v0.1.2/page_14.txt` | OPEN | Pending page review. |
 | 15 | `docs/page_audits/v0.1.2/page_15.txt` | OPEN | Pending page review. |
 | 16 | `docs/page_audits/v0.1.2/page_16.txt` | OPEN | Pending page review. |
