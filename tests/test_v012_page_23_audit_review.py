@@ -6,8 +6,9 @@ REVIEW = Path("docs/page_audits/v0.1.2/reviews/page_23_review.md")
 REQUIRED_REVIEW = [
     "v0.1.2 Page 23 Review",
     "docs/page_audits/v0.1.2/page_23.txt",
-    "v0.1.2 textbook",
-    "theorem closure",
+    "Exchange Forces",
+    "Exchange Correlation Capacity",
+    "Exchange Correlation Capacity",
     "theorem closure",
     "unrestricted Chronos-RR",
     "H4.1/FGL",
