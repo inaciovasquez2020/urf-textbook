@@ -6,8 +6,8 @@ REVIEW = Path("docs/page_audits/v0.1.2/reviews/page_25_review.md")
 REQUIRED_REVIEW = [
     "v0.1.2 Page 25 Review",
     "docs/page_audits/v0.1.2/page_25.txt",
-    "v0.1.2 textbook",
-    "chapter theorem boundary",
+    "Appendix / Lean correspondence",
+    "Lean module correspondence",
     "theorem closure",
     "unrestricted Chronos-RR",
     "H4.1/FGL",

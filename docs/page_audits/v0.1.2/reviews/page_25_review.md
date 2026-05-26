@@ -12,14 +12,14 @@ NO_CHANGE
 
 Page 25 was checked as part of the v0.1.2 page-by-page audit.
 
-The page remains within the v0.1.2 textbook chapter audit boundary. It is treated as exposition or framework-level language only unless the page text explicitly supplies a separately verified theorem, proof, or closure certificate.
+The page remains within the Appendix / Lean correspondence audit boundary. It is treated as exposition or framework-level language only unless the page text explicitly supplies a separately verified theorem, proof, or closure certificate.
 
 ## Boundary
 
 This review does not prove:
 
-- v0.1.2 textbook
-- chapter theorem boundary
+- Appendix / Lean correspondence
+- Lean module correspondence
 - theorem closure
 - unrestricted Chronos-RR
 - H4.1/FGL
