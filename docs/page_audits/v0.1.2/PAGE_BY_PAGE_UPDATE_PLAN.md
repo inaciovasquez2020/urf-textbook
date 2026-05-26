@@ -37,7 +37,7 @@ Does not prove:
 | 15 | `docs/page_audits/v0.1.2/page_15.txt` | NO_CHANGE | Continuing v0.1.2 audit page reviewed; see `docs/page_audits/v0.1.2/reviews/page_15_review.md`. |
 | 16 | `docs/page_audits/v0.1.2/page_16.txt` | NO_CHANGE | Continuing v0.1.2 audit page reviewed; see `docs/page_audits/v0.1.2/reviews/page_16_review.md`. |
 | 17 | `docs/page_audits/v0.1.2/page_17.txt` | BOUNDARY_CLARIFICATION | Yang-Mills capacity-barrier example reviewed as interpretive framework language only; see `docs/page_audits/v0.1.2/reviews/page_17_review.md`. |
-| 18 | `docs/page_audits/v0.1.2/page_18.txt` | OPEN | Pending page review. |
+| 18 | `docs/page_audits/v0.1.2/page_18.txt` | NO_CHANGE | Continuing v0.1.2 audit page reviewed; see `docs/page_audits/v0.1.2/reviews/page_18_review.md`. |
 | 19 | `docs/page_audits/v0.1.2/page_19.txt` | OPEN | Pending page review. |
 | 20 | `docs/page_audits/v0.1.2/page_20.txt` | OPEN | Pending page review. |
 | 21 | `docs/page_audits/v0.1.2/page_21.txt` | OPEN | Pending page review. |
