@@ -41,7 +41,7 @@ Does not prove:
 | 19 | `docs/page_audits/v0.1.2/page_19.txt` | BOUNDARY_CLARIFICATION | Riemann Hypothesis capacity-escape example reviewed as interpretive framework language only; see `docs/page_audits/v0.1.2/reviews/page_19_review.md`. |
 | 20 | `docs/page_audits/v0.1.2/page_20.txt` | NO_CHANGE | Riemann Hypothesis chapter-header continuation page reviewed; see `docs/page_audits/v0.1.2/reviews/page_20_review.md`. |
 | 21 | `docs/page_audits/v0.1.2/page_21.txt` | NO_CHANGE | Reviewed in `docs/page_audits/v0.1.2/reviews/page_21_review.md`. |
-| 22 | `docs/page_audits/v0.1.2/page_22.txt` | OPEN | Pending page review. |
+| 22 | `docs/page_audits/v0.1.2/page_22.txt` | NO_CHANGE | Reviewed in `docs/page_audits/v0.1.2/reviews/page_22_review.md`. |
 | 23 | `docs/page_audits/v0.1.2/page_23.txt` | OPEN | Pending page review. |
 | 24 | `docs/page_audits/v0.1.2/page_24.txt` | OPEN | Pending page review. |
 | 25 | `docs/page_audits/v0.1.2/page_25.txt` | OPEN | Pending page review. |
