@@ -1,11 +1,265 @@
 \chapter{Non-Amplification and Capacity Bounds}
-\input{tex/sections/locality_refinement}
+
+\section{Purpose of Non-Amplification}
+
+The non-amplification principle records a simple structural rule: an
+admissible refinement process cannot extract more relevant information than
+its observation model permits. If the process has bounded locality, bounded
+message size, bounded detector access, or bounded update width, then each step
+has a finite information budget.
+
+The principle is not a claim that information can never increase in any
+physical or computational sense. It is a claim about admissible refinement
+systems after the allowed observations and updates have been fixed. Once that
+admissible class is fixed, the process cannot use information that is outside
+its permitted view.
+
+This chapter makes the capacity assumption explicit and separates three
+levels:
+
+\begin{enumerate}
+\item local observation capacity;
+\item one-step entropy reduction;
+\item cumulative refinement depth.
+\end{enumerate}
+
+\section{Locality of Refinement Processes}
+
+Let \(R\) denote a locality radius.
+
+\begin{definition}[\(R\)-local refinement]
+A refinement step is \(R\)-local if the update at a site \(v\) depends only on
+data inside the radius-\(R\) neighborhood of \(v\).
+\end{definition}
+
+In a graph model, the neighborhood is the graph ball \(B_R(v)\). In a logical
+model, locality may be expressed by bounded-variable or bounded-radius
+formulas. In an operational physical model, locality may be expressed by
+finite detector access or bounded propagation.
+
+\begin{definition}[Local view]
+The local view at \(v\) is the information available to the update rule at
+that site. It may include labels, adjacency data, bounded measurements, or
+other admissible local features.
+\end{definition}
+
+The local view is not automatically bounded. Boundedness must be proved from
+the model assumptions, such as bounded degree, fixed radius, finite alphabet,
+finite detector precision, or finite register width.
 
 \section{Information Capacity Bound}
-Define the per-step information limit under bounded locality.
+
+Capacity bounds the information removed by one admissible step.
+
+\begin{definition}[Information capacity]
+Let \(H\) be an entropy functional on a state space \(X\), and let
+\(\mathcal R\) be a class of admissible refinements. The class
+\(\mathcal R\) has capacity \(C\) if every \(R\in\mathcal R\) satisfies
+\[
+H(x)-H(Rx)\le C
+\]
+for every \(x\in X\).
+\end{definition}
+
+The capacity \(C\) may represent bits, local types, rank, detector outcomes,
+or another information measure. What matters is not the name of the unit, but
+the existence of a uniform upper bound on one-step entropy reduction.
+
+\begin{example}[Finite local alphabet]
+Suppose every local update returns one of \(B\) possible local types. Then a
+single local observation can distinguish at most \(B\) alternatives and carries
+at most
+\[
+\log B
+\]
+units of information.
+\end{example}
+
+\section{From Locality to Capacity}
+
+Locality implies a capacity bound only when the local view is finite or
+effectively bounded.
+
+\begin{theorem}[Locality-to-Capacity Bound]
+Assume an admissible refinement step is \(R\)-local, the local alphabet has
+size at most \(A\), and each update consults at most \(M\) local entries. Then
+the number of possible local views is at most \(A^M\), and the information
+available to one update is at most
+\[
+M\log A.
+\]
+\end{theorem}
+
+\begin{proof}
+Each of the \(M\) consulted entries has at most \(A\) possible values. Hence
+the total number of possible local views is at most \(A^M\). The information
+contained in a choice among \(A^M\) possibilities is
+\[
+\log(A^M)=M\log A.
+\]
+\end{proof}
+
+\begin{remark}
+The theorem gives a capacity estimate for one local view. A full parallel
+system still requires an accounting rule specifying whether updates are
+counted per site, per round, per block, or per global refinement step.
+\end{remark}
 
 \section{Non-Amplification Theorem}
-Parallel refinement systems cannot amplify information beyond capacity limits.
 
-\section{Implications}
-Consequences for algorithmic complexity and physical computation.
+The non-amplification theorem is the cumulative form of the capacity bound.
+
+\begin{theorem}[Non-Amplification]
+Let \(x_0,x_1,\ldots,x_t\) be an admissible refinement trajectory. Suppose
+each step satisfies
+\[
+H(x_i)-H(x_{i+1})\le C.
+\]
+Then
+\[
+H(x_0)-H(x_t)\le tC.
+\]
+\end{theorem}
+
+\begin{proof}
+Summing the one-step inequalities gives
+\[
+\sum_{i=0}^{t-1}\bigl(H(x_i)-H(x_{i+1})\bigr)\le \sum_{i=0}^{t-1}C=tC.
+\]
+The left side telescopes to \(H(x_0)-H(x_t)\).
+\end{proof}
+
+\begin{theorem}[Capacity Depth Bound]
+If terminal resolution requires \(H(x_t)=0\), then every admissible trajectory
+from \(x_0\) to a terminal state satisfies
+\[
+t\ge \frac{H(x_0)}{C}.
+\]
+\end{theorem}
+
+\begin{proof}
+By non-amplification,
+\[
+H(x_0)-H(x_t)\le tC.
+\]
+If \(H(x_t)=0\), then \(H(x_0)\le tC\), and therefore
+\[
+t\ge \frac{H(x_0)}{C}.
+\]
+\end{proof}
+
+\section{Parallel Refinement}
+
+Parallelism does not remove the need for capacity accounting. It changes the
+unit being counted.
+
+\begin{definition}[Parallel round]
+A parallel round is a collection of local updates applied simultaneously
+according to an admissible synchronization rule.
+\end{definition}
+
+A parallel round may remove more total information than a single local update.
+However, the round still has a capacity bound if the number of independent
+updates and the capacity of each update are bounded.
+
+\begin{theorem}[Parallel Capacity Bound]
+Suppose a parallel round consists of at most \(m\) independent local updates,
+and each local update removes at most \(C_{\mathrm{loc}}\) units of entropy.
+Then one parallel round removes at most
+\[
+mC_{\mathrm{loc}}
+\]
+units of entropy.
+\end{theorem}
+
+\begin{proof}
+The entropy removed by the round is at most the sum of the entropy removed by
+its local updates. Each local update removes at most \(C_{\mathrm{loc}}\), and
+there are at most \(m\) updates. Therefore the total is at most
+\(mC_{\mathrm{loc}}\).
+\end{proof}
+
+If \(m\) grows with the system size, the round capacity may grow with the
+system size. In that case, a linear-depth conclusion does not follow from a
+constant-capacity argument. The model must state whether capacity is measured
+per update, per round, per processor, per unit area, or globally.
+
+\section{Algorithmic Implications}
+
+For algorithmic refinement systems, capacity bounds say that a local update
+cannot distinguish exponentially many hidden alternatives unless its local
+view also grows.
+
+\begin{example}[Search space]
+Let the unresolved search space have size \(2^n\), so that \(H_0=n\) bits. If
+each admissible refinement step removes at most \(c\) bits, then terminal
+resolution requires at least
+\[
+\frac{n}{c}
+\]
+steps.
+\end{example}
+
+This does not prove a lower bound for arbitrary algorithms. It proves a lower
+bound only for the refinement class whose capacity has been bounded.
+
+\section{Physical Implications}
+
+For physical systems, capacity bounds express finite operational access. A
+detector, channel, boundary register, or finite-energy measurement apparatus
+can expose only a bounded amount of information per admissible operation.
+
+\begin{example}[Finite detector outcomes]
+Suppose a detector has \(B\) distinguishable outcomes per measurement. Then
+one measurement carries at most \(\log B\) units of outcome information. If a
+state has \(H_0\) units of unresolved operational entropy, at least
+\(H_0/\log B\) such measurements are required to resolve it, assuming each
+measurement is admissible and independent in the required sense.
+\end{example}
+
+The example is an operational accounting statement, not a complete physical
+theorem. A physical theorem must also specify dynamics, measurement coupling,
+noise, backreaction, and admissibility.
+
+\section{Failure Modes}
+
+A claimed non-amplification result fails if any of the following occur:
+
+\begin{enumerate}
+\item the update has hidden global access;
+\item the local alphabet is unbounded;
+\item the locality radius grows with system size;
+\item the number of parallel updates is counted incorrectly;
+\item the entropy functional is not monotone under refinement;
+\item the terminal condition does not require the claimed entropy collapse.
+\end{enumerate}
+
+These are not exceptions to the theorem. They are failures of the hypotheses.
+
+\section{Capacity Audit Checklist}
+
+A capacity-bound argument should provide the following data:
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Field & Required content \\
+\midrule
+State space & configurations under refinement \\
+Entropy & unresolved information or defect measure \\
+Locality & radius, detector scope, or observation class \\
+Alphabet & possible local observations or outcomes \\
+Step rule & admissible refinement operation \\
+Capacity & one-step entropy reduction bound \\
+Parallel rule & accounting convention for simultaneous updates \\
+Terminal state & condition defining resolution \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Boundary}
+
+This chapter proves only capacity bookkeeping for admissible refinement
+systems. It does not prove that all computation is local, does not prove that
+all physical systems have bounded operational capacity, and does not prove
+unrestricted Chronos-RR, unrestricted H4.1/FGL, P vs NP, or any Clay problem.
