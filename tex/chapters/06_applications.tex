@@ -1,11 +1,283 @@
 \chapter{Applications and Reductions}
-\input{tex/sections/spectral_rigidity}
+
+\section{Purpose of the Applications Chapter}
+
+The preceding chapters define the common URF mechanism:
+
+\[
+\text{entropy growth}
++
+\text{capacity bound}
++
+\text{terminal condition}
+\Longrightarrow
+\text{refinement depth}.
+\]
+
+Applications begin when a domain-specific problem is translated into this
+mechanism. A translation is not automatically a proof of the original problem.
+It is a reduction surface: it records which objects have been identified, which
+bounds have been proved, and which assumptions remain open.
+
+This chapter explains how URF-style reductions appear in computational,
+spectral, physical, graph-theoretic, and structural settings.
+
+\section{Reduction Data}
+
+\begin{definition}[Application reduction datum]
+An application reduction datum is a tuple
+\[
+(\mathcal D,X,\mathcal R,H,C,T,\Pi),
+\]
+where \(\mathcal D\) is the source domain, \(X\) is the translated state space,
+\(\mathcal R\) is the admissible refinement class, \(H\) is the entropy or
+defect functional, \(C\) is the capacity bound, \(T\) is the terminal set, and
+\(\Pi\) is the interpretation map back to the source domain.
+\end{definition}
+
+The interpretation map \(\Pi\) is essential. Without it, the URF object may be
+internally valid but disconnected from the application it is supposed to
+represent.
+
+\begin{definition}[Sound reduction]
+A reduction datum is sound if every admissible source-domain process under
+study is represented by an admissible refinement trajectory in \(X\), and if
+terminal resolution in \(X\) implies the required source-domain conclusion.
+\end{definition}
+
+Soundness is the main burden in applications. It is usually harder than the
+capacity-depth calculation itself.
 
 \section{Computational Complexity}
-Reduction from refinement limits to SAT lower bounds.
+
+In computational applications, the state space \(X\) is often a space of
+partial information states: partitions, transcripts, local views, candidate
+assignments, proof states, or refinement histories.
+
+\begin{definition}[Computational refinement model]
+A computational refinement model consists of a configuration space \(\Omega\),
+a refinement state space \(X\), and an admissible update class
+\(\mathcal R\) representing the allowed algorithmic steps.
+\end{definition}
+
+The entropy \(H\) measures unresolved computational alternatives. For a block
+\(B\subseteq \Omega\), a basic entropy is
+\[
+H(B)=\log |B|.
+\]
+
+\begin{theorem}[Computational Depth Transfer]
+Suppose a computational problem reduces to a refinement model
+\((X,\mathcal R,H,C,T)\). If every admissible update removes at most \(C\)
+entropy and every correct solution requires reaching \(T=\{H=0\}\), then every
+admissible computation represented by the model has depth at least
+\[
+\frac{H(x_0)}{C}.
+\]
+\end{theorem}
+
+\begin{proof}
+This is the EntropyDepth lower bound applied to the computational refinement
+trajectory.
+\end{proof}
+
+\section{SAT-Style Reductions}
+
+For a Boolean search problem on \(n\) variables, the full assignment space has
+size \(2^n\). The initial assignment entropy is therefore
+\[
+\log_2(2^n)=n.
+\]
+
+If a local refinement method removes at most \(C\) bits per admissible step,
+then terminal isolation of one assignment requires at least \(n/C\) steps.
+
+\begin{remark}[Boundary of SAT-style statements]
+This does not prove a SAT lower bound for arbitrary algorithms. It proves a
+lower bound only for algorithms already shown to fit the bounded-capacity
+refinement model. A theorem about \(P\) versus \(NP\) would require a separate
+normalization theorem showing that the relevant algorithms must pass through
+such a refinement model.
+\end{remark}
+
+\section{Spectral Rigidity}
+
+Spectral applications use operators to measure coercive obstruction.
+
+Let \(L\) be a nonnegative self-adjoint operator with eigenvalues
+\[
+0=\lambda_0\le \lambda_1\le \lambda_2\le\cdots.
+\]
+
+\begin{definition}[Spectral gap]
+The first positive spectral gap is a number \(\lambda_1>0\) such that
+\[
+\langle f,Lf\rangle\ge \lambda_1\|f\|^2
+\]
+for all \(f\perp \ker L\).
+\end{definition}
+
+\begin{theorem}[Spectral Rigidity]
+If \(L\) has a positive spectral gap \(\lambda_1>0\), then every
+\(f\perp\ker L\) satisfies
+\[
+\|f\|^2\le \lambda_1^{-1}\langle f,Lf\rangle.
+\]
+\end{theorem}
+
+\begin{proof}
+The spectral gap inequality gives
+\[
+\langle f,Lf\rangle\ge \lambda_1\|f\|^2.
+\]
+Dividing by \(\lambda_1>0\) gives the stated estimate.
+\end{proof}
+
+This estimate says that deformation away from the kernel has measurable cost.
+In URF terms, the spectral gap is a coercivity mechanism.
 
 \section{Physics}
-Spectral rigidity and operator coercivity.
+
+In physical applications, the refinement state may represent accessible
+measurements, boundary data, detector outcomes, energy shells, spectral modes,
+or coarse-grained macrostates. The capacity bound may come from finite detector
+resolution, finite energy, finite channel width, locality, or bounded coupling.
+
+\begin{definition}[Operational physical reduction]
+An operational physical reduction represents a physical system by a state
+space \(X\), an admissible measurement or update class \(\mathcal R\), an
+entropy \(H\), and a terminal condition \(T\) corresponding to the physical
+resolution claim.
+\end{definition}
+
+\begin{example}[Finite detector capacity]
+If a detector has \(B\) distinguishable outcomes per admissible measurement,
+then one measurement carries at most \(\log B\) outcome information. If the
+unresolved operational entropy is \(H_0\), then at least \(H_0/\log B\)
+measurements are required, assuming each measurement is independent in the
+required model and terminal resolution requires eliminating that entropy.
+\end{example}
+
+A physical application must state the measurement model. Without that model,
+the capacity claim is only an analogy.
+
+\section{Graph Structures}
+
+Graph applications often use local neighborhoods, partition refinements, color
+refinements, or spectral graph operators.
+
+\begin{definition}[Graph refinement datum]
+A graph refinement datum consists of a graph family \(G_n\), a local
+observation rule, a partition or label state space, a refinement rule, and a
+terminal separation condition.
+\end{definition}
+
+If bounded-radius local views leave \(N_n\) globally compatible alternatives,
+then the unresolved graph entropy is
+\[
+H_n=\log N_n.
+\]
+If each refinement round removes at most \(C\) units of this entropy, then the
+terminal depth is at least \(H_n/C\).
+
+\begin{remark}
+This is not a graph-isomorphism lower bound unless the refinement model is
+proved to capture the graph-isomorphism procedure under study.
+\end{remark}
+
+\section{Expanders and Rigidity}
+
+Expanders provide a useful contrast. A graph family with a uniform spectral
+gap has strong global connectivity from local incidence data. In URF language,
+a gap can act as a coercive control preventing low-cost deformation.
+
+However, expansion alone is not a complete URF lower bound. A full application
+must still specify entropy, capacity, terminal resolution, and the admissible
+refinement process.
+
+\begin{theorem}[Gap-to-Coercivity Template]
+Let \(L_n\) be graph Laplacians with a uniform spectral gap
+\[
+\lambda_1(L_n)\ge \lambda>0.
+\]
+Then for every \(f\perp\ker L_n\),
+\[
+\|f\|^2\le \lambda^{-1}\langle f,L_nf\rangle.
+\]
+\end{theorem}
+
+\begin{proof}
+Apply the spectral gap inequality with \(\lambda_1(L_n)\ge\lambda\).
+\end{proof}
 
 \section{Mathematical Structures}
-Connections to graph expanders and rigidity theory.
+
+In algebraic, geometric, or categorical settings, an application may use
+defect functionals instead of entropy directly. A defect functional
+\(F:X\to\mathbb R_{\ge 0}\) becomes URF-relevant when it controls or is
+controlled by entropy.
+
+\begin{definition}[Entropy-compatible defect]
+A defect functional \(F\) is entropy-compatible if there is a monotone function
+\(\psi\) such that
+\[
+H(x)\le \psi(F(x))
+\]
+or
+\[
+F(x)\le \psi(H(x)),
+\]
+depending on the direction needed by the argument.
+\end{definition}
+
+The direction matters. A lower bound on depth requires a quantity that cannot
+be eliminated faster than the capacity bound allows.
+
+\section{Reduction Soundness}
+
+The central risk in applications is an unsound translation.
+
+\begin{theorem}[Reduction Soundness Requirement]
+A URF lower bound transfers to a source-domain problem only if every
+source-domain process in the claimed class is represented by an admissible
+refinement trajectory and every source-domain success state maps into the
+declared terminal set.
+\end{theorem}
+
+\begin{proof}
+If a source-domain process is not represented by an admissible trajectory, the
+URF lower bound does not apply to it. If source-domain success does not require
+entry into the terminal set, the terminal-depth lower bound does not imply a
+source-domain lower bound. Therefore both representation and terminal
+compatibility are necessary for transfer.
+\end{proof}
+
+\section{Application Checklist}
+
+A complete application should provide:
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Field & Required content \\
+\midrule
+Source domain & problem or system being translated \\
+State space & URF representation of source states \\
+Admissible process & refinement class modeling source operations \\
+Entropy or defect & unresolved quantity being measured \\
+Capacity bound & per-step information limit \\
+Coercivity & rigidity estimate, if needed \\
+Terminal set & translated success condition \\
+Soundness bridge & proof that source processes enter the model \\
+Boundary & explicit non-claims \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Boundary}
+
+This chapter gives application templates and reduction requirements. It does
+not prove any source-domain lower bound without a soundness bridge, does not
+prove SAT hardness, does not prove graph-isomorphism lower bounds, does not
+establish any physical theory, and does not prove unrestricted Chronos-RR,
+unrestricted H4.1/FGL, P vs NP, or any Clay problem.
