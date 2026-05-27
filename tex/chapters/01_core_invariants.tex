@@ -1,14 +1,233 @@
 \chapter{Core Invariants}
-\input{tex/sections/entropy_capacity_relation}
+
+\section{Role of the Core Invariants}
+
+The Unified Rigidity Framework uses a small family of invariants to compare
+different systems without pretending that the systems are identical. A graph
+refinement process, a spectral operator, a physical energy functional, and a
+capacity-bounded computation may have different native languages, but each can
+be audited by asking the same structural questions:
+
+\begin{enumerate}
+\item What is the configuration space?
+\item What uncertainty or defect remains unresolved?
+\item How much information can one admissible step remove?
+\item What counts as terminal or defect-free?
+\item What coercive quantity prevents free collapse?
+\item What lower bound on refinement depth follows?
+\end{enumerate}
+
+This chapter fixes the basic invariants used in later chapters. The definitions
+are intentionally abstract, because the framework is meant to support multiple
+instantiations. A later theorem must always specify the concrete instance being
+used.
+
+\section{Capacity--Entropy Relation}
+
+Let \(X\) be a state space and let \(H:X\to\mathbb R_{\ge 0}\) be an entropy or
+defect-size functional. Let \(C>0\) denote the maximum amount of relevant
+information that one admissible refinement step can remove.
+
+\begin{definition}[One-step capacity gap]
+The one-step capacity gap is
+\[
+\Phi_C(x)=H(x)-C.
+\]
+It measures how much unresolved information remains beyond what one admissible
+step can remove.
+\end{definition}
+
+The inequality \(\Phi_C(x)\le 0\) should not be read as a universal
+realizability condition for all states. It is a one-step collapse condition.
+If \(H(x)>C\), then the state may still be admissible, but it cannot be fully
+resolved in one capacity-bounded step.
+
+\begin{theorem}[Capacity--Entropy Step Bound]
+Suppose each admissible refinement step reduces entropy by at most \(C\). If
+\(x_0,x_1,\ldots,x_t\) is a refinement trajectory, then
+\[
+H(x_0)-H(x_t)\le tC.
+\]
+\end{theorem}
+
+\begin{proof}
+For each step, the capacity hypothesis gives
+\[
+H(x_i)-H(x_{i+1})\le C.
+\]
+Summing this inequality from \(i=0\) to \(t-1\) gives
+\[
+\sum_{i=0}^{t-1}\bigl(H(x_i)-H(x_{i+1})\bigr)\le tC.
+\]
+The left side telescopes to \(H(x_0)-H(x_t)\), proving the claim.
+\end{proof}
+
+\begin{theorem}[Depth lower bound]
+If the terminal condition requires \(H(x_t)=0\), then every admissible
+trajectory from \(x_0\) to a terminal state satisfies
+\[
+t\ge \frac{H(x_0)}{C}.
+\]
+\end{theorem}
+
+\begin{proof}
+Set \(H(x_t)=0\) in the preceding theorem. Then \(H(x_0)\le tC\), so
+\(t\ge H(x_0)/C\).
+\end{proof}
 
 \section{Entropy}
-Define the information entropy invariant \(H\) associated with configuration distributions.
+
+Entropy is the invariant that records unresolved multiplicity.
+
+\begin{definition}[Entropy functional]
+An entropy functional on a state space \(X\) is a map
+\[
+H:X\to\mathbb R_{\ge 0}
+\]
+such that \(H(x)=0\) represents a terminal, resolved, or defect-free state,
+relative to the chosen model.
+\end{definition}
+
+In a finite configuration model, if \(x\) represents a set \(\Omega_x\) of
+still-possible configurations, the basic entropy is
+\[
+H(x)=\log |\Omega_x|.
+\]
+In a probabilistic model with distribution \(p\), the standard entropy is
+\[
+H(p)=-\sum_y p(y)\log p(y).
+\]
+
+The framework does not require every domain to use the same entropy formula.
+It requires that the entropy be explicitly declared and that its behavior under
+refinement be proved or assumed as a named boundary.
+
+\begin{example}[Finite search space]
+If a system begins with \(2^n\) possible configurations, then
+\[
+H_0=\log_2(2^n)=n.
+\]
+If each admissible step removes at most one bit of relevant uncertainty, then
+at least \(n\) steps are required to isolate a single configuration.
+\end{example}
 
 \section{Capacity}
-Define computational or physical capacity \(C\) as the maximum admissible information processing rate.
+
+Capacity is the invariant that records the information throughput of an
+admissible step.
+
+\begin{definition}[Step capacity]
+A refinement class \(\mathcal R\) has step capacity \(C\) with respect to
+entropy \(H\) if every admissible refinement step \(R\in\mathcal R\) satisfies
+\[
+H(x)-H(Rx)\le C.
+\]
+\end{definition}
+
+Capacity is relative to the admissible class. If the class allows a global
+oracle, then \(C\) may be large. If the class only allows bounded local
+inspection, then \(C\) is controlled by the local view. This distinction is
+essential: URF lower bounds apply only to the refinement class for which the
+capacity estimate has been established.
+
+\begin{example}[Local graph update]
+For a bounded-degree graph with fixed radius \(R\), a vertex update sees only
+a bounded neighborhood type. If the degree bound and radius are fixed, then
+the number of possible local views is bounded independently of the total graph
+size. This gives a candidate source of bounded per-step information.
+\end{example}
 
 \section{Depth}
-Define EntropyDepth \(D\) as the minimal number of refinement steps required to collapse configuration entropy.
+
+Depth measures the number of admissible steps required to reach a terminal
+state.
+
+\begin{definition}[EntropyDepth]
+Let \(T\subseteq X\) be the terminal set. For an admissible refinement process
+\(x_{t+1}=R_t(x_t)\), define
+\[
+\ED(x_0)=\inf\{t\ge 0:x_t\in T\}.
+\]
+When \(T=\{x:H(x)=0\}\), this is the entropy-collapse depth.
+\end{definition}
+
+Depth is not merely runtime. It is structural length inside a specified
+refinement model. A fast algorithm outside the admissible model does not
+contradict a depth lower bound inside the model.
+
+\begin{theorem}[Linear-depth criterion]
+Suppose \(H(x_n)\ge an\) for a family of inputs \(x_n\), with \(a>0\), and
+suppose every admissible step removes at most \(C\) entropy, with \(C\)
+independent of \(n\). Then
+\[
+\ED(x_n)=\Omega(n).
+\]
+\end{theorem}
+
+\begin{proof}
+By the depth lower bound,
+\[
+\ED(x_n)\ge \frac{H(x_n)}{C}\ge \frac{a}{C}n.
+\]
+Thus the depth grows at least linearly in \(n\).
+\end{proof}
 
 \section{Spectral Gap}
-Define the spectral gap \(\lambda_1\) of the governing operator and its relation to rigidity.
+
+Spectral gap is the analytic form of rigidity used when the state space is
+linear or operator-theoretic.
+
+\begin{definition}[Spectral gap]
+Let \(L\) be a nonnegative self-adjoint operator. The spectral gap above the
+kernel is the largest \(\lambda_1\ge 0\) such that
+\[
+\langle f,Lf\rangle\ge \lambda_1\|f\|^2
+\]
+for all \(f\perp\ker L\).
+\end{definition}
+
+A positive spectral gap prevents low-cost deformation away from the kernel.
+In URF language, it supplies a coercive mechanism: unresolved defect cannot
+vanish without paying a controlled amount.
+
+\begin{example}[Cycle graph]
+For the cycle graph \(C_n\), the graph Laplacian eigenvalues are
+\[
+\lambda_k=2-2\cos\left(\frac{2\pi k}{n}\right).
+\]
+The first nonzero eigenvalue is
+\[
+\lambda_1=2-2\cos\left(\frac{2\pi}{n}\right).
+\]
+As \(n\) grows, this gap tends to zero, so cycle graphs do not form a uniform
+spectral expander family.
+\end{example}
+
+\section{Invariant Checklist}
+
+A URF argument should identify the following data:
+
+\begin{center}
+\begin{tabular}{ll}
+\hline
+Object & Required role \\
+\hline
+\(X\) & admissible configuration space \\
+\(\mathcal R\) & admissible refinement class \\
+\(H\) & entropy or unresolved defect \\
+\(C\) & per-step capacity bound \\
+\(T\) & terminal set \\
+\(F\) & rigidity or coercivity functional \\
+\(\lambda_1\) & spectral gap when an operator model is present \\
+\hline
+\end{tabular}
+\end{center}
+
+If any entry is missing, the argument is not yet a theorem-level URF
+instantiation. It may still be a useful target, roadmap, or frontier surface.
+
+\begin{remark}[Boundary]
+This chapter defines the invariant vocabulary and proves only the elementary
+capacity-depth bookkeeping statements above. It does not prove unrestricted
+Chronos-RR, unrestricted H4.1/FGL, P vs NP, or any Clay problem.
+\end{remark}
