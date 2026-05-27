@@ -1,10 +1,260 @@
 \chapter{Entropy Depth Lower Bound}
 
+\section{Purpose of EntropyDepth}
+
+EntropyDepth measures the minimum number of admissible refinement steps needed
+to remove unresolved entropy. It is the depth invariant associated with the
+capacity bounds of the previous chapter.
+
+The point of EntropyDepth is not merely to count runtime. It counts structural
+progress inside a specified refinement model. A refinement process may be
+algorithmic, logical, combinatorial, spectral, or operational. In every case,
+the EntropyDepth question is:
+
+\begin{quote}
+How many admissible steps are required before the remaining uncertainty or
+defect reaches the terminal threshold?
+\end{quote}
+
+This chapter develops the basic lower bound and explains how it is used.
+
+\section{Refinement Trajectories}
+
+Let \(X\) be a state space and let \(\mathcal R\) be a class of admissible
+refinement maps. A refinement trajectory is a sequence
+\[
+x_0,x_1,x_2,\ldots
+\]
+such that
+\[
+x_{t+1}=R_t(x_t)
+\]
+for some \(R_t\in\mathcal R\).
+
+\begin{definition}[Terminal set]
+A terminal set is a subset \(T\subseteq X\) whose elements count as resolved,
+defect-free, classified, or otherwise finished for the problem under study.
+\end{definition}
+
+The terminal condition is part of the model. In some settings, terminal means
+that entropy is zero. In others, terminal means that a defect functional
+vanishes, that a partition stabilizes, or that a certificate has been
+identified.
+
 \section{Definition}
-Formal definition of EntropyDepth for refinement processes.
+
+\begin{definition}[EntropyDepth]
+Let \(x_0\in X\), let \(\mathcal R\) be an admissible refinement class, and let
+\(T\subseteq X\) be a terminal set. The EntropyDepth of \(x_0\) is
+\[
+\ED_{\mathcal R,T}(x_0)
+=
+\inf\{t\ge 0:x_t\in T
+\text{ for some admissible trajectory }x_0,\ldots,x_t\}.
+\]
+When \(\mathcal R\) and \(T\) are fixed, we write \(\ED(x_0)\).
+\end{definition}
+
+EntropyDepth is infinite if no admissible trajectory reaches the terminal set.
+
+\begin{definition}[Entropy terminal condition]
+Given an entropy functional \(H:X\to\mathbb R_{\ge 0}\), the entropy-terminal
+set is
+\[
+T_H=\{x\in X:H(x)=0\}.
+\]
+\end{definition}
+
+\section{One-Step Entropy Loss}
+
+The depth lower bound depends on the largest entropy loss allowed in one step.
+
+\begin{definition}[Step loss]
+For a trajectory \(x_0,x_1,\ldots\), define the step entropy loss
+\[
+\Delta H_t=H(x_t)-H(x_{t+1}).
+\]
+\end{definition}
+
+\begin{definition}[Uniform loss bound]
+A refinement class \(\mathcal R\) has uniform entropy-loss bound \(c>0\) if
+\[
+H(x)-H(Rx)\le c
+\]
+for every \(x\in X\) and every \(R\in\mathcal R\).
+\end{definition}
+
+The constant \(c\) is the capacity bound in entropy units. It may come from a
+locality estimate, a finite alphabet, a detector bound, a communication
+constraint, or another admissibility argument.
 
 \section{Lower Bound}
-Proof of the EntropyDepth lower bound for locality-constrained systems.
 
-\section{Applications}
-Connections to SAT hardness and refinement algorithms.
+\begin{theorem}[EntropyDepth Lower Bound]
+Let \(H:X\to\mathbb R_{\ge 0}\) be an entropy functional. Suppose every
+admissible refinement step removes at most \(c>0\) units of entropy. If
+terminal resolution requires \(H(x_t)=0\), then
+\[
+\ED(x_0)\ge \frac{H(x_0)}{c}.
+\]
+\end{theorem}
+
+\begin{proof}
+Let \(x_0,x_1,\ldots,x_t\) be any admissible trajectory reaching a terminal
+state with \(H(x_t)=0\). Since each step removes at most \(c\) entropy,
+\[
+H(x_i)-H(x_{i+1})\le c
+\]
+for each \(i<t\). Summing over \(i=0,\ldots,t-1\) gives
+\[
+H(x_0)-H(x_t)\le tc.
+\]
+Because \(H(x_t)=0\), this becomes \(H(x_0)\le tc\). Hence
+\[
+t\ge \frac{H(x_0)}{c}.
+\]
+Taking the infimum over all admissible terminal trajectories gives the result.
+\end{proof}
+
+\section{Linear Entropy Regime}
+
+The most common URF application occurs when initial entropy grows linearly
+with system size while the per-step capacity remains bounded.
+
+\begin{theorem}[Linear EntropyDepth Criterion]
+Let \(x_n\) be a family of inputs indexed by size \(n\). Suppose there are
+constants \(a>0\) and \(c>0\), independent of \(n\), such that
+\[
+H(x_n)\ge an
+\]
+and every admissible refinement step removes at most \(c\) entropy. Then
+\[
+\ED(x_n)=\Omega(n).
+\]
+\end{theorem}
+
+\begin{proof}
+By the EntropyDepth lower bound,
+\[
+\ED(x_n)\ge \frac{H(x_n)}{c}\ge \frac{a}{c}n.
+\]
+Thus EntropyDepth grows at least linearly.
+\end{proof}
+
+\section{Superlinear and Logarithmic Regimes}
+
+The same calculation also records other growth regimes.
+
+\begin{theorem}[General Growth Transfer]
+Let \(g(n)\) be a nonnegative function. If
+\[
+H(x_n)\ge g(n)
+\]
+and every admissible step removes at most \(c>0\) entropy, then
+\[
+\ED(x_n)\ge \frac{g(n)}{c}.
+\]
+\end{theorem}
+
+\begin{proof}
+Apply the EntropyDepth lower bound with \(H(x_n)\ge g(n)\).
+\end{proof}
+
+Thus logarithmic entropy gives a logarithmic lower bound, linear entropy gives
+a linear lower bound, and superlinear entropy gives a superlinear lower bound,
+provided the per-step capacity remains bounded.
+
+\section{Worked Example: Finite Search Space}
+
+Let \(\Omega_n\) be a search space with
+\[
+|\Omega_n|=2^n.
+\]
+Using base-two entropy,
+\[
+H_0=\log_2|\Omega_n|=n.
+\]
+If each admissible refinement step removes at most \(c\) bits, then every
+terminal refinement trajectory has length at least
+\[
+\frac{n}{c}.
+\]
+
+This example is only a refinement-model lower bound. It does not rule out an
+algorithm that uses a different admissible model or accesses a certificate not
+represented by the refinement process.
+
+\section{Worked Example: Partition Refinement}
+
+Let \(P_t\) be a partition of a configuration space \(\Omega\). Suppose the
+true configuration lies in a block \(B_t\in P_t\). Define
+\[
+H(P_t)=\log |B_t|.
+\]
+If a refinement step can split \(B_t\) into at most \(B\) effective subblocks,
+then the entropy loss per step is at most \(\log B\). Therefore, if
+\[
+|B_0|=N,
+\]
+then
+\[
+\ED(P_0)\ge \frac{\log N}{\log B}.
+\]
+
+This is the basic depth estimate for bounded-branching refinement.
+
+\section{Connection to SAT-Style Search}
+
+In a SAT-style search problem with \(n\) Boolean variables, the naive
+configuration space has size \(2^n\). The entropy of the full assignment space
+is \(n\) bits. A local refinement method that removes only \(O(1)\) bits per
+admissible step therefore requires \(\Omega(n)\) refinement depth to isolate a
+single assignment.
+
+This statement is conditional on the refinement model. It does not prove
+\(P\ne NP\). A complexity-theoretic lower bound would require an independent
+argument showing that the relevant class of algorithms normalizes to the
+bounded-capacity refinement model.
+
+\section{Connection to Weisfeiler--Lehman Refinement}
+
+In graph refinement, a partition of vertices is updated by local neighborhood
+types. If each round separates only bounded local information, EntropyDepth
+measures how many rounds are required before the partition stabilizes or
+separates the target structure.
+
+For a graph on \(n\) vertices, a refinement process may stabilize in at most
+\(n\) strict partition refinements, but the lower-bound question asks whether
+some family requires many such steps. EntropyDepth supplies the bookkeeping
+language for that question.
+
+\section{Audit Checklist}
+
+A valid EntropyDepth argument should provide:
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Field & Required content \\
+\midrule
+State space & configurations or refinement states \\
+Trajectory & admissible update rule \\
+Entropy & functional decreasing toward terminal resolution \\
+Step bound & proof that one step removes at most \(c\) entropy \\
+Terminal set & condition defining completed refinement \\
+Initial growth & lower bound on \(H(x_0)\) or \(H(x_n)\) \\
+Conclusion & resulting lower bound on \(\ED\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+If the step bound or terminal condition is missing, the EntropyDepth estimate
+is not yet established.
+
+\section{Boundary}
+
+This chapter proves the elementary EntropyDepth lower bound and its growth
+consequences inside a specified refinement model. It does not prove that all
+algorithms are bounded-capacity refinements, does not prove SAT lower bounds,
+does not prove graph-isomorphism lower bounds, and does not prove unrestricted
+Chronos-RR, unrestricted H4.1/FGL, P vs NP, or any Clay problem.
