@@ -2,199 +2,297 @@
 
 \section{Purpose of the Framework}
 
-The Unified Rigidity Framework (URF) formalizes a structural principle:
+The Unified Rigidity Framework is an exposition layer for a single structural
+claim pattern:
 
 \[
-\textbf{Entropy Growth}
+\text{entropy growth}
 +
-\textbf{Bounded Information Capacity}
+\text{bounded information capacity}
 +
-\textbf{Coercive Structural Constraint}
-\;\Longrightarrow\;
-\textbf{Linear Refinement Depth}.
+\text{coercive structural control}
+\Longrightarrow
+\text{nontrivial refinement depth}.
 \]
 
-The framework applies uniformly across combinatorial systems, spectral operators,
-physical energy functionals, and capacity-bounded computational processes.
+The purpose of the framework is not to declare that every problem in every
+domain has been solved. Its purpose is to give a common language for comparing
+systems in which a large space of possible configurations cannot be collapsed
+instantaneously by local or capacity-bounded operations.
 
-URF does not introduce new axioms.  
-It isolates invariant relationships between entropy, capacity, locality, and coercivity.
+The central idea is that many hard problems have the same visible shape.
+There is a large configuration space. There is a process that attempts to
+simplify, refine, classify, or eliminate possibilities. There is a limit on
+how much information the process can extract at one step. There is also a
+rigidity mechanism preventing defects from disappearing without cost. When
+these ingredients are present at the same time, the process must take depth.
+
+This book records that shape in a form that can be audited. Each theorem or
+principle is separated into hypotheses, conclusion, example, and boundary
+statement. The boundary statement is part of the mathematical discipline: it
+says what the result does not prove.
 
 \section{Core Structural Objects}
 
-Throughout the book, we work with the following primitives.
+The framework uses a small set of recurring objects.
 
-\subsection*{State Space}
+\begin{definition}[State space]
+A state space \(X\) is the collection of admissible configurations for the
+system under study. Depending on the domain, \(X\) may be finite, measurable,
+topological, algebraic, spectral, or syntactic.
+\end{definition}
 
-A state space $X$ is a measurable or algebraic object representing admissible configurations.
-
-\subsection*{Refinement System}
-
-A refinement system $(X,\mathcal{R})$ consists of a state space $X$ and a class
-$\mathcal{R}$ of admissible refinement maps $R : X \to X$.
-
-Refinement is structural update under bounded information extraction.
-
-\subsection*{Entropy}
-
-Entropy $H(x)$ measures the residual uncertainty or defect of a state.
-
-In discrete systems:
+\begin{definition}[Refinement system]
+A refinement system is a pair \((X,\mathcal R)\), where \(X\) is a state space
+and \(\mathcal R\) is a class of admissible refinement maps
 \[
-H = \log |\text{admissible states}|.
+R:X\to X.
 \]
+A refinement map represents one allowed step of structural update.
+\end{definition}
 
-In measure-theoretic systems:
+A refinement step may be an algorithmic update, a partition refinement, a
+local graph-coloring update, a normalization step, a spectral projection, or a
+domain-specific simplification. URF does not identify all of these processes.
+It records the common question: how much uncertainty can one admissible step
+remove?
+
+\begin{definition}[Entropy]
+An entropy functional \(H:X\to \mathbb R_{\ge 0}\) measures residual
+uncertainty, unresolved multiplicity, or remaining defect size.
+\end{definition}
+
+For a finite configuration family \(\Omega\), the simplest model is
 \[
-H(\mu) = -\int \log\left(\frac{d\mu}{d\nu}\right) d\mu.
+H(\Omega)=\log |\Omega|.
 \]
-
-\subsection*{Capacity}
-
-Capacity $C$ is the maximal extractable information per admissible refinement step.
-
-\subsection*{Rigidity Functional}
-
-A rigidity functional $\mathcal{F}:X\to\mathbb{R}_{\ge0}$ satisfies:
-
-\begin{itemize}
-\item $\mathcal{F}(x)=0$ characterizes defect-free states.
-\item $\mathcal{F}$ is monotone under admissible refinement.
-\item $\mathcal{F}$ bounds entropy from below:
+For a probability distribution \(p\), the standard discrete entropy is
 \[
-\mathcal{F}(x) \ge \alpha H(x)
+H(p)=-\sum_x p(x)\log p(x).
 \]
-for some $\alpha>0$.
-\end{itemize}
+The framework does not require these to be the only entropy notions. It
+requires that the chosen entropy be explicit and compatible with the claimed
+refinement bound.
+
+\begin{definition}[Capacity]
+A capacity bound \(C\) is an upper bound on the amount of relevant information
+that an admissible refinement step may extract or eliminate.
+\end{definition}
+
+Capacity is not the same as total computational power. It is a local or
+operational throughput constraint. A global algorithm may be powerful, but if
+a theorem assumes that each permitted update sees only bounded local data,
+then the relevant per-step capacity is bounded by that admissible view.
+
+\begin{definition}[Rigidity functional]
+A rigidity functional is a map
+\[
+F:X\to \mathbb R_{\ge 0}
+\]
+whose vanishing identifies a defect-free or terminal state, and whose positive
+value measures the cost of unresolved structure.
+\end{definition}
+
+A rigidity functional is useful only when it is connected to entropy,
+capacity, or coercivity. A named functional without such a connection is only
+notation.
 
 \section{Capacity--Entropy Inequality}
 
-The central invariant of the framework is the Capacity--Entropy inequality:
+The basic bookkeeping principle is that unresolved information cannot be
+removed faster than the allowed process can access it.
 
+\begin{definition}[Capacity--entropy gap]
+Given entropy \(H\) and per-step capacity \(C\), define the gap
 \[
-\Phi(x) = H(x) - C \ge 0.
+\Phi(x)=H(x)-C.
 \]
+The sign and interpretation of \(\Phi\) depend on the level being measured:
+single-step feasibility, cumulative feasibility, or terminal feasibility.
+\end{definition}
 
-This states that admissible refinement cannot eliminate entropy faster than capacity allows.
+At a single step, the relevant statement is not that all configurations must
+satisfy \(H(x)\le C\). Rather, the operational statement is:
 
-This inequality is structural, not algorithmic.
+\begin{quote}
+If a refinement step can remove at most \(C\) units of relevant information,
+then a state with \(H(x)\) units of unresolved information cannot be fully
+collapsed in fewer than \(H(x)/C\) such steps.
+\end{quote}
+
+This is the source of the depth lower bound. It is deliberately modest. It
+does not rule out nonlocal algorithms, global certificates, quantum procedures,
+or any process outside the stated admissible class.
 
 \section{Locality Constraint}
 
-Refinements are assumed local:
+Locality is the condition that an update cannot inspect the entire structure
+at once.
 
-\begin{itemize}
-\item Each update depends only on bounded neighborhoods.
-\item Logical description is FO$^k$-bounded.
-\item Information extraction per step is bounded.
-\end{itemize}
+\begin{definition}[\(R\)-local refinement]
+A refinement rule is \(R\)-local if the update assigned to a location \(v\)
+depends only on data contained in the radius-\(R\) neighborhood of \(v\).
+\end{definition}
 
-Locality prevents global entropy collapse in a single step.
+In graph settings, this means that a vertex update depends on a bounded
+neighborhood. In logical settings, this is reflected by bounded-variable or
+bounded-radius formulas. In physical settings, locality may mean finite
+propagation, finite detector access, or bounded operational coupling.
+
+Locality is not a universal law of all mathematics. It is an assumption. The
+framework becomes meaningful only after the admissible locality class is named.
 
 \section{Spectral Coercivity}
 
-In Hilbert-space systems, coercivity is expressed as:
+A second recurring mechanism is coercivity. In analytic or spectral settings,
+coercivity states that defect has positive cost away from the kernel.
 
+\begin{definition}[Spectral coercivity]
+Let \(L\) be a self-adjoint operator on a Hilbert space, and let
+\(f\perp \ker L\). A spectral coercivity estimate has the form
 \[
-\langle Ax,x\rangle \ge \lambda \|x\|^2
+\langle f,Lf\rangle \ge \lambda \|f\|^2
 \]
+for some \(\lambda>0\).
+\end{definition}
 
-for some $\lambda>0$.
-
-Spectral gap implies rigidity.
-
-Coercivity ensures defect cannot vanish without positive cost.
+The role of coercivity is to prevent defect from vanishing freely. If a
+system has a positive gap, then movement away from the rigid or terminal
+subspace costs energy, rank, mass, entropy, or another controlled quantity.
+The name of the quantity changes by domain. The structural role is the same:
+coercivity turns qualitative obstruction into a quantitative lower bound.
 
 \section{EntropyDepth}
 
-EntropyDepth measures minimal refinement length required to eliminate defect:
-
+\begin{definition}[EntropyDepth]
+Let \(x_0,x_1,\ldots\) be a refinement trajectory and let \(T\) be the target
+set of terminal states. The EntropyDepth of \(x_0\) is
 \[
-\mathrm{ED}(x)
-=
-\inf\{t : \Phi(x_t)=0\}.
+\ED(x_0)=\inf\{t\ge 0:x_t\in T\}.
+\]
+\end{definition}
+
+If each step removes at most \(C\) units of entropy and the initial unresolved
+entropy is \(H(x_0)\), then the basic lower bound is
+\[
+\ED(x_0)\ge \frac{H(x_0)}{C}.
 \]
 
-Under bounded capacity:
+This estimate is intentionally simple. Its value is not that it is surprising
+by itself. Its value is that many different problems can be reduced to the
+same checklist:
 
-\[
-\mathrm{ED}(x)
-\ge
-\frac{H(x)}{C}.
-\]
-
-Linear entropy implies linear depth.
+\begin{enumerate}
+\item identify the configuration space;
+\item define the entropy or unresolved defect;
+\item prove a per-step capacity bound;
+\item prove locality or admissibility of the refinement class;
+\item prove coercive control of the defect;
+\item conclude a depth lower bound only inside that admissible class.
+\end{enumerate}
 
 \section{The Refinement Wall}
 
-The Refinement Wall asserts:
+The Refinement Wall is the name for the obstruction that appears when all
+three constraints are simultaneously present.
 
-In bounded-degree, FO$^k$-admissible systems with linear entropy growth,
-
+\begin{theorem}[Refinement Wall, schematic form]
+Suppose a family of systems has entropy growing at least linearly in a size
+parameter \(n\). Suppose further that admissible refinement steps are local and
+remove at most \(C\) units of relevant entropy per step, with \(C\) independent
+of \(n\). Then any admissible refinement trajectory reaching a terminal state
+has depth
 \[
-\mathrm{ED}(x_n) = \Theta(n).
+\ED(x_n)=\Omega(n).
 \]
+\end{theorem}
 
-Sublinear depth requires violation of locality, capacity bounds, or coercivity.
+\begin{proof}
+Let \(H(x_n)\ge an\) for some \(a>0\). If each admissible step removes at most
+\(C\) units of entropy, then after \(t\) steps the total removable entropy is
+at most \(tC\). Reaching a terminal state requires \(tC\ge an\). Hence
+\(t\ge (a/C)n\), so \(\ED(x_n)=\Omega(n)\).
+\end{proof}
+
+The theorem is schematic because each concrete domain must supply its own
+notion of entropy, admissible refinement, terminal state, and capacity bound.
 
 \section{Reduction Principle}
 
-Many problems reduce to verifying a rigidity functional:
-
+The reduction principle says that a domain-specific problem may be studied by
+translating it into the common URF tuple
 \[
-\mathcal{F}(x)=0.
+(\text{state space},\text{refinement rule},\text{entropy},
+\text{capacity},\text{rigidity functional},\text{frontier status}).
 \]
 
-If $\mathcal{F}$ satisfies coercivity and capacity constraints, linear depth follows.
-
-This unifies combinatorial, spectral, and physical settings.
+A successful reduction does not automatically solve the original problem.
+It records exactly what has been transferred. A complete theorem requires
+all hypotheses in the target domain, not merely the existence of similar
+language.
 
 \section{Scope and Limits}
 
-URF establishes structural lower bounds under:
+The framework applies only under explicit assumptions:
 
 \begin{itemize}
-\item Bounded information extraction,
-\item Local refinement,
-\item Coercive defect control.
+\item bounded information extraction;
+\item fixed or controlled locality;
+\item a valid entropy or defect functional;
+\item coercive control of the relevant defect;
+\item a specified terminal condition.
 \end{itemize}
 
 The framework does not claim:
 
 \begin{itemize}
-\item That all algorithms are local,
-\item That all systems obey bounded capacity,
-\item That coercivity always holds.
+\item that all algorithms are local;
+\item that all systems obey bounded capacity;
+\item that all defects admit coercive control;
+\item that all domain translations are complete;
+\item that a frontier is solved merely because it has been named.
 \end{itemize}
 
-Escaping rigidity requires violating one of these constraints.
+Escaping a URF lower bound means violating or bypassing at least one listed
+hypothesis. This is not a weakness of the framework. It is the audit boundary.
 
 \section{Organization of the Book}
 
-\begin{itemize}
-\item Chapter 1: Capacity and Entropy
-\item Chapter 2: Locality and Refinement
-\item Chapter 3: Spectral Rigidity
-\item Chapter 4: EntropyDepth and the Wall
-\item Chapter 5: Unified Rigidity Reduction
-\item Chapter 6: Applications
-\item Chapter 7: Open Frontiers
-\end{itemize}
+The book proceeds from primitives to mechanisms.
 
-The development proceeds from invariant definitions to reduction principles to cross-domain instantiation.
+\begin{enumerate}
+\item Core invariants: entropy, capacity, depth, and spectral gap.
+\item Operational rigidity: how local indistinguishability becomes a global
+constraint.
+\item Non-amplification: why bounded updates cannot create unlimited
+information.
+\item EntropyDepth: how capacity bounds imply refinement-depth lower bounds.
+\item Terminal obstructions: named configurations where refinement cannot
+short-circuit the wall.
+\item Applications: computational, spectral, physical, and structural examples.
+\item Appendices: definitions, notation, dependency graph, theorem index, and
+framework summary.
+\end{enumerate}
 
 \section{Structural Thesis}
 
-All subsequent results instantiate the same invariant mechanism:
+The structural thesis of URF is:
 
 \[
-\textbf{Entropy Growth}
+\text{Entropy Growth}
 +
-\textbf{Bounded Capacity}
+\text{Bounded Capacity}
 +
-\textbf{Coercivity}
-\;\Longrightarrow\;
-\textbf{Linear Refinement Depth}.
+\text{Coercivity}
+\Longrightarrow
+\text{Depth}.
 \]
 
-This is the organizing law of the Unified Rigidity Framework.
+Every later chapter is an instance, refinement, limitation, or boundary case
+of this thesis.
+
+\begin{remark}[Boundary]
+This chapter is an orientation chapter. It does not prove unrestricted
+Chronos-RR, unrestricted H4.1/FGL, P vs NP, or any Clay problem. It only fixes
+the vocabulary used by later chapters.
+\end{remark}
