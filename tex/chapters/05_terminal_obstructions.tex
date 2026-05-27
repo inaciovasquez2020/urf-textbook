@@ -1,10 +1,284 @@
 \chapter{Terminal Obstructions}
 
+\section{Purpose of Terminal Obstructions}
+
+A terminal obstruction is a configuration pattern that prevents an admissible
+refinement process from reaching a terminal state too quickly. It is not merely
+a hard example. It is a structured witness showing that the hypotheses of the
+framework produce an actual obstruction to collapse.
+
+In URF language, a terminal obstruction supplies three pieces of data:
+
+\begin{enumerate}
+\item a family of configurations with persistent unresolved entropy;
+\item an admissible refinement class with bounded capacity;
+\item a terminal condition that cannot be reached without eliminating the
+unresolved entropy.
+\end{enumerate}
+
+The obstruction is terminal because it is measured against the endpoint of the
+refinement process. A configuration is not obstructive merely because it looks
+complicated. It is obstructive when its unresolved structure must be removed
+before the terminal condition can hold.
+
+\section{Obstruction Data}
+
+\begin{definition}[Terminal obstruction datum]
+A terminal obstruction datum is a tuple
+\[
+(X,\mathcal R,H,C,T,\mathcal O),
+\]
+where \(X\) is a state space, \(\mathcal R\) is an admissible refinement class,
+\(H\) is an entropy functional, \(C\) is a capacity bound, \(T\subseteq X\) is
+a terminal set, and \(\mathcal O\subseteq X\) is a distinguished obstruction
+class.
+\end{definition}
+
+The obstruction class \(\mathcal O\) is useful only if membership in
+\(\mathcal O\) forces a lower bound on terminal refinement depth.
+
+\begin{definition}[Depth-forcing obstruction]
+An obstruction class \(\mathcal O\) is depth-forcing with rate \(g(n)\) if
+there is a family \(x_n\in\mathcal O\) such that every admissible trajectory
+from \(x_n\) to \(T\) has length at least \(g(n)\).
+\end{definition}
+
+Depth-forcing is always relative to the admissible refinement class. A
+configuration may obstruct local refinement while being easy for a nonlocal
+process.
+
 \section{Cyclone Obstruction}
-Definition of the Cyclone configuration class.
+
+The Cyclone obstruction is a model class for cyclically distributed
+indistinguishability. Its role is to represent configurations in which local
+views repeat around a global cycle, while the global structure remains
+unresolved.
+
+\begin{definition}[Cyclone configuration, schematic form]
+A Cyclone configuration of length \(n\) is a configuration
+\[
+x=(x_0,x_1,\ldots,x_{n-1})
+\]
+with cyclic indexing such that admissible local observations at bounded radius
+cannot distinguish many cyclic shifts or phase placements of the configuration.
+\end{definition}
+
+The word ``Cyclone'' is a name for the obstruction pattern, not a claim that
+all cycle-like objects have the same rigidity behavior. A concrete theorem
+must specify the state space, local observables, entropy, and refinement rule.
+
+\begin{definition}[Cyclone entropy]
+For a Cyclone family whose unresolved cyclic alternatives form a set
+\(\Omega_n\), the Cyclone entropy is
+\[
+H_{\mathrm{cyc}}(n)=\log |\Omega_n|.
+\]
+\end{definition}
+
+If \(|\Omega_n|\) grows exponentially in \(n\), then the Cyclone entropy grows
+linearly in \(n\). If it grows polynomially, the entropy grows logarithmically.
+The obstruction strength depends on this growth.
+
+\section{Cyclone Depth Bound}
+
+\begin{theorem}[Cyclone Depth Bound]
+Let \(x_n\) be a Cyclone family with unresolved alternative set \(\Omega_n\).
+Suppose terminal resolution requires distinguishing the alternatives in
+\(\Omega_n\), and suppose every admissible refinement step removes at most
+\(C>0\) units of Cyclone entropy. Then
+\[
+\ED(x_n)\ge \frac{\log |\Omega_n|}{C}.
+\]
+\end{theorem}
+
+\begin{proof}
+The unresolved entropy of the Cyclone family is
+\[
+H_{\mathrm{cyc}}(n)=\log |\Omega_n|.
+\]
+By hypothesis, each admissible step removes at most \(C\) units of this
+entropy. Terminal resolution requires eliminating all unresolved alternatives.
+The EntropyDepth lower bound therefore gives
+\[
+\ED(x_n)\ge \frac{H_{\mathrm{cyc}}(n)}{C}
+=
+\frac{\log |\Omega_n|}{C}.
+\]
+\end{proof}
+
+\begin{theorem}[Linear Cyclone obstruction]
+If \(|\Omega_n|\ge b^n\) for some \(b>1\), then
+\[
+\ED(x_n)=\Omega(n).
+\]
+\end{theorem}
+
+\begin{proof}
+The assumption gives
+\[
+\log |\Omega_n|\ge n\log b.
+\]
+Applying the Cyclone Depth Bound yields
+\[
+\ED(x_n)\ge \frac{n\log b}{C}.
+\]
+\end{proof}
 
 \section{Rigidity Wall}
-Formal statement of the terminal obstruction theorem.
 
-\section{Examples}
-Graph and hypergraph constructions exhibiting obstruction.
+A rigidity wall is a terminal obstruction that cannot be crossed by bounded
+refinement without paying depth.
+
+\begin{definition}[Rigidity wall]
+A rigidity wall is a family \(x_n\in X_n\) such that:
+\begin{enumerate}
+\item \(H(x_n)\) grows with \(n\);
+\item every admissible step removes at most \(C\) entropy;
+\item terminal resolution requires eliminating the entropy measured by \(H\).
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Terminal Rigidity Wall]
+Let \(x_n\) be a rigidity-wall family with
+\[
+H(x_n)\ge g(n).
+\]
+If every admissible refinement step removes at most \(C>0\) entropy and the
+terminal set requires \(H=0\), then
+\[
+\ED(x_n)\ge \frac{g(n)}{C}.
+\]
+\end{theorem}
+
+\begin{proof}
+This is the EntropyDepth lower bound applied to the family \(x_n\). Since
+\(H(x_n)\ge g(n)\), every terminal trajectory has length at least
+\(H(x_n)/C\), and hence at least \(g(n)/C\).
+\end{proof}
+
+The theorem is deliberately abstract. It becomes a substantive theorem only
+after \(H\), \(C\), \(T\), and the admissible refinement class are instantiated.
+
+\section{Graph Obstruction Example}
+
+Let \(G_n\) be a bounded-degree graph family. Suppose a bounded-radius local
+refinement process cannot distinguish among a family of \(N_n\) globally
+different placements, labelings, or cyclic phases.
+
+Define
+\[
+H(G_n)=\log N_n.
+\]
+If each admissible local refinement round removes at most \(C\) units of this
+entropy, then terminal separation requires at least
+\[
+\frac{\log N_n}{C}
+\]
+rounds.
+
+\begin{example}[Cycle-phase obstruction]
+Consider a graph construction in which a local pattern is repeated around a
+cycle and the global phase is not visible to bounded-radius neighborhoods.
+If there are \(n\) possible phases, the unresolved phase entropy is
+\[
+\log n.
+\]
+If there are exponentially many compatible phase assignments, the entropy is
+linear in \(n\).
+\end{example}
+
+This example is not a graph-isomorphism lower bound. It is a template showing
+what data a graph obstruction must provide before a lower bound can be claimed.
+
+\section{Hypergraph Obstruction Example}
+
+Hypergraphs can support obstruction patterns in which local incidences are
+uniform while global incidence structure remains unresolved.
+
+\begin{definition}[Incidence-local obstruction]
+An incidence-local obstruction is a hypergraph family for which bounded
+incidence neighborhoods do not determine the global hyperedge arrangement
+needed for terminal resolution.
+\end{definition}
+
+If the number of globally compatible hyperedge arrangements is \(M_n\), then
+the unresolved entropy is
+\[
+H_n=\log M_n.
+\]
+A bounded incidence-local refinement process with capacity \(C\) then has
+terminal depth at least
+\[
+\frac{\log M_n}{C}.
+\]
+
+\section{Spectral Obstruction Example}
+
+A spectral terminal obstruction occurs when unresolved components remain in
+modes that the admissible process cannot separate at sufficient rate.
+
+\begin{definition}[Spectral obstruction]
+Let \(L_n\) be a family of nonnegative operators and let \(U_n\) be a subspace
+of unresolved modes. A spectral obstruction occurs when terminal resolution
+requires eliminating or separating \(U_n\), while admissible spectral
+refinement removes only bounded information per step.
+\end{definition}
+
+If the effective unresolved rank is \(r_n\), one may use
+\[
+H_n=\log r_n
+\]
+as a rank entropy. If the refinement capacity is \(C\), the terminal depth is
+bounded below by \(H_n/C\), provided the rank entropy is the correct terminal
+quantity.
+
+\section{Obstruction Versus Example}
+
+Not every example is an obstruction. An example becomes an obstruction only
+when it proves a lower bound against a declared refinement class.
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Object & Required evidence \\
+\midrule
+Example & illustrates a pattern \\
+Candidate obstruction & suggests unresolved entropy \\
+Certified obstruction & proves entropy growth and capacity bound \\
+Terminal obstruction & proves terminal depth lower bound \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+This distinction prevents overclaiming. A named construction should not be
+called terminal unless the terminal lower bound has actually been derived.
+
+\section{Audit Checklist}
+
+A terminal-obstruction claim should supply:
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Field & Required content \\
+\midrule
+Obstruction class & explicit family \(\mathcal O\) or \(x_n\) \\
+Local view & admissible observations \\
+Unresolved alternatives & set \(\Omega_n\) or equivalent object \\
+Entropy growth & lower bound on \(\log |\Omega_n|\) or \(H(x_n)\) \\
+Capacity bound & one-step refinement limit \(C\) \\
+Terminal condition & required endpoint criterion \\
+Depth conclusion & resulting lower bound on \(\ED(x_n)\) \\
+Boundary & statement of what is not proved \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Boundary}
+
+This chapter defines terminal obstruction templates and proves only the
+capacity-depth lower bounds that follow from explicit entropy and capacity
+hypotheses. It does not prove that Cyclone configurations exist in every
+domain, does not prove graph or hypergraph lower bounds without the required
+instantiation data, and does not prove unrestricted Chronos-RR, unrestricted
+H4.1/FGL, P vs NP, or any Clay problem.
