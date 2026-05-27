@@ -1,10 +1,250 @@
 \chapter{Operational Rigidity Principle}
 
+\section{Purpose of Operational Rigidity}
+
+Operational rigidity is the principle that a bounded observer cannot freely
+convert local information into global structure. A refinement process may
+inspect local data, update labels, split partitions, or remove possibilities,
+but if each step has bounded information capacity, then global collapse
+requires depth.
+
+The principle is operational because it concerns what an admissible process can
+do, not merely what is true about the object in the abstract. A global
+certificate may exist, but a local refinement process may still be unable to
+extract it in one step. The framework therefore separates three questions:
+
+\begin{enumerate}
+\item What global structure exists?
+\item What local information is visible to the admissible process?
+\item How many refinement steps are required to transfer local visibility into
+global resolution?
+\end{enumerate}
+
+This chapter formulates that separation.
+
+\section{Local Observables}
+
+Let \(X\) be a state space. A local observable is a measurement that sees only
+a bounded part of a configuration.
+
+\begin{definition}[Local observable]
+A local observable on \(X\) is a map
+\[
+\ell:X\to A
+\]
+whose value is determined by bounded local data. The codomain \(A\) is the set
+of possible local types.
+\end{definition}
+
+In a graph model, \(\ell(x)\) may record the isomorphism type of a bounded
+neighborhood. In a logical model, \(\ell(x)\) may record the truth values of a
+bounded family of formulas. In a physical model, \(\ell(x)\) may record a
+bounded detector reading.
+
+\begin{definition}[Local type partition]
+Given a local observable \(\ell:X\to A\), the associated local type partition
+is
+\[
+x\sim_{\ell} y
+\quad\Longleftrightarrow\quad
+\ell(x)=\ell(y).
+\]
+The equivalence classes of \(\sim_{\ell}\) are the states indistinguishable by
+that local observable.
+\end{definition}
+
+A local observable is useful only after its admissibility is declared. The same
+mathematical object may be local in one model and nonlocal in another.
+
+\section{Local Indistinguishability}
+
+Local indistinguishability is the obstruction behind operational rigidity.
+
+\begin{definition}[\(R\)-local indistinguishability]
+Two configurations \(x,y\in X\) are \(R\)-locally indistinguishable if every
+admissible observation of radius at most \(R\) gives the same local type on
+\(x\) and \(y\).
+\end{definition}
+
+The point is not that \(x=y\). The point is that an admissible local process
+cannot separate them without accumulating additional information over time.
+
+\begin{definition}[Persistent local indistinguishability]
+A family \(S_n\subseteq X_n\) has persistent local indistinguishability if,
+for a fixed locality radius \(R\), many distinct configurations in \(S_n\)
+share the same admissible \(R\)-local data.
+\end{definition}
+
+Persistent local indistinguishability supplies entropy. If many global
+configurations have the same local view, then local observation leaves a large
+residual uncertainty set.
+
 \section{Rigidity Principle}
-Local indistinguishability under bounded capacity implies global structural constraints.
 
-\section{Local-to-Global Transfer}
-Formal statement of the Local--Global Rigidity Transfer Lemma.
+The operational rigidity principle is the following schematic implication:
+\[
+\text{large local equivalence class}
++
+\text{bounded step capacity}
+\Longrightarrow
+\text{positive refinement depth}.
+\]
 
-\section{Examples}
-Examples in graph rigidity, spectral operators, and algorithmic systems.
+\begin{theorem}[Operational Rigidity Principle]
+Let \(S\subseteq X\) be a set of configurations that are indistinguishable by
+the admissible local observables at the initial resolution. Suppose an
+admissible refinement step can remove at most \(C>0\) units of entropy from
+\(S\). If the unresolved entropy of \(S\) is \(H(S)\), then every admissible
+refinement process that isolates one terminal configuration from \(S\) has
+length at least
+\[
+\frac{H(S)}{C}.
+\]
+\end{theorem}
+
+\begin{proof}
+At the initial resolution, the process must distinguish among configurations
+inside \(S\). The residual entropy is \(H(S)\). Since each admissible step
+removes at most \(C\) entropy, after \(t\) steps the total removed entropy is
+at most \(tC\). Isolation of one terminal configuration requires removal of
+all \(H(S)\) units. Hence \(tC\ge H(S)\), so \(t\ge H(S)/C\).
+\end{proof}
+
+This theorem is only a bookkeeping theorem until a domain supplies a concrete
+local observable, entropy functional, and capacity estimate.
+
+\section{Local--Global Transfer}
+
+Local--global transfer is the mechanism that turns bounded local data into a
+global lower bound.
+
+\begin{definition}[Transfer datum]
+A transfer datum consists of
+\[
+(X,\mathcal L,\mathcal R,H,C,T),
+\]
+where \(X\) is a state space, \(\mathcal L\) is a class of local observables,
+\(\mathcal R\) is a class of admissible refinements, \(H\) is an entropy
+functional, \(C\) is a per-step capacity bound, and \(T\) is a terminal set.
+\end{definition}
+
+\begin{theorem}[Local--Global Rigidity Transfer]
+Assume a transfer datum \((X,\mathcal L,\mathcal R,H,C,T)\). Let \(x_0\in X\).
+Suppose the local data available to \(\mathcal L\) leaves an unresolved class
+\(S(x_0)\) with entropy
+\[
+H(S(x_0))\ge h.
+\]
+Suppose every refinement in \(\mathcal R\) removes at most \(C\) units of this
+unresolved entropy. Then every admissible refinement trajectory from \(x_0\)
+to \(T\) has length at least
+\[
+\frac{h}{C}.
+\]
+\end{theorem}
+
+\begin{proof}
+The unresolved class \(S(x_0)\) contains the global alternatives that remain
+compatible with the local data. By hypothesis, resolving the trajectory to the
+terminal set requires eliminating at least \(h\) units of unresolved entropy.
+The capacity bound allows at most \(C\) units to be removed per admissible
+step. Therefore a trajectory of length \(t\) removes at most \(tC\) units.
+Terminal resolution requires \(tC\ge h\), proving \(t\ge h/C\).
+\end{proof}
+
+\section{Graph Example}
+
+Let \(G=(V,E)\) be a bounded-degree graph. A radius-\(R\) local observable at a
+vertex \(v\) records the rooted radius-\(R\) neighborhood of \(v\). A refinement
+process may update a label at \(v\) from the multiset of labels in that
+neighborhood.
+
+\begin{example}[Bounded-degree local refinement]
+Assume the degree bound \(\Delta\) and radius \(R\) are fixed. Then the number
+of possible rooted radius-\(R\) neighborhoods is bounded independently of the
+total number of vertices. Therefore one local observation has bounded type
+complexity. If a family of graphs has globally many configurations sharing
+the same local type data, local refinement cannot distinguish them in one
+step.
+\end{example}
+
+This example does not prove graph isomorphism lower bounds. It only explains
+how local type indistinguishability becomes a URF transfer datum.
+
+\section{Spectral Example}
+
+In a spectral setting, local observables may be replaced by projections onto
+accessible modes. The unresolved entropy is then carried by components not
+separated by the available spectral information.
+
+\begin{example}[Spectral obstruction]
+Let \(L\) be a nonnegative self-adjoint operator and suppose the admissible
+process only accesses a bounded spectral window. If many orthogonal directions
+remain unresolved inside that window, then the refinement process must either
+increase accessible capacity or take multiple steps to separate them.
+\end{example}
+
+A spectral gap supplies coercivity, but the operational question is separate:
+which modes can the process actually access, and how much information can be
+extracted per step?
+
+\section{Algorithmic Example}
+
+In an algorithmic setting, the refinement state may be a partition of a
+configuration space \(\Omega\). A refinement step replaces a partition \(P_t\)
+by a finer partition \(P_{t+1}\) using admissible local data.
+
+\begin{example}[Partition refinement]
+Let \(P_t\) be a partition of \(\Omega\). The unresolved entropy at time \(t\)
+may be measured by the logarithm of the size of the block containing the true
+configuration. If each admissible refinement splits this block into at most
+\(B\) effectively distinguishable subblocks, then the entropy decrease per
+step is at most \(\log B\).
+\end{example}
+
+This example is the operational form of the capacity-depth argument. It does
+not assert that every algorithm is a partition refinement algorithm unless a
+normalization theorem has been supplied.
+
+\section{Failure Modes}
+
+Operational rigidity can fail in several precise ways.
+
+\begin{enumerate}
+\item The process may be nonlocal.
+\item The per-step capacity may grow with system size.
+\item The local equivalence class may have small entropy.
+\item The terminal condition may not require full resolution.
+\item The claimed local observable may secretly encode global data.
+\end{enumerate}
+
+Each failure mode is an audit point. A valid URF argument must state why the
+failure mode is absent or must record it as an open boundary.
+
+\section{Operational Checklist}
+
+A complete operational-rigidity application should specify:
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Field & Required content \\
+\midrule
+Local data & admissible observables and locality radius \\
+State class & configurations under study \\
+Unresolved class & configurations not separated by local data \\
+Entropy & size or uncertainty of the unresolved class \\
+Capacity & maximum information removed per step \\
+Terminal condition & what counts as resolved \\
+Transfer theorem & local data converted into global lower bound \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Boundary}
+
+This chapter proves only the schematic operational transfer from local
+indistinguishability and bounded capacity to refinement depth. It does not
+prove that every algorithm is local, does not prove unconditional graph or
+complexity lower bounds, and does not prove unrestricted Chronos-RR,
+unrestricted H4.1/FGL, P vs NP, or any Clay problem.
