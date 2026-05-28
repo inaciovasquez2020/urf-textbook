@@ -1,21 +1,304 @@
 \chapter{Spectral Coercivity}
 
+\section{Purpose of Spectral Coercivity}
+
+Spectral coercivity is the analytic form of rigidity used when the relevant
+state space is linear, Hilbertian, or operator-theoretic. It says that
+movement away from the null space of an operator has positive cost.
+
+In URF language, spectral coercivity supplies a quantitative obstruction:
+a defect cannot disappear freely if it lies outside the kernel. The operator
+detects the defect, and the spectral gap controls how large the defect must be
+relative to its energy.
+
 \section{Operator Framework}
 
-Let \(L\) be a self-adjoint operator on Hilbert space \(H\).
-
+Let \(\mathcal H\) be a Hilbert space with inner product
 \[
-\langle f, L f \rangle \ge \lambda_1 \|f\|^2
+\langle\cdot,\cdot\rangle.
 \]
+Let
+\[
+L:\mathcal D(L)\subseteq \mathcal H\to \mathcal H
+\]
+be a densely defined self-adjoint nonnegative operator. Nonnegative means
+\[
+\langle f,Lf\rangle\ge 0
+\]
+for all \(f\in\mathcal D(L)\).
 
-for all \(f\) orthogonal to the kernel.
+\begin{definition}[Kernel]
+The kernel of \(L\) is
+\[
+\ker L=\{f\in\mathcal D(L):Lf=0\}.
+\]
+\end{definition}
+
+\begin{definition}[Orthogonal complement]
+The orthogonal complement of the kernel is
+\[
+(\ker L)^\perp=\{f\in\mathcal H:\langle f,g\rangle=0
+\text{ for every }g\in\ker L\}.
+\]
+\end{definition}
+
+The kernel represents the zero-cost directions. Coercivity concerns the
+directions orthogonal to the kernel.
+
+\section{Spectral Gap}
+
+\begin{definition}[Spectral gap]
+A nonnegative self-adjoint operator \(L\) has spectral gap \(\lambda>0\) above
+its kernel if
+\[
+\langle f,Lf\rangle\ge \lambda \|f\|^2
+\]
+for every \(f\in\mathcal D(L)\cap(\ker L)^\perp\).
+\end{definition}
+
+The largest admissible \(\lambda\) is the first positive spectral value when
+the spectrum is discrete. In finite dimensions, if the eigenvalues are ordered
+as
+\[
+0=\lambda_0\le \lambda_1\le \lambda_2\le\cdots,
+\]
+then the spectral gap is the first strictly positive eigenvalue.
 
 \section{Coercivity Principle}
 
 \begin{theorem}[Spectral Coercivity]
-If \(\lambda_1 > 0\), then the operator admits a coercive bound on the orthogonal complement of the kernel.
+Let \(L\) be a nonnegative self-adjoint operator with spectral gap
+\(\lambda>0\) above its kernel. Then every
+\(f\in\mathcal D(L)\cap(\ker L)^\perp\) satisfies
+\[
+\|f\|^2\le \lambda^{-1}\langle f,Lf\rangle.
+\]
 \end{theorem}
 
-\section{Implications}
+\begin{proof}
+The spectral gap assumption gives
+\[
+\langle f,Lf\rangle\ge \lambda\|f\|^2.
+\]
+Since \(\lambda>0\), divide by \(\lambda\) to obtain
+\[
+\|f\|^2\le \lambda^{-1}\langle f,Lf\rangle.
+\]
+\end{proof}
 
-Spectral coercivity prevents arbitrarily small deformation modes.
+This is the basic coercivity estimate. It converts an energy bound into a
+norm bound away from the kernel.
+
+\section{Defect Interpretation}
+
+Let \(f\) represent a deformation, error, mode, or defect. If \(f\in\ker L\),
+then the operator regards \(f\) as cost-free. If
+\(f\perp\ker L\), then spectral coercivity says that \(f\) must pay energy
+proportional to its squared norm.
+
+\begin{definition}[Spectral defect]
+The spectral defect of \(f\) with respect to \(L\) is
+\[
+E_L(f)=\langle f,Lf\rangle.
+\]
+\end{definition}
+
+Under a spectral gap,
+\[
+E_L(f)\ge \lambda\|f\|^2
+\]
+for \(f\perp\ker L\). Thus positive-size orthogonal defects have positive
+energy cost.
+
+\section{Finite-Dimensional Model}
+
+Let \(L\) be a symmetric positive semidefinite matrix on \(\mathbb R^n\). Let
+its eigenvalues be
+\[
+0=\lambda_0=\cdots=\lambda_{m-1}<\lambda_m\le\cdots\le\lambda_{n-1}.
+\]
+Then
+\[
+\ker L=\operatorname{span}\{v_0,\ldots,v_{m-1}\}.
+\]
+For every \(f\perp\ker L\), write
+\[
+f=\sum_{j=m}^{n-1}a_jv_j.
+\]
+Then
+\[
+\langle f,Lf\rangle
+=
+\sum_{j=m}^{n-1}\lambda_j a_j^2
+\ge
+\lambda_m\sum_{j=m}^{n-1}a_j^2
+=
+\lambda_m\|f\|^2.
+\]
+
+\begin{theorem}[Finite-Dimensional Coercivity]
+For a symmetric positive semidefinite matrix \(L\), the first positive
+eigenvalue \(\lambda_m\) gives the coercivity estimate
+\[
+\|f\|^2\le \lambda_m^{-1}\langle f,Lf\rangle
+\]
+for every \(f\perp\ker L\).
+\end{theorem}
+
+\begin{proof}
+The calculation above gives
+\[
+\langle f,Lf\rangle\ge\lambda_m\|f\|^2.
+\]
+Divide by \(\lambda_m>0\).
+\end{proof}
+
+\section{Graph Laplacian Example}
+
+Let \(G=(V,E)\) be a finite graph. The graph Laplacian is
+\[
+L=D-A,
+\]
+where \(D\) is the degree matrix and \(A\) is the adjacency matrix. For a
+function \(f:V\to\mathbb R\),
+\[
+\langle f,Lf\rangle
+=
+\sum_{\{u,v\}\in E}(f(u)-f(v))^2
+\]
+up to the conventional normalization factor.
+
+The kernel consists of functions constant on connected components. If \(G\) is
+connected, then \(\ker L\) is the one-dimensional space of constant functions.
+
+\begin{theorem}[Connected Graph Coercivity]
+If \(G\) is connected and \(\lambda_1(L)>0\) is the first nonzero Laplacian
+eigenvalue, then every mean-zero function \(f\) satisfies
+\[
+\|f\|^2\le \lambda_1(L)^{-1}\langle f,Lf\rangle.
+\]
+\end{theorem}
+
+\begin{proof}
+For a connected graph, mean-zero functions are orthogonal to the constants,
+which form \(\ker L\). Apply spectral coercivity with
+\(\lambda=\lambda_1(L)\).
+\end{proof}
+
+\section{Cycle Graph}
+
+For the cycle graph \(C_n\), the Laplacian eigenvalues are
+\[
+\lambda_k=2-2\cos\left(\frac{2\pi k}{n}\right).
+\]
+The first nonzero eigenvalue is
+\[
+\lambda_1=2-2\cos\left(\frac{2\pi}{n}\right).
+\]
+Using
+\[
+1-\cos x\sim \frac{x^2}{2},
+\]
+we get
+\[
+\lambda_1\sim \frac{4\pi^2}{n^2}.
+\]
+
+Thus the coercivity constant degenerates as \(n\) grows. Large cycle graphs
+have low-cost long-wavelength modes.
+
+\section{Expander Contrast}
+
+A graph family \(G_n\) with Laplacians \(L_n\) has a uniform spectral gap if
+there is a constant \(\lambda>0\) such that
+\[
+\lambda_1(L_n)\ge \lambda
+\]
+for every \(n\).
+
+\begin{theorem}[Uniform Expander Coercivity]
+If \(\lambda_1(L_n)\ge\lambda>0\), then every mean-zero function \(f\) on
+\(G_n\) satisfies
+\[
+\|f\|^2\le \lambda^{-1}\langle f,{L_n}f\rangle.
+\]
+\end{theorem}
+
+\begin{proof}
+Since \(\lambda_1(L_n)\ge\lambda\), the spectral gap estimate gives
+\[
+\langle f,{L_n}f\rangle\ge \lambda\|f\|^2.
+\]
+Divide by \(\lambda\).
+\end{proof}
+
+This is the analytic sense in which expanders resist low-cost global
+deformation.
+
+\section{Connection to Entropy and Capacity}
+
+Spectral coercivity does not by itself imply an EntropyDepth lower bound.
+It must be connected to entropy or defect accounting.
+
+A typical bridge has the form
+\[
+H(x)\le \psi(E_L(f_x))
+\]
+or
+\[
+E_L(f_x)\le \psi(H(x)),
+\]
+depending on the direction needed. The bridge must be stated explicitly.
+
+\begin{definition}[Coercive entropy bridge]
+A coercive entropy bridge is an estimate relating an entropy or defect
+functional \(H\) to a spectral energy \(E_L\) in a way that allows a capacity
+bound on refinement to imply a lower bound on terminal depth.
+\end{definition}
+
+Without such a bridge, spectral coercivity remains an analytic estimate rather
+than a full URF depth theorem.
+
+\section{Failure Modes}
+
+A spectral-coercivity argument fails if:
+
+\begin{enumerate}
+\item the operator is not nonnegative on the claimed domain;
+\item the kernel is not identified correctly;
+\item the function is not orthogonal to the kernel;
+\item the spectral gap vanishes with system size when a uniform gap is needed;
+\item no bridge connects spectral energy to entropy or terminal resolution.
+\end{enumerate}
+
+Each failure mode is a missing hypothesis, not a contradiction of the
+coercivity theorem.
+
+\section{Audit Checklist}
+
+A spectral-coercivity application should provide:
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Field & Required content \\
+\midrule
+Hilbert space & ambient space and inner product \\
+Operator & self-adjoint nonnegative \(L\) \\
+Domain & domain \(\mathcal D(L)\) if infinite-dimensional \\
+Kernel & zero-cost directions \\
+Gap & positive lower bound above the kernel \\
+Coercive estimate & norm controlled by energy \\
+Bridge & relation to entropy, defect, or terminal resolution \\
+Boundary & explicit non-claims \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Boundary}
+
+This chapter proves standard spectral-coercivity estimates from positive
+spectral gaps. It does not prove entropy-depth lower bounds without an
+additional entropy bridge, does not prove expansion for any particular graph
+family unless the gap is supplied, and does not prove unrestricted Chronos-RR,
+unrestricted H4.1/FGL, P vs NP, or any Clay problem.
