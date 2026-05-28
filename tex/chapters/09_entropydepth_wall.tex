@@ -1,15 +1,296 @@
 \chapter{EntropyDepth Wall}
 
+\section{Purpose of the EntropyDepth Wall}
+
+The EntropyDepth Wall is the obstruction created when unresolved entropy grows
+faster than an admissible refinement process can remove it. It is the combined
+form of three earlier ingredients:
+
+\[
+\text{initial entropy}
++
+\text{bounded step capacity}
++
+\text{terminal resolution}
+\Longrightarrow
+\text{depth lower bound}.
+\]
+
+The wall is not a new axiom. It is the point at which entropy accounting
+becomes a lower bound on any process inside the declared refinement model.
+
 \section{Refinement Systems}
 
-Let a refinement process reduce entropy by at most \(c\) per step.
+Let \(X\) be a state space, let \(\mathcal R\) be a class of admissible
+refinement maps, and let
+\[
+H:X\to\mathbb R_{\ge 0}
+\]
+be an entropy functional.
+
+\begin{definition}[Refinement trajectory]
+A refinement trajectory is a finite or infinite sequence
+\[
+x_0,x_1,x_2,\ldots
+\]
+such that
+\[
+x_{t+1}=R_t(x_t)
+\]
+for some \(R_t\in\mathcal R\).
+\end{definition}
+
+\begin{definition}[Terminal entropy state]
+A state \(x\in X\) is terminal for entropy \(H\) if
+\[
+H(x)=0.
+\]
+The entropy-terminal set is
+\[
+T_H=\{x\in X:H(x)=0\}.
+\]
+\end{definition}
+
+\section{Bounded Entropy Loss}
+
+\begin{definition}[Step capacity]
+The refinement class \(\mathcal R\) has entropy capacity \(c>0\) if
+\[
+H(x)-H(Rx)\le c
+\]
+for every \(x\in X\) and every \(R\in\mathcal R\).
+\end{definition}
+
+The capacity \(c\) is a one-step bound. It does not say that states with
+entropy larger than \(c\) are inadmissible. It says only that such states
+cannot be fully resolved in one admissible step.
 
 \section{Depth Lower Bound}
 
+\begin{theorem}[EntropyDepth Wall]
+Let \(x_0\in X\). Suppose every admissible refinement step removes at most
+\(c>0\) units of entropy, and suppose terminal resolution requires
+\(H(x_t)=0\). Then every admissible terminal trajectory from \(x_0\) has length
+at least
 \[
-D \ge \frac{H_0}{c}
+\frac{H(x_0)}{c}.
 \]
+\end{theorem}
+
+\begin{proof}
+Let
+\[
+x_0,x_1,\ldots,x_t
+\]
+be an admissible trajectory with \(H(x_t)=0\). For each \(i<t\),
+\[
+H(x_i)-H(x_{i+1})\le c.
+\]
+Summing these inequalities gives
+\[
+H(x_0)-H(x_t)\le tc.
+\]
+Since \(H(x_t)=0\), we obtain
+\[
+H(x_0)\le tc.
+\]
+Therefore
+\[
+t\ge \frac{H(x_0)}{c}.
+\]
+\end{proof}
+
+\section{Growth Regimes}
+
+The wall becomes meaningful for a family of inputs \(x_n\).
+
+\begin{theorem}[Growth-Regime Transfer]
+Let \(g(n)\) be a nonnegative function. Suppose
+\[
+H(x_n)\ge g(n)
+\]
+and every admissible refinement step removes at most \(c>0\) entropy, with
+\(c\) independent of \(n\). Then
+\[
+\ED(x_n)\ge \frac{g(n)}{c}.
+\]
+\end{theorem}
+
+\begin{proof}
+Apply the EntropyDepth Wall theorem to \(x_n\) and use
+\(H(x_n)\ge g(n)\).
+\end{proof}
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Entropy growth & Capacity & Depth lower bound \\
+\midrule
+\(H(x_n)=\Omega(\log n)\) & \(O(1)\) & \(\Omega(\log n)\) \\
+\(H(x_n)=\Omega(n)\) & \(O(1)\) & \(\Omega(n)\) \\
+\(H(x_n)=\Omega(n^2)\) & \(O(1)\) & \(\Omega(n^2)\) \\
+\(H(x_n)=\Omega(g(n))\) & \(O(1)\) & \(\Omega(g(n))\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Thus the wall is superlinear only when the unresolved entropy is superlinear
+relative to the chosen size parameter.
 
 \section{Rigidity Wall}
 
-If entropy reduction per step is bounded and initial entropy grows with system size, depth must grow superlinearly.
+The EntropyDepth Wall becomes a rigidity wall when unresolved entropy is tied
+to a structural defect that cannot be eliminated freely.
+
+\begin{definition}[Rigidity wall datum]
+A rigidity wall datum is a tuple
+\[
+(X,\mathcal R,H,F,c,T),
+\]
+where \(H\) is entropy, \(F\) is a rigidity or defect functional, \(c\) is a
+capacity bound, and \(T\) is the terminal set.
+\end{definition}
+
+The functional \(F\) becomes relevant only when it is connected to entropy or
+terminal resolution.
+
+\begin{definition}[Entropy--defect bridge]
+An entropy--defect bridge is an estimate proving that terminal resolution
+requires eliminating a defect measured by \(F\), and that eliminating this
+defect requires removing entropy measured by \(H\).
+\end{definition}
+
+\begin{theorem}[Rigidity Wall Template]
+Assume a rigidity wall datum. Suppose a family \(x_n\) satisfies
+\[
+H(x_n)\ge g(n).
+\]
+Suppose terminal resolution requires \(H=0\), and every admissible refinement
+step removes at most \(c>0\) entropy. Then
+\[
+\ED(x_n)\ge \frac{g(n)}{c}.
+\]
+\end{theorem}
+
+\begin{proof}
+The defect data explains why terminal resolution requires removing the entropy
+measured by \(H\). Once this terminal requirement is fixed, the EntropyDepth
+Wall theorem gives the stated lower bound.
+\end{proof}
+
+\section{Wall Versus Bottleneck}
+
+A bottleneck is a local slowdown. A wall is a structural lower bound.
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Object & Meaning \\
+\midrule
+Bottleneck & a difficult region for a particular process \\
+Capacity bound & a one-step information limit \\
+Entropy wall & entropy exceeds one-step capacity \\
+Rigidity wall & entropy wall tied to structural defect \\
+Terminal wall & terminal condition cannot be reached without crossing it \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The distinction matters because a bottleneck may be bypassed by a different
+algorithm, while a wall applies to every process inside the declared admissible
+class.
+
+\section{Example: Linear Entropy Wall}
+
+Let
+\[
+|\Omega_n|=2^n.
+\]
+Then
+\[
+H_0=\log_2|\Omega_n|=n.
+\]
+If each admissible refinement step removes at most \(c\) bits, then
+\[
+\ED\ge \frac{n}{c}.
+\]
+
+This is a linear EntropyDepth Wall.
+
+\section{Example: Quadratic Entropy Wall}
+
+Let
+\[
+|\Omega_n|=2^{n^2}.
+\]
+Then
+\[
+H_0=n^2.
+\]
+If each admissible refinement step removes at most \(c\) bits, then
+\[
+\ED\ge \frac{n^2}{c}.
+\]
+
+This is a superlinear wall because the initial entropy is superlinear.
+
+\section{Example: Degenerate Capacity}
+
+If the per-step capacity grows with \(n\), the wall weakens. Suppose
+\[
+H(x_n)=n
+\]
+but
+\[
+c_n=n.
+\]
+Then the bound gives only
+\[
+\ED(x_n)\ge 1.
+\]
+Thus a large initial entropy does not force large depth unless capacity is
+controlled relative to system size.
+
+\section{Failure Modes}
+
+An EntropyDepth Wall claim fails if:
+
+\begin{enumerate}
+\item the entropy lower bound is not proved;
+\item the step capacity is not uniform;
+\item the terminal condition does not require entropy elimination;
+\item the refinement class omits an admissible shortcut;
+\item the size parameter is changed after the estimate is stated;
+\item the claimed rigidity functional is not connected to entropy.
+\end{enumerate}
+
+Each failure mode identifies a missing lemma or assumption.
+
+\section{Audit Checklist}
+
+A complete EntropyDepth Wall proof should provide:
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Field & Required content \\
+\midrule
+State family & inputs \(x_n\) or configurations \(X_n\) \\
+Entropy & explicit functional \(H\) \\
+Initial lower bound & estimate \(H(x_n)\ge g(n)\) \\
+Refinement class & admissible maps \(\mathcal R\) \\
+Capacity & uniform step bound \(c\) \\
+Terminal set & condition requiring \(H=0\) or equivalent \\
+Depth conclusion & lower bound \(g(n)/c\) \\
+Boundary & explicit non-claims \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Boundary}
+
+This chapter proves only the entropy-capacity form of the EntropyDepth Wall.
+It does not prove that any external computational, physical, graph-theoretic,
+or spectral process satisfies the required hypotheses unless those hypotheses
+are separately supplied. It does not prove unrestricted Chronos-RR,
+unrestricted H4.1/FGL, P vs NP, or any Clay problem.
