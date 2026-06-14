@@ -132,3 +132,136 @@ Does not prove Chronos-RR.
 Does not prove H4.1/FGL.
 Does not prove P vs NP.
 Does not prove any Clay problem.
+
+## Proof Pattern: Bounded Closure by Classified Formal Artifacts
+
+This proof pattern is a disciplined way to turn a large mathematical or scientific claim into smaller objects that can be checked, reused, and audited.
+
+The pattern is:
+
+```text
+large claim
+  -> input surface
+  -> bounded theorem object
+  -> verifier or certificate
+  -> status classification
+  -> explicit boundary
+```
+
+The purpose is not to make a broad claim look solved. The purpose is to prevent confusion between what has been proved, what is conditional, what has only been specified, and what remains open.
+
+### Status classes
+
+#### Proved
+
+A statement is **proved** only when the repository contains the relevant formal object and the proof checks without using placeholders such as `sorry`, `admit`, `axiom`, or an equivalent unproved escape.
+
+A proved object may still be small or bounded. Its value is that the exact statement has been checked.
+
+#### Conditional
+
+A statement is **conditional** when the formal route is valid only after assuming a missing hypothesis, lemma, estimate, invariant, or external theorem.
+
+Conditional progress is real progress, but it is not final closure. It identifies the exact assumption on which the result depends.
+
+#### Input surface
+
+An **input surface** defines the shape of the object needed for a future proof.
+
+It may introduce the predicates, fields, interfaces, or theorem statement needed to state the problem precisely. It does not prove the target theorem unless a checked proof is also present.
+
+#### Open
+
+A statement remains **open** when the needed theorem, estimate, invariant, or reduction has not yet been proved or supplied.
+
+Open status should be stated directly. Naming the theorem, defining its inputs, or proving nearby lemmas does not close it.
+
+### Minimal worked example
+
+Suppose the large claim is:
+
+```text
+Every valid object of type X satisfies target property P.
+```
+
+The bounded-closure version should not immediately claim this global theorem. Instead it should be split as follows.
+
+#### Input surface
+
+Define the objects and assumptions:
+
+```text
+InputSurface(X) :=
+  carrier data for X
+  validity predicate Valid(X)
+  target predicate P(X)
+```
+
+This makes the claim precise, but it does not prove it.
+
+Status:
+
+```text
+INPUT_SURFACE_ONLY
+```
+
+#### Conditional theorem object
+
+Prove that the target follows from a specific missing lemma:
+
+```text
+If Valid(X) implies KeyInvariant(X),
+and KeyInvariant(X) implies P(X),
+then Valid(X) implies P(X).
+```
+
+Status:
+
+```text
+CONDITIONAL_ON_KEY_INVARIANT
+```
+
+This is useful because the remaining burden is now isolated.
+
+#### Proved bounded object
+
+Prove the result for one restricted case:
+
+```text
+For the bounded example X0,
+Valid(X0) holds,
+KeyInvariant(X0) holds,
+therefore P(X0) holds.
+```
+
+Status:
+
+```text
+PROVED_FOR_BOUNDED_EXAMPLE
+```
+
+This closes the bounded example only. It does not close the global theorem.
+
+#### Open target
+
+The global theorem remains:
+
+```text
+For every valid X, Valid(X) implies P(X).
+```
+
+Status:
+
+```text
+OPEN_GLOBAL_THEOREM
+```
+
+The weakest missing object is:
+
+```text
+MISSING_OBJECT := proof that Valid(X) implies KeyInvariant(X) for all admissible X
+```
+
+### Boundary
+
+This pattern does not prove a large theorem by naming it, scaffolding it, or proving a restricted example. It only records the exact formal status of each object. The global claim remains open until the missing theorem, estimate, invariant, or reduction is supplied and checked.
