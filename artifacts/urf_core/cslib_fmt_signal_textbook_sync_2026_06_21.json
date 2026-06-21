@@ -1,0 +1,14 @@
+{
+  "status": "URF_CORE_CSLIB_FMT_SIGNAL_TEXTBOOK_SYNC_2026_06_21",
+  "date": "2026-06-21",
+  "source_repo": "urf-core",
+  "source_pr": 474,
+  "source_main_commit": "857e954",
+  "source_statuses": [
+    "CSLIB_FMT_FULL_FORMULA_RADIUS_EXTERNAL_STATUS_SIGNAL_OK",
+    "URF_CORE_FULL_PYTEST_BASELINE_BLOCKERS_OK"
+  ],
+  "textbook_effect": "status_sync_only",
+  "summary": "Records that urf-core PR #474 merged the CSLIB-FMT full formula-radius external status signal and the unrelated URF-core full pytest baseline blocker inventory into main at commit 857e954.",
+  "boundary": "textbook synchronization note only; no new theorem, no URF-core repair, no CSLIB-FMT proof import, and no claim that unrelated URF-core full pytest baseline failures were fixed"
+}
