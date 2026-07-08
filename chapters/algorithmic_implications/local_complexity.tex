@@ -1,5 +1,37 @@
 \section{Algorithmic Implications}
 
-Small $\chi_R$ implies constant-depth parallelism.
+This chapter records the algorithmic reading of the local-complexity
+parameters used throughout the manuscript.  The claims here are
+interpretive: they organize the consequences of the structural bounds
+rather than introducing a new complexity-theoretic separation.
 
-Large $\chi_R$ forces sequential refinement.
+\subsection{Bounded refinement as bounded parallel depth}
+
+Small $\chi_R$ indicates that the refinement process can be scheduled
+with uniformly bounded local conflict.  In this regime, independent
+local updates can be grouped into a bounded number of parallel rounds.
+
+\begin{lemma}[Bounded scheduling interpretation]
+If a family has uniformly bounded refinement chromatic parameter
+$\chi_R$, then the associated local refinement schedule has uniformly
+bounded round complexity, subject to the capacity assumptions already
+fixed in the preceding chapters.
+\end{lemma}
+
+\subsection{Growth as a sequentiality obstruction}
+
+Large $\chi_R$ records the opposite phenomenon: local conflicts cannot
+be eliminated by a uniformly bounded schedule.  The obstruction is not
+a lower bound for every algorithm, but a lower bound for the refinement
+model under the stated locality and capacity rules.
+
+\begin{definition}[Local-complexity obstruction]
+A family exhibits a local-complexity obstruction when its refinement
+conflict parameter grows without a uniform bound along the family.
+\end{definition}
+
+\subsection{Scope}
+
+The chapter does not claim an unconditional complexity-class
+separation.  It only records how the manuscript's refinement parameters
+translate into bounded-depth and non-bounded-depth scheduling language.
