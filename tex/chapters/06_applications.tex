@@ -161,6 +161,61 @@ required model and terminal resolution requires eliminating that entropy.
 A physical application must state the measurement model. Without that model,
 the capacity claim is only an analogy.
 
+\section{Case Study: Projected Axial GfE Quasinormal-Mode Certificate}
+
+A concrete cross-repository example is supplied by the Chronos GfE calculation
+merged as commit \texttt{2caf5063b85d0fec1084fd18c8e47c7b0da26f96}.  Its
+claim is deliberately restricted to the projected, massless, order-reduced
+axial effective-field-theory branch with
+\[
+\ell=2,\qquad n=0,\qquad
+\varepsilon=\frac{\beta^2}{M^4}\in[0,10^{-4}].
+\]
+The source-side projection and order reduction are part of the certified
+statement; they are not consequences for the full unreduced trace-log
+operator.
+
+\begin{example}[Certified projected axial branch]
+The certificate records a canonical axial master potential, validated ingoing
+horizon and outgoing infinity endpoint data, and a complex interval-Newton
+matching tube.  For every allowed value of \(\varepsilon\), that tube contains
+exactly one simple axial \((\ell,n)=(2,0)\) quasinormal-mode root.
+
+At \(\varepsilon=0\), the certified implicit derivative satisfies
+\[
+\left.\frac{d\Omega_{220}^{(-)}}{d\varepsilon}\right|_{0}
+\in
+(0.027340131607167324-0.014681561963391043i)
++\overline B(0,0.008950737656596899).
+\]
+In particular,
+\[
+0.018389393950570425
+\le
+\operatorname{Re}
+\left.\frac{d\Omega_{220}^{(-)}}{d\varepsilon}\right|_{0}
+\le
+0.03629086926376422,
+\]
+so the real part of the first-order frequency correction is strictly positive
+throughout the certified disk.
+\end{example}
+
+The reduction surface is reproducible through the Chronos generator
+\path{tools/gfe/derive_gfe_axial_quadratic_action.sh}, the machine-readable
+record
+\path{artifacts/chronos/gfe_axial_220_projected_eft_certificate.json}, and its
+runtime receipt.  This is an application of verification-first reduction
+soundness: the branch, parameter interval, endpoint conditions, root
+uniqueness, derivative enclosure, and excluded sectors are all explicit.
+
+\begin{remark}[Exact claim boundary]
+This certificate does not establish the polar master equation or polar root,
+does not certify axial--polar splitting, and does not cover the full unreduced
+trace-log spectrum or its additional massive mode.  Those are independent
+mathematical obligations.
+\end{remark}
+
 \section{Graph Structures}
 
 Graph applications often use local neighborhoods, partition refinements, color
