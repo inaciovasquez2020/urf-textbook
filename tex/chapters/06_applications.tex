@@ -216,6 +216,117 @@ trace-log spectrum or its additional massive mode.  Those are independent
 mathematical obligations.
 \end{remark}
 
+\subsection{Certified Axial Reduction Datum}
+
+The axial certificate admits an explicit defect-form realization of the
+application reduction datum. Define the matching defect at \(z=3\) by
+\[
+\mathfrak D(\Omega,\varepsilon)
+=
+{\left[
+P\,\partial_z\log\Phi_{\mathrm{hor}}-i\Omega
+\right]}_{z=3}
+-
+q_{\mathrm{out}}(3;\Omega,\varepsilon).
+\]
+
+\begin{theorem}[Projected axial application datum]
+For the projected massless order-reduced axial
+\((\ell,n)=(2,0)\) branch, the following tuple is an application reduction
+datum:
+\[
+\left(
+\mathcal D_{\mathrm{ax}},
+X_{\mathrm{ax}},
+\mathcal R_{\mathrm{ax}},
+H_{\mathrm{ax}},
+C_{\mathrm{ax}},
+T_{\mathrm{ax}},
+\Pi_{\mathrm{ax}}
+\right).
+\]
+Its components are as follows.
+
+\begin{description}
+\item[\(\mathcal D_{\mathrm{ax}}\)]
+The projected massless order-reduced axial boundary-value problems with
+\[
+\varepsilon=\frac{\beta^2}{M^4}\in[0,10^{-4}],
+\qquad
+\ell=2,
+\qquad
+n=0.
+\]
+
+\item[\(X_{\mathrm{ax}}\)]
+Affine complex enclosures for \(\varepsilon\), \(\Omega\), the horizon
+logarithmic derivative, and the outgoing infinity logarithmic derivative at
+the common matching point \(z=3\).
+
+\item[\(\mathcal R_{\mathrm{ax}}\)]
+Validated outward Riccati propagation from the horizon, validated inward
+Riccati propagation from the outgoing infinity endpoint, and affine complex
+interval-Newton contraction of the matching defect.
+
+\item[\(H_{\mathrm{ax}}\)]
+The nonnegative defect functional
+\[
+H_{\mathrm{ax}}(\Omega,\varepsilon)
+=
+\left|\mathfrak D(\Omega,\varepsilon)\right|.
+\]
+
+\item[\(C_{\mathrm{ax}}\)]
+The certified Newton enclosure capacity
+\[
+r_{\mathrm N}=\frac{1}{150000},
+\]
+together with the verified control inequality
+\[
+\rho_{\mathrm N}
+=
+\frac{\text{analytic error}}
+     {\text{derivative lower bound}}
+<
+r_{\mathrm N}.
+\]
+
+\item[\(T_{\mathrm{ax}}\)]
+The family of Newton tubes in which
+\(\mathfrak D(\Omega,\varepsilon)=0\) has exactly one simple root for every
+\(\varepsilon\in[0,10^{-4}]\).
+
+\item[\(\Pi_{\mathrm{ax}}\)]
+The interpretation map sending each certified terminal tube to its unique
+projected axial frequency
+\(\Omega_{220}^{(-)}(\varepsilon)\), and at \(\varepsilon=0\) sending the
+certified tangent data to
+\[
+\left.
+\frac{d\Omega_{220}^{(-)}}{d\varepsilon}
+\right|_0
+=
+-\frac{D_{\varepsilon}}{D_{\Omega}}.
+\]
+\end{description}
+\end{theorem}
+
+\begin{proof}
+The source domain and excluded sectors are fixed by the machine-readable
+certificate. The two endpoint propagations and interval-Newton calculation
+supply \(X_{\mathrm{ax}}\) and \(\mathcal R_{\mathrm{ax}}\). The matching
+quantity in the generator defines \(H_{\mathrm{ax}}\). The strict internal
+Newton-image inequality supplies \(C_{\mathrm{ax}}\), while the certified
+unique-simple-root statement supplies \(T_{\mathrm{ax}}\). The frequency and
+implicit-derivative records supply \(\Pi_{\mathrm{ax}}\).
+\end{proof}
+
+\begin{remark}[Defect-form boundary]
+This is a soundness and certification datum, not an entropy-depth lower-bound
+claim. Here \(C_{\mathrm{ax}}\) is a validated enclosure capacity rather than
+a per-step information-capacity constant.
+\end{remark}
+
 \subsection{Constraint-Preserving Derivative Reductions}
 
 \begin{definition}[Algebraic constraint at fixed perturbative order]
