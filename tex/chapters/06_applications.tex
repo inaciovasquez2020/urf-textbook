@@ -216,6 +216,48 @@ trace-log spectrum or its additional massive mode.  Those are independent
 mathematical obligations.
 \end{remark}
 
+\subsection{Polar Constraint-Preservation Obstruction}
+
+The polar continuation sharpens the preceding boundary without closing it.
+Chronos first certifies the Schwarzschild polar
+\((\ell,n)=(2,0)\) root at \(\varepsilon=0\) by an exact Darboux transfer.
+At relative order \(O(\beta^2)\), however, the unreduced even-parity
+quadratic-action source has a rank-two fourth-time principal sector.  An
+explicit perturbative derivative substitution removes that temporal sector
+modulo a total derivative before any lapse or shift constraint is solved.
+
+The transformed lapse equation passes the temporal-order test: its highest
+remaining time derivative is second order, and no third- or higher-time
+derivative survives.  This does not preserve the usual algebraic lapse
+constraint, because the static \(H_0\)-only radial sector contains
+\[
+\mathcal L^{(2)}_{\beta^2,H_0,\mathrm{rad}}
+=
+\frac{4M(r-2M)^2}{3r^3}\bigl(H_{0,rr}\bigr)^2.
+\]
+Consequently the \(H_0\) Euler equation contains the nonzero exterior
+principal term
+\[
+\frac{8M(r-2M)^2}{3r^3}H_{0,rrrr},
+\qquad M>0,\quad r>2M.
+\]
+
+\begin{remark}[Constraint-preservation boundary]
+The time-only order-reduction map changes \(H_2\) and \(K\), not \(H_0\), and
+therefore cannot cancel this \(H_0\)-only radial term.  The current projected
+polar branch does not admit the standard algebraic elimination of the lapse.
+No \(H_0\) solution, \(H_1\) elimination, polar master equation,
+\(\varepsilon>0\) polar root continuation, or axial--polar splitting follows
+from this result.
+\end{remark}
+
+The executable obstruction is recorded in Chronos commit
+\texttt{c99961425877c9d49117b545f5eb22ef6a5ddb43}, with the verifier
+\path{tests/test_gfe_polar_h0_radial_derivative_obstruction.py}.  This case
+study illustrates a reduction-soundness failure detected before introducing a
+master variable: removing the highest time derivatives is insufficient when a
+would-be constraint field acquires an independent higher-radial equation.
+
 \section{Graph Structures}
 
 Graph applications often use local neighborhoods, partition refinements, color
