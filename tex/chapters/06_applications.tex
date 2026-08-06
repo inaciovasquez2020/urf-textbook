@@ -216,6 +216,37 @@ trace-log spectrum or its additional massive mode.  Those are independent
 mathematical obligations.
 \end{remark}
 
+\subsection{Constraint-Preserving Derivative Reductions}
+
+\begin{definition}[Algebraic constraint at fixed perturbative order]
+Let \(\widehat S[\widehat C,\widehat q]\) be a transformed action truncated at a
+fixed perturbative order. The field \(\widehat C\) remains an algebraic
+constraint at that order if its Euler--Lagrange expression
+\(E_{\widehat C}(\widehat S)\) has differential order zero in \(\widehat C\).
+Derivatives of the remaining fields \(\widehat q\) may occur.
+\end{definition}
+
+\begin{theorem}[Derivative obstruction to algebraic constraint preservation]
+Suppose a proposed perturbative reduction requires \(\widehat C\) to remain an
+algebraic constraint. If the simplified Euler--Lagrange expression contains
+\[
+a_{\alpha}\,\partial^{\alpha}\widehat C,
+\qquad
+|\alpha|\geq 1,
+\]
+with \(a_{\alpha}\) not identically zero on the claimed domain, then the
+reduction is not algebraic-constraint preserving on that domain. In
+particular, \(\widehat C\) cannot be eliminated there by an algebraic
+constraint equation.
+\end{theorem}
+
+\begin{proof}
+An algebraic constraint has differential order zero in \(\widehat C\).
+A nonzero derivative jet \(\partial^{\alpha}\widehat C\), with
+\(|\alpha|\geq 1\), gives positive differential order and contradicts the
+definition.
+\end{proof}
+
 \subsection{Polar Constraint-Preservation Obstruction}
 
 The polar continuation sharpens the preceding boundary without closing it.
@@ -241,6 +272,21 @@ principal term
 \frac{8M{(r-2M)}^2}{3r^3}H_{0,rrrr},
 \qquad M>0,\quad r>2M.
 \]
+
+\begin{theorem}[Polar lapse non-algebraicity]
+On the Schwarzschild exterior \(M>0\), \(r>2M\), the current transformed polar
+branch is not algebraic-constraint preserving for \(H_0\). Hence the standard
+algebraic lapse elimination is unavailable on that domain.
+\end{theorem}
+
+\begin{proof}
+The coefficient of \(H_{0,rrrr}\) is
+\[
+\frac{8M{(r-2M)}^2}{3r^3},
+\]
+which is strictly positive for \(M>0\) and \(r>2M\). The derivative-obstruction
+theorem therefore applies with \(\widehat C=H_0\).
+\end{proof}
 
 \begin{remark}[Constraint-preservation boundary]
 The time-only order-reduction map changes \(H_2\) and \(K\), not \(H_0\), and
