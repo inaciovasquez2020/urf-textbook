@@ -415,6 +415,86 @@ study illustrates a reduction-soundness failure detected before introducing a
 master variable: removing the highest time derivatives is insufficient when a
 would-be constraint field acquires an independent higher-radial equation.
 
+
+\subsection{Unreduced Six-State Invariant-Graph Boundary}
+
+The unreduced axial equations were next tested directly in the dimensionless
+six-state derivative-jet variables
+\[
+q=\frac{\beta}{M^2},
+\qquad
+x=\frac rM,
+\qquad
+\Omega=M\omega,
+\qquad
+Z=(H_0,H_{0,x},H_{0,xx},H_1,H_{1,x},H_{1,xx}).
+\]
+For \(0<q\le10^{-2}\) and \(x>2\), the exact coefficientwise principal solve
+has determinant
+\[
+\Delta
+=
+\frac{
+4q^2(-16q+5x^3)(8q+5x^3){(x-2)}^3
+}{x^{11}},
+\]
+which is strictly positive throughout the open exterior.
+
+Let \(P_0\) be the leading GR massless projector and
+\(Q_0=I-P_0\).  Writing the complementary graph component as \(y=p\,u\),
+the exact invariance equation is
+\[
+R(q,p)
+=
+p_x-A_{QP}-A_{QQ}p+pA_{PP}+pA_{PQ}p.
+\]
+Analytic coefficient matching gives
+\[
+p(q,x)=q^2P_2(x)+O(q^3)
+\]
+and forces
+\[
+{(P_2)}_{\delta H_{1,xx},H_0}
+=
+\frac{
+4i\Omega(108x^3-549x^2+653x-64)
+}{
+9x^5{(x-2)}^4
+}.
+\]
+
+The previously certified ingoing-EF multiplier is
+\[
+W=\operatorname{diag}(1,1,f,f^3,f^2,f),
+\qquad
+f=\frac{x-2}{x}.
+\]
+Under componentwise application of that multiplier to the derivative-jet
+six-state graph,
+\[
+\lim_{x\downarrow2}
+{(x-2)}^3 f
+{(P_2)}_{\delta H_{1,xx},H_0}
+=
+-\frac{5i\Omega}{8},
+\]
+which is nonzero on the axial \((2,0)\) frequency tube.  The forced first graph
+tangent is therefore not bounded in the proposed horizon-weighted graph
+space, so the requested contraction fails at the horizon before an infinity
+contraction estimate can close.
+
+\begin{remark}[Exact continuation boundary]
+This test does not produce a unique analytic unreduced massless-branch
+continuation theorem on \(0\le q\le10^{-2}\).  Consequently the existing
+projected axial \((2,0)\) quasinormal-mode, tail, and decay results are not
+transferred to the unreduced six-state system.
+
+The obstruction is specifically to componentwise use of the existing EF
+multiplier on the derivative-jet representation.  It does not prove
+nonexistence of an invariant massless branch under a separately derived
+state-conjugate six-state weight.
+\end{remark}
+
 \section{Graph Structures}
 
 Graph applications often use local neighborhoods, partition refinements, color
