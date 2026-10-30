@@ -111,7 +111,7 @@
       "configFile": "lakefile.toml"
     }
   ],
-  "name": "countable-peano-audit",
+  "name": "countablePeanoAudit",
   "lakeDir": ".lake",
   "fixedToolchain": true
 }
