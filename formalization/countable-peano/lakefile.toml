@@ -1,4 +1,4 @@
-name = "countable-peano-audit"
+name = "countablePeanoAudit"
 version = "0.1.0"
 defaultTargets = ["CountablePeano"]
 
