@@ -310,3 +310,68 @@ The predicates (operatorname{Discharged}), (operatorname{Supports}), and (operat
 ### Next admissible action
 
 Recover the exact prior-turn archives from the original execution environment or obtain them as user-supplied files. Verify their SHA-256 hashes and archive listings, then extract the schema, example, verifier, and tests verbatim. Only after that can a field-preserving mapping from CETM to the richer package be certified. Do not synthesize missing source files or retrofit the URF Core validator and label it as the richer package.
+
+
+## Three-stage validation architecture and longitudinal publication study (2026-10-30)
+
+### Validation stages
+
+The manuscript's limitations and conclusion support a three-stage validation architecture. These stages answer different questions and must be reported separately.
+
+| Stage | Validation question | Evidence required | Boundary |
+|---|---|---|---|
+| 1. Artifact reproducibility | Can an independent user recover the supplied inputs and reproduce the scoring arithmetic and structural-verifier behavior? | Original indicator-level CSV, JSON Schema, illustrative claim record, verifier source, tests, archive listings, cryptographic hashes, and reproducible execution receipt. | Reproducing arithmetic or verifier behavior does not validate author-scored indicator judgments, mathematical truth, construct validity, or reviewer utility. |
+| 2. Independent replication | Can external raters apply the CGRI rubric, reconstruct CETM fields, and identify substantially the same boundary locks and frontier objects? | Preregistered or otherwise version-locked rubric; independent raters; raw ratings and field reconstructions; inter-rater agreement and disagreement analysis; adjudication protocol. | Agreement supports reproducibility of the governance assessment, not mathematical correctness or publication impact. |
+| 3. Longitudinal publication-outcome evaluation | Do manuscripts with explicit claim-governance artifacts make scope, assumptions, limitations, and remaining frontier objects easier for reviewers to identify than comparable manuscripts without those artifacts? | A defined manuscript cohort and comparison strategy; consistent reviewer-legibility measures; longitudinal collection protocol; confounder handling; analysis plan; outcome and missing-data reporting. | This is a proposed empirical study. No effect on reviewer comprehension, acceptance probability, or publication outcomes has been demonstrated. |
+
+### Stage 3: proposed research design
+
+The primary outcome should be reviewer ability to identify and correctly characterize:
+1. the manuscript's claim scope;
+2. assumptions required for each principal claim;
+3. stated limitations and explicit non-claims; and
+4. unresolved frontier objects or remaining proof obligations.
+
+A secondary outcome may measure reviewer effort or time required to locate and interpret those elements, provided the measurement procedure is standardized. Acceptance, rejection, revision, and time-to-decision may be collected as exploratory publication outcomes, but they should not be treated as direct measures of governance quality.
+
+A defensible comparison requires a defined sampling frame and a prespecified assignment or matching strategy. Where feasible, use randomized presentation of otherwise comparable manuscript versions, with and without the governance artifacts, to isolate their effect on reviewer legibility. If randomization is infeasible, use a matched observational cohort and explicitly address confounding by field, venue, manuscript maturity and quality, reviewer expertise, review process, and publication period. Do not interpret an uncontrolled difference in acceptance rates as a causal effect of CGRI or CETM.
+
+The protocol should define:
+- eligibility criteria, unit of analysis, sample size rationale, and observation window;
+- the exact artifact intervention and control condition;
+- reviewer instructions and a blinded scoring rubric where feasible;
+- inter-rater reliability and adjudication procedures;
+- primary and secondary endpoints, missing-data handling, and statistical analysis;
+- ethics, consent, confidentiality, and data-retention requirements; and
+- versioning of the CGRI rubric, CETM schema, and analysis code.
+
+The central hypothesis is limited to reviewer legibility: explicit governance artifacts may improve reviewers' ability to identify scope, assumptions, limitations, and unresolved work. The study must not presume that the hypothesis is true. Increased acceptance probability is neither guaranteed nor implied; any association with acceptance would require separate analysis and careful causal qualification.
+
+### Reproducibility-package obligations
+
+The manuscript's Data Availability Statement explicitly promises the following four supplementary artifacts:
+
+| Required artifact | Required verification | Current status in this recovery audit |
+|---|---|---|
+| Indicator-level scoring CSV | Recover original bytes; compute SHA-256; inspect exact rows and columns; reproduce reported scoring arithmetic without rounding or reconstruction. | A separately recovered CSV and its reported hash are documented above; its identity with the missing archive member has not been established. |
+| JSON Schema | Recover original bytes; validate syntax; inspect required properties, types, enumerations, constraints, and schema version. | Not recovered from the reported archives. |
+| Illustrative claim record | Recover original bytes; validate against the exact recovered schema; preserve all original values and semantics. | Not recovered from the reported archives. |
+| Structural verifier | Recover source and tests verbatim; inspect dependencies and invocation; run the original tests against the original example and schema; record exact logs and hashes. | Not recovered from the reported archives. |
+
+The two reported archive files remain unavailable in the active execution and Library inventory. The prior execution record supplies output paths but not the binary bytes. Accordingly, no archive hash, member listing, extraction, or original-source comparison is claimed. The separately inspected URF Core snapshot validator is not a substitute for the promised structural verifier.
+
+### Updated conclusions and boundaries
+
+The manuscript's current case study remains author-scored and illustrative. Recomputed scoring arithmetic, if reproduced from the recovered CSV, would establish arithmetic reproducibility only. It would not independently validate indicator judgments or show that the CGRI measures reviewer legibility.
+
+Independent replication is the next validation stage capable of moving the method beyond an author-centered demonstration. Longitudinal publication-outcome evaluation is a subsequent, distinct stage and should prioritize reviewer-legibility outcomes over acceptance rates.
+
+`BOUNDARY :=` Stage 1 is incomplete until the original schema, illustrative claim record, verifier, tests, and archive provenance are recovered and checked; a CSV alone is insufficient.
+
+`BOUNDARY :=` Stage 2 has not been conducted; no external-rater agreement or inter-rater reliability result is established.
+
+`BOUNDARY :=` Stage 3 is a proposed research design only; no longitudinal reviewer or publication-outcome data have been collected or analyzed.
+
+`BOUNDARY :=` No claim is made that CGRI or CETM increases acceptance probability, guarantees acceptance, or improves mathematical correctness.
+
+`BOUNDARY :=` The proposed three-stage validation architecture does not change the manuscript's novelty status, the author-scored status of the case study, or any previously recorded open boundary.
