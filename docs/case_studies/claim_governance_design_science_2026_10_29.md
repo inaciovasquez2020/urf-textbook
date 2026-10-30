@@ -208,3 +208,105 @@ Therefore, a generic claim to an executable promotion policy, a deny-on-failed-p
 ### Next bounded improvement
 
 Recover the richer package's exact schema and verifier source before claiming that the candidate relation above describes that package. Then implement or formally specify a transition API that takes an immutable pre-state and proposed post-state, checks claim identity/scope and proof-receipt binding, and records a versioned promotion event. Add one negative test per prohibited transition before any novelty conclusion.
+
+
+## Source-package recovery and schema reconciliation (2026-10-30)
+
+### Recovered manuscript source
+
+The Library contains the manuscript source `manuscript_final_submission.tex` (49,600 bytes; 558 rendered lines) and earlier source `URF_Systems_Methodology_Manuscript_Stronger.tex` (37,672 bytes), along with corresponding PDFs and submission ZIPs. The recovered submission archive `urf_systems_submission_package_stronger.zip` contains eight files: the manuscript TeX/PDF, cover-letter TeX/PDF, editor-brief TeX/PDF, illustrative scoring CSV, and README. It does not contain a machine-readable claim schema, claim example, verifier, or tests. The separate main-text-only ZIPs contain only a TeX manuscript.
+
+The final manuscript defines the CETM claim object as:
+
+[
+C=(N,S,A,V,B,F,P),
+]
+
+with these exact semantic fields:
+
+| Symbol | Manuscript field | Meaning |
+|---|---|---|
+| (N) | Name | Stable identifier/name for the claim object |
+| (S) | Status | Declared status from the manuscript's status taxonomy |
+| (A) | Assumptions | Local assumptions required for the claim |
+| (V) | Verification surface | Files, proofs, scripts, builds, tests, or artifacts supporting the status |
+| (B) | Boundary locks | Explicit non-claims and no-overclaim statements |
+| (F) | Frontier objects | Missing lemmas, estimates, invariants, data objects, or constructions |
+| (P) | Publication language | Approved publication-facing verbs and phrases |
+
+The manuscript's status taxonomy is: Proven theorem; Conditional theorem; Interface theorem; Certificate; Status lock; Frontier object. This is a distinct vocabulary from the six-value URF Core validator allowlist (`PROVED`, `RESTRICTED`, `CONDITIONAL`, `INTERFACE_ONLY`, `OPEN`, `NOT_CLAIMED`). The vocabularies must not be silently merged.
+
+The manuscript's stated governance condition is:
+
+[
+operatorname{Promote}(C)	ext{ only if } A	ext{ is discharged, }
+V	ext{ supports the promoted status, and }B	ext{ remains compatible with }P.
+]
+
+Its CBAL lifecycle is Register → Classify → Score → Scan → Block or Promote → Re-audit. It describes an ongoing governance loop, not a formal transition relation with typed event inputs and outputs.
+
+### Reconciliation against the candidate promotion relation
+
+The candidate relation previously written in this note used the URF Core snapshot fields and predicate:
+
+[
+operatorname{AdmitProved}(c) iff
+c.status=PROVED
+land c.unresolved_obligations=arnothing
+land c.evidence
+earnothing
+land operatorname{ReceiptOK}(c)
+land operatorname{RevisionMatch}(c).
+]
+
+That predicate is not a direct formalization of the manuscript CETM tuple. The fields map only partially:
+
+| Candidate relation / verifier concept | CETM correspondence | Reconciliation |
+|---|---|---|
+| `status` | (S) | Direct semantic correspondence, but status vocabularies differ and require an explicit normalization map. |
+| `unresolved_obligations` | (F) | Partial correspondence only. (F) is a set of frontier objects; it is not defined as a boolean or list of unresolved obligations, and not every frontier object necessarily blocks every status. |
+| `evidence` | (V) | Partial correspondence. (V) is a verification surface that can list files, proofs, scripts, builds, tests, and artifacts; the manuscript does not define typed evidence records or a nonempty-evidence predicate. |
+| proof receipt | (V) | No direct field. A receipt could be an implementation-level element of (V), but the manuscript does not specify receipt structure or matching semantics. |
+| `source_revision` | No direct CETM field | Not specified in the seven-field tuple. It could be introduced as provenance/version metadata only by an explicit schema extension. |
+| assumptions discharged | (A) | Direct conceptual correspondence. The manuscript states discharge as a promotion condition but does not define a machine-checkable discharge record or proof rule. |
+| boundary compatibility | (B,P) | Direct conceptual correspondence. The manuscript requires compatibility but does not define a deterministic compatibility predicate or text-scanning semantics. |
+| provenance and promotion history | No direct CETM field | Not present as explicit tuple components. The CBAL loop is longitudinal but does not specify immutable event records, actors, timestamps, or policy versions. |
+| claim identity and scope binding | (N), with scope implicit in claim content | Stable name is specified; a globally stable ID, proposition digest, formal scope object, and mutation/invalidation rule are not specified in the CETM tuple. |
+| epistemic status / mathematical scope | (S), (N), and claim content only indirectly | The richer-package summary used these terms, but the recovered manuscript's exact seven-field tuple does not define separate typed fields for epistemic status and mathematical scope. |
+
+The CGRI's 16 indicators (S1–S4, A1–A4, V1–V4, B1–B4) are scoring dimensions, not additional claim-object fields. In particular, they do not supply a formal evidence receipt, transition history, source revision, or proof checker.
+
+### Source and verifier recovery result
+
+The exact richer-package archive previously reported as `/mnt/data/urf_claim_governance_arxiv_v0.1.zip` and source archive `/mnt/data/urf_claim_governance_arxiv_source.tar.gz` are not present in the current working container or searchable Library inventory. The prior conversation record reports that they were created, but it does not preserve their file listings, archive hashes, exact schema JSON, example JSON, verifier source, tests, or creation command output. The reported local paths therefore cannot be treated as currently recovered or verified artifacts.
+
+No repository source corresponding to that richer schema/verifier was located in the inspected URF repositories. The URF Core validator source remains separately identifiable and does not establish the missing package's provenance or implementation.
+
+### Corrected formalization status
+
+The manuscript-level promotion rule can be represented only as a partial admissibility condition:
+
+[
+operatorname{PromoteAllowed}(C,S') Rightarrow
+operatorname{Discharged}(A)
+land operatorname{Supports}(V,S')
+land operatorname{Compatible}(B,P).
+]
+
+The predicates (operatorname{Discharged}), (operatorname{Supports}), and (operatorname{Compatible}) are not defined executable functions in the recovered manuscript. There is no defined transition domain, allowed source/target status table, event record, or deterministic failure semantics. Therefore this implication is a faithful abstract restatement, not an executable specification.
+
+### Preserved boundaries
+
+`BOUNDARY :=` The exact richer-package schema and verifier source have not been recovered; their prior reported creation is not independently reproducible from currently available artifacts.
+
+`BOUNDARY :=` The recovered manuscript CETM schema is exactly the seven-field conceptual tuple (C=(N,S,A,V,B,F,P)); it does not establish separate machine-readable fields for epistemic status, mathematical scope, evidence type/result, provenance, or promotion history.
+
+`BOUNDARY :=` The manuscript's CBAL loop and promotion condition do not define a complete transition system.
+
+`BOUNDARY :=` The URF Core snapshot validator is a related but distinct implementation and must not be attributed to the richer manuscript package.
+
+`BOUNDARY :=` No transition engine is implemented or claimed by this reconciliation. Novelty remains unestablished, and all prior empirical, sensitivity-analysis, negative-test, and presentation boundaries remain open.
+
+### Next admissible action
+
+Recover the exact prior-turn archives from the original execution environment or obtain them as user-supplied files. Verify their SHA-256 hashes and archive listings, then extract the schema, example, verifier, and tests verbatim. Only after that can a field-preserving mapping from CETM to the richer package be certified. Do not synthesize missing source files or retrofit the URF Core validator and label it as the richer package.
