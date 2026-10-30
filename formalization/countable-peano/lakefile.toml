@@ -1,0 +1,11 @@
+name = "countable-peano-audit"
+version = "0.1.0"
+defaultTargets = ["CountablePeano"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "70078b363d019ff4e975ac0f06eabd3cdb64b0de"
+
+[[lean_lib]]
+name = "CountablePeano"
