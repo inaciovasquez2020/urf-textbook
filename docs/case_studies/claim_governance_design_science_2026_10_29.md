@@ -375,3 +375,62 @@ Independent replication is the next validation stage capable of moving the metho
 `BOUNDARY :=` No claim is made that CGRI or CETM increases acceptance probability, guarantees acceptance, or improves mathematical correctness.
 
 `BOUNDARY :=` The proposed three-stage validation architecture does not change the manuscript's novelty status, the author-scored status of the case study, or any previously recorded open boundary.
+
+
+## Full-text prior-art audit and corrected novelty boundary (2026-10-30)
+
+### Scope of this pass
+
+This pass inspected the full accessible texts of FEDS (Venable, Pries-Heje, and Baskerville, 2016), *Validity in Design Science* / the Design Science Validity Framework (Larsen et al., 2025), and *Transparency in Design Science Research* (Hevner et al., 2024). It upgrades the earlier abstract-level matrix for these three works. It is still a bounded comparison, not a systematic search of all claim-management, assurance-case, workflow, policy, provenance, or proof-carrying systems.
+
+### Full-text findings
+
+**FEDS — evaluation strategy, not merely a checklist.** FEDS explicitly connects evaluation goals to strategies; its dimensions are formative/summative purpose and artificial/naturalistic paradigm. It describes four prototypical strategies, possible hybrid strategies, and a four-step process for choosing goals, strategies, properties, and evaluation episodes. Its account of artificial evaluation expressly includes mathematical proofs, theoretical arguments, simulations, laboratory experiments, and criteria-based analysis. Accordingly, neither evaluation planning, iterative evaluation trajectories, nor the use of mathematical proof as an evaluation method can be claimed as a URF novelty. FEDS is concerned with evaluating design artifacts and design theories; the reviewed text does not specify a claim-object status transition engine or an executable admission predicate for a research claim's epistemic status.
+
+**Design Science Validity Framework (DSVF) — explicit claim-to-validity-to-evidence reasoning.** The full paper explicitly defines design-science validity as the extent to which knowledge claims about a focal artifact are supported by evidence. It distinguishes criterion, causal, and context claims/validities, defines subtypes, and directs the researcher to select an appropriate validity type for a stated claim and support it through a specified comparison. The paper states that design-science evaluations are comparisons and that its framework articulates the relationships among claim types and criterion, causal, and context validity. It also includes formal proof as an example of a validation method for a security protocol. This is substantial overlap with any broad URF claim that it uniquely structures claims, evidence, assumptions, or validation. The reviewed DSVF text provides a claim/validity/evidence reasoning framework and process; it does not specify the CETM tuple, a machine-enforced PROVED status transition, a receipt bound to a versioned proposition and proof digest, or deterministic invalidation rules. This last statement is limited to the reviewed framework text; it is not a claim about every implementation that might use DSVF.
+
+**DSR Transparency — stronger process/provenance overlap than the abstract alone suggests.** The full text defines process transparency as communicating the actions used to generate artifacts and knowledge, including actual activity logs, reasons for activities/design choices, and context. It discusses process-capture tools and computational use of digital trace data. Its six transparency forms are process, problem space, solution space, build, evaluation, and contribution. The paper explicitly raises sharing data, artifacts, code, proofs, and subjective value judgments; discusses reproducibility and replication; and recommends documenting design decisions and evaluation evidence. Therefore, URF cannot claim to originate research-process logs, provenance documentation, transparent scope/assumptions, publication-facing evidence disclosure, or general artifact/proof sharing. The reviewed framework is transparency guidance and a conceptual framework; it does not specify a formal epistemic state machine or an executable promotion gate. Again, this is a bounded statement about the reviewed text, not a proof that no implementation or adjacent system has such a gate.
+
+### Revised claim-by-claim matrix
+
+| Proposed URF claim | FEDS full text | DSVF full text | DSR Transparency full text | Corrected status |
+|---|---|---|---|---|
+| A framework for planning evaluation episodes and trajectories | Direct: two evaluation dimensions, four strategies, hybrid strategies, four-step design process. | Related but different: selects validity reasoning appropriate to claims and comparisons. | Directly addresses evaluation transparency and reporting. | **Overlap; not novel.** |
+| Explicitly connect claims to evidence and validation | Evaluation goals/properties are tied to evaluation episodes; mathematical proof is an admissible artificial evaluation method. | Direct and strong: claim types map to validity types and comparison evidence. | Directly asks for transparent assumptions, scope, processes, data, results, analyses, proofs, and implications. | **Strong overlap; not novel as a general concept.** |
+| Record assumptions, scope, process, design decisions, and research boundaries | Context and goals are relevant to evaluation design, but not its central claim-object model. | Context claims and explicit knowledge claims bound where claims hold; evidence must support them. | Direct: problem-space scope, process activity/reasoning/context, and contribution transparency. | **Strong overlap in reporting/governance aims.** |
+| Maintain activity provenance and process history | Evaluation trajectories record the planned progression of evaluation episodes. | Claim/evidence/validity argument is explicit; event-level history is not the framework's focus. | Direct: actual activity logs, reasons, context, digital trace data, and process-capture tools. | **Not novel as provenance or process logging.** |
+| Store claim status, assumptions, verification surface, boundary locks, frontier objects, and publication language in CETM tuple C=(N,S,A,V,B,F,P) | No equivalent seven-field tuple identified in FEDS. | Claim and validity taxonomy overlaps semantically, but no equivalent tuple identified in the reviewed text. | Transparency dimensions overlap in content, but no equivalent seven-field claim-object tuple identified in the reviewed text. | **Candidate data-model difference only.** Exact schema and field semantics must be compared with assurance cases, argumentation models, and claim/provenance schemas. |
+| Permit promotion only when assumptions are discharged, verification supports the target status, and boundaries remain compatible with publication language | No such CETM-style predicate identified; FEDS's evaluation planning is not itself this promotion rule. | DSVF requires evidence to support claims but does not define this exact status-admission predicate in the reviewed text. | Transparency guidance requires disclosure but does not define this exact status-admission predicate in the reviewed text. | **Candidate abstract governance rule, not an executable transition system.** The manuscript leaves Discharged, Supports, and Compatible undefined. |
+| Enforce a PROVED transition using a claim-bound proof receipt, revision freshness, and obligation closure | Mathematical proof is an evaluation method; no corresponding claim-status gate identified in FEDS. | Formal proof can support validity evidence; no corresponding claim-status gate identified in the reviewed DSVF text. | Proof disclosure and process transparency overlap with the evidence/provenance inputs; no corresponding claim-status gate identified in the reviewed text. | **Not established in the manuscript or recovered package.** The separate URF Core snapshot validator implements only a partial admission check and is not a transition engine. |
+| Record authorized promotion events and automatically invalidate status after claim mutation | Evaluation trajectories are not equivalent to an event-sourced claim lifecycle. | Claim-to-evidence validity does not itself specify immutable transition events or mutation invalidation. | Activity logs and trace-data capture are relevant prior art for recording process history. | **Unimplemented and unresolved.** A new event schema or invalidation rule cannot be claimed as an existing URF capability. |
+| Show improved reviewer comprehension or publication outcomes | FEDS evaluates the utility of evaluation strategies; it does not validate this URF outcome claim. | DSVF requires explicit validity reasoning for such knowledge claims and suitable comparison evidence. | DSR Transparency is directly relevant to reviewer-facing disclosure and publication transparency. | **Not demonstrated.** The current author-scored illustrative case study is not an independent reviewer study. |
+
+### Corrected novelty conclusion
+
+The full-text comparison narrows, rather than strengthens, the novelty claim. FEDS, DSVF, and DSR Transparency already cover evaluation planning, claim/evidence reasoning, formal proof as evaluation evidence, explicit scope and assumptions, process documentation, provenance-like activity logs, and publication-facing transparency.
+
+The recovered manuscript's actual CETM model is the conceptual seven-field tuple C=(N,S,A,V,B,F,P), accompanied by the partial promotion condition:
+
+\[
+\\operatorname{PromoteAllowed}(C,S') \\Rightarrow
+\\operatorname{Discharged}(A) \\land
+\\operatorname{Supports}(V,S') \\land
+\\operatorname{Compatible}(B,P).
+\]
+
+The manuscript does not define the three predicates as executable functions, a source/target transition table, claim-version binding, proof-receipt schema, event log, actor authority, or automatic invalidation. Thus the strongest potential distinction is currently an **abstract claim-governance model with a stated promotion constraint**, not an implemented verification-first state-transition system. The richer package's reported schema/verifier archives remain unrecovered, so they cannot close this gap.
+
+**Current novelty result: NOT ESTABLISHED.** A narrower contribution may become defensible if an exact executable transition semantics is recovered or specified and shown, through a broader comparison, to add a distinct capability beyond the claim/evidence validity reasoning, transparency/process capture, assurance-case argumentation, and policy/workflow enforcement already available. No claim is made that such a capability is unique at present.
+
+### Primary full-text sources examined
+
+1. Venable, J., Pries-Heje, J., & Baskerville, R. (2016). [FEDS: A Framework for Evaluation in Design Science Research](https://doi.org/10.1057/ejis.2014.36). *European Journal of Information Systems*, 25(1), 77–89. Full text: [Springer article](https://link.springer.com/article/10.1057/ejis.2014.36).
+2. Larsen, K. R., Lukyanenko, R., Mueller, R. M., Storey, V. C., Parsons, J., VanderMeer, D., & Hovorka, D. (2025). [Validity in Design Science](https://doi.org/10.25300/MISQ/2024/18064). *MIS Quarterly*, 49(4), 1267–1294. Full text: [PubMed Central](https://pmc.ncbi.nlm.nih.gov/articles/PMC13004602/).
+3. Hevner, A. R., Parsons, J., Brendel, A. B., Lukyanenko, R., Tiefenbeck, V., Tremblay, M. C., & vom Brocke, J. (2024). [Transparency in Design Science Research](https://doi.org/10.1016/j.dss.2024.114236). *Decision Support Systems*, 182, 114236. Full text: [author-uploaded corrected proof](https://www.researchgate.net/publication/380220169_Transparency_in_design_science_research).
+
+### Remaining bounded work
+
+1. Recover the original richer-package ZIP and TAR.GZ bytes; do not substitute the URF Core snapshot validator.
+2. If recovery fails, treat the manuscript's seven-field CETM tuple and partial promotion condition as the complete currently evidenced URF specification.
+3. Only then compare any proposed transition relation against assurance-case systems, proof-carrying claims, policy/workflow engines, and provenance/lifecycle systems using exact formal semantics rather than feature labels.
+4. Keep independent indicator calibration, the unreproduced sensitivity analysis, broader negative tests, and LaTeX warnings open.
