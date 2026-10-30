@@ -434,3 +434,16 @@ The manuscript does not define the three predicates as executable functions, a s
 2. If recovery fails, treat the manuscript's seven-field CETM tuple and partial promotion condition as the complete currently evidenced URF specification.
 3. Only then compare any proposed transition relation against assurance-case systems, proof-carrying claims, policy/workflow engines, and provenance/lifecycle systems using exact formal semantics rather than feature labels.
 4. Keep independent indicator calibration, the unreproduced sensitivity analysis, broader negative tests, and LaTeX warnings open.
+
+
+## New specification created after archive recovery failure (2026-10-30)
+
+The original reported ZIP and TAR.GZ were not recovered from the active runtime or searchable Library. Their reported creation timestamp and paths are preserved as historical execution information only; no original hashes, member listings, or bytes are available. No substitute archive was used.
+
+A separate, explicitly new design specification was therefore created:
+`docs/specifications/cetm_claim_state_transition_system_v0.1.md`
+at commit `f9dafff9dbb7ed17dc52c91a501f7e48898ab902`.
+
+This CSTS v0.1 document separates claim kind from epistemic state; defines a partial transition function, event envelope, exhaustive allowed-transition table, exact PROVED promotion guards, receipt-to-claim binding, semantic-version invalidation and transitive dependency staleness, boundary/publication-language checks, authorization roles, prohibited transitions, failure semantics, conformance obligations, and a 20-case acceptance-test matrix. It also compares the proposal with OMG SACM/assurance cases, proof-carrying code, OPA/Cedar policy enforcement, and event-sourcing/provenance.
+
+This is a new specification only. It is not recovered archive content, not part of the manuscript's original executable package, and not an implementation. No tests have been run; no transition engine or trusted proof-receipt verifier is claimed. Novelty remains NOT ESTABLISHED. The new document explicitly identifies the remaining comparison gap with assurance-case lifecycle tooling, proof-carrying data, proof dependency tracking, workflow/state-machine engines, and provenance-aware change-impact systems.
