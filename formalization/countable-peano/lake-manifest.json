@@ -12,7 +12,7 @@
       "manifestFile": "lake-manifest.json",
       "inputRev": "70078b363d019ff4e975ac0f06eabd3cdb64b0de",
       "inherited": false,
-      "configFile": "lakefile.toml"
+      "configFile": "lakefile.lean"
     },
     {
       "url": "https://github.com/leanprover-community/plausible",
