@@ -1,0 +1,33 @@
+name: Countable Peano local extension
+
+on:
+  push:
+    branches:
+      - audit/countable-peano-local-extension
+      - main
+    paths:
+      - "formalization/countable-peano/**"
+      - ".github/workflows/countable-peano-lean.yml"
+  pull_request:
+    paths:
+      - "formalization/countable-peano/**"
+      - ".github/workflows/countable-peano-lean.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lean:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalization/countable-peano
+          use-mathlib-cache: true
+          build: true
+          test: false
+          lint: false
+          axiom-audit: true
+          axiom-audit-root: CountablePeano
