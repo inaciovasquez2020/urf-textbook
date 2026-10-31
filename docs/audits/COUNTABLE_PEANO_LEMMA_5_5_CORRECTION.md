@@ -1,72 +1,62 @@
-# Correction and completion note: Lemma 5.5 audit
+# Lemma 5.5: clarified boundary-value audit and local repair
 
-**Paper:** Jeremy Brazas and Petar Pavešić, *Countable Models of One-Dimensional Peano Continua*, arXiv:2610.35875v1, Lemma 5.5, pp. 9–10.
+**Reference:** Jeremy Brazas and Petar Pavešić, *Countable Models of One-Dimensional Peano Continua*, arXiv:2610.35875v1, Lemmas 4.3, 5.2, 5.4, 5.5, pp. 6–10. Source: https://arxiv.org/pdf/2610.35875
 
-This note supplements `COUNTABLE_PEANO_LEMMA_5_5_AUDIT.md`. It makes the local closure repair explicit and supplies the diagonal argument needed in the wild-point continuity case. It does not claim a counterexample to the lemma or theorem.
+**Scope:** One audit finding and a proposed mathematical repair. This is NOT a counterexample to Lemma 5.5 or the paper's main theorem. It is NOT a Lean-verified result. No further claims about the paper are inferred.
 
-## 1. Exact domain mismatch
+## 1. Author clarification received on 2026-10-31
 
-Write (U=U(b_n)=g^{-1}(b_n)\setminus A), with boundary taken in (B). The proof first establishes
-[
-\partial_B U\subseteq A\cup B_0,
-]
-then defines the boundary map (β=k|_{\partial_B U}). It next says that (\partial U) is closed in (U) and invokes Lemma 5.4 to obtain (h:U\to A_n) with (h|_{\partial U}=β).
+Jeremy Brazas explained that two occurrences of `A_n` in the third paragraph of Lemma 5.5 should read `B_n`, and that the intended extension uses the topological boundary
+`∂U = cl(U) \ int(U)` and the *closed* domain `cl(U(b_n))`. This agrees with what is already printed on p. 9. The previous audit's purported closure-domain objection was mistaken; it is withdrawn.
 
-For an open subset (U\subseteq B), (\partial_B U\cap U=\varnothing). Thus the ambient boundary is not a subset of the stated domain (U), and the displayed restriction is not defined. This is a literal domain mismatch in the printed proof. It is not a counterexample to the lifting statement.
+## 2. Independent boundary-value issue
 
-## 2. A complete local repair using the paper's Lemma 5.4
+Write `C_0 = A ∪ B_0`, `U = g^{-1}({b_n}) \ A` (open in the metrizable domain `B`), `Z = cl_B(U)`, and `F = ∂_B U = Z \ U`. As in the proof, `F ⊆ C_0` and `k : C_0 → X` is continuous.
 
-Set
-[
-C=\overline U^{\,B},\qquad D=\partial_B U=C\setminus U.
-]
-Then (C) is a closed metrizable subspace of (B), and (D) is closed in (C). The map (β:D\to\{a_n,c_n\}) is continuous because it is the restriction of the continuous map (k) on (A\cup B_0). Its two endpoint fibres
-[
-E=\u03b2^{-1}(a_n),\qquad F=\u03b2^{-1}(c_n)
-]
-are disjoint closed subsets of (C).
+The printed inference
+`g(F) ⊆ {a_n,c_n}`
+is not implied by the lemma's hypotheses: a boundary point in `A` may have `g=b_n`, and its prescribed value `f` may lie in the interior `B_n`.
 
-Apply Lemma 5.4 with ambient space (C), closed subset (D), and endpoint-valued map corresponding to (β). It gives a continuous (r:C\to[0,1]) such that (r|_D) is the prescribed endpoint value and
-[
-r^{-1}(\{0,1\})=D.
-]
-Choose a homeomorphism φ from ([0,1]) onto the closed arc with endpoints (a_n,c_n), oriented so that the endpoint values agree with (β), and put (H=φ\circ r). Then (H:C\to\overline{B_n}) is continuous, agrees with (β) on (D), and maps (U=C\setminus D) into the open arc (B_n), since (r(x)\in(0,1)) for every (x\in U).
+A concrete instance is `B=[0,1]`, `A={0}`, `g(t)=b_n` constantly, and `f(0)=y` for any `y∈B_n`. Then `U=(0,1]`, `F={0}`, and `g(F)={b_n}`, contradicting the claimed endpoint inclusion, while `q∘f=g|_A` holds.
 
-Restrict (H) to (U) for the lift on that piece, but retain (H) on (C) for the continuity/pasting argument. Repeat for (U(d_n)), using endpoints (c_n,e_n). This proves the needed local extension from the stated hypotheses; no additional perfect-normality assumption beyond metrizability of (C) is needed.
+What does follow is
+`g(F) ⊆ cl_{C X}({b_n}) = {a_n,b_n,c_n}`, so
+`k(F) ⊆ q^{-1}({a_n,b_n,c_n}) = cl_X(B_n)`.
+This weaker statement is sufficient. The analogous statement holds for `d_n` and `cl_X(D_n)`.
 
-## 3. Infinite gluing: the missing diagonal detail
+## 3. Generalized local extension (proved at the level of point-set topology)
 
-The paper's last continuity case has (s_k\to s\in A\cup B_0), with piece indices (n_k\) strictly increasing and (g(s_k)\in\{b_{n_k},d_{n_k}\}), while (g(s)=x\in w(X)).
+Choose a homeomorphism `θ : cl_X(B_n) → [0,1]` taking `a_n,c_n` to `0,1`, and define `h_F=θ∘k|_F : F→[0,1]`. The metric space `Z` is normal, and `F` is closed in `Z`. By the bounded Tietze extension theorem, `h_F` extends to a continuous `H : Z→[0,1]`.
 
-Fix a path-connected open neighborhood (V) of (x). To invoke Lemma 4.5(3), one needs a sequence of endpoints in (\partial O_{n_k}) converging to (x); merely knowing that each (O_{n_k}) meets (V) does not by itself provide that sequence. The following diagonal completion supplies it and proves the required eventual containment.
+If `F ≠ ∅`, let
+`r(z)=dist(z,F)/(1+dist(z,F))`
+and
+`E(z)=(1-r(z))H(z)+r(z)/2`.
+Then `E|_F=h_F` and `0<E(z)<1` for every `z∈U`. If `F=∅`, define `E≡1/2` on `Z=U`.
 
-Choose a decreasing countable neighborhood base (W_1\supseteq W_2\supseteq\cdots) of path-connected open neighborhoods of (x), with (W_j\subseteq V). This exists because (X) is metrizable and locally path-connected. By Lemma 5.2, each (q(W_j)) is open; it is also path-connected as the continuous image of (W_j). Since (g(s_k)\to x), for each fixed (j) all sufficiently large (k) satisfy (g(s_k)\in q(W_j)). The separation property used in the paper's proof then implies
-[
-W_j\cap\partial O_{n_k}\ne\varnothing
-]
-for all sufficiently large (k): a path in (q(W_j)) from (x) to (b_{n_k}) or (d_{n_k}) must meet the separating endpoint set, and (q) is the identity on the wild set.
+Thus `L_n=θ^{-1}∘E : Z→cl_X(B_n)` is continuous, agrees with `k` on `F`, and sends `U` into `B_n`. Consequently `q∘L_n=g` on `U` (both sides equal `b_n`). The identical construction with `cl_X(D_n)` works for `U(d_n)`.
 
-Now suppose, for contradiction, that infinitely many (O_{n_k}) are not contained in (V). Restrict to that subsequence of indices. For each (j), choose a later index (k_j), strictly increasing with (j), and an endpoint
-[
-p_j\in W_j\cap\partial O_{n_{k_j}}.
-]
-Because the (W_j) form a decreasing neighborhood base, (p_j\to x). Lemma 4.5(3), applied to the strictly increasing indices (n_{k_j}) and endpoints (p_j), implies (O_{n_{k_j}}\subseteq V) for all sufficiently large (j). This contradicts the choice of the subsequence. Hence (O_{n_k}\subseteq V) for all but finitely many (k).
+This repair uses Tietze rather than applying Lemma 5.4 to potentially non-endpoint-valued boundary data.
 
-The corrected local extensions take (U(b_{n_k})) into (B_{n_k}\subset O_{n_k}) and (U(d_{n_k})) into (D_{n_k}\subset O_{n_k}). Therefore the lifted sequence is eventually in every path-connected open neighborhood (V) of (x), which proves convergence to (x=\widetilde g(s)).
+## 4. Sequential continuity of the assembled lift
 
-For the other accumulation case (g(s)=c_m), (q(O_m)=\{b_m,c_m,d_m\}) is an open neighborhood of (c_m), so convergence forces the piece index to equal (m) eventually. The two closure extensions for that fixed (m) agree with (k) on their boundaries; their closed-domain pasting with the base map gives continuity. Sequences with indices bounded reduce to finitely many such closed-domain pieces; sequences with unbounded indices have a subsequence with strictly increasing indices, to which the preceding arguments apply. Since (B) is metrizable, sequential continuity suffices.
+Define `\tilde g` on `C_0` by `k` and on each open `U(b_n)` / `U(d_n)` by the corresponding `L_n`. This is a well-defined lift. For each fixed index `n`, the map is continuous on the union of the closed sets `C_0`, `cl(U(b_n))`, and `cl(U(d_n))` by the finite pasting lemma: the overlaps are boundaries, and the maps agree there.
 
-Thus the infinite-gluing argument has a short, valid completion from the paper's stated lemmas. The diagonal step is omitted in the printed proof as presented; it is not an obstruction once supplied.
+For any convergent sequence `s_j→s`, continuity is immediate along subsequences lying in `C_0` or pieces drawn from a bounded set of indices. To handle unbounded indices, pass to a subsequence whose associated indices `n_j` strictly increase, with `s_j∈U(b_{n_j})∪U(d_{n_j})`. Since `{b_m}` and `{d_m}` are open and `q(O_m)={b_m,c_m,d_m}` is an open neighborhood of `c_m`, continuity of `g` rules out `g(s)` being any `b_m,c_m,d_m`. Hence `g(s)=x∈w(X)`; the base map takes `s` to `x`.
 
-## 4. Corollary 5.6
+Fix `ε>0` and choose a path-connected open neighborhood `W` of `x` contained in the metric ball `B_X(x,ε/2)`. By Lemma 5.2, `q(W)` is open; it is path-connected since `W` is. Because `g(s_j)→x`, eventually `g(s_j)∈q(W)`. The endpoint separation property used in the paper then gives `p_j∈W∩{a_{n_j},e_{n_j}}` for all such `j`.
 
-Conditional on Lemma 5.5, the corollary's deductions are standard and valid: the pairs ((I^{n+1},I^n\times\{0\})) give the disk homotopy lifting property, hence a Serre fibration; applying the lifting property to ((D^{n+1},S^n)) over a constant base point shows every fiber is weakly contractible (including path-connectedness from (n=0)); the homotopy exact sequence then gives isomorphisms on homotopy groups. Both spaces are path-connected.
+The repaired local maps keep `\tilde g(s_j)∈B_{n_j}∪D_{n_j} ⊆ cl_X(O_{n_j})`. Since `p_j∈cl_X(O_{n_j})`, Lemma 4.3 implies
+`dist_X(\tilde g(s_j),x) ≤ diam(cl_X(O_{n_j}))+dist_X(p_j,x) < ε`
+for all sufficiently large `j`. Therefore `\tilde g(s_j)→x=\tilde g(s)`. Metrizability of `B` gives sequential continuity.
 
-## 5. Verification boundary
+This supplies the infinite-gluing step using the diameter-shrinking lemma directly. The earlier diagonal-neighborhood argument is not needed for this completion.
 
-- Mathematical local repair: established on paper using Lemma 5.4 and the closed metrizable space (C=\overline U).
-- Infinite-gluing completion: established above using Lemmas 4.5(3), 5.2, and the separation property explicitly invoked in the paper.
-- Corollary 5.6: follows conditionally from the repaired Lemma 5.5 by standard Serre-fibration arguments.
-- Lean verification: **failed**, not passed. GitHub Actions run [40991467393](https://github.com/inaciovasquez2020/urf-textbook/actions/runs/40991467393) failed compiling `CountablePeano/LocalExtension.lean`; errors include an unresolved `Decidable s.Nonempty`, unknown `Metric.continuous_infDist`, unsolved goals, and declarations containing `sorry`. The axiom audit was skipped. No formal verification receipt exists.
+## 5. Verification and communication boundaries
 
-**Communication boundary:** It is appropriate to send a narrowly phrased proof-clarification email identifying the boundary/domain mismatch and asking whether the intended domain is \(\overline{U(b_n)}\). Do not claim the lemma or theorem is false. Do not describe the Lean scaffold as verified. The diagonal completion can be offered as a supplementary detail, not as an accusation of a fatal gap.
+- **CORRECTED:** the earlier supposed closure-domain mismatch is withdrawn in light of the printed proof and the author's explanation.
+- **MATHEMATICAL CHECK:** the endpoint-valued boundary assertion is contradicted by the explicit constant-map example; the generalized Tietze extension preserves prescribed boundary values and maps interiors into their required open arcs.
+- **MATHEMATICAL CHECK:** continuity reduces to finite closed-piece pasting and the stated shrinking-diameter / endpoint-separation argument.
+- **NOT VERIFIED IN LEAN:** prior Actions run 40991467393 failed in `CountablePeano/LocalExtension.lean`. No formal proof, compiler success, or axiom-audit receipt is claimed.
+- **DO NOT PROMOTE:** neither falsity of Lemma 5.5 nor any objection to the main theorem follows.
+- **AUTHOR FOLLOW-UP:** thank Jeremy for correcting the original objection; ask only about boundary points in `A` mapped to `b_n` and offer the generalized extension above. Avoid asserting a fatal defect.
