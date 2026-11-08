@@ -1,0 +1,1 @@
+{"id":"binomial-identity","domain":"R","variable":"x","lhs":"(x + 1)**2","rhs":"x**2 + 2*x + 1"}
