@@ -5,10 +5,14 @@ This is not a universal math proof checker or a replacement for independent refe
 
 Scope: universally quantified equalities between **one-variable integer-coefficient
 polynomials over the real numbers**. Inputs are structured JSON, not arbitrary
-LaTeX or natural language. The only permitted expression syntax is integer
-literals (absolute value ≤1,000,000), `x`, `+`, `-`, `*`, parentheses, and
+LaTeX or natural language. The only permitted expression syntax is
+ASCII decimal integer literals (absolute value ≤1,000,000), ASCII `x`, `+`, `-`, `*`, parentheses, and
 nonnegative literal integer powers via `**` (exponents ≤16); no division,
-functions, predicates, implicit multiplication, or other variables.
+functions, predicates, implicit multiplication, non-ASCII identifiers, comments,
+hexadecimal or underscored literals, or other variables. Unary `+` and `-`
+are allowed. Polynomial powers use the ring convention `0**0 = 1`.
+Every syntactic subexpression must satisfy the degree limit, including
+inside an exponent-zero expression.
 
 The checker normalizes coefficients exactly and also evaluates the supplied
 expressions through a separate AST evaluator. Let `d` be a syntactic upper bound

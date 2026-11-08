@@ -73,15 +73,25 @@ def guard_int(value):
 def parse_expr(src):
     if type(src) is not str or len(src) > MAX_EXPR_CHARS or not src:
         raise AuditError('expression must be a nonempty short string')
+    # Restrict source spelling, not merely the NFKC-normalized Python AST.
+    # This also excludes Python comments, hexadecimal and underscored literals.
+    if any(ch not in '0123456789x+-*() \t\r\n' for ch in src):
+        raise AuditError('expression contains characters outside the ASCII polynomial grammar')
+    if '0x' in src:
+        raise AuditError('hexadecimal literals are not supported')
     try:
         tree = ast.parse(src, mode='eval')
-    except (SyntaxError, RecursionError) as exc:
+    except (SyntaxError, RecursionError, ValueError) as exc:
         raise AuditError('invalid expression syntax') from exc
     nodes = list(ast.walk(tree))
     if len(nodes) > MAX_AST_NODES:
         raise AuditError('expression AST exceeds node limit')
 
     def degree(n):
+        def bounded(d):
+            if d > MAX_DEGREE:
+                raise AuditError('intermediate degree bound exceeds 32')
+            return d
         if isinstance(n, ast.Expression):
             return degree(n.body)
         if isinstance(n, ast.Constant) and type(n.value) is int:
@@ -94,14 +104,14 @@ def parse_expr(src):
             return degree(n.operand)
         if isinstance(n, ast.BinOp):
             if type(n.op) in (ast.Add, ast.Sub):
-                return max(degree(n.left), degree(n.right))
+                return bounded(max(degree(n.left), degree(n.right)))
             if type(n.op) is ast.Mult:
-                return degree(n.left) + degree(n.right)
+                return bounded(degree(n.left) + degree(n.right))
             if type(n.op) is ast.Pow:
                 if not (isinstance(n.right, ast.Constant) and type(n.right.value) is int
                         and 0 <= n.right.value <= MAX_EXPONENT):
                     raise AuditError('exponent must be a literal integer 0..16')
-                return degree(n.left) * n.right.value
+                return bounded(degree(n.left) * n.right.value)
         raise AuditError('unsupported expression: only integers, x, +, -, *, **')
 
     try:

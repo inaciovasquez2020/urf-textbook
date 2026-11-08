@@ -150,5 +150,46 @@ class MathAuditTests(unittest.TestCase):
                 ma.load_json(p)
 
 
+    def test_claude_surrogate_does_not_crash_cli(self):
+        with tempfile.TemporaryDirectory() as d:
+            c=claim('x\ud800', 'x')
+            source=Path(d)/'bad.json'
+            source.write_text(json.dumps(c), encoding='utf-8')
+            result=subprocess.run([sys.executable,str(ROOT/'tools/math_audit.py'),
+                                   'check',str(source),'--output',str(Path(d)/'r.json')],
+                                  capture_output=True,text=True)
+            self.assertEqual(2,result.returncode,result.stderr)
+            self.assertIn('AUDIT_ERROR :=',result.stderr)
+            self.assertNotIn('Traceback',result.stderr)
+
+    def test_claude_spoofing_and_non_decimal_syntax_rejected(self):
+        for lhs in ('ｘ**2','𝐱**2','1_000','0x10', 'x # comment'):
+            with self.subTest(lhs=lhs),self.assertRaises(ma.AuditError):
+                ma.audit(claim(lhs,'x'))
+
+    def test_claude_intermediate_degree_guard_on_both_paths(self):
+        src=claim('(x**16*x**16*x)**0','1')
+        with self.assertRaises(ma.AuditError): ma.audit(src)
+        valid=claim('1','1')
+        forged=ma.audit(valid)
+        forged['claim']=src
+        forged['claim_sha256']=ma.digest(src)
+        with self.assertRaises(ma.AuditError): ma.verify(forged,src)
+        # The surrounding equality remains true under the ring convention.
+        src2=claim('(x-x)**0','1')
+        self.assertEqual('EXACT_CERTIFICATE_PASS',ma.verify(ma.audit(src2),src2))
+
+    def test_claude_grammar_boundary_cases(self):
+        for a,b in [('x**0','1'),('0**0','1'),('x**2-x*x','0'),
+                    ('x**3','x**3+(x**2-x*x)*x'),('+x','x'),
+                    ('(x-1)**0','1')]:
+            with self.subTest(a=a):
+                c=claim(a,b)
+                self.assertEqual('EXACT_CERTIFICATE_PASS',ma.verify(ma.audit(c),c))
+        for a in ('True*x','x**(1+1)','x**True','x\x00'):
+            with self.subTest(a=a),self.assertRaises(ma.AuditError):
+                ma.audit(claim(a,'x'))
+
+
 if __name__ == '__main__':
     unittest.main()
