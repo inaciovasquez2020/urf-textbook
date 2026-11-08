@@ -108,5 +108,47 @@ class MathAuditTests(unittest.TestCase):
             with self.assertRaises(ma.AuditError):ma.load_json(p)
 
 
+    def test_json_read_is_bounded(self):
+        from unittest import mock
+        class BoundedStream:
+            def __init__(self): self.size = None
+            def read(self, n=-1):
+                self.size = n
+                if n < 0: raise AssertionError('unbounded read attempted')
+                return b' '*n
+            def __enter__(self): return self
+            def __exit__(self, *args): return False
+        stream = BoundedStream()
+        with mock.patch('pathlib.Path.open', return_value=stream):
+            with self.assertRaises(ma.AuditError): ma.load_json('untrusted.json')
+        self.assertEqual(ma.MAX_SOURCE_BYTES * 16 + 1, stream.size)
+
+    def test_long_integer_cli_rejected_without_traceback(self):
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'large.json'
+            p.write_text('{"n":' + '1'*5000 + '}')
+            result=subprocess.run([sys.executable,str(ROOT/'tools/math_audit.py'),
+                                   'check',str(p),'--output',str(Path(d)/'out.json')],
+                                  capture_output=True,text=True)
+            self.assertEqual(2,result.returncode,result.stderr)
+            self.assertIn('AUDIT_ERROR :=',result.stderr)
+            self.assertNotIn('Traceback',result.stderr)
+            self.assertFalse((Path(d)/'out.json').exists())
+
+    def test_json_oversize_rejected(self):
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'too_large.json'
+            p.write_bytes(b' '*(ma.MAX_SOURCE_BYTES*16+1))
+            with self.assertRaisesRegex(ma.AuditError,'size limit'):
+                ma.load_json(p)
+
+    def test_duplicate_json_key_specific_message(self):
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'duplicate.json'
+            p.write_text('{"x":1,"x":2}')
+            with self.assertRaisesRegex(ma.AuditError,'duplicate JSON key: x'):
+                ma.load_json(p)
+
+
 if __name__ == '__main__':
     unittest.main()

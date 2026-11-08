@@ -41,13 +41,17 @@ def _reject_constant(token):
 
 
 def load_json(path):
-    blob = Path(path).read_bytes()
+    # Read at most one byte beyond the limit to avoid unbounded memory use.
+    with Path(path).open('rb') as stream:
+        blob = stream.read(MAX_SOURCE_BYTES * 16 + 1)
     if len(blob) > MAX_SOURCE_BYTES * 16:
         raise AuditError('JSON file exceeds size limit')
     try:
         obj = json.loads(blob.decode('utf-8'), object_pairs_hook=_no_duplicates,
                          parse_constant=_reject_constant)
-    except (UnicodeError, json.JSONDecodeError) as exc:
+    except AuditError:
+        raise
+    except (UnicodeError, json.JSONDecodeError, ValueError, RecursionError) as exc:
         raise AuditError('invalid UTF-8 JSON') from exc
     return obj
 
