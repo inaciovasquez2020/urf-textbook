@@ -218,6 +218,8 @@ def audit(obj):
 
 
 def verify(report, claim=None):
+    if claim is None:
+        raise AuditError('original source claim required for replay')
     if type(report) is not dict or set(report) != {
         'schema', 'scope', 'claim', 'claim_sha256', 'implementation_sha256',
         'status', 'degree_upper_bound', 'certificate', 'method', 'formal_kernel_verified'
@@ -233,7 +235,7 @@ def verify(report, claim=None):
         raise AuditError('embedded claim digest mismatch')
     if report['implementation_sha256'] != hashlib.sha256(Path(__file__).read_bytes()).hexdigest():
         raise AuditError('checker source digest mismatch')
-    if claim is not None and canonical(claim) != canonical(report['claim']):
+    if canonical(claim) != canonical(report['claim']):
         raise AuditError('report claim does not match supplied source claim')
     left, right, d = parse_claim(report['claim'])
     if type(report['degree_upper_bound']) is not int or report['degree_upper_bound'] != d:

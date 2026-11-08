@@ -50,6 +50,11 @@ class MathAuditTests(unittest.TestCase):
         r['certificate'][-1]['rhs']=4
         with self.assertRaises(ma.AuditError):ma.verify(r,c)
 
+    def test_replay_requires_original_source(self):
+        c=claim('x','x')
+        with self.assertRaises(ma.AuditError):
+            ma.verify(ma.audit(c))
+
     def test_tamper_degree(self):
         c=claim('x**3','x**3');r=ma.audit(c)
         r['degree_upper_bound']=2
