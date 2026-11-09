@@ -19,8 +19,8 @@ This note compares the documented aims of URF with three established approaches.
 
 ## Supporting references
 
-1. Nüst, D. and Eglen, S. J. (2021). “CODECHECK: an open science initiative for the independent execution of computations underlying research articles.” *F1000Research*, 10:253. https://doi.org/10.12688/f1000research.51738.2
-2. Appel, A. W. (2001). “Foundational proof-carrying code.” *Proceedings of the 16th Annual IEEE Symposium on Logic in Computer Science*, 247–258. https://doi.org/10.1109/LICS.2001.932501
+1. Nüst, D. and Eglen, S. J. (2021). “CODECHECK: An Open Science Initiative for the Independent Execution of Computations Underlying Research Articles During Peer Review to Improve Reproducibility.” *F1000Research*, 10:253. https://doi.org/10.12688/f1000research.51738.2
+2. Appel, A. W. (2001). “Foundational proof-carrying code.” *Proceedings of the 16th Annual IEEE Symposium on Logic in Computer Science*, 247–256. https://doi.org/10.1109/LICS.2001.932501
 3. Krafczyk, M. S., Shi, A., Bhaskar, A., Marinov, D., and Stodden, V. (2021). “Learning from reproducing computational results: introducing three principles and the Reproduction Package.” *Philosophical Transactions of the Royal Society A*, 379:20200069. https://doi.org/10.1098/rsta.2020.0069
 4. Leipzig, J. et al. (2021). “The role of metadata in reproducible computational research.” *Patterns*, 2(9):100322. https://doi.org/10.1016/j.patter.2021.100322
 
