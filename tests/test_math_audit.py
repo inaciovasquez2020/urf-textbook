@@ -130,28 +130,30 @@ class MathAuditTests(unittest.TestCase):
             self.assertIn('AUDIT_ERROR :=',rejected.stderr)
             self.assertNotIn('REPLAY := PASS',rejected.stdout)
 
-    def test_cli_nonascii_report_path_strict_stdout_is_error_before_write(self):
+    def test_cli_nonascii_report_path_unrepresentable_stdout_is_error_before_write(self):
         with tempfile.TemporaryDirectory() as d:
             script = str(ROOT/'tools/math_audit.py')
-            env = dict(__import__('os').environ, PYTHONIOENCODING='ascii:strict')
-            for fixture in ('math_audit_bad_square.json', 'math_audit_true_square.json'):
-                with self.subTest(fixture=fixture):
-                    source = ROOT/'tests/fixtures'/fixture
-                    report = Path(d)/('réport-' + fixture)
-                    result = subprocess.run([sys.executable, script, 'check',
-                                             str(source), '--output', str(report)],
-                                            env=env, capture_output=True, text=True)
-                    self.assertEqual(2, result.returncode, result.stderr)
-                    self.assertFalse(report.exists())
-                    self.assertIn('AUDIT_ERROR := report path cannot be printed',
-                                  result.stderr)
-                    self.assertNotIn('Traceback', result.stderr)
-                    self.assertNotIn('STATUS := REFUTED', result.stdout)
+            for mode in ('ascii:strict', 'ascii:replace'):
+                env = dict(__import__('os').environ, PYTHONIOENCODING=mode)
+                for fixture in ('math_audit_bad_square.json', 'math_audit_true_square.json'):
+                    with self.subTest(mode=mode, fixture=fixture):
+                        source = ROOT/'tests/fixtures'/fixture
+                        report = Path(d)/('réport-' + mode.replace(':', '-') + '-' + fixture)
+                        result = subprocess.run([sys.executable, script, 'check',
+                                                 str(source), '--output', str(report)],
+                                                env=env, capture_output=True, text=True)
+                        self.assertEqual(2, result.returncode, result.stderr)
+                        self.assertFalse(report.exists())
+                        self.assertIn('AUDIT_ERROR := report path cannot be printed',
+                                      result.stderr)
+                        self.assertNotIn('Traceback', result.stderr)
+                        self.assertNotIn('STATUS := REFUTED', result.stdout)
             # UTF-8 stdout supports the same non-ASCII report path normally.
             source = ROOT/'tests/fixtures/math_audit_bad_square.json'
             report = Path(d)/'réport-ok.json'
             ok = subprocess.run([sys.executable, script, 'check', str(source),
                                  '--output', str(report)], capture_output=True, text=True,
+                                encoding='utf-8',
                                 env=dict(__import__('os').environ, PYTHONIOENCODING='utf-8'))
             self.assertEqual(1, ok.returncode, ok.stderr)
             self.assertTrue(report.exists())

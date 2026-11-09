@@ -301,7 +301,7 @@ def main(argv=None):
             try:
                 ('REPORT := ' + str(out)).encode(
                     sys.stdout.encoding or 'utf-8',
-                    errors=sys.stdout.errors or 'strict')
+                    errors='strict')
             except UnicodeError as exc:
                 raise AuditError('report path cannot be printed with stdout encoding') from exc
             with out.open('xb') as handle:
