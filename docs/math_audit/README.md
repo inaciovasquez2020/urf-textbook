@@ -41,7 +41,14 @@ claim, and `2` for malformed input, failed replay, I/O problems, or other
 auditing errors. A refuted report is still written by `check` before
 returning `1`. On replay, `REPLAY := PASS` occurs only for an exact
 identity; valid refutations print `REPLAY := REFUTATION_CONFIRMED`.
-**Do not treat exit code 1 as a checker crash or process failure.**
+Exit code `1` is the intended result for a valid refutation, but an
+uncaught interpreter exception can also exit with `1`. **Do not classify a
+claim from the process exit code alone**: inspect `STATUS := REFUTED` and
+validate the saved report with `verify` using the original claim. An output
+path that cannot be represented in the active stdout encoding is rejected
+with `AUDIT_ERROR` (exit `2`) **before** creating the report, preventing a
+half-successful output from masquerading as a refutation. Prefer UTF-8 stdout
+for non-ASCII report paths. This program does not certify crash-free execution.
 In `set -e` scripts, explicitly accept status 1 for intentionally false
 fixtures (as in the commands above). Audit success and mathematical truth
 are separate assertions; `formal_kernel_verified` remains `false`.

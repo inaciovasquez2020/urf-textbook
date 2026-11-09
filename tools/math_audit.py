@@ -295,6 +295,15 @@ def main(argv=None):
                 raise AuditError('output exists; refusing overwrite')
             report = audit(load_json(args.claim))
             status = verify(report, load_json(args.claim))
+            # Preflight the path's diagnostic representation before writing the
+            # report: an ASCII-only stdout must not leave an orphaned file and
+            # make an uncaught encoding exception look like REFUTED (exit 1).
+            try:
+                ('REPORT := ' + str(out)).encode(
+                    sys.stdout.encoding or 'utf-8',
+                    errors=sys.stdout.errors or 'strict')
+            except UnicodeError as exc:
+                raise AuditError('report path cannot be printed with stdout encoding') from exc
             with out.open('xb') as handle:
                 handle.write(json.dumps(report, indent=2, sort_keys=True).encode() + b'\n')
             print('STATUS := ' + status)
@@ -305,7 +314,7 @@ def main(argv=None):
             status = verify(report, load_json(args.claim))
             print('REPLAY := ' + ('PASS' if status == 'EXACT_CERTIFICATE_PASS' else 'REFUTATION_CONFIRMED'))
             print('STATUS := ' + status)
-    except (AuditError, OSError, RecursionError, OverflowError) as exc:
+    except (AuditError, OSError, RecursionError, OverflowError, UnicodeError) as exc:
         print('AUDIT_ERROR := ' + str(exc), file=sys.stderr)
         return 2
     return 0 if status == 'EXACT_CERTIFICATE_PASS' else 1
