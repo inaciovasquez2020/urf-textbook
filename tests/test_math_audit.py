@@ -93,14 +93,42 @@ class MathAuditTests(unittest.TestCase):
             script=str(ROOT/'tools/math_audit.py')
             a=subprocess.run([sys.executable,script,'check',str(src),'--output',str(output)],
                              text=True,capture_output=True)
-            self.assertEqual(0,a.returncode,a.stderr)
+            self.assertEqual(1,a.returncode,a.stderr)
+            self.assertTrue(output.is_file())
+            self.assertIn('STATUS := REFUTED',a.stdout)
             b=subprocess.run([sys.executable,script,'verify',str(output),'--claim',str(src)],
                              text=True,capture_output=True)
-            self.assertEqual(0,b.returncode,b.stderr)
-            self.assertIn('REPLAY := PASS',b.stdout)
+            self.assertEqual(1,b.returncode,b.stderr)
+            self.assertIn('REPLAY := REFUTATION_CONFIRMED',b.stdout)
+            self.assertIn('STATUS := REFUTED',b.stdout)
+            self.assertNotIn('REPLAY := PASS',b.stdout)
             a2=subprocess.run([sys.executable,script,'check',str(src),'--output',str(output)],
                               text=True,capture_output=True)
             self.assertEqual(2,a2.returncode)
+
+    def test_cli_true_identity_pass_and_malformed_error(self):
+        with tempfile.TemporaryDirectory() as d:
+            source = ROOT/'tests/fixtures/math_audit_true_square.json'
+            report = Path(d)/'true.json'
+            script = str(ROOT/'tools/math_audit.py')
+            checked = subprocess.run([sys.executable,script,'check',str(source),
+                                      '--output',str(report)],text=True,capture_output=True)
+            self.assertEqual(0,checked.returncode,checked.stderr)
+            self.assertIn('STATUS := EXACT_CERTIFICATE_PASS',checked.stdout)
+            replay = subprocess.run([sys.executable,script,'verify',str(report),
+                                     '--claim',str(source)],text=True,capture_output=True)
+            self.assertEqual(0,replay.returncode,replay.stderr)
+            self.assertIn('REPLAY := PASS',replay.stdout)
+            self.assertIn('STATUS := EXACT_CERTIFICATE_PASS',replay.stdout)
+            altered = json.loads(report.read_text())
+            altered['certificate'][0]['rhs'] += 1
+            bad = Path(d)/'tampered.json'
+            bad.write_text(json.dumps(altered))
+            rejected = subprocess.run([sys.executable,script,'verify',str(bad),
+                                       '--claim',str(source)],text=True,capture_output=True)
+            self.assertEqual(2,rejected.returncode,rejected.stderr)
+            self.assertIn('AUDIT_ERROR :=',rejected.stderr)
+            self.assertNotIn('REPLAY := PASS',rejected.stdout)
 
     def test_duplicate_json_key_rejected(self):
         with tempfile.TemporaryDirectory() as d:

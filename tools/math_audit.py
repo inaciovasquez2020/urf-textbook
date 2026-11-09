@@ -294,21 +294,21 @@ def main(argv=None):
             if out.exists():
                 raise AuditError('output exists; refusing overwrite')
             report = audit(load_json(args.claim))
-            verify(report, load_json(args.claim))
+            status = verify(report, load_json(args.claim))
             with out.open('xb') as handle:
                 handle.write(json.dumps(report, indent=2, sort_keys=True).encode() + b'\n')
-            print('STATUS := ' + report['status'])
+            print('STATUS := ' + status)
             print('CLAIM_SHA256 := ' + report['claim_sha256'])
             print('REPORT := ' + str(out))
         else:
             report = load_json(args.report)
             status = verify(report, load_json(args.claim))
-            print('REPLAY := PASS')
+            print('REPLAY := ' + ('PASS' if status == 'EXACT_CERTIFICATE_PASS' else 'REFUTATION_CONFIRMED'))
             print('STATUS := ' + status)
     except (AuditError, OSError, RecursionError, OverflowError) as exc:
         print('AUDIT_ERROR := ' + str(exc), file=sys.stderr)
         return 2
-    return 0
+    return 0 if status == 'EXACT_CERTIFICATE_PASS' else 1
 
 
 if __name__ == '__main__':

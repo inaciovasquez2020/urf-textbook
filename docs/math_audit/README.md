@@ -29,11 +29,22 @@ From the `urf-textbook` root:
 ```sh
 python3 -m unittest discover -s tests -p test_math_audit.py -v
 workdir="$(mktemp -d)"
-python3 tools/math_audit.py check tests/fixtures/math_audit_bad_square.json --output "$workdir/false.json"
-python3 tools/math_audit.py verify "$workdir/false.json" --claim tests/fixtures/math_audit_bad_square.json
+python3 tools/math_audit.py check tests/fixtures/math_audit_bad_square.json --output "$workdir/false.json" || test "$?" -eq 1
+python3 tools/math_audit.py verify "$workdir/false.json" --claim tests/fixtures/math_audit_bad_square.json || test "$?" -eq 1
 python3 tools/math_audit.py check tests/fixtures/math_audit_true_square.json --output "$workdir/true.json"
 python3 tools/math_audit.py verify "$workdir/true.json" --claim tests/fixtures/math_audit_true_square.json
 ```
+
+**CLI result contract:** `check` and `verify` return exit code `0` only
+for `EXACT_CERTIFICATE_PASS`, `1` for a correctly established `REFUTED`
+claim, and `2` for malformed input, failed replay, I/O problems, or other
+auditing errors. A refuted report is still written by `check` before
+returning `1`. On replay, `REPLAY := PASS` occurs only for an exact
+identity; valid refutations print `REPLAY := REFUTATION_CONFIRMED`.
+**Do not treat exit code 1 as a checker crash or process failure.**
+In `set -e` scripts, explicitly accept status 1 for intentionally false
+fixtures (as in the commands above). Audit success and mathematical truth
+are separate assertions; `formal_kernel_verified` remains `false`.
 
 A report embeds the exact claim, its canonical SHA-256 digest, implementation
 SHA-256, syntactic degree bound, integer evaluation certificate, replay method,
