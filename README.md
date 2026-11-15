@@ -19,28 +19,12 @@ Boundary: this repository explains the framework and its status discipline. It i
 
 
 <!-- VERIFIED_FRONTIER_TRACKING_DOOR:BEGIN -->
-## Verified Frontier Tracking Explanation Layer
-
-This repository is the human-readable explanation layer for **Verified Frontier Tracking**.
-
-Its role is to translate the public URF/Chronos stack into readable form:
-
-| Question | Answer supplied here |
-|---|---|
-| What is the system? | A verification-first research framework for tracking hard claims without overclaiming |
-| Why does it matter? | It separates proved results from conditional bridges, interface objects, and open frontiers |
-| How should it be read? | Start with definitions, then status labels, then examples, then technical repositories |
-| What should not be inferred? | No theorem-level closure is claimed unless explicitly named and proved |
-
-Boundary: this repository explains the framework and its status discipline. It is not, by itself, a proof that every referenced frontier is solved.
+See the [explanation layer overview](#verified-frontier-tracking-explanation-layer).
 <!-- VERIFIED_FRONTIER_TRACKING_DOOR:END -->
 
-Unified Rigidity Framework Textbook
-Build
-make pdf
-make clean
-Release
-make release
+## Build, verify, and release
+
+Run `bash build.sh` from the repository root with a LaTeX toolchain that includes `pdflatex` and `bibtex`. Run `make verify` with Python and pytest for the scoped verification tests. See [Quickstart](QUICKSTART.md) and the [release record](RELEASE.md).
 
 DOI: 10.5281/zenodo.18826977
 

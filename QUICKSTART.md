@@ -39,11 +39,9 @@ make --version
 - `docs/index/DOCUMENTATION_INDEX.md`
 - `TOOLCHAIN.md`
 
-## 5. Build entrypoints
+## 5. Build and verify
 
-- `make pdf`
-- `make clean`
-- `make release`
+Install a LaTeX toolchain with `pdflatex` and `bibtex` for the PDF. From the repository root, run `bash build.sh`. With pytest installed, run `make verify` for the scoped verification suite. See [RELEASE.md](RELEASE.md) for the frozen release.
 
 ## 6. Next steps
 
