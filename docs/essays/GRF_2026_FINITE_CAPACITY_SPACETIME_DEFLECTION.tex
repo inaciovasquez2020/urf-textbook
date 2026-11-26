@@ -1,3 +1,4 @@
+% Mathematical erratum: see GRF_2026_FINITE_CAPACITY_ERRATUM_2026-11-25.md
 \documentclass[11pt]{article}
 
 \usepackage[margin=1in]{geometry}
@@ -17,6 +18,10 @@ Beeville, Texas, USA\\
 
 \begin{document}
 \maketitle
+\section*{Mathematical correction (25 November 2026)}
+For the Euclidean spatial gradient and Hessian operator norm, put $f=\log n$. On $r>0$, $\nabla^2f=f''\hat r\hat r^T+(f'/r)(I-\hat r\hat r^T)$. Thus the capacity bound on an annulus is $M_1/n_{\min}+\max\{M_2/n_{\min}+M_1^2/n_{\min}^2,M_1/(r_0n_{\min})\}$. The old bound omits the tangential eigenvalue: for $n=1+r$ on $[1/100,1/50]$, at $r=1/100$ the tangential eigenvalue is $10000/101$, whereas the old bound with $M_1=1,M_2=0,n_{\min}=101/100$ is less than $2$. The exponential radial example is valid on compact annuli but is not differentiable at the spatial origin. Replace it for a smooth central model by $n=1-\varepsilon e^{-r^2/R^2}$, with $0<\varepsilon<1$, $R>0$. Its full spatial gradient and Hessian are bounded, as are those of $\log n$. For a Euclidean unit ray tangent $T$, Fermat's equation gives $dT/ds=(I-TT^T)\nabla\log n$; the radial component of this bending is $(n'/n)(1-(T\cdot\hat r)^2)$, nonnegative and strictly positive for nonradial rays where $n'>0$. This is a local bending statement, not a universal scattering-angle or stability theorem. Interpreted as a physical Einstein metric with flat spatial slices and lapse $N=\sqrt{\alpha}$, the orthonormal density and radial pressure satisfy $8\pi\rho=0$ and $8\pi p_r=2N'/(rN)=\alpha'/(r\alpha)$ in units $G=c=1$ with no cosmological constant. Hence $\alpha'<0$ violates the radial null energy condition. Optical realizability does not establish gravitational stress-energy admissibility. Bounded derivatives do not by themselves prove finite material bandwidth or perturbative stability. The finite-capacity criterion remains a proposed screen, not a sufficient physical realizability theorem. This correction concerns the one-function essay ansatz, not the separate two-function or encoded certificate-chain results.
+
+
 
 \begin{center}
 Essay written for the Gravity Research Foundation 2026 Essay Competition
