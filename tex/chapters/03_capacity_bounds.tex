@@ -130,7 +130,7 @@ The left side telescopes to \(H(x_0)-H(x_t)\).
 \end{proof}
 
 \begin{theorem}[Capacity Depth Bound]
-If terminal resolution requires \(H(x_t)=0\), then every admissible trajectory
+Assume the per-step capacity bound \(C>0\). If terminal resolution requires \(H(x_t)=0\), then every admissible trajectory
 from \(x_0\) to a terminal state satisfies
 \[
 t\ge \frac{H(x_0)}{C}.
@@ -147,6 +147,8 @@ If \(H(x_t)=0\), then \(H(x_0)\le tC\), and therefore
 t\ge \frac{H(x_0)}{C}.
 \]
 \end{proof}
+
+\paragraph{Zero capacity.} If \(C=0\), the cumulative bound gives \(H(x_t)\ge H(x_0)\). For \(H(x_0)>0\), no finite terminal trajectory with \(H(x_t)=0\) exists. For \(H(x_0)=0\), this bound alone imposes no positive depth requirement. No division by zero is used.
 
 \section{Parallel Refinement}
 
