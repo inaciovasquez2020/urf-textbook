@@ -6,15 +6,15 @@ The historical manuscript \emph{Structural Non-Identifiability via Rank-Deficien
 For $\dot x_1=x_2,\ \dot x_2=0,\ y=x_1$, the observation map has rank one on $\mathbb R^2$. Nevertheless $y(t)=x_1(0)+t x_2(0)$ determines both initial coordinates from two distinct observation times. The input--output equivalence classes are singletons, not one-dimensional fibers.
 \end{example}
 \begin{theorem}[Sufficient quotient hypothesis]
-Let $q:M\to Q$ be a smooth surjective submersion and let $F$ be a smooth vector field on $M$. If $dq_x F(x)$ is constant on each fiber of $q$, then a unique smooth vector field $\bar F$ on $Q$ satisfies $dq\,F=\bar F\circ q$.
+Let $q:M\to Q$ be a smooth surjective submersion and let $F$ be a smooth vector field on $M$. If $dq_{x} F(x)$ is constant on each fiber of $q$, then a unique smooth vector field $\bar F$ on $Q$ satisfies $dq\,F=\bar F\circ q$.
 \end{theorem}
 \begin{proof}
-Define $\bar F(y)=dq_xF(x)$ for any $x$ with $q(x)=y$. Fiber independence makes this well-defined; smooth local sections of a submersion prove smoothness. Surjectivity gives uniqueness.
+Define $\bar F(y)=dq_x F(x)$ for any $x$ with $q(x)=y$. Fiber independence makes this well-defined; smooth local sections of a submersion prove smoothness. Surjectivity gives uniqueness.
 \end{proof}
 The quotient manifold is a hypothesis, not a consequence of rank deficiency alone. For controlled dynamics the projectability condition must hold for every admissible control value.
 
 \section{Dihedral graphs and local indistinguishability}
-In \emph{The Dihedral Counterexample}, the Cayley graph of $D_n$ with generators $r,r^{-1},s$ is the prism graph $C_n\square K_2$ for $n\ge3$. Indeed the vertices can be labeled $r^i$ and $r^is$; right multiplication by $r$ joins consecutive indices (in opposite directions on the two layers), and multiplication by $s$ joins corresponding indices. Its balls are not generally paths. A nonidentity left translation has no fixed vertex, so cannot act pointwise trivially on a nonempty ball.
+In \emph{The Dihedral Counterexample}, the Cayley graph of $D_n$ with generators $r,r^{-1},s$ is the prism graph $C_n\square K_2$ for $n\ge3$. Indeed the vertices can be labeled $r^i$ and $r^{i}s$; right multiplication by $r$ joins consecutive indices (in opposite directions on the two layers), and multiplication by $s$ joins corresponding indices. Its balls are not generally paths. A nonidentity left translation has no fixed vertex, so cannot act pointwise trivially on a nonempty ball.
 The valid obstruction is different: for fixed radius $R$ and $n,m>2R+1$, rooted radius-$R$ balls in the two prisms are isomorphic, since they agree with the corresponding ball in the infinite ladder $\mathbb Z\square K_2$. If $n\ne m$ the graphs are not isomorphic. This establishes failure of reconstruction from a rooted bounded-radius type, not invisibility of every automorphism under every observation model. Equal-size examples can instead use the cycle partitions discussed in the preceding locality chapter.
 
 \section{Spectral coercivity is an independent hypothesis}
