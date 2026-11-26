@@ -1,0 +1,66 @@
+\chapter{Locality, Information Bounds, and Counterexamples}
+\label{chap:locality-corrections}
+\section{Scope and historical corrections}
+This chapter supersedes the unrestricted closure claims in three historical manuscripts: \emph{Chronos: Configuration--Support Compression, Cycle Rigidity, and Capacity Bounds for FO$^k$-Local Computation}; \emph{The Cycle--Orbit Splitting Lemma}; and \emph{Atlas: A Complete Classification of Locality-Based Computation}. The results below are mathematical paper arguments; no new Lean certificate is asserted.
+
+\section{Local support and logical types}
+Quantifier rank and graph distance are different resources. Even bounded-variable formulas can inspect distant or global structure. An induced subgraph witness does not certify arbitrary first-order formulas under extensions.
+\begin{example}[Failure of induced support compression]
+Take a disjoint union of triangles, with root in one triangle, and the sentence
+\[
+\forall y\,\exists z\,E(y,z).
+\]
+This uses two variables and has quantifier rank two. Every vertex has a neighbor, and every positive-radius ball has a cycle (for a radius range bounded by the component diameter). Adding an isolated vertex outside any proposed support preserves its induced graph but falsifies the sentence. If a free root variable is required, use instead $\forall y(E(x,y)\lor y=x)$ on a rooted triangle and add an isolated vertex. No unrestricted extension certificate follows from bounded induced support. The literal cycle-expander condition for every unbounded radius is itself impossible on a finite graph when its lower bound grows as $\alpha r$ with $\alpha>0$.
+\end{example}
+Existential formulas with quantifier-free matrices are preserved under induced extensions when the witness tuple and root are retained. This elementary preservation statement is not a general compression theorem. For degree bound $\Delta$ and radius $R$, the ball size is at most $B=1+\sum_{j=1}^R\Delta^j$. Hence the number of rooted ball isomorphism types is at most $\sum_{b=1}^B b\,2^{\binom b2}$, which also bounds the number of logical types of those balls. No polynomial-in-quantifier-rank logarithmic type bound is inferred.
+
+\section{Transcript entropy versus information gain}
+Let $X$ be a finite random input and $T_t$ a nested transcript, so that $T_t$ is a function of $T_{t+1}$. Suppose
+\[
+I(X;T_{t+1}\mid T_t)\le c
+\]
+for every step, with $c>0$. Then
+\begin{theorem}[Conditional information-depth bound]
+If $H(X\mid T_m)\le h$, then
+\[
+m\ge \max\{0,(H(X\mid T_0)-h)/c\}.
+\]
+\end{theorem}
+\begin{proof}
+The conditional mutual information identity and nesting give
+$H(X\mid T_t)-H(X\mid T_{t+1})=I(X;T_{t+1}\mid T_t)$.
+Sum over the steps and apply the terminal inequality. At $c=0$ a target strictly below initial conditional entropy is unreachable.
+\end{proof}
+For $n$ independent fair bits, a serial algorithm can read one bit per step and append it to its transcript. With base-two logarithms $H(T_n)=n$, although every observation carries at most one bit. This refutes the unrestricted polylogarithmic cumulative transcript ceiling in the ordinary local-access interpretation. A narrower model excluding such reads must state its restrictions explicitly. The bound above concerns recovery of input information, not arbitrary decision problems. A time lower bound needs a justified cost per step and terminal entropy requirement.
+
+\section{Cycle rank and logical homogeneity}
+For a finite undirected graph $G$, $\dim_{\mathbb F_2} Z_1(G)=|E|-|V|+c(G)$, by the spanning-forest basis.
+\begin{example}[Failure of cycle-fan forcing]
+Join the path $v-a-b$ to a triangle $b-c-d-b$. For $R=2$ and maximum degree three, the radius-$2R$ ball at $v$ has cycle rank one. Since $v$ is a leaf, no simple cycle passes through $v$. Thus positive rank does not force the historical root-returning cycle-fan witness.
+\end{example}
+A fixed-radius ball has rank bounded by its size and degree alone. The Petersen graph has maximum degree three, diameter two, and cycle rank six. At $R=1$ every radius-$2R$ ball is the whole graph, yet vertex transitivity makes all rooted radius-one logical types equal. A threshold exceeding the feasible local rank cannot establish nonvacuous splitting.
+
+For an even integer $m\ge6$, the toroidal graph $C_m\square C_m$ is vertex-transitive and degree four. Its $m^2/4$ vertex-disjoint unit squares, based at even coordinate pairs, have independent edge-boundary vectors, each supported in a radius-two ball. Therefore the global span of embedded local cycle spaces has unbounded dimension even with one rooted logical type.
+
+\begin{theorem}[Witness extraction with multiplicity]
+Let $U_v$ be finite-dimensional subspaces of a common vector space, indexed by a finite set of vertices. Put $W=\sum_v U_v$, $d=\dim W$, and $D=\max_v\dim U_v>0$. There exist $d$ independent vectors, each belonging to some $U_v$, and at least $\lceil d/D\rceil$ independent vectors with distinct supporting vertices.
+\end{theorem}
+\begin{proof}
+Take a basis of each $U_v$ and extract a basis of $W$ from their union. Assign each selected vector to one supporting vertex. Each vertex receives at most $D$ independent vectors. Retain one vector per assigned vertex.
+\end{proof}
+The stronger distinct-center count $d$ is false: for radius-one balls of $K_5$, $d=6$ but there are only five centers.
+
+\section{An explicitly restricted classification program}
+The historical Atlas classification is not a completeness theorem. Its polynomial-depth and linear-depth regimes overlap, and a normalization into FO/WL refinement requires a specified representation, simulation, cost accounting and output-preservation proof. The support growth of one implementation of Gaussian elimination cannot exclude all implementations under every encoding. A bit-serial implementation can serialize row arithmetic; whether it satisfies a particular graph-local model is a separate question.
+
+Parity is polynomial-time computable, so $P^{\mathrm{Parity}}=P$ and $NP^{\mathrm{Parity}}=NP$. A parity oracle does not establish an oracle collapse of P and NP. Nor does local indistinguishability in a single round prevent accumulation of parity through multiple rounds.
+
+For a pure global quantum state $\rho=|\psi\rangle\langle\psi|$, $\operatorname{rank}\rho=1$ regardless of entanglement. Entanglement claims need a specified bipartition and a Schmidt-rank or reduced-state invariant. No universal quantum SAT obstruction follows.
+
+\begin{theorem}[Conditional transcript indistinguishability]
+Fix a deterministic algorithm whose halting and output depend only on its transcript. If two inputs require different outputs and have identical transcripts at each depth $t<L$, neither can halt correctly at depth less than $L$ on both inputs.
+\end{theorem}
+\begin{proof}
+At a common transcript the halting decision and output agree. Early halting would therefore give the same output on both inputs, contradicting correctness.
+\end{proof}
+Uniform lower bounds over algorithm classes require uniform witness hypotheses. The unrestricted normalization, completeness, final-wall closure, and P versus NP claims remain open. This chapter does not claim novelty or independent external verification of the elementary replacement arguments.
