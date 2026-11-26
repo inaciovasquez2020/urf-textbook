@@ -308,7 +308,7 @@ unrestricted H4.1/FGL, P vs NP, or any Clay problem.
 The historical manuscripts \emph{Minimal Spectral-Gap Verification Scheme} and \emph{URF Spectral Gap Rigidity: A Concrete Stress Test and Verification Framework} distinguish two useful tasks: certification of a positive gap and perturbative stability of an existing gap. The following corrections supersede their disputed claims.
 
 \subsection{Reduced space and numerical certification}
-If $P$ is the orthogonal projection onto modes to be removed, the reduced space is $\ker P=(\operatorname{ran}P)^\perp$, not $(\ker P)^\perp$. To speak of the self-adjoint restriction of $L$, require this space to reduce $L$. Otherwise specify a compressed quadratic form and its domain. Assume a nonzero reduced space and a densely defined, closed, lower-semibounded form $a$ on it. The gap criterion is
+If $P$ is the orthogonal projection onto modes to be removed, the reduced space is $\ker P={(\operatorname{ran}P)}^\perp$, not ${(\ker P)}^\perp$. To speak of the self-adjoint restriction of $L$, require this space to reduce $L$. Otherwise specify a compressed quadratic form and its domain. Assume a nonzero reduced space and a densely defined, closed, lower-semibounded form $a$ on it. The gap criterion is
 \[
 \inf_{0\ne u\in\mathcal D(a)}\frac{a(u,u)}{\|u\|^2}>0.
 \]
@@ -329,8 +329,8 @@ For an isolated eigenvalue of multiplicity greater than one, the first derivativ
 For bounded self-adjoint $V$, let $d_j$ be the distance of the isolated eigenvalue $\lambda_j$ to the rest of the spectrum. Suppose its diagonal compression vanishes and $|\epsilon|\|V\|<d_j/4$. In the decomposition into its eigenspace and orthogonal complement, the eigenvalue equation for a branch $\mu$ in that cluster yields the Schur complement
 \[
 (\mu-\lambda_j)x
-=-\epsilon^2 P_jVQ_j
-[Q_j(H(\epsilon)-\mu)Q_j]^{-1}Q_jVP_jx.
+=-\epsilon^2 P_{j} V Q_{j}
+{[Q_{j}(H(\epsilon)-\mu)Q_{j}]}^{-1}Q_{j} V P_{j} x.
 \]
 Here $Q_j=I-P_j$, and the inverse acts on the complementary space. Bounded perturbation spectral inclusion and cluster isolation give $|\mu-\lambda_j|\le|\epsilon|\|V\|$; the inverse norm is at most $2/d_j$ by a Neumann-series estimate. The eigenspace component $x$ is nonzero because the complementary block is invertible. Hence
 \[
