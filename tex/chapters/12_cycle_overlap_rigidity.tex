@@ -2,18 +2,32 @@
 
 \section{Cycle Space}
 
-Let \(G=(V,E)\).
-
+Let \(G=(V,E)\) be a finite undirected graph and let \(c(G)\)
+be its number of connected components. Its cycle-space dimension is
 \[
-\beta(G) = |E|-|V|+1
+\beta_1(G)=|E|-|V|+c(G).
 \]
+For a connected graph this reduces to \( |E|-|V|+1 \).
+Indeed, a spanning forest has \( |V|-c(G) \) edges, and the
+fundamental cycles associated with the remaining edges form a basis.
 
 \section{Cycle Incidence Matrix}
 
 Define \(A\) where rows correspond to cycles.
 
-\section{Rigidity Statement}
+\section{Rigidity Statement: Corrected Scope}
 
-\begin{theorem}
-If cycle overlap rank grows with graph size, $FO^k$-local homogeneity cannot persist.
-\end{theorem}
+The former unrestricted assertion that increasing cycle-overlap rank
+forces failure of FO$^k$-local homogeneity is not established.
+For the interpretation as the span of embedded radius-two cycle spaces,
+it is false. For even \(m\ge6\), the toroidal grid
+\(C_m\square C_m\) is vertex-transitive and has maximum degree four.
+The \(m^2/4\) unit squares with lower-left coordinates \((2i,2j)\)
+have pairwise disjoint vertex sets and independent edge-boundary vectors.
+Each lies in a radius-two ball. Thus the local cycle-span rank grows
+without bound while every rooted logical type remains identical.
+
+A bound on the rank of a single fixed-radius ball follows from the
+degree bound alone. Any stronger rigidity claim requires a precise
+overlap invariant and additional hypotheses.
+
