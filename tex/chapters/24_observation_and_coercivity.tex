@@ -1,0 +1,34 @@
+\chapter{Observation Quotients and Coercivity: Scope and Obstructions}
+\label{chap:observation-coercivity}
+\section{Rank-deficient observations}
+The historical manuscript \emph{Structural Non-Identifiability via Rank-Deficient Observation Maps} conflates equality of instantaneous outputs with equality of output trajectories. Constant rank of $h$ implies that each nonempty fiber is locally a smooth submanifold of dimension $n-r$, but does not establish a globally smooth quotient or equivalence of trajectories.
+\begin{example}[Rank is not dynamical unobservability]
+For $\dot x_1=x_2,\ \dot x_2=0,\ y=x_1$, the observation map has rank one on $\mathbb R^2$. Nevertheless $y(t)=x_1(0)+t x_2(0)$ determines both initial coordinates from two distinct observation times. The input--output equivalence classes are singletons, not one-dimensional fibers.
+\end{example}
+\begin{theorem}[Sufficient quotient hypothesis]
+Let $q:M\to Q$ be a smooth surjective submersion and let $F$ be a smooth vector field on $M$. If $dq_x F(x)$ is constant on each fiber of $q$, then a unique smooth vector field $\bar F$ on $Q$ satisfies $dq\,F=\bar F\circ q$.
+\end{theorem}
+\begin{proof}
+Define $\bar F(y)=dq_xF(x)$ for any $x$ with $q(x)=y$. Fiber independence makes this well-defined; smooth local sections of a submersion prove smoothness. Surjectivity gives uniqueness.
+\end{proof}
+The quotient manifold is a hypothesis, not a consequence of rank deficiency alone. For controlled dynamics the projectability condition must hold for every admissible control value.
+
+\section{Dihedral graphs and local indistinguishability}
+In \emph{The Dihedral Counterexample}, the Cayley graph of $D_n$ with generators $r,r^{-1},s$ is the prism graph $C_n\square K_2$ for $n\ge3$. Indeed the vertices can be labeled $r^i$ and $r^is$; right multiplication by $r$ joins consecutive indices (in opposite directions on the two layers), and multiplication by $s$ joins corresponding indices. Its balls are not generally paths. A nonidentity left translation has no fixed vertex, so cannot act pointwise trivially on a nonempty ball.
+The valid obstruction is different: for fixed radius $R$ and $n,m>2R+1$, rooted radius-$R$ balls in the two prisms are isomorphic, since they agree with the corresponding ball in the infinite ladder $\mathbb Z\square K_2$. If $n\ne m$ the graphs are not isomorphic. This establishes failure of reconstruction from a rooted bounded-radius type, not invisibility of every automorphism under every observation model. Equal-size examples can instead use the cycle partitions discussed in the preceding locality chapter.
+
+\section{Spectral coercivity is an independent hypothesis}
+The historical Liouville refinement manuscript asserts that antisymmetric Hamiltonian structure ensures uniform coercivity. For a real skew-symmetric generator $A$, however, $\langle x,Ax\rangle=0$ for all $x$. For the family
+\[
+A_\epsilon=\begin{pmatrix}0&-\epsilon\\\epsilon&0\end{pmatrix},
+\qquad \epsilon>0,
+\]
+the flow is norm-preserving and the smallest singular value is $\epsilon$. This is a two-coordinate Hamiltonian system with bounded local coupling and finite-dimensional state representation; no positive uniform singular-value bound follows from those properties as $\epsilon\to0$. If finite information capacity is imposed separately, a theorem must show its precise relation to the spectral estimate. Antisymmetry gives conservation, not coercivity. No general Liouville stability or entropy-control conclusion is established by the historical argument.
+
+The historical Yang--Mills reduction must distinguish classical gauge-covariant operators from the quantum Hamiltonian on a constructed physical Hilbert space. Already at the flat connection on $\mathbb R^4$, the ordinary Laplacian has no positive $L^2$ gap: for a compactly supported smooth nonzero test function $f$, the normalized dilates $f_L(x)=L^{-2}f(x/L)$ satisfy $\|f_L\|_2=\|f\|_2$ and $\|\nabla f_L\|_2^2=L^{-2}\|\nabla f\|_2^2$. The same scaling holds for compactly supported divergence-free vector test fields when transverse directions are required. This rules out a uniform positive bound for that classical operator on the full transverse test space. It neither refutes the quantum mass gap nor constructs the requisite quantum theory. A reduction to another operator requires an independently proved spectral bridge. The Clay problem remains open.
+
+\section{Homological filling: local links do not certify flats}
+The historical CAT(0) rank-dichotomy manuscript claims that a nontrivial fundamental group of a vertex link forces an embedded Euclidean plane. A finite $2$ by $2$ square grid, with its Euclidean intrinsic metric, is a compact convex square and hence CAT(0). Its central vertex has link a four-cycle, with nontrivial fundamental group. Yet the entire complex is bounded and cannot contain an isometric copy of $\mathbb R^2$. This refutes the stated local-link criterion. A cocompact noncompact setting and a valid global flat-plane argument are distinct requirements. The manuscript's further inference about Bestvina--Brady subgroups does not follow from CAT(0) geometry of the ambient Salvetti universal cover. No general homological filling classification or subgroup theorem is asserted here.
+
+\section{Evidence boundary}
+These elementary counterexamples and conditional replacements consolidate the named historical papers. They are paper-level arguments, not new Lean certificates or novelty claims. Further results about global quotients, Hamiltonian spectral gaps, quantum field construction, or filling functions need their own hypotheses and proofs.
